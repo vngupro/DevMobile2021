@@ -5,7 +5,8 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     public Sound[] sounds;
-    AudioMixer mixer;
+
+    private AudioMixer mixer;
 
     public static SoundManager instance;
     private void Awake()
@@ -17,7 +18,7 @@ public class SoundManager : MonoBehaviour
             foreach (Sound s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
-                s.source.outputAudioMixerGroup = Resources.Load<AudioMixerGroup>("Sound/NewAudioMixer");
+                s.source.outputAudioMixerGroup = Resources.Load<AudioMixerGroup>("Audio/NewAudioMixer");
                 s.source.clip = s.clips[0];
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
@@ -29,9 +30,9 @@ public class SoundManager : MonoBehaviour
                 s.source.playOnAwake = s.playOnAwake;
             }
 
-            mixer = Resources.Load<AudioMixer>("Sound/NewAudioMixer");
+            mixer = Resources.Load<AudioMixer>("Audio/NewAudioMixer");
 
-            //Listeners
+            // | Listeners
         }
         else
         {
