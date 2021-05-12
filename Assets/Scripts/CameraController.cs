@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -7,10 +5,10 @@ using Cinemachine;
 // it's mouse only
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float panSpeed = 2f;
-    [SerializeField] private float zoomSpeed = 3f;
-    [SerializeField] private float zoomInMax = 40f;
-    [SerializeField] private float zoomOutMax = 90f;
+    [SerializeField] private float panSpeed = 1f;
+    [SerializeField] private float zoomSpeed = 10f;
+    [SerializeField] private float zoomInMax = 1f;
+    [SerializeField] private float zoomOutMax = 10f;
 
     private CinemachineInputProvider inputProvider;
     private CinemachineVirtualCamera virtualCamera;
@@ -21,10 +19,6 @@ public class CameraController : MonoBehaviour
         inputProvider = GetComponent<CinemachineInputProvider>();
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         camTransform = virtualCamera.VirtualCameraGameObject.transform;
-    }
-    void Start()
-    {
-
     }
 
     void Update()
