@@ -15,7 +15,7 @@ public class SwipeDetection : MonoBehaviour
     private float endTime;
 
     private Coroutine trailCoroutine;
-
+    private bool hasInterruptSwipe = false;
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -25,6 +25,7 @@ public class SwipeDetection : MonoBehaviour
     {
         inputManager.OnStartTouchPrimary += StartSwipe;
         inputManager.OnEndTouchPrimary += EndSwipe;
+        inputManager.OnStartTouchSecondary += InterruptSwipe;
     }
 
     private void OnDisable()
@@ -35,6 +36,7 @@ public class SwipeDetection : MonoBehaviour
 
     private void StartSwipe(Vector2 position, float time)
     {
+        Debug.Log("Start Swipe");
         startPosition = position;
         startTime = time;
 
@@ -49,7 +51,12 @@ public class SwipeDetection : MonoBehaviour
         StopCoroutine(trailCoroutine);
         endPosition = position;
         endTime = time;
-        DetectSwipe();
+
+        if(!hasInterruptSwipe) DetectSwipe();
+
+        hasInterruptSwipe = false;
+
+        Debug.Log("End Swipe");
     }
 
     private IEnumerator Trail()
@@ -91,5 +98,12 @@ public class SwipeDetection : MonoBehaviour
         {
             Debug.Log("Swipe Right");
         }
+    }
+
+    private void InterruptSwipe(Vector2 positionPrimary, Vector2 positionSecondary, float time)
+    {
+        Debug.Log("Interrupt Swipe");
+        hasInterruptSwipe = true;
+        trail.SetActive(false);
     }
 }

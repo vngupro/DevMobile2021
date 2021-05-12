@@ -30,9 +30,13 @@ public class InputManager : MonoBehaviour
     public event StartTouchPrimaryEvent OnStartTouchPrimary;
     public delegate void EndTouchPrimaryEvent(Vector2 position, float time);
     public event EndTouchPrimaryEvent OnEndTouchPrimary;
+    public delegate void StartTouchSecondaryEvent(Vector2 positionPrimary, Vector2 positionSecondary, float time);
+    public event StartTouchSecondaryEvent OnStartTouchSecondary;
+    public delegate void EndTouchSecondaryEvent(Vector2 positionPrimary, Vector2 positionSecondary, float time);
+    public event EndTouchSecondaryEvent OnEndTouchSecondary;
     //
 
-    private MobileControls mobileControls;
+    public MobileControls mobileControls { get; private set; }
 
     public static InputManager Instance { get; private set; }
 
@@ -67,6 +71,8 @@ public class InputManager : MonoBehaviour
         mobileControls.Mobile.TouchPress.canceled += ctx => EndTouch(ctx);
         mobileControls.Mobile.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
         mobileControls.Mobile.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
+        mobileControls.Mobile.SecondaryContact.started += ctx => StartTouchSecondary(ctx);
+        mobileControls.Mobile.SecondaryContact.canceled += ctx => EndTouchSecondary(ctx);
     }
 
     //private void Update()
@@ -135,6 +141,52 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public Vector2 PrimaryPosition()
+    {
+        Vector3 pos = mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
+        pos.z = 0;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
+        return worldPos;
+    }
+
+    private void StartTouchSecondary(InputAction.CallbackContext context)
+    {
+        Debug.Log("Start Touch Secondary" + SecondaryPosition());
+
+        // | Invoke
+        if (OnStartTouchSecondary != null)
+        {
+            OnStartTouchSecondary(
+                mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>(),
+                mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>(),
+                (float)context.startTime
+            );
+        }
+    }
+
+    private void EndTouchSecondary(InputAction.CallbackContext context)
+    {
+        Debug.Log("End Touch Secondary" + SecondaryPosition());
+
+        // | Invoke
+        if (OnEndTouchSecondary != null)
+        {
+            OnEndTouchSecondary(
+                mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>(),
+                mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>(),
+                (float)context.time
+            );
+        }
+    }
+
+    public Vector2 SecondaryPosition()
+    {
+        Vector3 pos = mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
+        pos.z = 0;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
+        return worldPos;
+    }
+
     private void FingerDown(Finger finger)
     {
         Debug.Log("Finger Down " + finger.screenPosition);
@@ -147,13 +199,5 @@ public class InputManager : MonoBehaviour
                 Time.time
             );
         }
-    }
-
-    public Vector2 PrimaryPosition()
-    {
-        Vector3 pos = mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
-        pos.z = 0;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
-        return worldPos;
     }
 }

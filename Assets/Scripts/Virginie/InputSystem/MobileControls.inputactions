@@ -46,28 +46,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PrimaryFingerPosition",
-                    "type": "Value",
-                    "id": "d2e27500-f888-4ec6-bc2e-aba066f97f36",
-                    "expectedControlType": "Vector2",
+                    "name": "SecondaryContact",
+                    "type": "PassThrough",
+                    "id": "8f742b91-5661-425d-8d16-3f75cc895d74",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
-                    "name": "SecondaryFingerPosition",
+                    "name": "SecondaryPosition",
                     "type": "Value",
                     "id": "a5ba1945-af13-4970-964c-d8ab2031074d",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "SecondaryTouchContact",
-                    "type": "Button",
-                    "id": "8f742b91-5661-425d-8d16-3f75cc895d74",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -128,23 +120,12 @@
                 },
                 {
                     "name": "",
-                    "id": "83ee263a-da37-4dd0-9824-f9537beeb37f",
-                    "path": "<Touchscreen>/primaryTouch/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PrimaryFingerPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "72e2c2dc-b964-47ba-ac86-ed60b91f986b",
-                    "path": "<Touchscreen>/touch2/position",
+                    "path": "<Touchscreen>/touch1/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SecondaryFingerPosition",
+                    "action": "SecondaryPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -155,7 +136,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SecondaryTouchContact",
+                    "action": "SecondaryContact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

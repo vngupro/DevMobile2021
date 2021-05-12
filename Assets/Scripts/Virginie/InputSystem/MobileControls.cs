@@ -59,28 +59,20 @@ public class @MobileControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""PrimaryFingerPosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""d2e27500-f888-4ec6-bc2e-aba066f97f36"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""SecondaryContact"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8f742b91-5661-425d-8d16-3f75cc895d74"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""SecondaryFingerPosition"",
+                    ""name"": ""SecondaryPosition"",
                     ""type"": ""Value"",
                     ""id"": ""a5ba1945-af13-4970-964c-d8ab2031074d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""SecondaryTouchContact"",
-                    ""type"": ""Button"",
-                    ""id"": ""8f742b91-5661-425d-8d16-3f75cc895d74"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -141,23 +133,12 @@ public class @MobileControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""83ee263a-da37-4dd0-9824-f9537beeb37f"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryFingerPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""72e2c2dc-b964-47ba-ac86-ed60b91f986b"",
-                    ""path"": ""<Touchscreen>/touch2/position"",
+                    ""path"": ""<Touchscreen>/touch1/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SecondaryFingerPosition"",
+                    ""action"": ""SecondaryPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -168,7 +149,7 @@ public class @MobileControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SecondaryTouchContact"",
+                    ""action"": ""SecondaryContact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -184,9 +165,8 @@ public class @MobileControls : IInputActionCollection, IDisposable
         m_Mobile_TouchPosition = m_Mobile.FindAction("TouchPosition", throwIfNotFound: true);
         m_Mobile_PrimaryContact = m_Mobile.FindAction("PrimaryContact", throwIfNotFound: true);
         m_Mobile_PrimaryPosition = m_Mobile.FindAction("PrimaryPosition", throwIfNotFound: true);
-        m_Mobile_PrimaryFingerPosition = m_Mobile.FindAction("PrimaryFingerPosition", throwIfNotFound: true);
-        m_Mobile_SecondaryFingerPosition = m_Mobile.FindAction("SecondaryFingerPosition", throwIfNotFound: true);
-        m_Mobile_SecondaryTouchContact = m_Mobile.FindAction("SecondaryTouchContact", throwIfNotFound: true);
+        m_Mobile_SecondaryContact = m_Mobile.FindAction("SecondaryContact", throwIfNotFound: true);
+        m_Mobile_SecondaryPosition = m_Mobile.FindAction("SecondaryPosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -241,9 +221,8 @@ public class @MobileControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Mobile_TouchPosition;
     private readonly InputAction m_Mobile_PrimaryContact;
     private readonly InputAction m_Mobile_PrimaryPosition;
-    private readonly InputAction m_Mobile_PrimaryFingerPosition;
-    private readonly InputAction m_Mobile_SecondaryFingerPosition;
-    private readonly InputAction m_Mobile_SecondaryTouchContact;
+    private readonly InputAction m_Mobile_SecondaryContact;
+    private readonly InputAction m_Mobile_SecondaryPosition;
     public struct MobileActions
     {
         private @MobileControls m_Wrapper;
@@ -253,9 +232,8 @@ public class @MobileControls : IInputActionCollection, IDisposable
         public InputAction @TouchPosition => m_Wrapper.m_Mobile_TouchPosition;
         public InputAction @PrimaryContact => m_Wrapper.m_Mobile_PrimaryContact;
         public InputAction @PrimaryPosition => m_Wrapper.m_Mobile_PrimaryPosition;
-        public InputAction @PrimaryFingerPosition => m_Wrapper.m_Mobile_PrimaryFingerPosition;
-        public InputAction @SecondaryFingerPosition => m_Wrapper.m_Mobile_SecondaryFingerPosition;
-        public InputAction @SecondaryTouchContact => m_Wrapper.m_Mobile_SecondaryTouchContact;
+        public InputAction @SecondaryContact => m_Wrapper.m_Mobile_SecondaryContact;
+        public InputAction @SecondaryPosition => m_Wrapper.m_Mobile_SecondaryPosition;
         public InputActionMap Get() { return m_Wrapper.m_Mobile; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -280,15 +258,12 @@ public class @MobileControls : IInputActionCollection, IDisposable
                 @PrimaryPosition.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryPosition;
                 @PrimaryPosition.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryPosition;
                 @PrimaryPosition.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryPosition;
-                @PrimaryFingerPosition.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryFingerPosition;
-                @PrimaryFingerPosition.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryFingerPosition;
-                @PrimaryFingerPosition.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnPrimaryFingerPosition;
-                @SecondaryFingerPosition.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryFingerPosition;
-                @SecondaryFingerPosition.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryFingerPosition;
-                @SecondaryFingerPosition.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryFingerPosition;
-                @SecondaryTouchContact.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryTouchContact;
-                @SecondaryTouchContact.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryTouchContact;
-                @SecondaryTouchContact.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryTouchContact;
+                @SecondaryContact.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryContact;
+                @SecondaryContact.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryContact;
+                @SecondaryContact.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryContact;
+                @SecondaryPosition.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryPosition;
+                @SecondaryPosition.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryPosition;
+                @SecondaryPosition.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnSecondaryPosition;
             }
             m_Wrapper.m_MobileActionsCallbackInterface = instance;
             if (instance != null)
@@ -308,15 +283,12 @@ public class @MobileControls : IInputActionCollection, IDisposable
                 @PrimaryPosition.started += instance.OnPrimaryPosition;
                 @PrimaryPosition.performed += instance.OnPrimaryPosition;
                 @PrimaryPosition.canceled += instance.OnPrimaryPosition;
-                @PrimaryFingerPosition.started += instance.OnPrimaryFingerPosition;
-                @PrimaryFingerPosition.performed += instance.OnPrimaryFingerPosition;
-                @PrimaryFingerPosition.canceled += instance.OnPrimaryFingerPosition;
-                @SecondaryFingerPosition.started += instance.OnSecondaryFingerPosition;
-                @SecondaryFingerPosition.performed += instance.OnSecondaryFingerPosition;
-                @SecondaryFingerPosition.canceled += instance.OnSecondaryFingerPosition;
-                @SecondaryTouchContact.started += instance.OnSecondaryTouchContact;
-                @SecondaryTouchContact.performed += instance.OnSecondaryTouchContact;
-                @SecondaryTouchContact.canceled += instance.OnSecondaryTouchContact;
+                @SecondaryContact.started += instance.OnSecondaryContact;
+                @SecondaryContact.performed += instance.OnSecondaryContact;
+                @SecondaryContact.canceled += instance.OnSecondaryContact;
+                @SecondaryPosition.started += instance.OnSecondaryPosition;
+                @SecondaryPosition.performed += instance.OnSecondaryPosition;
+                @SecondaryPosition.canceled += instance.OnSecondaryPosition;
             }
         }
     }
@@ -328,8 +300,7 @@ public class @MobileControls : IInputActionCollection, IDisposable
         void OnTouchPosition(InputAction.CallbackContext context);
         void OnPrimaryContact(InputAction.CallbackContext context);
         void OnPrimaryPosition(InputAction.CallbackContext context);
-        void OnPrimaryFingerPosition(InputAction.CallbackContext context);
-        void OnSecondaryFingerPosition(InputAction.CallbackContext context);
-        void OnSecondaryTouchContact(InputAction.CallbackContext context);
+        void OnSecondaryContact(InputAction.CallbackContext context);
+        void OnSecondaryPosition(InputAction.CallbackContext context);
     }
 }
