@@ -61,9 +61,16 @@ public class SlideDetection : MonoBehaviour
 
             if (hasMovePrimary && hasMoveSecondary)
             {
-                Vector3 direction = positionSecondary - startPositionSecondary;
-                Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-                DirectionSlide(direction2D);
+                Vector3 directionSecondary = positionSecondary - startPositionSecondary;
+                Vector3 directionPrimary = positionPrimary - startPositionPrimary;
+                Vector2 directionSecondary2D = new Vector2(directionSecondary.x, directionSecondary.y).normalized;
+                Vector2 directionPrimary2D = new Vector2(directionPrimary.x, directionPrimary.y).normalized;
+                float dotProduct = Vector2.Dot(directionPrimary2D, directionSecondary2D);
+                if(dotProduct > 0)
+                {
+                    DirectionSlide(directionSecondary2D);
+                }
+
             }
 
             startPositionPrimary = inputManager.mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();

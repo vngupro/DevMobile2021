@@ -1237,7 +1237,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.400001
+  orthographic size: 3.800001
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.400001
+    OrthographicSize: 3.800001
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -4332,7 +4332,6 @@ MonoBehaviour:
   maxTimeSwipe: 1
   directionThreshold: 0.9
   trail: {fileID: 341054514}
-  isInventoryOpen: 0
   cameraSpeed: 1
 --- !u!114 &1946269141
 MonoBehaviour:
@@ -4349,6 +4348,7 @@ MonoBehaviour:
   zoomSpeed: 0.2
   zoomInMax: 2
   zoomOutMax: 5
+  distanceTolerance: 20
   isInventoryOpen: 0
 --- !u!114 &1946269142
 MonoBehaviour:
@@ -4406,11 +4406,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946269137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b614446df4f08f43b5ddfcca8bb6b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceTolerance: 1
+  directionThreshold: 0.9
+  cameraSpeed: 0.1
 --- !u!1 &1946872250
 GameObject:
   m_ObjectHideFlags: 0
