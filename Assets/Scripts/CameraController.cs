@@ -1,8 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
-//for now :
-// it's mouse only
+//   mouse only
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float panSpeed = 1f;

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 public class SwipeDetection : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class SwipeDetection : MonoBehaviour
     [SerializeField] private float maxTimeSwipe = 1.0f;                             //maximum time the player can hold before it's consider a hold & drag instead of swipe
     [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;        //Dot product direction
     [SerializeField] private GameObject trail;
+    [SerializeField] private float cameraSpeed = 1.0f;
 
     private InputManager inputManager;
     private Vector2 startPosition;
@@ -16,9 +18,16 @@ public class SwipeDetection : MonoBehaviour
 
     private Coroutine trailCoroutine;
     private bool hasInterruptSwipe = false;
+
+    private Camera mainCamera;
+
+    private bool isInventoryOpen = false;
+
+
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -26,17 +35,19 @@ public class SwipeDetection : MonoBehaviour
         inputManager.OnStartTouchPrimary += StartSwipe;
         inputManager.OnEndTouchPrimary += EndSwipe;
         inputManager.OnStartTouchSecondary += InterruptSwipe;
-    }
+   }
 
     private void OnDisable()
     {
         inputManager.OnStartTouchPrimary -= StartSwipe;
         inputManager.OnEndTouchPrimary -= EndSwipe;
+        inputManager.OnStartTouchSecondary -= InterruptSwipe;
     }
 
     private void StartSwipe(Vector2 position, float time)
     {
-        Debug.Log("Start Swipe");
+        if (isInventoryOpen) return;
+        //Debug.Log("Start Swipe");
         startPosition = position;
         startTime = time;
 
@@ -47,6 +58,7 @@ public class SwipeDetection : MonoBehaviour
 
     private void EndSwipe(Vector2 position, float time)
     {
+        if (isInventoryOpen) return;
         trail.SetActive(false);
         StopCoroutine(trailCoroutine);
         endPosition = position;
@@ -56,7 +68,7 @@ public class SwipeDetection : MonoBehaviour
 
         hasInterruptSwipe = false;
 
-        Debug.Log("End Swipe");
+        //Debug.Log("End Swipe" + hasInterruptSwipe);
     }
 
     private IEnumerator Trail()
@@ -69,10 +81,12 @@ public class SwipeDetection : MonoBehaviour
     }
     private void DetectSwipe()
     {
-        if(Vector3.Distance(startPosition, endPosition) >= minDistance2Swipe &&
-            (endTime - startTime) <= maxTimeSwipe)
+        float distance = Vector3.Distance(startPosition, endPosition);
+        float timer = endTime - startTime;
+        if (distance >= minDistance2Swipe &&
+            timer <= maxTimeSwipe)
         {
-            Debug.Log("Detect Swipe");
+            //Debug.Log("Detect Swipe");
             Debug.DrawLine(startPosition, endPosition, Color.red, 5.0f);
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
@@ -84,26 +98,49 @@ public class SwipeDetection : MonoBehaviour
     {
         if(Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Up");
+            //Debug.Log("Swipe Up");
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y - cameraSpeed, mainCamera.transform.position.z);
+
         }
         else if(Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Down");
+            //Debug.Log("Swipe Down");
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + cameraSpeed, mainCamera.transform.position.z);
         }
         else if(Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Left");
+            //Debug.Log("Swipe Left");
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x + cameraSpeed, mainCamera.transform.position.y, mainCamera.transform.position.z);
         }
         else if(Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
-            Debug.Log("Swipe Right");
+            //Debug.Log("Swipe Right");
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x - cameraSpeed, mainCamera.transform.position.y, mainCamera.transform.position.z);
         }
     }
 
     private void InterruptSwipe(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        Debug.Log("Interrupt Swipe");
+        if (isInventoryOpen) return;
+        //Debug.Log("Interrupt Swipe");
         hasInterruptSwipe = true;
         trail.SetActive(false);
+    }
+
+    public void ChangeIsInventoryOpen()
+    {
+        isInventoryOpen = !isInventoryOpen;
+    }
+
+    public void InventoryTrue()
+    {
+        isInventoryOpen = true;
+        Debug.Log("inventory open  " + isInventoryOpen);
+    }
+
+    public void InventoryFalse()
+    {
+        isInventoryOpen = false;
+        Debug.Log("inventory open  " + isInventoryOpen);
     }
 }

@@ -22,6 +22,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class InputManager : MonoBehaviour
 {
     // | Events other scripts can fire
+    // | Listeners : DragDetection.cs PickUpDetection.cs PinchDetection.cs SwipeDetection.cs TouchDetection.cs, 
     public delegate void StartTouchEvent(Vector2 position, float time);
     public event StartTouchEvent OnStartTouch;
     public delegate void EndTouchEvent(Vector2 position, float time);
@@ -54,16 +55,18 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         mobileControls.Enable();
-        TouchSimulation.Enable();
 
-        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += FingerDown;
+        ////Enchanced Touch Simulation
+        //TouchSimulation.Enable();
+       // UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += FingerDown;
     }
     private void OnDisable()
     {
         mobileControls.Disable();
-        TouchSimulation.Disable();
 
-        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
+        ////Enchanced Touch Simulation
+        //TouchSimulation.Disable();
+        //UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
     }
     private void Start()
     {
@@ -87,7 +90,7 @@ public class InputManager : MonoBehaviour
     private void StartTouch(InputAction.CallbackContext context)
     {
         //the first is always 0, 0 why ????
-        Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
+        //Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
 
         // | Invoke
         if (OnStartTouch != null)
@@ -101,7 +104,7 @@ public class InputManager : MonoBehaviour
 
     private void EndTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("Touch End" + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
+        //Debug.Log("Touch End" + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
 
         // | Invoke
         if (OnEndTouch != null)
@@ -115,7 +118,7 @@ public class InputManager : MonoBehaviour
 
     private void StartTouchPrimary(InputAction.CallbackContext context)
     {
-        Debug.Log("Start Touch Primary" + PrimaryPosition());
+        //Debug.Log("Start Touch Primary" + PrimaryPosition());
 
         // | Invoke
         if (OnStartTouchPrimary != null)
@@ -129,7 +132,7 @@ public class InputManager : MonoBehaviour
 
     private void EndTouchPrimary(InputAction.CallbackContext context)
     {
-        Debug.Log("End Touch Primary" + PrimaryPosition());
+        //Debug.Log("End Touch Primary" + PrimaryPosition());
 
         // | Invoke
         if (OnEndTouchPrimary != null)
@@ -151,7 +154,7 @@ public class InputManager : MonoBehaviour
 
     private void StartTouchSecondary(InputAction.CallbackContext context)
     {
-        Debug.Log("Start Touch Secondary" + SecondaryPosition());
+        //Debug.Log("Start Touch Secondary" + SecondaryPosition());
 
         // | Invoke
         if (OnStartTouchSecondary != null)
@@ -166,7 +169,7 @@ public class InputManager : MonoBehaviour
 
     private void EndTouchSecondary(InputAction.CallbackContext context)
     {
-        Debug.Log("End Touch Secondary" + SecondaryPosition());
+        //Debug.Log("End Touch Secondary" + SecondaryPosition());
 
         // | Invoke
         if (OnEndTouchSecondary != null)
@@ -189,7 +192,7 @@ public class InputManager : MonoBehaviour
 
     private void FingerDown(Finger finger)
     {
-        Debug.Log("Finger Down " + finger.screenPosition);
+        //Debug.Log("Finger Down " + finger.screenPosition);
 
         // | Invoke
         if (OnStartTouch != null)

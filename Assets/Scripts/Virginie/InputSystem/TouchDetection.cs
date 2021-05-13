@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class TestTouch : MonoBehaviour
+public class TouchDetection : MonoBehaviour
 {
     [SerializeField] private GameObject circle;
     private InputManager inputManager;
     private Camera cam;
+
+    public bool isInventoryOpen = false;
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -23,10 +25,31 @@ public class TestTouch : MonoBehaviour
 
     public void Move(Vector2 screenPosition, float time)
     {
+        if (isInventoryOpen) return;
         Vector3 screenCoordinates = new Vector3(screenPosition.x, screenPosition.y, 0f);
-        Debug.Log(screenCoordinates);
+        //Debug.Log("Move " + screenCoordinates);
         Vector3 worldCoordinates = cam.ScreenToWorldPoint(screenCoordinates);
         worldCoordinates.z = 0;
-        transform.position = worldCoordinates;
+
+        if(circle != null)
+        {
+            circle.transform.position = worldCoordinates;
+        }
+
+    }
+    public void InventoryTrue()
+    {
+        isInventoryOpen = true;
+        Debug.Log("inventory open  " + isInventoryOpen);
+    }
+
+    public void InventoryFalse()
+    {
+        isInventoryOpen = false;
+        Debug.Log("inventory open  " + isInventoryOpen);
+    }
+    public void ChangeIsInventoryOpen()
+    {
+        isInventoryOpen = !isInventoryOpen;
     }
 }
