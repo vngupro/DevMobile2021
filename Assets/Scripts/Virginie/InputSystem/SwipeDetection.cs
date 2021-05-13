@@ -4,7 +4,7 @@ using Cinemachine;
 
 public class SwipeDetection : MonoBehaviour
 {
-    [SerializeField] private float minDistance2Swipe = 0.2f;                        //minmum distance the player has to make on screen to do a swipe
+    [SerializeField] private float minDistance2Swipe = 2f;                        //minmum distance the player has to make on screen to do a swipe
     [SerializeField] private float maxTimeSwipe = 1.0f;                             //maximum time the player can hold before it's consider a hold & drag instead of swipe
     [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;        //Dot product direction
     [SerializeField] private GameObject trail;

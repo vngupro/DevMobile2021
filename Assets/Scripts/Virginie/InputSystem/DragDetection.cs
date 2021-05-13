@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragDetection : MonoBehaviour
 {
     [SerializeField] private LayerMask layer2Drag;
-    [SerializeField] private float timerBeforeHold = 1.0f;
+    [SerializeField] private float timerBeforeHold = 0.2f;
     private InputManager inputManager;
     private Vector2 startPos;
     private Vector2 endPos;

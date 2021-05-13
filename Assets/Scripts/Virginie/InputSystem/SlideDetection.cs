@@ -4,7 +4,7 @@ using UnityEngine;
 using Cinemachine;
 public class SlideDetection : MonoBehaviour
 {
-    [SerializeField] float distanceTolerance = 2.0f;
+    [SerializeField] float distanceTolerance = 0.1f;
     [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;
     [SerializeField] private float cameraSpeed = 1.0f;
 

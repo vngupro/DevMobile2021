@@ -5,10 +5,10 @@ using Cinemachine;
 public class PinchDetection : MonoBehaviour
 {
 
-    [SerializeField] private float zoomSpeed = 0.5f;
-    [SerializeField] private float zoomInMax = 1.0f;
-    [SerializeField] private float zoomOutMax = 10.0f;
-    [SerializeField] private float distanceTolerance = 10.0f;
+    [SerializeField] private float zoomSpeed = 0.2f;
+    [SerializeField] private float zoomInMax = 2f;
+    [SerializeField] private float zoomOutMax = 5f;
+    [SerializeField] private float distanceTolerance = 15.0f;
     private InputManager inputManager;
     private Vector2 startPositionPrimary;
     private Vector2 startPositionSecondary;

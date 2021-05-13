@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class TouchDetection : MonoBehaviour
 {
     [SerializeField] private GameObject circle;
+    [SerializeField] private float animationTime = 0.2f;
     private InputManager inputManager;
     private Camera cam;
 
@@ -33,9 +35,17 @@ public class TouchDetection : MonoBehaviour
 
         if(circle != null)
         {
+            StartCoroutine(CircleAnimation());
             circle.transform.position = worldCoordinates;
         }
 
+    }
+
+    private IEnumerator CircleAnimation()
+    {
+        circle.SetActive(true);
+        yield return new WaitForSeconds(animationTime);
+        circle.SetActive(false);
     }
     public void InventoryTrue()
     {
