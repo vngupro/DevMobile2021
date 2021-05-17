@@ -19,7 +19,7 @@ public class PickUpDetection : MonoBehaviour
     private Vector2 endPos;
     private float startTime;
     private float endTime;
-    RaycastHit2D hasClickOnClue;
+    RaycastHit2D hitClue;
 
     public bool isInventoryOpen = false;
     private void Awake()
@@ -47,7 +47,7 @@ public class PickUpDetection : MonoBehaviour
         touchPos.z = Camera.main.nearClipPlane;
         startPos = touchPos;
         startTime = time;
-        hasClickOnClue = Physics2D.Raycast(touchPos, Vector3.forward, 20.0f, layer2PickUp);
+        hitClue = Physics2D.Raycast(touchPos, Vector3.forward, 20.0f, layer2PickUp);
     }
 
     private void EndPickUp(Vector2 position, float time)
@@ -60,9 +60,9 @@ public class PickUpDetection : MonoBehaviour
 
         float distance = Vector3.Distance(startPos, endPos);
         float timer = endTime - startTime;
-        if (distance <= distanceTolerance && hasClickOnClue && timer < timerBeforeHold)
+        if (distance <= distanceTolerance && hitClue && timer < timerBeforeHold && hitClue.transform.gameObject.tag == "Clue")
         {
-            PickUp(hasClickOnClue.transform.gameObject);
+            PickUp(hitClue.transform.gameObject);
         }
 
         //Debug.Log("End Pick Up");

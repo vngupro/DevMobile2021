@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 28898616}
   - component: {fileID: 28898615}
   - component: {fileID: 28898614}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Clue (3)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 82934336}
   - component: {fileID: 82934335}
   - component: {fileID: 82934334}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Drag (1)
   m_TagString: Drag
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 115412400}
   - component: {fileID: 115412399}
   - component: {fileID: 115412398}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Clue (8)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.099044085, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.617486, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 354510529}
   - component: {fileID: 354510528}
   - component: {fileID: 354510527}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Clue (9)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.099044085, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.617486, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1559,7 +1559,7 @@ GameObject:
   - component: {fileID: 726109727}
   - component: {fileID: 726109726}
   - component: {fileID: 726109725}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Clue
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -1948,7 +1948,7 @@ GameObject:
   - component: {fileID: 851712358}
   - component: {fileID: 851712357}
   - component: {fileID: 851712356}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Clue (6)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -2012,7 +2012,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.099044085, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.617486, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2511,7 +2511,7 @@ GameObject:
   - component: {fileID: 1398432229}
   - component: {fileID: 1398432228}
   - component: {fileID: 1398432227}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Drag
   m_TagString: Drag
   m_Icon: {fileID: 0}
@@ -3166,7 +3166,7 @@ GameObject:
   - component: {fileID: 1603788499}
   - component: {fileID: 1603788498}
   - component: {fileID: 1603788497}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Clue (7)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -3230,7 +3230,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.099044085, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.617486, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3396,7 +3396,7 @@ GameObject:
   - component: {fileID: 1639815963}
   - component: {fileID: 1639815962}
   - component: {fileID: 1639815961}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Clue (4)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -3495,7 +3495,7 @@ GameObject:
   - component: {fileID: 1666734503}
   - component: {fileID: 1666734502}
   - component: {fileID: 1666734501}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Drag (2)
   m_TagString: Drag
   m_Icon: {fileID: 0}
@@ -3944,7 +3944,7 @@ GameObject:
   - component: {fileID: 1916102005}
   - component: {fileID: 1916102004}
   - component: {fileID: 1916102003}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Clue (1)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -4177,7 +4177,7 @@ GameObject:
   - component: {fileID: 1940128406}
   - component: {fileID: 1940128405}
   - component: {fileID: 1940128404}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Drag (4)
   m_TagString: Drag
   m_Icon: {fileID: 0}
@@ -4379,7 +4379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer2PickUp:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 3072
   distanceTolerance: 0.5
   timerBeforeHold: 1
   isInventoryOpen: 0
@@ -4397,7 +4397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer2Drag:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 3072
   timerBeforeHold: 0.2
   isInventoryOpen: 0
 --- !u!114 &1946269145
@@ -4426,7 +4426,7 @@ GameObject:
   - component: {fileID: 1946872253}
   - component: {fileID: 1946872252}
   - component: {fileID: 1946872251}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Drag (3)
   m_TagString: Drag
   m_Icon: {fileID: 0}
@@ -4525,7 +4525,7 @@ GameObject:
   - component: {fileID: 2018804811}
   - component: {fileID: 2018804810}
   - component: {fileID: 2018804809}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Clue (5)
   m_TagString: Clue
   m_Icon: {fileID: 0}
@@ -4589,7 +4589,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.099044085, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.617486, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4712,7 +4712,7 @@ GameObject:
   - component: {fileID: 2078267109}
   - component: {fileID: 2078267108}
   - component: {fileID: 2078267107}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Clue (2)
   m_TagString: Clue
   m_Icon: {fileID: 0}
