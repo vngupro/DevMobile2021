@@ -38,8 +38,10 @@ public class GlobalPostProcessVolume : MonoBehaviour
 
     public void ChangeColorToUV()
     {
+        Debug.Log("ChangeToUV");
         foreach (VolumeComponent vc in vp.components)
         {
+            Debug.Log(vc.name);
             if (vc is ColorAdjustments)
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
