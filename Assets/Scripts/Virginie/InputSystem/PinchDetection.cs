@@ -35,14 +35,20 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (inventory.isOpen) return;
+        if (inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         coroutine = StartCoroutine(DetectionZoom());
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (inventory.isOpen) return;
+        if (inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         StopCoroutine(coroutine);
     }

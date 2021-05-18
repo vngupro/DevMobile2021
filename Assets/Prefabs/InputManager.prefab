@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2686448324454584326}
   - component: {fileID: 2686448324454584327}
   - component: {fileID: 2686448324454584323}
-  - component: {fileID: 2686448324454584321}
   - component: {fileID: 2686448324454584320}
   - component: {fileID: 2686448324454584322}
   - component: {fileID: 2686448324454584333}
+  - component: {fileID: 9015750953740344692}
+  - component: {fileID: 2686448324454584321}
   - component: {fileID: 2686448324454584332}
   m_Layer: 0
   m_Name: InputManager
@@ -58,30 +59,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a4fb3427c96474e9db6d9b8a516958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 2686448324823240125}
   animationTime: 0.2
---- !u!114 &2686448324454584321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bc940d140428747ae6fbbabbe4f573, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistance2Swipe: 2
-  maxTimeSwipe: 1
-  directionThreshold: 0.9
-  cameraSpeed: 1
-  trail: {fileID: 2686448326070153703}
 --- !u!114 &2686448324454584320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +115,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   delayBeforeDrag: 0
---- !u!114 &2686448324454584332
+--- !u!114 &9015750953740344692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,12 +124,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 2686448324454584324}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceTolerance: 0
+  directionThreshold: 0.9
+  cameraSpeed: 100
+--- !u!114 &2686448324454584321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686448324454584324}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bc940d140428747ae6fbbabbe4f573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance2Swipe: 2
+  maxTimeSwipe: 1
+  directionThreshold: 0.9
+  cameraSpeed: 1
+  trail: {fileID: 2686448326070153703}
+--- !u!114 &2686448324454584332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686448324454584324}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b614446df4f08f43b5ddfcca8bb6b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 0.5
+  distanceTolerance: 0
   directionThreshold: 0.9
-  cameraSpeed: 0.1
+  cameraSpeed: 150
 --- !u!1 &2686448324823240125
 GameObject:
   m_ObjectHideFlags: 0

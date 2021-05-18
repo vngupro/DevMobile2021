@@ -21,6 +21,7 @@ public static class CustomGameEvents
     public static UnityEvent openInventory = new UnityEvent();
     public static UnityEvent closeInventory = new UnityEvent();
     public static PickUpEvent pickUpEvent = new PickUpEvent();
+    public static UnityEvent dragEvent = new UnityEvent();
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }
