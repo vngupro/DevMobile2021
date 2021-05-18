@@ -31,11 +31,15 @@ public class SlideOneFingerDetection : MonoBehaviour
     {
         inputManager.OnStartTouchPrimary += StartSlide;
         inputManager.OnEndTouchPrimary += EndSlide;
+        inputManager.OnStartTouchSecondary += InterruptSlide;
+        inputManager.OnEndTouchSecondary += ReSlide;
     }
     private void OnDisable()
     {
         inputManager.OnStartTouchPrimary -= StartSlide;
         inputManager.OnEndTouchPrimary -= EndSlide;
+        inputManager.OnStartTouchSecondary -= InterruptSlide;
+        inputManager.OnEndTouchSecondary -= ReSlide;
     }
 
     private void StartSlide(Vector2 position, float time)
@@ -44,7 +48,6 @@ public class SlideOneFingerDetection : MonoBehaviour
         {
             if (inventory.isOpen) return;
         }
-
         if (isDragging) { return; }
         startPos = position;
         coroutine = StartCoroutine(DetectionSlide());
@@ -106,6 +109,19 @@ public class SlideOneFingerDetection : MonoBehaviour
         {
             cam.transform.position = new Vector3(cam.transform.position.x - speed, cam.transform.position.y, cam.transform.position.z);
         }
+    }
+
+    private void InterruptSlide(Vector2 primaryPosition, Vector2 secondaryPosition, float time)
+    {
+        if(coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
+
+    private void ReSlide(Vector2 primaryPosition, Vector2 secondaryPosition, float time)
+    {
+        StartSlide(primaryPosition, time);
     }
 
     private void IsDraggingTrue()
