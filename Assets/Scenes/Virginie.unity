@@ -3380,9 +3380,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626061559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d5477215f06e0a42bb2ed43aa42ec91, type: 3}
+  m_Script: {fileID: 11500000, guid: e2bae01df15f07f4bafa85b272ea21a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
+  blankInventorySlot: {fileID: 0}
+  inventoryPanel: {fileID: 0}
+  descriptionText: {fileID: 0}
+  currentItem: {fileID: 0}
   clues:
   - {fileID: 508780192}
 --- !u!1 &1639815960

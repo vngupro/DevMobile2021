@@ -71,6 +71,7 @@ public class PickUpDetection : MonoBehaviour
     {
         //here add verify bool isHidden
         object2PickUp.SetActive(false);
+        CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //Destroy(object2PickUp);
     }
 }

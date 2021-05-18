@@ -20,9 +20,10 @@ public static class CustomGameEvents
     
     public static UnityEvent openInventory = new UnityEvent();
     public static UnityEvent closeInventory = new UnityEvent();
+    public static PickUpEvent pickUpEvent = new PickUpEvent();
 }
 
-
+public class PickUpEvent : UnityEvent<GameObject> { }
 // | Exemple
 //If you want to pass value (a copy only)
 //public class CustomUnityEvent : UnityEvent<int> { }

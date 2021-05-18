@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Karim\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Karim\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\Karim\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Karim\Item.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
