@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+    #region Variable
     [Header("UI Stuff to change")]
     [SerializeField] private Text itemNumberText;
     [SerializeField] private Image itemImage;
@@ -12,7 +13,7 @@ public class InventorySlot : MonoBehaviour
     [Header("Variables from the item")]
     public InventoryItem thisItem;
     public InventoryManager thisManager;
-
+    #endregion
     public void Setup(InventoryItem newItem, InventoryManager newManager)
     {
         thisItem = newItem;
@@ -27,7 +28,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (thisItem)
         {
-            thisManager.SetupDescriptionn(thisItem.itemDescription, thisItem);
+            thisManager.SetupDescription(thisItem.itemDescription, thisItem);
         }
     }
 
