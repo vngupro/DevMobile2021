@@ -5,11 +5,27 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> clues = new List<GameObject>();
 
-    UI_Clue[] images;
+    private UI_Clue[] images;
+    public bool isOpen { get; private set; }
 
+    public static InventoryManager Instance { get; private set;  }
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+
         images = clues[0].GetComponentsInChildren<UI_Clue>();
+        isOpen = false;
+
+        // | Listeners
+        // MenuManager.cs
+        CustomGameEvents.openInventory.AddListener(OpenInventory);
+        CustomGameEvents.closeInventory.AddListener(CloseInventory);
     }
     public void OpenClue(GameObject clue)
     {
@@ -67,6 +83,16 @@ public class InventoryManager : MonoBehaviour
     public void ShowButton(GameObject button)
     {
         button.SetActive(true);
+    }
+
+    private void OpenInventory()
+    {
+        isOpen = true; 
+    }
+
+    private void CloseInventory()
+    {
+        isOpen = false;
     }
 }
 

@@ -4331,8 +4331,8 @@ MonoBehaviour:
   minDistance2Swipe: 2
   maxTimeSwipe: 1
   directionThreshold: 0.9
-  trail: {fileID: 341054514}
   cameraSpeed: 1
+  trail: {fileID: 341054514}
 --- !u!114 &1946269141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4349,7 +4349,6 @@ MonoBehaviour:
   zoomInMax: 2
   zoomOutMax: 5
   distanceTolerance: 15
-  isInventoryOpen: 0
 --- !u!114 &1946269142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,14 +4356,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946269137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a4fb3427c96474e9db6d9b8a516958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 1845946472}
   animationTime: 0.2
-  isInventoryOpen: 0
 --- !u!114 &1946269143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4382,7 +4380,6 @@ MonoBehaviour:
     m_Bits: 3072
   distanceTolerance: 0.5
   timerBeforeHold: 1
-  isInventoryOpen: 0
 --- !u!114 &1946269144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4398,8 +4395,7 @@ MonoBehaviour:
   layer2Drag:
     serializedVersion: 2
     m_Bits: 3072
-  timerBeforeHold: 0.2
-  isInventoryOpen: 0
+  delayBeforeDrag: 0
 --- !u!114 &1946269145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4412,7 +4408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b614446df4f08f43b5ddfcca8bb6b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 1
+  distanceTolerance: 0.5
   directionThreshold: 0.9
   cameraSpeed: 0.1
 --- !u!1 &1946872250

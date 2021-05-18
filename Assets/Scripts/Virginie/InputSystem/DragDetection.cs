@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class DragDetection : MonoBehaviour
 {
+    #region Variable
     [SerializeField] private LayerMask layer2Drag;
-    [SerializeField] private float timerBeforeHold = 0.2f;
+    [SerializeField] private float delayBeforeDrag = 0.2f;              //time before starting drag (less conflict with pick up)
+
     private InputManager inputManager;
-    private Vector2 startPos;
-    private Vector2 endPos;
-    private float startTime;
-    private float endTime;
-    RaycastHit2D hasClickOnObject2Drag;
-    private GameObject dragObject;
-    private Coroutine dragCoroutine;
-    public bool isInventoryOpen = false; 
+    private InventoryManager inventory;
+    private Camera cam;
+    private Coroutine coroutine;
+    private GameObject objectDraging;
+    private SwipeDetection swipe;
+    private RaycastHit2D hitDrag;
+    #endregion
+
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        inventory = InventoryManager.Instance;
+        cam = Camera.main;
+        swipe = GetComponent<SwipeDetection>();
     }
     private void OnEnable()
     {
@@ -33,70 +38,50 @@ public class DragDetection : MonoBehaviour
 
     private void StartDrag(Vector2 position, float time)
     {
-        if (isInventoryOpen) return;
-        //Debug.Log("Start Drag");
+        if (inventory.isOpen) return;
 
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(position);
-        touchPos.z = Camera.main.nearClipPlane;
-        startPos = touchPos;
-        startTime = time;
-        hasClickOnObject2Drag = Physics2D.Raycast(touchPos, Vector3.forward, 20.0f, layer2Drag);
-        if (hasClickOnObject2Drag)
+        //Verify touch an object
+        hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
+
+        if (hitDrag)
         {
-            dragObject = hasClickOnObject2Drag.transform.gameObject;
-            dragCoroutine = StartCoroutine(Drag());
+            objectDraging = hitDrag.transform.gameObject;
+            coroutine = StartCoroutine(Drag()); 
+
+            if(swipe != null)
+            {
+                swipe.StopSwipe();
+            }
         }
     }
 
     private void EndDrag(Vector2 position, float time)
     {
-        if (isInventoryOpen) return;
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(position);
-        touchPos.z = Camera.main.nearClipPlane;
-        endPos = touchPos;
-        endTime = time;
+        if (inventory.isOpen) return;
 
-        if (dragCoroutine != null)
+        if (coroutine != null)
         {
-            StopCoroutine(dragCoroutine);
+            StopCoroutine(coroutine);
         }
- 
-
-        //Debug.Log("End Drag");
     }
     
-    IEnumerator Drag()
+    private IEnumerator Drag()
     {
-        float timer = timerBeforeHold;
+        float timer = delayBeforeDrag;
 
         while (true)
         {
+            //Timer
             while(timer > 0)
             {
                 timer -= Time.deltaTime;
                 yield return null;
             }
 
-            Vector3 newPos = Camera.main.ScreenToWorldPoint(inputManager.mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
-            newPos.z = Camera.main.nearClipPlane;
-            dragObject.transform.position = newPos;
+            //Change object's position
+            objectDraging.transform.position = inputManager.GetPrimaryWorldPosition();
+
             yield return null;
         }
-    }
-
-    public void InventoryTrue()
-    {
-        isInventoryOpen = true;
-        Debug.Log("inventory open  " + isInventoryOpen);
-    }
-
-    public void InventoryFalse()
-    {
-        isInventoryOpen = false;
-        Debug.Log("inventory open  " + isInventoryOpen);
-    }
-    public void ChangeIsInventoryOpen()
-    {
-        isInventoryOpen = !isInventoryOpen;
     }
 }

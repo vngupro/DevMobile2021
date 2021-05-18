@@ -4,28 +4,31 @@ using UnityEngine;
 using Cinemachine;
 public class SlideDetection : MonoBehaviour
 {
-    [SerializeField] float distanceTolerance = 0.1f;
-    [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;
+    #region Variable
+    [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
+    [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;        //angle's difference acceptance for dot product
     [SerializeField] private float cameraSpeed = 1.0f;
 
     private InputManager inputManager;
-    private Camera mainCamera;
+    private InventoryManager inventory;
+    private Camera cam;
+    private Coroutine coroutine;
+
     private Vector2 startPositionPrimary;
     private Vector2 startPositionSecondary;
-    private bool isInventoryOpen = false;
-    private Coroutine coroutine;
+    #endregion
+
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        mainCamera = Camera.main;
+        inventory = InventoryManager.Instance;
+        cam = Camera.main;
     }
-
     private void OnEnable()
     {
         inputManager.OnStartTouchSecondary += StartSlide;
         inputManager.OnEndTouchSecondary += EndSlide;
     }
-
     private void OnDisable()
     {
         inputManager.OnStartTouchSecondary -= StartSlide;
@@ -34,17 +37,16 @@ public class SlideDetection : MonoBehaviour
 
     private void StartSlide(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (isInventoryOpen) return;
+        if (inventory.isOpen) return;
 
         startPositionPrimary = positionPrimary;
         startPositionSecondary = positionSecondary;
         coroutine = StartCoroutine(DetectionSlide());
-
     }
 
     private void EndSlide(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (isInventoryOpen) return;
+        if (inventory.isOpen) return;
 
         StopCoroutine(coroutine);
     }
@@ -53,12 +55,12 @@ public class SlideDetection : MonoBehaviour
     {
         while (true)
         {
-            Vector2 positionPrimary = inputManager.mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
-            Vector2 positionSecondary = inputManager.mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
+            Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
+            Vector2 positionSecondary = inputManager.GetSecondaryWorldPosition();
             bool hasMovePrimary = Vector2.Distance( startPositionPrimary, positionPrimary ) > distanceTolerance;
             bool hasMoveSecondary = Vector2.Distance( startPositionSecondary, positionSecondary ) > distanceTolerance;
-            Debug.Log("Dectection Slide " + hasMovePrimary + "  " + hasMoveSecondary);
 
+            Debug.Log("Slide = " + hasMovePrimary + " " + hasMoveSecondary);
             if (hasMovePrimary && hasMoveSecondary)
             {
                 Vector3 directionSecondary = positionSecondary - startPositionSecondary;
@@ -66,15 +68,20 @@ public class SlideDetection : MonoBehaviour
                 Vector2 directionSecondary2D = new Vector2(directionSecondary.x, directionSecondary.y).normalized;
                 Vector2 directionPrimary2D = new Vector2(directionPrimary.x, directionPrimary.y).normalized;
                 float dotProduct = Vector2.Dot(directionPrimary2D, directionSecondary2D);
+
+                // dot Product == 0 | Perpendicular
+                // dot Product < 0  | inverse direction
+                // dot Product > 0  | same direction
                 if(dotProduct > 0)
                 {
                     DirectionSlide(directionSecondary2D);
                 }
 
+                //Keep Track of previous position
+                startPositionPrimary = positionPrimary;
+                startPositionSecondary = positionSecondary;
             }
 
-            startPositionPrimary = inputManager.mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
-            startPositionSecondary = inputManager.mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
             yield return null;
         }
     }
@@ -82,35 +89,19 @@ public class SlideDetection : MonoBehaviour
     {
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
-            //Debug.Log("Swipe Up");
-            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y - cameraSpeed, mainCamera.transform.position.z);
-
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - cameraSpeed, cam.transform.position.z);
         }
         else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
-            //Debug.Log("Swipe Down");
-            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + cameraSpeed, mainCamera.transform.position.z);
+            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + cameraSpeed, cam.transform.position.z);
         }
         else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
-            //Debug.Log("Swipe Left");
-            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x + cameraSpeed, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            cam.transform.position = new Vector3(cam.transform.position.x + cameraSpeed, cam.transform.position.y, cam.transform.position.z);
         }
         else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
-            //Debug.Log("Swipe Right");
-            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x - cameraSpeed, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            cam.transform.position = new Vector3(cam.transform.position.x - cameraSpeed, cam.transform.position.y, cam.transform.position.z);
         }
-    }
-    public void InventoryTrue()
-    {
-        isInventoryOpen = true;
-        Debug.Log("inventory open  " + isInventoryOpen);
-    }
-
-    public void InventoryFalse()
-    {
-        isInventoryOpen = false;
-        Debug.Log("inventory open  " + isInventoryOpen);
     }
 }

@@ -11,20 +11,24 @@ using UnityEngine;
  * */
 public class PickUpDetection : MonoBehaviour
 {
+    #region Variable
     [SerializeField] private LayerMask layer2PickUp;
-    [SerializeField] private float distanceTolerance = 0.5f;
+    [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
+
     private InputManager inputManager;
+    private InventoryManager inventory;
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
     private float endTime;
-    RaycastHit2D hitClue;
+    private RaycastHit2D hitClue;
+    #endregion
 
-    public bool isInventoryOpen = false;
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        inventory = InventoryManager.Instance;
     }
     private void OnEnable()
     {
@@ -40,22 +44,19 @@ public class PickUpDetection : MonoBehaviour
 
     private void StartPickUp(Vector2 position, float time)
     {
-        if (isInventoryOpen) return;
-        //Debug.Log("Start Pick Up");
-
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(position);
-        touchPos.z = Camera.main.nearClipPlane;
-        startPos = touchPos;
+        if (inventory.isOpen) return;
+        
+        // Verify touch an object
+        startPos = position;
         startTime = time;
-        hitClue = Physics2D.Raycast(touchPos, Vector3.forward, 20.0f, layer2PickUp);
+        hitClue = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2PickUp);
     }
 
     private void EndPickUp(Vector2 position, float time)
     {
-        if (isInventoryOpen) return;
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(position);
-        touchPos.z = Camera.main.nearClipPlane;
-        endPos = touchPos;
+        if (inventory.isOpen) return;
+
+        endPos = position;
         endTime = time;
 
         float distance = Vector3.Distance(startPos, endPos);
@@ -64,32 +65,12 @@ public class PickUpDetection : MonoBehaviour
         {
             PickUp(hitClue.transform.gameObject);
         }
-
-        //Debug.Log("End Pick Up");
     }
 
     private void PickUp(GameObject object2PickUp)
     {
         //here add verify bool isHidden
-        //Debug.Log("Pick Up " + object2PickUp.name);
-        //object2PickUp.SetActive(false);
-        Destroy(object2PickUp);
-    }
-
-    public void InventoryTrue()
-    {
-        isInventoryOpen = true;
-        Debug.Log("inventory open  " + isInventoryOpen);
-    }
-
-    public void InventoryFalse()
-    {
-        isInventoryOpen = false;
-        Debug.Log("inventory open  " + isInventoryOpen);
-    }
-    public void ChangeIsInventoryOpen()
-    {
-        isInventoryOpen = !isInventoryOpen;
-        Debug.Log("inventory open  " + isInventoryOpen);
+        object2PickUp.SetActive(false);
+        //Destroy(object2PickUp);
     }
 }

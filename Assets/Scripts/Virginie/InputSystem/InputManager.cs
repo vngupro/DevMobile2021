@@ -21,6 +21,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 [DefaultExecutionOrder(-1)]
 public class InputManager : MonoBehaviour
 {
+    #region Event
     // | Events other scripts can fire
     // | Listeners : DragDetection.cs PickUpDetection.cs PinchDetection.cs SwipeDetection.cs TouchDetection.cs, 
     public delegate void StartTouchEvent(Vector2 position, float time);
@@ -35,11 +36,12 @@ public class InputManager : MonoBehaviour
     public event StartTouchSecondaryEvent OnStartTouchSecondary;
     public delegate void EndTouchSecondaryEvent(Vector2 positionPrimary, Vector2 positionSecondary, float time);
     public event EndTouchSecondaryEvent OnEndTouchSecondary;
-    //
-
-    public MobileControls mobileControls { get; private set; }
-
+    #endregion
+    #region Property
+    protected MobileControls mobileControls;
+    public Camera cam { get; private set; }
     public static InputManager Instance { get; private set; }
+    #endregion
 
     private void Awake()
     {
@@ -51,6 +53,7 @@ public class InputManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         mobileControls = new MobileControls();
+        cam = Camera.main;
     }
     private void OnEnable()
     {
@@ -78,6 +81,92 @@ public class InputManager : MonoBehaviour
         mobileControls.Mobile.SecondaryContact.canceled += ctx => EndTouchSecondary(ctx);
     }
 
+    private void StartTouch(InputAction.CallbackContext context)
+    {
+        //the first is always 0, 0 why ????
+        //Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
+
+        if (OnStartTouch != null)
+        {
+            OnStartTouch(
+                GetWorldPosition(mobileControls.Mobile.TouchPosition.ReadValue<Vector2>()),
+                (float)context.startTime
+            );
+        }
+    }
+
+    private void EndTouch(InputAction.CallbackContext context)
+    {
+        if (OnEndTouch != null)
+        {
+            OnEndTouch(
+                GetWorldPosition(mobileControls.Mobile.TouchPosition.ReadValue<Vector2>()),
+                (float)context.time
+            );
+        }
+    }
+
+    private void StartTouchPrimary(InputAction.CallbackContext context)
+    {
+        if (OnStartTouchPrimary != null)
+        {
+            OnStartTouchPrimary(
+                GetWorldPosition(mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>()),
+                (float)context.startTime
+            );
+        }
+    }
+
+    private void EndTouchPrimary(InputAction.CallbackContext context)
+    {
+        if (OnEndTouchPrimary != null)
+        {
+            OnEndTouchPrimary(
+                GetWorldPosition(mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>()),
+                (float)context.time
+            );
+        }
+    }
+
+    private void StartTouchSecondary(InputAction.CallbackContext context)
+    {
+        if (OnStartTouchSecondary != null)
+        {
+            OnStartTouchSecondary(
+                GetWorldPosition(mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>()),
+                GetWorldPosition(mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>()),
+                (float)context.startTime
+            );
+        }
+    }
+
+    private void EndTouchSecondary(InputAction.CallbackContext context)
+    {
+        if (OnEndTouchSecondary != null)
+        {
+            OnEndTouchSecondary(
+                GetWorldPosition(mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>()),
+                GetWorldPosition(mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>()),
+                (float)context.time
+            );
+        }
+    }
+
+    private Vector3 GetWorldPosition(Vector2 position)
+    {
+        return Utils.ScreenToWorld(cam, position);
+    }
+
+    public Vector3 GetPrimaryWorldPosition()
+    {
+        return GetWorldPosition(mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>());
+    }
+    public Vector3 GetSecondaryWorldPosition()
+    {
+        return GetWorldPosition(mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>());
+    }
+
+    //Testing Enchancing Touch
     //private void Update()
     //{
     //    Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
@@ -87,120 +176,17 @@ public class InputManager : MonoBehaviour
     //    }
     //}
 
-    private void StartTouch(InputAction.CallbackContext context)
-    {
-        //the first is always 0, 0 why ????
-        //Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
+    //private void FingerDown(Finger finger)
+    //{
+    //    //Debug.Log("Finger Down " + finger.screenPosition);
 
-        // | Invoke
-        if (OnStartTouch != null)
-        {
-            OnStartTouch(
-                mobileControls.Mobile.TouchPosition.ReadValue<Vector2>(),
-                (float)context.startTime
-            );
-        }
-    }
-
-    private void EndTouch(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Touch End" + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
-
-        // | Invoke
-        if (OnEndTouch != null)
-        {
-            OnEndTouch(
-                mobileControls.Mobile.TouchPosition.ReadValue<Vector2>(),
-                (float)context.time
-            );
-        }
-    }
-
-    private void StartTouchPrimary(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Start Touch Primary" + PrimaryPosition());
-
-        // | Invoke
-        if (OnStartTouchPrimary != null)
-        {
-            OnStartTouchPrimary(
-                PrimaryPosition(),
-                (float)context.startTime
-            );
-        }
-    }
-
-    private void EndTouchPrimary(InputAction.CallbackContext context)
-    {
-        //Debug.Log("End Touch Primary" + PrimaryPosition());
-
-        // | Invoke
-        if (OnEndTouchPrimary != null)
-        {
-            OnEndTouchPrimary(
-                PrimaryPosition(),
-                (float)context.time
-            );
-        }
-    }
-
-    public Vector2 PrimaryPosition()
-    {
-        Vector3 pos = mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
-        pos.z = 0;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
-        return worldPos;
-    }
-
-    private void StartTouchSecondary(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Start Touch Secondary" + SecondaryPosition());
-
-        // | Invoke
-        if (OnStartTouchSecondary != null)
-        {
-            OnStartTouchSecondary(
-                mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>(),
-                mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>(),
-                (float)context.startTime
-            );
-        }
-    }
-
-    private void EndTouchSecondary(InputAction.CallbackContext context)
-    {
-        //Debug.Log("End Touch Secondary" + SecondaryPosition());
-
-        // | Invoke
-        if (OnEndTouchSecondary != null)
-        {
-            OnEndTouchSecondary(
-                mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>(),
-                mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>(),
-                (float)context.time
-            );
-        }
-    }
-
-    public Vector2 SecondaryPosition()
-    {
-        Vector3 pos = mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
-        pos.z = 0;
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
-        return worldPos;
-    }
-
-    private void FingerDown(Finger finger)
-    {
-        //Debug.Log("Finger Down " + finger.screenPosition);
-
-        // | Invoke
-        if (OnStartTouch != null)
-        {
-            OnStartTouch(
-                finger.screenPosition,
-                Time.time
-            );
-        }
-    }
+    //    // | Invoke
+    //    if (OnStartTouch != null)
+    //    {
+    //        OnStartTouch(
+    //            finger.screenPosition,
+    //            Time.time
+    //        );
+    //    }
+    //}
 }

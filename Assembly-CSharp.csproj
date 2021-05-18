@@ -75,8 +75,9 @@
     <Compile Include="Assets\Scripts\UI_Layer.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\TestTouch.cs" />
     <Compile Include="Assets\Scripts\UI_Clue.cs" />
-    <Compile Include="Assets\Scripts\Virginie\InputSystem\PinchDetection.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\SlideDetection.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\PinchDetection.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
