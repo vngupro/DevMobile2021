@@ -60,7 +60,6 @@ public class SlideDetection : MonoBehaviour
             bool hasMovePrimary = Vector2.Distance( startPositionPrimary, positionPrimary ) > distanceTolerance;
             bool hasMoveSecondary = Vector2.Distance( startPositionSecondary, positionSecondary ) > distanceTolerance;
 
-            Debug.Log("Slide = " + hasMovePrimary + " " + hasMoveSecondary);
             if (hasMovePrimary && hasMoveSecondary)
             {
                 Vector3 directionSecondary = positionSecondary - startPositionSecondary;
