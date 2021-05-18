@@ -69,11 +69,9 @@
     <Compile Include="Assets\Scripts\SingletonScript.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\PickUpDetection.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\DragDetection.cs" />
-    <Compile Include="Assets\Scripts\Virginie\PanAndZoom.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
-    <Compile Include="Assets\Scripts\Virginie\InputSystem\Utils.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\UI_Layer.cs" />
-    <Compile Include="Assets\Scripts\Virginie\InputSystem\TestTouch.cs" />
     <Compile Include="Assets\Scripts\UI_Clue.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\SlideDetection.cs" />
     <Compile Include="Assets\Scripts\Virginie\InputSystem\PinchDetection.cs" />
