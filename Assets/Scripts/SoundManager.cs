@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
 
     private AudioMixer mixer;
 
-    public static SoundManager instance;
+    public static SoundManager instance { get; private set;  }
     private void Awake()
     {
         if (instance == null)
