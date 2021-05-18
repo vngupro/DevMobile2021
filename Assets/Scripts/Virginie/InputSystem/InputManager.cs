@@ -166,6 +166,15 @@ public class InputManager : MonoBehaviour
         return GetWorldPosition(mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>());
     }
 
+    public Vector3 GetPrimaryScreenPosition()
+    {
+        return mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();
+    }
+
+    public Vector3 GetSecondaryScreenPosition()
+    {
+        return mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
+    }
     //Testing Enchancing Touch
     //private void Update()
     //{
