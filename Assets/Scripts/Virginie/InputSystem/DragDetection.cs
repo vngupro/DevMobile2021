@@ -38,7 +38,10 @@ public class DragDetection : MonoBehaviour
 
     private void StartDrag(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         //Verify touch an object
         hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
@@ -52,12 +55,18 @@ public class DragDetection : MonoBehaviour
             {
                 swipe.StopSwipe();
             }
+
+            CustomGameEvents.dragEvent.Invoke();
         }
     }
 
     private void EndDrag(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
+
 
         if (coroutine != null)
         {
