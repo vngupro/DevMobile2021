@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
-public class SlideDetection : MonoBehaviour
+
+public class SlideOneFingerDetection : MonoBehaviour
 {
     #region Variable
     [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
     [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;        //angle's difference acceptance for dot product
-    [SerializeField] private float cameraSpeed = 1.0f;
+    [SerializeField] private float cameraSpeed = 100.0f;
 
     private InputManager inputManager;
     private InventoryManager inventory;
     private Camera cam;
     private Coroutine coroutine;
 
-    private Vector2 startPositionPrimary;
-    private Vector2 startPositionSecondary;
+    private Vector2 startPos;
+    private bool isDragging = false;
     #endregion
 
     private void Awake()
@@ -23,34 +23,45 @@ public class SlideDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
         cam = Camera.main;
+
+        // | Listeners 
+        CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
     }
     private void OnEnable()
     {
-        inputManager.OnStartTouchSecondary += StartSlide;
-        inputManager.OnEndTouchSecondary += EndSlide;
+        inputManager.OnStartTouchPrimary += StartSlide;
+        inputManager.OnEndTouchPrimary += EndSlide;
+        inputManager.OnStartTouchSecondary += InterruptSlide;
+        inputManager.OnEndTouchSecondary += ReSlide;
     }
     private void OnDisable()
     {
-        inputManager.OnStartTouchSecondary -= StartSlide;
-        inputManager.OnEndTouchSecondary -= EndSlide;
+        inputManager.OnStartTouchPrimary -= StartSlide;
+        inputManager.OnEndTouchPrimary -= EndSlide;
+        inputManager.OnStartTouchSecondary -= InterruptSlide;
+        inputManager.OnEndTouchSecondary -= ReSlide;
     }
 
-    private void StartSlide(Vector2 positionPrimary, Vector2 positionSecondary, float time)
+    private void StartSlide(Vector2 position, float time)
     {
-        if(inventory != null)
+        if (inventory != null)
         {
             if (inventory.isOpen) return;
         }
-
-
-        startPositionPrimary = positionPrimary;
-        startPositionSecondary = positionSecondary;
+        if (isDragging) { return; }
+        startPos = position;
         coroutine = StartCoroutine(DetectionSlide());
     }
 
-    private void EndSlide(Vector2 positionPrimary, Vector2 positionSecondary, float time)
+    private void EndSlide(Vector2 position, float time)
     {
-        if(inventory != null)
+        if (isDragging)
+        {
+            isDragging = false;
+            return;
+        }
+
+        if (inventory != null)
         {
             if (inventory.isOpen) return;
         }
@@ -64,29 +75,17 @@ public class SlideDetection : MonoBehaviour
         {
             Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
             Vector2 positionSecondary = inputManager.GetSecondaryWorldPosition();
-            bool hasMovePrimary = Vector2.Distance( startPositionPrimary, positionPrimary ) > distanceTolerance;
-            bool hasMoveSecondary = Vector2.Distance( startPositionSecondary, positionSecondary ) > distanceTolerance;
+            bool hasMovePrimary = Vector2.Distance(startPos, positionPrimary) > distanceTolerance;
 
-            if (hasMovePrimary && hasMoveSecondary)
+            if (hasMovePrimary)
             {
-                Vector3 directionSecondary = positionSecondary - startPositionSecondary;
-                Vector3 directionPrimary = positionPrimary - startPositionPrimary;
-                Vector2 directionSecondary2D = new Vector2(directionSecondary.x, directionSecondary.y).normalized;
-                Vector2 directionPrimary2D = new Vector2(directionPrimary.x, directionPrimary.y).normalized;
-                float dotProduct = Vector2.Dot(directionPrimary2D, directionSecondary2D);
-
-                // dot Product == 0 | Perpendicular
-                // dot Product < 0  | inverse direction
-                // dot Product > 0  | same direction
-                if(dotProduct > 0)
-                {
-                    float speed = Vector2.Distance(startPositionPrimary, positionPrimary) * cameraSpeed * Time.deltaTime;
-                    DirectionSlide(directionSecondary2D, speed);
-                }
+                Vector3 direction = positionPrimary - startPos;
+                Vector2 directionPrimary2D = new Vector2(direction.x, direction.y).normalized;
+                float speed = Vector2.Distance(startPos, positionPrimary) * cameraSpeed * Time.deltaTime;
+                DirectionSlide(directionPrimary2D, speed);
 
                 //Keep Track of previous position
-                startPositionPrimary = positionPrimary;
-                startPositionSecondary = positionSecondary;
+                startPos = positionPrimary;
             }
 
             yield return null;
@@ -110,5 +109,23 @@ public class SlideDetection : MonoBehaviour
         {
             cam.transform.position = new Vector3(cam.transform.position.x - speed, cam.transform.position.y, cam.transform.position.z);
         }
+    }
+
+    private void InterruptSlide(Vector2 primaryPosition, Vector2 secondaryPosition, float time)
+    {
+        if(coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
+
+    private void ReSlide(Vector2 primaryPosition, Vector2 secondaryPosition, float time)
+    {
+        StartSlide(primaryPosition, time);
+    }
+
+    private void IsDraggingTrue()
+    {
+        isDragging = true;
     }
 }

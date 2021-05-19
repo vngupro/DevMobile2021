@@ -28,7 +28,10 @@ public class TouchDetection : MonoBehaviour
 
     public void Move(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         //Animation
         if(circle != null)
