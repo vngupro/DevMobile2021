@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInventory playerInventoryy;
+    [SerializeField] private InventoryItem thisItemm;
+
     #region Variable
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
@@ -82,7 +85,17 @@ public class InventoryManager : MonoBehaviour
     // Karim
     private void AddItem(GameObject item)
     {
-
+        if (playerInventory && thisItemm)
+        {
+            if (playerInventory.myInventory.Contains(thisItemm))
+            {
+                thisItemm.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItemm);
+            }
+        }
     }
 
 
