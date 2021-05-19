@@ -62,10 +62,10 @@
     <Compile Include="Assets\Scripts\ScriptableObjectsExample.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\SingletonScript.cs" />
+    <Compile Include="Assets\Scripts\Esteban\LensManager.cs" />
     <Compile Include="Assets\Scripts\Virginie\PanAndZoom.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Esteban\GlobalPostProcessVolume.cs" />
-    <Compile Include="Assets\Scripts\Esteban\LensManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
