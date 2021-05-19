@@ -41,6 +41,7 @@ public class InventoryManager : MonoBehaviour
         CustomGameEvents.openInventory.AddListener(OpenInventory);
         CustomGameEvents.closeInventory.AddListener(CloseInventory);
         CustomGameEvents.pickUpEvent.AddListener(AddItem);
+        //CustomGameEvents.pickUpEvent.AddListener(DebugItem);
     }
 
     private void MakeInventorySlots()
@@ -85,10 +86,12 @@ public class InventoryManager : MonoBehaviour
     // Karim
     private void AddItem(GameObject item)
     {
+        GameObject newItem = item;
+        Debug.Log(item.name);
         thisItemm = item.GetComponent<Item>().data;
-        
+        Debug.Log(thisItemm);
 
-        if (playerInventory && thisItemm)
+        if (playerInventory != null && thisItemm != null)
         {
             if (playerInventory.myInventory.Contains(thisItemm))
             {
@@ -101,6 +104,11 @@ public class InventoryManager : MonoBehaviour
                 Debug.Log("add item " + thisItemm.name);
             }
         }
+    }
+
+    private void DebugItem(GameObject item)
+    {
+        Debug.Log(item.name);
     }
 
 

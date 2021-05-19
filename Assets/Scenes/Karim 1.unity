@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bfb997019abf14e9c85580b09f2334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 56a04c5859dea5e4893f6107ed9c59c5, type: 2}
 --- !u!212 &1158102374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bae01df15f07f4bafa85b272ea21a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryy: {fileID: 0}
+  playerInventoryy: {fileID: 11400000, guid: 37b23664d50588340ae2b0a9ba63e4cd, type: 2}
   thisItemm: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: 37b23664d50588340ae2b0a9ba63e4cd, type: 2}
   blankInventorySlot: {fileID: 8185173913765948750, guid: 578b81c956b15924fa8a928bb91e9028, type: 3}
