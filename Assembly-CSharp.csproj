@@ -59,13 +59,24 @@
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\CustomGameEvents.cs" />
     <Compile Include="Assets\Scripts\Karim\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjectsExample.cs" />
+    <Compile Include="Assets\Scripts\Karim\Item.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\MobileControls.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\SingletonScript.cs" />
     <Compile Include="Assets\Scripts\Karim\PlayerInventory.cs" />
-    <Compile Include="Assets\Scripts\Virginie\PanAndZoom.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\PickUpDetection.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\DragDetection.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Karim\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\UI_Layer.cs" />
+    <Compile Include="Assets\Scripts\UI_Clue.cs" />
     <Compile Include="Assets\Scripts\Karim\InventoryItem.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\SlideDetection.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\PinchDetection.cs" />
+    <Compile Include="Assets\Scripts\Virginie\InputSystem\SlideOneFingerDetection.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

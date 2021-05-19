@@ -49,7 +49,10 @@ public class SwipeDetection : MonoBehaviour
 
     private void StartSwipe(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         startPosition = position;
         startTime = time;
@@ -64,7 +67,10 @@ public class SwipeDetection : MonoBehaviour
 
     private void EndSwipe(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         endPosition = position;
         endTime = time;
@@ -131,7 +137,10 @@ public class SwipeDetection : MonoBehaviour
 
     public void StopSwipe()
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
 
         hasInterruptSwipe = true;
 

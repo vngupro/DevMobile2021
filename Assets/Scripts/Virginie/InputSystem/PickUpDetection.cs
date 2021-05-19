@@ -44,7 +44,11 @@ public class PickUpDetection : MonoBehaviour
 
     private void StartPickUp(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
+
         
         // Verify touch an object
         startPos = position;
@@ -54,7 +58,11 @@ public class PickUpDetection : MonoBehaviour
 
     private void EndPickUp(Vector2 position, float time)
     {
-        if (inventory.isOpen) return;
+        if(inventory != null)
+        {
+            if (inventory.isOpen) return;
+        }
+
 
         endPos = position;
         endTime = time;
