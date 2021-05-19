@@ -101,9 +101,11 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 playerInventory.myInventory.Add(thisItemm);
+                MakeInventorySlots();
                 Debug.Log("add item " + thisItemm.name);
             }
         }
+        Debug.Log(item.name);
     }
 
     private void DebugItem(GameObject item)
