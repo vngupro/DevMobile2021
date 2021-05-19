@@ -85,15 +85,20 @@ public class InventoryManager : MonoBehaviour
     // Karim
     private void AddItem(GameObject item)
     {
+        thisItemm = item.GetComponent<Item>().data;
+        
+
         if (playerInventory && thisItemm)
         {
             if (playerInventory.myInventory.Contains(thisItemm))
             {
                 thisItemm.numberHeld += 1;
+                Debug.Log("+1 " + thisItemm.name);
             }
             else
             {
                 playerInventory.myInventory.Add(thisItemm);
+                Debug.Log("add item " + thisItemm.name);
             }
         }
     }
