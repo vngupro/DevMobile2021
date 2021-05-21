@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
-  m_Name: new Suspect
+  m_Name: new Suspect 1
   m_EditorClassIdentifier: 
-  name: Suspect 1
-  age: 30
+  name: 
+  age: 0
   gender: 0
-  description: 3
-  sprite: {fileID: 21300000, guid: 2ca6c2fbca099604d82884c526c230da, type: 3}
+  description: 1
+  sprite: {fileID: 21300000, guid: e1b5331ab108f6a4dbef43513df1d325, type: 3}
   isGuilty: 0

@@ -2,59 +2,100 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
+//box suspect row 
+// width : 200
+// height : 400
 [ExecuteInEditMode]
 public class SuspectManager : MonoBehaviour
 {
     [Tooltip("Add Suspect Scriptable Object")]
     public Suspect[] suspects;
 
+    [Header("Auto Organize")]
+    public int width = 200;
+    public int space = 0;
     [Header("Canvas Elements")]
     [SerializeField]
     private GameObject boxSuspectRow;
     [SerializeField]
     private GameObject boxSuspectPrefab;
-    private UI_Suspect[] uiSuspects = new UI_Suspect[10];
+
+    [Header("Debug")]
+    [SerializeField]
+    private List<int> maxSuspectPerLevel = new List<int>();
+    private List<UI_Suspect> uiSuspects = new List<UI_Suspect>();
 
     private void Awake()
     {
-        uiSuspects = boxSuspectRow.GetComponentsInChildren<UI_Suspect>();
+        UI_Suspect[] tempUISuspects = boxSuspectRow.GetComponentsInChildren<UI_Suspect>();
 
-        InitSuspects();
+        if(tempUISuspects.Length != 0)
+        {
+            foreach (UI_Suspect uiSuspect in tempUISuspects)
+            {
+                uiSuspects.Add(uiSuspect);
+            }
+        }
+
+        if(suspects.Length != 0)
+        {
+            InitSuspects();
+        }
     }
     private void InitSuspects()
     {
-        Debug.Log("Create Suspect");
-        //GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
-        //UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
-        //newUISuspect.image.sprite = suspect.sprite;
-        //Debug.Log(newUISuspect.gameObject.name);
-        //uiSuspects[index] = newUISuspect;
-        //if(uiSuspects != null)
-        //{
-        //    int i, j;
-        //    for(i = 0; i < suspects.L; i++)
-        //    {
-        //        uiSuspects[i].image.sprite = suspects[i].sprite;
-        //    }
+        int index = 0;
+        Debug.Log("Init Suspect");
+        foreach(Suspect suspect in suspects)
+        {
+            if (maxSuspectPerLevel.Count == 0) {
+                Debug.Log("You forgot to add a max suspect number for that level");
+                maxSuspectPerLevel.Add(3); 
+            }
 
-        //    if(suspects.Length > uiSuspects.Length)
-        //    {
+            if (index > maxSuspectPerLevel[0 /*SceneManager.GetActiveScene().buildIndex - 1*/] - 1) return;
 
-        //    }
-        //}
-        //else
-        //{
-        //    foreach (Suspect suspect in suspects)
-        //    {
-        //        Debug.Log("Suspect : " + suspect.name);
-        //        GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
-        //        UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
-        //        newUISuspect.image.sprite = suspect.sprite;
-        //        Debug.Log(newUISuspect.gameObject.name);
-        //        uiSuspects[index] = newUISuspect;
+            if (uiSuspects.Count != 0 && index < uiSuspects.Count)
+            {
+                uiSuspects[index].image.sprite = suspect.sprite;
+                uiSuspects[index].textDescription.text = suspect.description;
+                uiSuspects[index].layerDescription.gameObject.SetActive(false);
+            }
+            else
+            {
+                GameObject newBoxSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
+                UI_Suspect newUISuspect = newBoxSuspect.GetComponent<UI_Suspect>();
+                newUISuspect.image.sprite = suspect.sprite;
+                uiSuspects.Add(newUISuspect);
+                RectTransform rectTransform = newBoxSuspect.GetComponent<RectTransform>();
 
-        //        index++;
-        //    }
-        //}
+                //pair
+                if (index != 0)
+                {
+                    if (index % 2 == 0)
+                    {
+                        rectTransform.position = new Vector3(
+                            rectTransform.position.x +  (width + space),
+                            rectTransform.position.y,
+                            rectTransform.position.z
+                            );
+                    }
+                    else
+                    {
+                        rectTransform.position = new Vector3(
+                            rectTransform.position.x - (width + space),
+                            rectTransform.position.y,
+                            rectTransform.position.z
+                            );
+                    }
+                }
+
+                uiSuspects[index].image.sprite = suspect.sprite;
+                uiSuspects[index].textDescription.text = suspect.description;
+                uiSuspects[index].layerDescription.gameObject.SetActive(false);
+            }
+            index++;
+        }
     }
 }

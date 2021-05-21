@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new Suspect", menuName = "SuspectSystem/Suspect")]
+[CreateAssetMenu(fileName = "New Suspect", menuName = "SuspectSystem/Suspect")]
 public class Suspect : ScriptableObject
 {
     public new string name;
