@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
-  m_Name: Knif
+  m_Name: Knife
   m_EditorClassIdentifier: 
-  itemName: Murder Knif
-  itemDescription: its the Knif who killed the victim
-  itemImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  numberHeld: 1
+  itemName: Knife
+  itemDescription: This is a knife with some blood on it.
+  itemImage: {fileID: 21300000, guid: 93ba33e3aab051f47b3bff1b5b8ed103, type: 3}
+  numberHeld: 0
+  isPickable: 0
+  isDragable: 0
+  filter:
+    serializedVersion: 2
+    m_Bits: 0
