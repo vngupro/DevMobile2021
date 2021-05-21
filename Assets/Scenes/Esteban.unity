@@ -1488,54 +1488,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalPostProcessVolume
       objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _IRColorFilter.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _IRColorFilter.b
-      value: 0.24182892
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _IRColorFilter.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _IRColorFilter.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _UVColorFilter.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _UVColorFilter.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _UVColorFilter.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _UVColorFilter.r
-      value: 0.99812603
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _normalColorFilter.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _normalColorFilter.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _normalColorFilter.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
-      propertyPath: _normalColorFilter.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 616540962751273885, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
       propertyPath: m_RootOrder
       value: 2
