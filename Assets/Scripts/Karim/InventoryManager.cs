@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInventory playerInventoryy;
+    [SerializeField] private InventoryItem thisItemm;
+
     #region Variable
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
@@ -38,6 +41,7 @@ public class InventoryManager : MonoBehaviour
         CustomGameEvents.openInventory.AddListener(OpenInventory);
         CustomGameEvents.closeInventory.AddListener(CloseInventory);
         CustomGameEvents.pickUpEvent.AddListener(AddItem);
+        //CustomGameEvents.pickUpEvent.AddListener(DebugItem);
     }
 
     private void MakeInventorySlots()
@@ -82,7 +86,31 @@ public class InventoryManager : MonoBehaviour
     // Karim
     private void AddItem(GameObject item)
     {
+        GameObject newItem = item;
+        Debug.Log(item.name);
+        thisItemm = item.GetComponent<Item>().data;
+        Debug.Log(thisItemm);
 
+        if (playerInventory != null && thisItemm != null)
+        {
+            if (playerInventory.myInventory.Contains(thisItemm))
+            {
+                thisItemm.numberHeld += 1;
+                Debug.Log("+1 " + thisItemm.name);
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItemm);
+                MakeInventorySlots();
+                Debug.Log("add item " + thisItemm.name);
+            }
+        }
+        Debug.Log(item.name);
+    }
+
+    private void DebugItem(GameObject item)
+    {
+        Debug.Log(item.name);
     }
 
 

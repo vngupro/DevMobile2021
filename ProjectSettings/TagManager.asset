@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clue
-  - Drag
   layers:
   - Default
   - TransparentFX
@@ -17,11 +16,11 @@ TagManager:
   - 
   - 
   - 
-  - IR
-  - UV
   - 
   - 
   - 
+  - 
+  - Item
   - 
   - 
   - 

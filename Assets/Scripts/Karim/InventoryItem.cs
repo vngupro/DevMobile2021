@@ -9,5 +9,8 @@ public class InventoryItem : ScriptableObject
     public string itemDescription;
     public Sprite itemImage;
     public int numberHeld;
-    
+
+    public bool isPickable;
+    public bool isDragable;
+    public LensEnum filter;
 }
