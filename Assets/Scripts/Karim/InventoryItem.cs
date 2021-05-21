@@ -12,5 +12,5 @@ public class InventoryItem : ScriptableObject
 
     public bool isPickable;
     public bool isDragable;
-    public LayerMask filter;
+    public LensEnum filter;
 }
