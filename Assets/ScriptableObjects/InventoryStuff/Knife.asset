@@ -18,6 +18,4 @@ MonoBehaviour:
   numberHeld: 0
   isPickable: 0
   isDragable: 0
-  filter:
-    serializedVersion: 2
-    m_Bits: 0
+  filter: 2

@@ -8,9 +8,9 @@ public class GlobalPostProcessVolume : MonoBehaviour
 {
     private VolumeProfile vp;
 
-    [SerializeField] private Color normalColorFilter;
-    [SerializeField] private Color UVColorFilter;
-    [SerializeField] private Color IRColorFilter;
+    private Color _normalColorFilter = Color.white;
+    [SerializeField] private Color _UVColorFilter;
+    [SerializeField] private Color _IRColorFilter;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,19 @@ public class GlobalPostProcessVolume : MonoBehaviour
         
     }
 
+    public Color GetNormalColor()
+    {
+        return _normalColorFilter;
+    }
+    public Color GetUVColor()
+    {
+        return _UVColorFilter;
+    }
+    public Color GetIRColor()
+    {
+        return _IRColorFilter;
+    }
+
     public void ChangeColorToNormal()
     {
         foreach (VolumeComponent vc in vp.components)
@@ -31,21 +44,19 @@ public class GlobalPostProcessVolume : MonoBehaviour
             if (vc is ColorAdjustments)
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
-                colorAdjustments.colorFilter.value = normalColorFilter;
+                colorAdjustments.colorFilter.value = _normalColorFilter;
             }
         }
     }
 
     public void ChangeColorToUV()
     {
-        Debug.Log("ChangeToUV");
         foreach (VolumeComponent vc in vp.components)
         {
-            Debug.Log(vc.name);
             if (vc is ColorAdjustments)
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
-                colorAdjustments.colorFilter.value = UVColorFilter;
+                colorAdjustments.colorFilter.value = _UVColorFilter;
             }
         }
     }
@@ -57,7 +68,7 @@ public class GlobalPostProcessVolume : MonoBehaviour
             if (vc is ColorAdjustments)
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
-                colorAdjustments.colorFilter.value = IRColorFilter;
+                colorAdjustments.colorFilter.value = _IRColorFilter;
             }
         }
     }
