@@ -69,7 +69,11 @@ public class PickUpDetection : MonoBehaviour
 
         float distance = Vector3.Distance(startPos, endPos);
         float timer = endTime - startTime;
-        if (distance <= distanceTolerance && hitClue && timer < timerBeforeHold && hitClue.transform.gameObject.tag == "Clue")
+        if (distance <= distanceTolerance && 
+            hitClue && 
+            timer < timerBeforeHold && 
+            hitClue.transform.gameObject.tag == "Clue" && 
+            hitClue.transform.gameObject.GetComponent<Item>().data.isPickable)
         {
             PickUp(hitClue.transform.gameObject);
         }

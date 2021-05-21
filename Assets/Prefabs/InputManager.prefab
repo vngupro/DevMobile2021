@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer2PickUp:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 4096
   distanceTolerance: 0.5
   timerBeforeHold: 1
 --- !u!114 &2686448324454584333
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer2Drag:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 4096
   delayBeforeDrag: 0
 --- !u!114 &9015750953740344692
 MonoBehaviour:
