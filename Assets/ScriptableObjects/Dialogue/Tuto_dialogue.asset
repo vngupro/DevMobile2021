@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e468606cf75a7f47acd5ae9399ca183, type: 3}
+  m_Name: Tuto_dialogue
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: aef5bc88d705fe548884ac42a65e1490, type: 2}
+  dialogueList:
+  - Hello Officer, welcome in your first crime scene ! I am Copbot, an artificial
+    intelligence here in order to help you for your first day and to give you all
+    the informations about the crime.
+  - "Today we have a body who\u2019s a man called August CHAMBERS he is 20 years
+    old and he studies in a science faculty. "
+  - According to the testimony of the neighbors, they heard a lot of noise who seems
+    to be a fight who start around 6:35pm and stopped around 10 minutes after.
+  - "So they called us at 6:47pm and the first cops have arrived at 6:56pm. Now you\u2019ll
+    have to find as many clues as possible in the scene crime."
+  - Touch the evidence in order to collect it.
+  - Here you can find in first all the information about the crime that I gave you
+    before. Right after you can see all the clue that you have already collected
+    and all the information about it
+  - You can use your glasses in order to see through several effect like Xray vision,
+    Uv vision, thermal vision or night vision. First try with the Xray vision
