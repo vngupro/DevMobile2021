@@ -38,6 +38,14 @@ public class GlobalPostProcessVolume : MonoBehaviour
     {
         return _IRColorFilter;
     }
+    public Color GetXRAYColor()
+    {
+        return _XRAYColorFilter;
+    }
+    public Color GetNIGHTSHOTColor()
+    {
+        return _NIGHTSHOTColorFilter;
+    }
 
     public void ChangeColorToNormal()
     {

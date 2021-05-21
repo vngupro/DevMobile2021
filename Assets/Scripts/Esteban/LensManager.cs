@@ -7,10 +7,10 @@ public class LensManager : MonoBehaviour
     public GlobalPostProcessVolume processVolume;
 
     private GameObject[] clues;
-    [SerializeField] private Color colorUV;
-    [SerializeField] private Color colorIR;
-    [SerializeField] private Color colorXRAY;
-    [SerializeField] private Color colorNIGHTSHOT;
+    //[SerializeField] private Color colorUV;
+    //[SerializeField] private Color colorIR;
+    //[SerializeField] private Color colorXRAY;
+    //[SerializeField] private Color colorNIGHTSHOT;
     private LensEnum currentLens;    
 
     public static LensManager instance { get; private set; }
@@ -80,6 +80,49 @@ public class LensManager : MonoBehaviour
             }
 
             currentLens = LensEnum.IR;
+        }
+    }
+
+    public void LightUpXRAYClues()
+    {
+        if (currentLens != LensEnum.XRAY)
+        {
+            NormalMode();
+
+            foreach (GameObject clue in clues)
+            {
+                if (clue.GetComponent<Item>().data.filter == LensEnum.XRAY)
+                {
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens;
+                }
+                else
+                {
+                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetXRAYColor();
+                }
+            }
+
+            currentLens = LensEnum.XRAY;
+        }
+    }
+    public void LightUpNIGHTSHOTClues()
+    {
+        if (currentLens != LensEnum.NIGHTSHOT)
+        {
+            NormalMode();
+
+            foreach (GameObject clue in clues)
+            {
+                if (clue.GetComponent<Item>().data.filter == LensEnum.NIGHTSHOT)
+                {
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens;
+                }
+                else
+                {
+                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetNIGHTSHOTColor();
+                }
+            }
+
+            currentLens = LensEnum.NIGHTSHOT;
         }
     }
 
