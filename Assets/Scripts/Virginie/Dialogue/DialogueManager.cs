@@ -21,6 +21,11 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+        if(dialogues == null) {
+            Debug.Log("No Dialogues to show");  
+            return;
+        }
+
         textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
         textName.text = dialogues[characterIndex].character.name;
         imageCharacter.sprite = dialogues[characterIndex].character.sprite;

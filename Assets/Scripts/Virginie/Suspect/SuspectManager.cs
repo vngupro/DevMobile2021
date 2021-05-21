@@ -17,46 +17,44 @@ public class SuspectManager : MonoBehaviour
 
     private void Awake()
     {
-        CreateUISuspect();
-    }
-
-    private void CreateUISuspect()
-    {
-        int index = 0;
         uiSuspects = boxSuspectRow.GetComponentsInChildren<UI_Suspect>();
-        if(uiSuspects != null)
-        {
-            int i, j;
-            for(i = 0; i < uiSuspects.Length; i++)
-            {
-                uiSuspects[i].image.sprite = suspects[i].sprite;
-            }
 
-            if(suspects.Length > uiSuspects.Length)
-            {
-                for(j = i; j < suspects.Length - i; j++)
-                {
-                    GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
-                    UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
-                    newUISuspect.image.sprite = suspects[j+i].sprite;
-                    Debug.Log(newUISuspect.gameObject.name);
-                    uiSuspects[i+j -1] = newUISuspect;
-                }
-            }
-        }
-        else
-        {
-            foreach (Suspect suspect in suspects)
-            {
-                Debug.Log("Suspect : " + suspect.name);
-                GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
-                UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
-                newUISuspect.image.sprite = suspect.sprite;
-                Debug.Log(newUISuspect.gameObject.name);
-                uiSuspects[index] = newUISuspect;
+        InitSuspects();
+    }
+    private void InitSuspects()
+    {
+        Debug.Log("Create Suspect");
+        //GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
+        //UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
+        //newUISuspect.image.sprite = suspect.sprite;
+        //Debug.Log(newUISuspect.gameObject.name);
+        //uiSuspects[index] = newUISuspect;
+        //if(uiSuspects != null)
+        //{
+        //    int i, j;
+        //    for(i = 0; i < suspects.L; i++)
+        //    {
+        //        uiSuspects[i].image.sprite = suspects[i].sprite;
+        //    }
 
-                index++;
-            }
-        }
+        //    if(suspects.Length > uiSuspects.Length)
+        //    {
+
+        //    }
+        //}
+        //else
+        //{
+        //    foreach (Suspect suspect in suspects)
+        //    {
+        //        Debug.Log("Suspect : " + suspect.name);
+        //        GameObject newSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
+        //        UI_Suspect newUISuspect = newSuspect.GetComponent<UI_Suspect>();
+        //        newUISuspect.image.sprite = suspect.sprite;
+        //        Debug.Log(newUISuspect.gameObject.name);
+        //        uiSuspects[index] = newUISuspect;
+
+        //        index++;
+        //    }
+        //}
     }
 }
