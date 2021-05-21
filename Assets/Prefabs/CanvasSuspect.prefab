@@ -777,7 +777,8 @@ MonoBehaviour:
   space: 30
   boxSuspectRow: {fileID: 1098071588692141176}
   boxSuspectPrefab: {fileID: 1492361020368869623, guid: 20151f8800d6d2441880e359df2a4f5c, type: 3}
-  maxSuspectPerLevel: 03000000
+  maxSuspectPerLevel: {fileID: 11400000, guid: c6f36fc70b5b0e2449b74d25ff76565a, type: 2}
+  level: 0
 --- !u!1 &1098071588442501268
 GameObject:
   m_ObjectHideFlags: 0

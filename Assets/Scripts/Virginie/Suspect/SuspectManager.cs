@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 //box suspect row 
 // width : 200
 // height : 400
+
+//save after play the arrengment
 [ExecuteInEditMode]
 public class SuspectManager : MonoBehaviour
 {
@@ -20,11 +22,15 @@ public class SuspectManager : MonoBehaviour
     private GameObject boxSuspectRow;
     [SerializeField]
     private GameObject boxSuspectPrefab;
+    [SerializeField]
+    private MaxSuspectPerLevel maxSuspectPerLevel;
+
 
     [Header("Debug")]
     [SerializeField]
-    private List<int> maxSuspectPerLevel = new List<int>();
+    private int level = 0;
     private List<UI_Suspect> uiSuspects = new List<UI_Suspect>();
+
 
     private void Awake()
     {
@@ -49,13 +55,16 @@ public class SuspectManager : MonoBehaviour
         Debug.Log("Init Suspect");
         foreach(Suspect suspect in suspects)
         {
-            if (maxSuspectPerLevel.Count == 0) {
+            //Protection against null value
+            if (maxSuspectPerLevel.maxSuspectList.Count < level) {
                 Debug.Log("You forgot to add a max suspect number for that level");
-                maxSuspectPerLevel.Add(3); 
+                maxSuspectPerLevel.maxSuspectList.Add(3); 
             }
 
-            if (index > maxSuspectPerLevel[0 /*SceneManager.GetActiveScene().buildIndex - 1*/] - 1) return;
+            //Do not add more suspect than necessary
+            if (index > maxSuspectPerLevel.maxSuspectList[level]) return;
 
+            //Add suspect in scene
             if (uiSuspects.Count != 0 && index < uiSuspects.Count)
             {
                 uiSuspects[index].image.sprite = suspect.sprite;

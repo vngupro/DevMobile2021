@@ -3759,7 +3759,8 @@ MonoBehaviour:
   space: 30
   boxSuspectRow: {fileID: 152050418}
   boxSuspectPrefab: {fileID: 1492361020368869623, guid: 20151f8800d6d2441880e359df2a4f5c, type: 3}
-  maxSuspectPerLevel: 03000000
+  maxSuspectPerLevel: {fileID: 0}
+  level: 0
 --- !u!114 &663607932
 MonoBehaviour:
   m_ObjectHideFlags: 0
