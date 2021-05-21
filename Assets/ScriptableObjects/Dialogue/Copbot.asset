@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
-  m_Name: new Suspect
+  m_Script: {fileID: 11500000, guid: 4aa323a70a34aa440bdd3b1715d77845, type: 3}
+  m_Name: Copbot
   m_EditorClassIdentifier: 
-  name: Suspect 1
-  age: 30
-  gender: 0
-  description: 3
-  sprite: {fileID: 21300000, guid: 2ca6c2fbca099604d82884c526c230da, type: 3}
-  isGuilty: 0
+  name: Copbot
+  sprite: {fileID: 21300000, guid: 93ba33e3aab051f47b3bff1b5b8ed103, type: 3}
