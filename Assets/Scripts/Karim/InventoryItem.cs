@@ -12,5 +12,8 @@ public class InventoryItem : ScriptableObject
 
     public bool isPickable;
     public bool isDragable;
+
+    //Esteban Part 
     public LensEnum filter;
+    public Sprite itemImageOnLens;
 }

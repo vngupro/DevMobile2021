@@ -11,6 +11,8 @@ public class GlobalPostProcessVolume : MonoBehaviour
     private Color _normalColorFilter = Color.white;
     [SerializeField] private Color _UVColorFilter;
     [SerializeField] private Color _IRColorFilter;
+    [SerializeField] private Color _XRAYColorFilter;
+    [SerializeField] private Color _NIGHTSHOTColorFilter;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +74,28 @@ public class GlobalPostProcessVolume : MonoBehaviour
             }
         }
     }
-    
 
+    public void ChangeColorToXRAY()
+    {
+        foreach (VolumeComponent vc in vp.components)
+        {
+            if (vc is ColorAdjustments)
+            {
+                ColorAdjustments colorAdjustments = vc as ColorAdjustments;
+                colorAdjustments.colorFilter.value = _XRAYColorFilter;
+            }
+        }
+    }
+
+    public void ChangeColorToNIGHTSHOT()
+    {
+        foreach (VolumeComponent vc in vp.components)
+        {
+            if (vc is ColorAdjustments)
+            {
+                ColorAdjustments colorAdjustments = vc as ColorAdjustments;
+                colorAdjustments.colorFilter.value = _NIGHTSHOTColorFilter;
+            }
+        }
+    }
 }
