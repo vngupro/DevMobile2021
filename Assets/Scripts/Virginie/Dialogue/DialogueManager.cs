@@ -7,9 +7,13 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class DialogueManager : MonoBehaviour
 {
+    [Tooltip("Add Dialogue Scriptable Object")]
     public Dialogue[] dialogues;
+    [Tooltip("Canvas Text_Dialogue")]
     public TMP_Text textDialogue;
+    [Tooltip("Canvas Text_Name")]
     public TMP_Text textName;
+    [Tooltip("Canvas Image_Character")]
     public Image imageCharacter;
 
     private int characterIndex = 0, dialogueIndex = 0;
