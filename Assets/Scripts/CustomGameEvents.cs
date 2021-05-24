@@ -32,6 +32,7 @@ public static class CustomGameEvents
     public static UnityEvent cinematicFinished = new UnityEvent();
     public static UnityEvent hasPressAnyButtonEvent = new UnityEvent();
     public static UnityEvent hasNotInteruptVideo = new UnityEvent();
+    public static UnityEvent hasTapScreen = new UnityEvent();
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }

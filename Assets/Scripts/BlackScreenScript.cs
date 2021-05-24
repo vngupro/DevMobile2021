@@ -13,8 +13,10 @@ public class BlackScreenScript : MonoBehaviour
     private bool isFadingIn = false;
     private bool isFadingOut = false;
     private bool hasFinishedFadingOut = false;
+    private InputManager inputManager;
     private void Awake()
     {
+        inputManager = InputManager.Instance;
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0f;
 
@@ -80,6 +82,7 @@ public class BlackScreenScript : MonoBehaviour
 
     IEnumerator Fade(bool isFadeIn)
     {
+        inputManager.DisableControls();
         float timer = 0f;
         float min = 0f;
         float max = 1f;
@@ -116,5 +119,6 @@ public class BlackScreenScript : MonoBehaviour
 
         isFadingIn = false;
         isFadingOut = false;
+        inputManager.EnableControls();
     }
 }

@@ -17,8 +17,17 @@ public class VideoPlayerScript : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool hasBlackScreen = false;
     [SerializeField] private float debugTimer;
+
+    public static VideoPlayerScript Instance {get; protected set;}
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        Instance = this;
+
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.targetTexture.Release();
         canvasGroup = cinematique.GetComponent<CanvasGroup>();
@@ -172,5 +181,10 @@ public class VideoPlayerScript : MonoBehaviour
         }
 
         ResetVideo();
+    }
+
+    public bool IsPlaying()
+    {
+        return videoPlayer.isPlaying;
     }
 }

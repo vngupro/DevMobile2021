@@ -175,6 +175,16 @@ public class InputManager : MonoBehaviour
     {
         return mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>();
     }
+
+    public void EnableControls()
+    {
+        mobileControls.Enable();
+    }
+
+    public void DisableControls()
+    {
+        mobileControls.Disable();
+    }
     //Testing Enchancing Touch
     //private void Update()
     //{
