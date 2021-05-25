@@ -8,10 +8,6 @@ public class InventoryItem : ScriptableObject
     public string itemName;
     public string itemDescription;
     public Sprite itemImage;
-    public Sprite spriteUV;
-    public Sprite spriteIR;
-    public Sprite spriteX;
-    public Sprite spriteNocturne;
     public int numberHeld;
 
     public bool isPickable;
