@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &438978021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   processVolume: {fileID: 0}
-  colorUV: {r: 0, g: 0, b: 0, a: 0}
-  colorIR: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &438978022
 Transform:
   m_ObjectHideFlags: 0
@@ -552,7 +550,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
 --- !u!114 &619556356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1145,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1563527124}
   - component: {fileID: 1563527123}
-  - component: {fileID: 1563527122}
   - component: {fileID: 1563527121}
   m_Layer: 0
   m_Name: Camera
@@ -1188,14 +1185,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1563527122
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563527120}
-  m_Enabled: 1
 --- !u!20 &1563527123
 Camera:
   m_ObjectHideFlags: 0
