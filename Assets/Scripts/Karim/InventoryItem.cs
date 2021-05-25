@@ -6,7 +6,9 @@ using UnityEngine;
 public class InventoryItem : ScriptableObject
 {
     public string itemName;
+    [TextArea(5,5)]
     public string itemDescription;
+    public bool hasDefaultImage = true;
     public Sprite itemImage;
     public int numberHeld;
 
