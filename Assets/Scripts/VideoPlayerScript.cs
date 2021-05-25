@@ -47,7 +47,7 @@ public class VideoPlayerScript : MonoBehaviour
         CustomGameEvents.fadeInFinished.AddListener(PlayVideo);
         CustomGameEvents.fadeOutFinished.AddListener(RestartTimer);
         // MenuManager.cs
-        CustomGameEvents.hasPressAnyButtonEvent.AddListener(ChangeHasPressAnyButton);
+        CustomGameEvents.hasTapScreen.AddListener(ChangeHasPressAnyButton);
     }
 
     private void Update()
