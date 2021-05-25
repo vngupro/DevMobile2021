@@ -19,13 +19,20 @@ public class Item : MonoBehaviour
         }
         else
         {
-            if(data.itemImage == null)
+            if (data.hasDefaultImage)
             {
-                Debug.Log("Item : " + this.name + " has no Sprite in scriptable object !");
+                if (data.itemImage == null)
+                {
+                   Debug.Log("Item : " + this.name + " has no Sprite in scriptable object !");
+                }
+                else
+                {
+                    spriteRenderer.sprite = data.itemImage;
+                }
             }
             else
             {
-                spriteRenderer.sprite = data.itemImage;
+                spriteRenderer.sprite = null;
             }
         }
     }
