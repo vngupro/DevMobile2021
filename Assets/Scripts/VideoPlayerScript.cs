@@ -13,7 +13,8 @@ public class VideoPlayerScript : MonoBehaviour
     private float timer;
     private bool isTimerOn = true;
     private bool isWaitingEndOfVideo = false;
-    private bool hasPressAnyButton = false;
+    private bool hasEnterMenu = false;
+
     [Header("Debug")]
     [SerializeField] private bool hasBlackScreen = false;
     [SerializeField] private float debugTimer;
@@ -34,7 +35,7 @@ public class VideoPlayerScript : MonoBehaviour
         cinematique.SetActive(false);
         isTimerOn = true;
         timer = secondsBeforeStartCinematic;
-        hasPressAnyButton = false;
+        hasEnterMenu = false;
 
         BlackScreenScript blackScreen = FindObjectOfType<BlackScreenScript>();
         if (blackScreen != null)
@@ -47,7 +48,8 @@ public class VideoPlayerScript : MonoBehaviour
         CustomGameEvents.fadeInFinished.AddListener(PlayVideo);
         CustomGameEvents.fadeOutFinished.AddListener(RestartTimer);
         // MenuManager.cs
-        CustomGameEvents.hasTapScreen.AddListener(ChangeHasPressAnyButton);
+        CustomGameEvents.hasTapScreen.AddListener(ChangeHasEnterMenu);
+        CustomGameEvents.enterMenu.AddListener(ChangeHasEnterMenu);
     }
 
     private void Update()
@@ -55,7 +57,7 @@ public class VideoPlayerScript : MonoBehaviour
 
         debugTimer = timer;
         //Stop Timer if player is playing
-        if (hasPressAnyButton)
+        if (hasEnterMenu)
         {
             timer = secondsBeforeStartCinematic;
             return;
@@ -82,20 +84,19 @@ public class VideoPlayerScript : MonoBehaviour
 
     }
 
-    private void ChangeHasPressAnyButton()
+    private void ChangeHasEnterMenu()
     {
-
         if (isWaitingEndOfVideo)
         {
             InteruptCinematic();
         }
         else
         {
-            hasPressAnyButton = true;
-
+            hasEnterMenu = true;
+            isTimerOn = false;
             // | Invoke
             // MenuManager.cs
-            CustomGameEvents.hasNotInteruptVideo.Invoke();
+            //CustomGameEvents.hasNotInteruptVideo.Invoke();
         }
     }
 

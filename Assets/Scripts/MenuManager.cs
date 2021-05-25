@@ -6,6 +6,12 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
 
+    private void Awake()
+    {
+        // Listeners 
+        // TapScreenScript.cs
+        CustomGameEvents.enterMenu.AddListener(EnterMenu);
+    }
     public void OpenLayer(UI_Layer layer)
     {
         layer.gameObject.SetActive(true);
@@ -51,5 +57,10 @@ public class MenuManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void EnterMenu()
+    {
+        OpenLayerByName("Layer_Menu");
     }
 }
