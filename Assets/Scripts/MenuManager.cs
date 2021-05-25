@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Text_TapScreen;
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
-
-    private VideoPlayerScript video;
-    private void Start()
-    {
-        video = VideoPlayerScript.Instance;
-    }
 
     public void OpenLayer(UI_Layer layer)
     {
@@ -57,15 +50,6 @@ public class MenuManager : MonoBehaviour
                 layer.gameObject.SetActive(false);
                 return;
             }
-        }
-    }
-
-    private void CloseTextTapScreen()
-    {
-        if (video.IsPlaying())
-        {
-            //Touch detection.Cs
-            CustomGameEvents.hasTapScreen.Invoke();
         }
     }
 }
