@@ -46,7 +46,7 @@ public class DragDetection : MonoBehaviour
         //Verify touch an object
         hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
 
-        if (hitDrag)
+        if (hitDrag && hitDrag.transform.gameObject.GetComponent<Item>().data.isDragable)
         {
             objectDraging = hitDrag.transform.gameObject;
             coroutine = StartCoroutine(Drag()); 
