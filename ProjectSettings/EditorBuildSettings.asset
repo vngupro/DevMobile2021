@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Virginie 1.unity
     guid: a4cc13ff13dc9bc4f983975dcf1d8d81
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 58335f163c34c394eba40e1697474596
+  - enabled: 1
+    path: Assets/Scenes/Esteban.unity
+    guid: 4724d028d6b6c904bb3db0cb27950b18
   m_configObjects: {}
