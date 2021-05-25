@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 //box suspect row 
 // width : 200
 // height : 400
@@ -69,6 +68,7 @@ public class SuspectManager : MonoBehaviour
             {
                 uiSuspects[index].image.sprite = suspect.sprite;
                 uiSuspects[index].textDescription.text = suspect.description;
+                uiSuspects[index].isGuilty = suspect.isGuilty;
                 uiSuspects[index].layerDescription.gameObject.SetActive(false);
             }
             else
@@ -102,9 +102,23 @@ public class SuspectManager : MonoBehaviour
 
                 uiSuspects[index].image.sprite = suspect.sprite;
                 uiSuspects[index].textDescription.text = suspect.description;
+                uiSuspects[index].isGuilty = suspect.isGuilty;
                 uiSuspects[index].layerDescription.gameObject.SetActive(false);
             }
             index++;
+        }
+    }
+
+    public void Accuse()
+    {
+        UI_Suspect data = EventSystem.current.currentSelectedGameObject.GetComponentInParent<UI_Suspect>();
+        if (data.isGuilty)
+        {
+            Debug.Log("You Find The Culprit !");
+        }
+        else
+        {
+            Debug.Log("You Failure ! ");
         }
     }
 }

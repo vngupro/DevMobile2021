@@ -5,15 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; protected set;}
     private void Awake()
     {
-        Debug.Log(SingletonScript.instance.gameObject.name);
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+
     }
+
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded = " + scene.name);
@@ -25,10 +35,19 @@ public class LevelManager : MonoBehaviour
 
     public void OpenSceneByName(string name)
     {
-        if (name == "") return;
+        if (name == "")
+        {
+            Debug.Log("Scene : No Scene to load\nDid you forget to add a name ?"); 
+            return;
+        }
+
         SceneManager.LoadScene(name);
     }
-
+    public void OpenNextScene()
+    {
+        int sceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(sceneToLoad);
+    }
     public void QuitGame()
     {
         Application.Quit();

@@ -23,6 +23,16 @@ public static class CustomGameEvents
     public static PickUpEvent pickUpEvent = new PickUpEvent();
     public static UnityEvent dragEvent = new UnityEvent();
     public static UnityEvent changeDialogueActive = new UnityEvent();
+
+    public static UnityEvent activateFadeIn = new UnityEvent();
+    public static UnityEvent activateFadeOut = new UnityEvent();
+    public static UnityEvent fadeInFinished = new UnityEvent();
+    public static UnityEvent fadeOutFinished = new UnityEvent();
+    public static UnityEvent cinematicStart = new UnityEvent();
+    public static UnityEvent cinematicFinished = new UnityEvent();
+    public static UnityEvent hasPressAnyButtonEvent = new UnityEvent();
+    public static UnityEvent hasNotInteruptVideo = new UnityEvent();
+    public static UnityEvent hasTapScreen = new UnityEvent();
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }
