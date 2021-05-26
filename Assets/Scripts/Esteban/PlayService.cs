@@ -4,7 +4,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
 
-public class TestPlayService : MonoBehaviour
+public class PlayService : MonoBehaviour
 {
     private void Start()
     {
@@ -30,11 +30,15 @@ public class TestPlayService : MonoBehaviour
         // show achievements UI
         Social.ShowAchievementsUI();
     }
-    
+
     public void ShowLeaderboard()
     {
         // show leaderboard UI
         Social.ShowLeaderboardUI();
     }
 
+    public void UnlockAchivments(String Id)
+    {
+        
+    }
 }
