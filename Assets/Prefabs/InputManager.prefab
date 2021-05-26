@@ -127,8 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 0
-  directionThreshold: 0.9
+  distanceTolerance: 0.1
   cameraSpeed: 100
 --- !u!114 &2686448324454584321
 MonoBehaviour:
