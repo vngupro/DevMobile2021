@@ -13,7 +13,8 @@ public class VideoPlayerScript : MonoBehaviour
     private float timer;
     private bool isTimerOn = true;
     private bool isWaitingEndOfVideo = false;
-    private bool hasPressAnyButton = false;
+    private bool hasEnterMenu = false;
+
     [Header("Debug")]
     [SerializeField] private bool hasBlackScreen = false;
     [SerializeField] private float debugTimer;
@@ -34,28 +35,31 @@ public class VideoPlayerScript : MonoBehaviour
         cinematique.SetActive(false);
         isTimerOn = true;
         timer = secondsBeforeStartCinematic;
-        hasPressAnyButton = false;
-
-        BlackScreenScript blackScreen = FindObjectOfType<BlackScreenScript>();
-        if (blackScreen != null)
-        {
-            hasBlackScreen = true;
-        }
+        hasEnterMenu = false;
 
         // | Listeners
         // BlackScreenScript.cs
         CustomGameEvents.fadeInFinished.AddListener(PlayVideo);
         CustomGameEvents.fadeOutFinished.AddListener(RestartTimer);
         // MenuManager.cs
-        CustomGameEvents.hasTapScreen.AddListener(ChangeHasPressAnyButton);
+        CustomGameEvents.hasTapScreen.AddListener(ChangeHasEnterMenu);
+        CustomGameEvents.enterMenu.AddListener(ChangeHasEnterMenu);
     }
 
+    private void Start()
+    {
+        BlackScreenScript blackScreen = BlackScreenScript.Instance;
+        if (blackScreen != null)
+        {
+            hasBlackScreen = true;
+        }
+    }
     private void Update()
     {
 
         debugTimer = timer;
         //Stop Timer if player is playing
-        if (hasPressAnyButton)
+        if (hasEnterMenu)
         {
             timer = secondsBeforeStartCinematic;
             return;
@@ -82,20 +86,19 @@ public class VideoPlayerScript : MonoBehaviour
 
     }
 
-    private void ChangeHasPressAnyButton()
+    private void ChangeHasEnterMenu()
     {
-
         if (isWaitingEndOfVideo)
         {
             InteruptCinematic();
         }
         else
         {
-            hasPressAnyButton = true;
-
+            hasEnterMenu = true;
+            isTimerOn = false;
             // | Invoke
             // MenuManager.cs
-            CustomGameEvents.hasNotInteruptVideo.Invoke();
+            //CustomGameEvents.hasNotInteruptVideo.Invoke();
         }
     }
 
@@ -110,6 +113,7 @@ public class VideoPlayerScript : MonoBehaviour
         {
             // | Invoke
             // BlackScreenScripts.cs
+            Debug.Log("StartVideoCinematic");
             CustomGameEvents.cinematicStart.Invoke();
         }
         else

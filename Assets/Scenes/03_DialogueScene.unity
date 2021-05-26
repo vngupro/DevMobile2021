@@ -1888,7 +1888,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &436461976
@@ -6100,6 +6100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21898f5b07df124492cad609f379a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Text_TapScreen: {fileID: 0}
   layers:
   - {fileID: 1658723296}
 --- !u!114 &1332811045

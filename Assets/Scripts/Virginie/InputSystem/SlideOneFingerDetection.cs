@@ -14,6 +14,7 @@ public class SlideOneFingerDetection : MonoBehaviour
     private Camera cam;
     private Coroutine coroutine;
 
+    private float cameraInitialSpeed;
     private Vector2 startPos;
     private bool isDragging = false;
     #endregion
@@ -23,6 +24,7 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
         cam = Camera.main;
+        cameraInitialSpeed = cameraSpeed;
 
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
@@ -127,5 +129,11 @@ public class SlideOneFingerDetection : MonoBehaviour
     private void IsDraggingTrue()
     {
         isDragging = true;
+    }
+
+    public void ChangeSlideSpeed(float speed)
+    {
+        float ratio = speed / 5f;
+        cameraSpeed = cameraInitialSpeed * ratio;
     }
 }

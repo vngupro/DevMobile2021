@@ -6,6 +6,20 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
 
+    [Header("Animation")]
+    public float fadeInMenuDuration = 2.0f;
+
+    private InputManager inputManager;
+    private void Awake()
+    {
+        inputManager = InputManager.Instance;
+
+        // Listeners 
+        // TapScreenScript.cs
+        CustomGameEvents.enterMenu.AddListener(EnterMenu);
+
+        
+    }
     public void OpenLayer(UI_Layer layer)
     {
         layer.gameObject.SetActive(true);
@@ -51,5 +65,39 @@ public class MenuManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void EnterMenu()
+    {
+        string name = "Layer_Menu";
+        OpenLayerByName(name);
+        foreach (UI_Layer layer in layers)
+        {
+            if (layer.name == name)
+            {
+                CanvasGroup canvasGroup = layer.GetComponent<CanvasGroup>();
+                StartCoroutine(FadeInLayer(canvasGroup));
+                return;
+            }
+        }
+    }
+
+    IEnumerator FadeInLayer(CanvasGroup canvasGroup)
+    {
+        inputManager.DisableControls();
+        float timer = 0f;
+        float min = 0f;
+        float max = 1f;
+
+        //Fade
+        while (timer < fadeInMenuDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / fadeInMenuDuration;
+            canvasGroup.alpha = Mathf.Lerp(min, max, ratio);
+            yield return null;
+        }
+
+        inputManager.EnableControls();
     }
 }
