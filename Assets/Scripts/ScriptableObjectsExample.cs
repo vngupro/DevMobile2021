@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* click droit dans project -> y a une nouvelle colonne qui est apparu par miracle */
-[CreateAssetMenu(fileName = "ScriptableObjectExample", menuName = "ScriptableObjects/Example")]
+//[CreateAssetMenu(fileName = "ScriptableObjectExample", menuName = "ScriptableObjects/Example")]
 public class ScriptableObjectsExample : ScriptableObject
 {
     public string objectName;
