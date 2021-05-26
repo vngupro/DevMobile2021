@@ -20,7 +20,7 @@ public class GraphicsManager : MonoBehaviour
         }
 
         dropdownQuality.AddOptions(graphicOptions);
-        SetQuality(2);
+        SetQuality(graphicOptions.Count - 2);
         dropdownQuality.value = graphicOptions.Count - 2;
         dropdownQuality.RefreshShownValue();
     }

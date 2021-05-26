@@ -37,12 +37,6 @@ public class VideoPlayerScript : MonoBehaviour
         timer = secondsBeforeStartCinematic;
         hasEnterMenu = false;
 
-        BlackScreenScript blackScreen = FindObjectOfType<BlackScreenScript>();
-        if (blackScreen != null)
-        {
-            hasBlackScreen = true;
-        }
-
         // | Listeners
         // BlackScreenScript.cs
         CustomGameEvents.fadeInFinished.AddListener(PlayVideo);
@@ -52,6 +46,14 @@ public class VideoPlayerScript : MonoBehaviour
         CustomGameEvents.enterMenu.AddListener(ChangeHasEnterMenu);
     }
 
+    private void Start()
+    {
+        BlackScreenScript blackScreen = BlackScreenScript.Instance;
+        if (blackScreen != null)
+        {
+            hasBlackScreen = true;
+        }
+    }
     private void Update()
     {
 
@@ -111,6 +113,7 @@ public class VideoPlayerScript : MonoBehaviour
         {
             // | Invoke
             // BlackScreenScripts.cs
+            Debug.Log("StartVideoCinematic");
             CustomGameEvents.cinematicStart.Invoke();
         }
         else

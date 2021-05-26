@@ -14,9 +14,10 @@ public class TabGroup : MonoBehaviour
     public Color colorTabHover;
     public Color colorTabActive;
 
-    public TabButtonScript selectedTab;
-
     public List<GameObject> objectsToSwap;
+
+    [Header("Debug")]
+    public TabButtonScript selectedTab;
 
     public void Subscribe(TabButtonScript button)
     {

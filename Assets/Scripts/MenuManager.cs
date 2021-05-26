@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviour
         // Listeners 
         // TapScreenScript.cs
         CustomGameEvents.enterMenu.AddListener(EnterMenu);
+
+        
     }
     public void OpenLayer(UI_Layer layer)
     {
