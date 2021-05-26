@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class TabButtonScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
-
     public Image background;
 
     public void OnPointerClick(PointerEventData eventData)
