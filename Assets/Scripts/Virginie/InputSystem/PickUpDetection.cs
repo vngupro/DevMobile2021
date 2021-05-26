@@ -11,6 +11,9 @@ using UnityEngine;
  * */
 public class PickUpDetection : MonoBehaviour
 {
+    [SerializeField]
+    GameObject blink;
+
     #region Variable
     [SerializeField] private LayerMask layer2PickUp;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
@@ -85,5 +88,14 @@ public class PickUpDetection : MonoBehaviour
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         object2PickUp.SetActive(false);
         //Destroy(object2PickUp);
+        StartCoroutine("CaptureIt");
+    }
+    private GameObject GoBlink;
+
+    IEnumerator CaptureIt()
+    {
+        yield return new WaitForSeconds(0f);
+        GoBlink = Instantiate(blink);
+        Destroy(GoBlink, 0.2f);
     }
 }
