@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ItemData
   m_EditorClassIdentifier: 
   itemName: 
-  itemDescription: 
-  itemImage: {fileID: 7482667652216324306, guid: 8027e6d947d9f644e937b635f81aab19, type: 3}
+  itemDescription: lorem ipsum sit amet
+  hasDefaultImage: 1
+  itemImage: {fileID: 21300000, guid: 13459038d94415f4b96c678d245c850e, type: 3}
   numberHeld: 0
   isPickable: 1
   isDragable: 0
-  filter:
-    serializedVersion: 2
-    m_Bits: 3104
+  filter: 0
+  itemImageOnLens: {fileID: 0}

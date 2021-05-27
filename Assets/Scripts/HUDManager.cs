@@ -29,7 +29,7 @@ public class HUDManager : MonoBehaviour
         foreach(RectTransform len in lens)
         {
             lensPosition.Add(len.anchoredPosition);
-            Debug.Log(len.anchoredPosition);
+            //Debug.Log(len.anchoredPosition);
             len.anchoredPosition = buttonLensPosition;
         }
 
