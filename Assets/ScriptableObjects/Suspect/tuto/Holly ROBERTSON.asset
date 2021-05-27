@@ -15,11 +15,13 @@ MonoBehaviour:
   name: Holly ROBERTSON
   age: 19
   height: 1m68
-  gender: 0
+  sexe: 0
   bloodType: A+
   job: 'School of veterinary '
-  nationality: 0
+  nationality: 5
   placeOfResidence: At the victim's house on the 2nd floor of the building
+  alibi: At the time of the murder, she had gone jogging since 6.30 p.m.
+  suspectedMotive: Adultery
   description: "\rGirlfriend of the victim for 3 years"
   sprite: {fileID: 21300000, guid: b9b18df98713a3144922343c10ad3c0d, type: 3}
   isGuilty: 1
