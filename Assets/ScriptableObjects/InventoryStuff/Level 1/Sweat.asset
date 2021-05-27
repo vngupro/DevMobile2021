@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
-  m_Name: Computer
+  m_Name: Sweat
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 'Analysis and data recovery showed that the victim was having
-    a conversation with a woman who had been deleted
-
-'
-  hasDefaultImage: 0
+  itemName: Sweat
+  itemDescription: traces of human perspiration
+  hasDefaultImage: 1
   itemImage: {fileID: 0}
   numberHeld: 0
   isPickable: 0
   isDragable: 0
-  filter: 2
-  itemImageOnLens: {fileID: 21300000, guid: 879a8b5b4e65efd41afface5d90ef677, type: 3}
+  filter: 1
+  itemImageOnLens: {fileID: 0}
