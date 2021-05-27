@@ -49,7 +49,7 @@ public class LensManager : MonoBehaviour
             {
                 if(clue.GetComponent<Item>().data.filter == LensEnum.UV)
                 {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens ;
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens ;
                 }
                 else
                 {
@@ -71,7 +71,7 @@ public class LensManager : MonoBehaviour
             {
                 if (clue.GetComponent<Item>().data.filter == LensEnum.IR)
                 {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens;
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
                 }
                 else
                 {
@@ -93,7 +93,7 @@ public class LensManager : MonoBehaviour
             {
                 if (clue.GetComponent<Item>().data.filter == LensEnum.XRAY)
                 {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens;
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
                 }
                 else
                 {
@@ -114,7 +114,7 @@ public class LensManager : MonoBehaviour
             {
                 if (clue.GetComponent<Item>().data.filter == LensEnum.NIGHTSHOT)
                 {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImageOnLens;
+                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
                 }
                 else
                 {
@@ -131,7 +131,7 @@ public class LensManager : MonoBehaviour
         foreach (GameObject clue in clues)
         {
             clue.GetComponent<SpriteRenderer>().color = Color.white;
-            clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.itemImage;
+            clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.sprite;
         }
 
         currentLens = LensEnum.NONE;

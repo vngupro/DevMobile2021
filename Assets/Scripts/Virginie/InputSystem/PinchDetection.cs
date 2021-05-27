@@ -14,6 +14,9 @@ public class PinchDetection : MonoBehaviour
     private InputManager inputManager;
     private InventoryManager inventory;
     private Coroutine coroutine;
+
+    private CinemachineVirtualCamera virtualCamera;
+    private Camera cameraItem;
     #endregion
     private void Awake()
     {
@@ -38,6 +41,16 @@ public class PinchDetection : MonoBehaviour
             if (inventory.isOpen) return;
         }
 
+        if (cameraItem == null)
+        {
+            cameraItem = Camera.main.GetComponentInChildren<Camera>();
+        }
+
+        if (virtualCamera == null)
+        {
+            virtualCamera = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+        }
+
         coroutine = StartCoroutine(DetectionZoom());
     }
 
@@ -55,7 +68,7 @@ public class PinchDetection : MonoBehaviour
     {
         float previousDistance = Vector2.Distance(inputManager.GetPrimaryScreenPosition(), inputManager.GetSecondaryScreenPosition()), 
               distance = 0f;
-
+        
         while (true)
         {
             Vector2 positionPrimary = inputManager.GetPrimaryScreenPosition();
@@ -68,7 +81,9 @@ public class PinchDetection : MonoBehaviour
             if(distance > previousDistance + distanceTolerance)
             {
                 float orthographicSize = Camera.main.orthographicSize;
+
                 float target = Mathf.Clamp(orthographicSize - zoomSpeed, zoomInMax, zoomOutMax);
+
                 Camera.main.orthographicSize = target;
             }
             // Zoom In

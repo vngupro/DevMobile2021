@@ -8,11 +8,10 @@ public class DialogueManager : MonoBehaviour
 {
     [Tooltip("Add Dialogue Scriptable Object")]
     public Dialogue[] dialogues;
-    [Tooltip("Canvas Text_Dialogue")]
+
+    [Header("UI")]
     public TMP_Text textDialogue;
-    [Tooltip("Canvas Text_Name")]
     public TMP_Text textName;
-    [Tooltip("Canvas Image_Character")]
     public Image imageCharacter;
 
     [Header("Animation")]
@@ -36,7 +35,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         //Debug.Log("New dialogue");
-        textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
+        textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
         textName.text = dialogues[characterIndex].character.name;
         imageCharacter.sprite = dialogues[characterIndex].character.sprite;
         imageCharacter.color = dialogues[characterIndex].character.color;
@@ -62,10 +61,10 @@ public class DialogueManager : MonoBehaviour
         int characterCount = dialogues.Length;
         if (characterIndex < characterCount)
         {
-            int dialogueCount = dialogues[characterIndex].dialogueList.Length;
+            int dialogueCount = dialogues[characterIndex].dialogue.Length;
             if (dialogueIndex < dialogueCount)
             {
-                textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
+                textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
                 //Debug.Log("Next Dialogue");
             }
             else
@@ -82,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         int characterCount = dialogues.Length;
         if (characterIndex < characterCount)
         {
-            textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
+            textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
             //Debug.Log("Next Character");
         }
         else

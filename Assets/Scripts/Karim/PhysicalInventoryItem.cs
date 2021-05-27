@@ -34,7 +34,7 @@ public class PhysicalInventoryItem : MonoBehaviour
         {
             if (playerInventory.itemList.Contains(thisItem))
             {
-                thisItem.numberHeld += 1;
+                thisItem.number += 1;
             }
             else
             {

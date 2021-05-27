@@ -4,8 +4,7 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     #region Variable
-    [Header("Inventory")]
-    [Tooltip(("Add Scriptable Object Player Inventory"))]
+    [Tooltip(("Add Scriptable Object Inventory"))]
     public PlayerInventory inventory;
 
     [Header("UI")]
@@ -102,7 +101,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventory.itemList.Contains(this.currentItem))
             {
-                this.currentItem.numberHeld += 1;
+                this.currentItem.number += 1;
                 Debug.Log("+1 " + this.currentItem.name);
             }
             else

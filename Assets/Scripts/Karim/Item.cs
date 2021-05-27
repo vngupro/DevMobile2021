@@ -22,13 +22,13 @@ public class Item : MonoBehaviour
         {
             if (data.hasDefaultImage)
             {
-                if (data.itemImage == null)
+                if (data.sprite == null)
                 {
                    Debug.Log("Item : " + this.name + " has no Sprite in scriptable object !");
                 }
                 else
                 {
-                    spriteRenderer.sprite = data.itemImage;
+                    spriteRenderer.sprite = data.sprite;
                 }
             }
             else

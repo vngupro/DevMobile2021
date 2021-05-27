@@ -82,7 +82,7 @@ MonoBehaviour:
   zoomSpeed: 0.2
   zoomInMax: 2
   zoomOutMax: 7
-  distanceTolerance: 0.1
+  distanceTolerance: 0
 --- !u!114 &2686448324454584322
 MonoBehaviour:
   m_ObjectHideFlags: 0
