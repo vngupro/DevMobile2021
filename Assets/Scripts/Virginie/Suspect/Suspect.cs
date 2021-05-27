@@ -12,6 +12,7 @@ public class Suspect : ScriptableObject
     public string bloodType;
     public string job;
     public Nationality nationality;
+    public Nationality secondNationality;
     public string placeOfResidence;
     [TextArea(5,5)]
     public string alibi;
@@ -40,8 +41,8 @@ public enum Nationality
     German,
     Spanish,
     American,
-    Algerian_American,
-    Irish_American,
+    Algerian,
+    Irish,
     Canadian,
     Brazilian,
     Russian,

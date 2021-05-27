@@ -12,12 +12,16 @@ public class HUDManager : MonoBehaviour
     public GameObject groupLens;
 
     private bool isGroupLensOpen = false;
+
+    [Header("Animation")]
+    public float lensDuration = 1.0f;
     //public Sprite spriteLensNormal, spriteLensUV, spriteLensXRay, spriteLensIR, spirteLensNightVision;
     //public Color colorLensNormal, colorLensUV, colorLensXRay, colorLensIR, colorLensNightVision;
 
     private List<Vector2> lensPosition = new List<Vector2>();
     private Vector2 buttonLensPosition;
 
+    
     private void Awake()
     {
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
@@ -61,29 +65,38 @@ public class HUDManager : MonoBehaviour
         while (!isFinished)
         {
             int index = 0;
+            float timer = 0f;
+
             foreach (RectTransform len in lens)
             {
                 isFinished = true;
+                timer += Time.deltaTime;
+                float ratio = timer / lensDuration;
 
-
+                //Open
                 if (isGroupLensOpen)
                 {
                     Vector2 direction = lensPosition[index] - len.anchoredPosition;
-                    len.anchoredPosition += direction.normalized;
-                    if (Vector2.Distance(len.anchoredPosition, lensPosition[index]) > 0.1f)
-                    {
-                        isFinished = false;
-                    }
+                    Vector2 newPos = len.anchoredPosition + direction.normalized;
+                    
+                    //Vector2 direction = 
+                    //len.anchoredPosition += direction.normalized;
+
+                    //if (Vector2.Distance(len.anchoredPosition, lensPosition[index]) > 0.1f)
+                    //{
+                    //    isFinished = false;
+                    //}
 
                 }
+                //Close
                 else
                 {
-                    Vector2 direction = buttonLensPosition - len.anchoredPosition;
-                    len.anchoredPosition += direction.normalized;
-                    if (Vector2.Distance(len.anchoredPosition, buttonLensPosition) > 0.1f)
-                    {
-                        isFinished = false;
-                    }
+                    //Vector2 direction = buttonLensPosition - len.anchoredPosition;
+                    //len.anchoredPosition += direction.normalized;
+                    //if (Vector2.Distance(len.anchoredPosition, buttonLensPosition) > 0.1f)
+                    //{
+                    //    isFinished = false;
+                    //}
                 }
 
 
