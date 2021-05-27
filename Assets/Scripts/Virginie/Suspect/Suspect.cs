@@ -13,6 +13,10 @@ public class Suspect : ScriptableObject
     public string job;
     public Nationality nationality;
     public string placeOfResidence;
+    [TextArea(5,5)]
+    public string alibi;
+    [TextArea(5,5)]
+    public string suspectedMotive;
     [TextArea(5, 5)]
     public string description;
     public Sprite sprite;
