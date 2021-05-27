@@ -8,7 +8,7 @@ public class Suspect : ScriptableObject
     public new string name;
     public int age;
     public string height;
-    public GenderType gender;
+    public SexeType sexe;
     public string bloodType;
     public string job;
     public Nationality nationality;
@@ -26,7 +26,7 @@ public class Suspect : ScriptableObject
     private string[] descriptions;
 }
 
-public enum GenderType
+public enum SexeType
 {
     Female,
     Male,
@@ -34,9 +34,22 @@ public enum GenderType
 
 public enum Nationality
 {
-    American,
     French,
     English,
     Italian,
     German,
+    Spanish,
+    American,
+    Algerian_American,
+    Irish_American,
+    Canadian,
+    Brazilian,
+    Russian,
+    Japanese,
+    Chinese,
+    Vietnamese,
+    Indian,
+    Australian,
+    Taiwanese,
+    Thai,
 }
