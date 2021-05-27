@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 2686448324454584322}
   - component: {fileID: 2686448324454584333}
   - component: {fileID: 9015750953740344692}
-  - component: {fileID: 2686448324454584321}
-  - component: {fileID: 2686448324454584332}
+  - component: {fileID: 2331104137298466465}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -130,38 +129,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceTolerance: 10
   cameraSpeed: 80
---- !u!114 &2686448324454584321
+--- !u!114 &2331104137298466465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bc940d140428747ae6fbbabbe4f573, type: 3}
+  m_Script: {fileID: 11500000, guid: 97bfeca173a7f6a419121c8f933ce25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance2Swipe: 2
-  maxTimeSwipe: 1
-  directionThreshold: 0.9
-  cameraSpeed: 1
-  trail: {fileID: 2686448326070153703}
---- !u!114 &2686448324454584332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b614446df4f08f43b5ddfcca8bb6b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceTolerance: 0
-  directionThreshold: 0.9
-  cameraSpeed: 150
+  layer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &2686448324823240125
 GameObject:
   m_ObjectHideFlags: 0

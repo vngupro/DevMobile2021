@@ -109,6 +109,13 @@ public class SlideOneFingerDetection : MonoBehaviour
         isDragging = true;
     }
 
+    public void StopSlide()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
     public void ChangeSlideSpeed(float speed)
     {
         float ratio = speed / 5f;
