@@ -37,6 +37,7 @@ public static class CustomGameEvents
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }
+public class InventoryEvent : UnityEvent<InventoryItem> { }
 // | Exemple
 //If you want to pass value (a copy only)
 //public class CustomUnityEvent : UnityEvent<int> { }

@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
         }
 
         inputManager.EnableControls();
+        Debug.Log(inputManager.name);
 
     }
     public void OnDisable()

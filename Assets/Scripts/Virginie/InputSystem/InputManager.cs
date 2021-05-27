@@ -39,21 +39,18 @@ public class InputManager : MonoBehaviour
     #endregion
     #region Property
     protected MobileControls mobileControls;
-    public Camera cam { get; private set; }
     public static InputManager Instance { get; private set; }
     #endregion
 
     private void Awake()
     {
-        if(Instance != null && Instance != this) { 
+        mobileControls = new MobileControls();
+        if (Instance != null && Instance != this) { 
             Destroy(this.gameObject); 
         }
 
         Instance = this;
-        //DontDestroyOnLoad(this.gameObject);
-
-        mobileControls = new MobileControls();
-        cam = Camera.main;
+        DontDestroyOnLoad(this.gameObject);
     }
     private void OnEnable()
     {
@@ -154,7 +151,7 @@ public class InputManager : MonoBehaviour
 
     private Vector3 GetWorldPosition(Vector2 position)
     {
-        return Utils.ScreenToWorld(cam, position);
+        return Utils.ScreenToWorld(Camera.main, position);
     }
 
     public Vector3 GetPrimaryWorldPosition()
