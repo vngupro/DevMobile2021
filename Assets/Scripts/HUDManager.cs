@@ -10,11 +10,9 @@ public class HUDManager : MonoBehaviour
     public Sprite spriteNotesOpen, spriteNotesClose;
     public List<RectTransform> lens;
     public GameObject groupLens;
-
+    public GameObject layerNotes;
     [Header("Animation")]
-    public float lensDuration = 1.0f;
-    //public Sprite spriteLensNormal, spriteLensUV, spriteLensXRay, spriteLensIR, spirteLensNightVision;
-    //public Color colorLensNormal, colorLensUV, colorLensXRay, colorLensIR, colorLensNightVision;
+    public List<float> lensAnimTime;
 
     private List<Vector2> lensPosition = new List<Vector2>();
     private Vector2 buttonLensPosition;
@@ -22,6 +20,8 @@ public class HUDManager : MonoBehaviour
     [Header("Debug")]
     [SerializeField]
     private bool isGroupLensOpen = false;
+    [SerializeField]
+    private bool isLayerNotesOpen = false;
 
     private void Awake()
     {
@@ -35,6 +35,8 @@ public class HUDManager : MonoBehaviour
 
         groupLens.SetActive(false);
         isGroupLensOpen = false;
+        layerNotes.SetActive(false);
+        isLayerNotesOpen = false;
 
     }
     public void NotesToogle()
@@ -47,11 +49,14 @@ public class HUDManager : MonoBehaviour
         {
             buttonNotes.image.sprite = spriteNotesOpen;
         }
+
+        isLayerNotesOpen = !isLayerNotesOpen;
+        layerNotes.SetActive(isLayerNotesOpen);
     }
 
     public void LensToogle()
     {
-        Debug.Log("Toogle Lens");
+        //Debug.Log("Toogle Lens");
         isGroupLensOpen = !isGroupLensOpen;
         StartCoroutine(LensToogleAnimation());
     }
@@ -62,8 +67,6 @@ public class HUDManager : MonoBehaviour
 
     IEnumerator LensToogleAnimation()
     {
-        bool isFinished = false;
-
         if (isGroupLensOpen)
         {
             groupLens.SetActive(isGroupLensOpen);
@@ -71,15 +74,14 @@ public class HUDManager : MonoBehaviour
 
         float timer = 0f;
         
-        while (!isFinished)
+        while (timer <= lensAnimTime[lensAnimTime.Count - 1])
         {
             int index = 0;
 
             foreach (RectTransform len in lens)
             {
-                isFinished = true;
                 timer += Time.deltaTime;
-                float ratio = timer / lensDuration;
+                float ratio = timer / lensAnimTime[index];
 
                 //Open
                 if (isGroupLensOpen)

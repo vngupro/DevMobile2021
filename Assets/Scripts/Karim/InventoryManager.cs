@@ -1,24 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private PlayerInventory playerInventoryy;
-    [SerializeField] private InventoryItem thisItemm;
-
     #region Variable
-    [Header("Inventory Information")]
-    public PlayerInventory playerInventory;
-    [SerializeField] private GameObject blankInventorySlot;
-    [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private Text descriptionText;
+    [Header("Inventory")]
+    [Tooltip(("Add Scriptable Object Player Inventory"))]
+    public PlayerInventory inventory;
+
+    [Header("UI")]
+    [Tooltip("Prefabs for inventory slot")]
+    [SerializeField] private GameObject prefabSlot;
+    [SerializeField] private GameObject panelInventory;
+    [SerializeField] private TMP_Text descriptionText;
 
     [Header("Debug")]
-    public InventoryItem currentItem;
+    [SerializeField] private InventoryItem currentItem;
 
     public bool isOpen { get; private set; }
     public static InventoryManager Instance { get; private set; }
@@ -32,6 +29,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         Instance = this;
+
         MakeInventorySlots();
         SetText("", false);
         isOpen = false;
@@ -46,20 +44,24 @@ public class InventoryManager : MonoBehaviour
 
     private void MakeInventorySlots()
     {
-        if (playerInventory)
+        if (inventory)
         {
-            for (int i = 0; i < playerInventory.myInventory.Count; i++)
-            {
-                GameObject temp =
-                    Instantiate(blankInventorySlot,
-                    inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                if (newSlot)
-                {
-                    newSlot.Setup(playerInventory.myInventory[i], this);
-                }
-            }
+            
+            //for (int i = 0; i < inventory.myInventory.Count; i++)
+            //{
+            //    GameObject temp = Instantiate(
+            //        prefabSlot,
+            //        panelInventory.transform.position, 
+            //        Quaternion.identity
+            //        );
+            //    temp.transform.SetParent(panelInventory.transform);
+
+            //    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+            //    if (newSlot)
+            //    {
+            //        newSlot.Setup(inventory.myInventory[i], this);
+            //    }
+            //}
         }
     }
 
@@ -83,36 +85,34 @@ public class InventoryManager : MonoBehaviour
         isOpen = false;
     }
 
-    // Karim
     private void AddItem(GameObject item)
     {
         GameObject newItem = item;
         Debug.Log(item.name);
-        thisItemm = item.GetComponent<Item>().data;
-        Debug.Log(thisItemm);
+        this.currentItem = item.GetComponent<Item>().data;
+        Debug.Log(this.currentItem);
 
-        if (playerInventory != null && thisItemm != null)
+        if (inventory != null && this.currentItem != null)
         {
-            if (playerInventory.myInventory.Contains(thisItemm))
+            if (inventory.itemList.Contains(this.currentItem))
             {
-                thisItemm.numberHeld += 1;
-                Debug.Log("+1 " + thisItemm.name);
+                this.currentItem.numberHeld += 1;
+                Debug.Log("+1 " + this.currentItem.name);
             }
             else
             {
-                playerInventory.myInventory.Add(thisItemm);
+                inventory.itemList.Add(this.currentItem);
                 MakeInventorySlots();
-                Debug.Log("add item " + thisItemm.name);
+                Debug.Log("add item " + this.currentItem.name);
             }
         }
         Debug.Log(item.name);
     }
 
-    private void DebugItem(GameObject item)
+    public void CreateSlot()
     {
-        Debug.Log(item.name);
-    }
 
+    }
 
     //public void OpenClue(GameObject clue)
     //{

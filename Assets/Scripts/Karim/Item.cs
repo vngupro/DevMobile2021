@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        //Make sprite appear in scene in edit mode
         if (data == null)
         {
             Debug.Log("Item : " + this.name + " has no data !\nPlease add an Inventory Item (Scriptable Object) in \"Data\"");
