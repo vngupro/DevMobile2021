@@ -70,15 +70,19 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private IEnumerator DetectionSlide()
     {
+        //Vector2 startPosScreen = Camera.main.WorldToScreenPoint();
+        startPos = inputManager.GetPrimaryScreenPosition();
         while (true)
         {
-            Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
+//            Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
+            Vector2 positionPrimary = inputManager.GetPrimaryScreenPosition();
+            
             bool hasMovePrimary = Vector2.Distance(startPos, positionPrimary) > distanceTolerance;
 
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;
-                Camera.main.transform.position -= direction * cameraSpeed * Time.deltaTime;
+                Camera.main.transform.position -= direction.normalized * cameraSpeed * Time.deltaTime;
 
                 //Keep Track of previous position
                 startPos = positionPrimary;
