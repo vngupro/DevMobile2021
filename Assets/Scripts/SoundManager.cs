@@ -8,13 +8,14 @@ public class SoundManager : MonoBehaviour
 
     private AudioMixer mixer;
 
-    public static SoundManager instance { get; private set;  }
+    public static SoundManager Instance { get; private set;  }
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+
             foreach (Sound s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
@@ -31,7 +32,6 @@ public class SoundManager : MonoBehaviour
             }
 
             mixer = Resources.Load<AudioMixer>("Audio/NewAudioMixer");
-
             // | Listeners
         }
         else
@@ -40,7 +40,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //How to use : FindObjectOfType<SoundManager>().PlaySound(name);
+    private void Start()
+    {
+        PlaySound("Background");
+    }
+
+    //How to use : SoundManager.Instance.PlaySound(name);
     public void PlaySound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -74,7 +79,15 @@ public class SoundManager : MonoBehaviour
     public void SetMasterVolume(float sliderValue)
     {
         mixer.SetFloat("VolumeMaster", Mathf.Log10(sliderValue) * 20);
-        Debug.Log("Set Master Volume");
+        //Debug.Log("Set Master Volume");
+    }
+
+    public void ChangeMute(bool mute)
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.mute = mute;
+        }
     }
 }
 

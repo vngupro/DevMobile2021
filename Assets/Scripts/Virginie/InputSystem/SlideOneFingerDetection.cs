@@ -6,7 +6,6 @@ public class SlideOneFingerDetection : MonoBehaviour
 {
     #region Variable
     [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
-    [SerializeField, Range(0f, 1f)] private float directionThreshold = 0.9f;        //angle's difference acceptance for dot product
     [SerializeField] private float cameraSpeed = 100.0f;
 
     private InputManager inputManager;
@@ -14,6 +13,7 @@ public class SlideOneFingerDetection : MonoBehaviour
     private Camera cam;
     private Coroutine coroutine;
 
+    private float cameraInitialSpeed;
     private Vector2 startPos;
     private bool isDragging = false;
     #endregion
@@ -23,6 +23,7 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
         cam = Camera.main;
+        cameraInitialSpeed = cameraSpeed;
 
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
@@ -74,40 +75,17 @@ public class SlideOneFingerDetection : MonoBehaviour
         while (true)
         {
             Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
-            Vector2 positionSecondary = inputManager.GetSecondaryWorldPosition();
             bool hasMovePrimary = Vector2.Distance(startPos, positionPrimary) > distanceTolerance;
 
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;
-                Vector2 directionPrimary2D = new Vector2(direction.x, direction.y).normalized;
-                float speed = Vector2.Distance(startPos, positionPrimary) * cameraSpeed * Time.deltaTime;
-                DirectionSlide(directionPrimary2D, speed);
+                cam.transform.position -= direction * cameraSpeed * Time.deltaTime;
 
                 //Keep Track of previous position
                 startPos = positionPrimary;
             }
-
             yield return null;
-        }
-    }
-    private void DirectionSlide(Vector2 direction, float speed)
-    {
-        if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
-        {
-            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - speed, cam.transform.position.z);
-        }
-        else if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
-        {
-            cam.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y + speed, cam.transform.position.z);
-        }
-        else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
-        {
-            cam.transform.position = new Vector3(cam.transform.position.x + speed, cam.transform.position.y, cam.transform.position.z);
-        }
-        else if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
-        {
-            cam.transform.position = new Vector3(cam.transform.position.x - speed, cam.transform.position.y, cam.transform.position.z);
         }
     }
 
@@ -127,5 +105,11 @@ public class SlideOneFingerDetection : MonoBehaviour
     private void IsDraggingTrue()
     {
         isDragging = true;
+    }
+
+    public void ChangeSlideSpeed(float speed)
+    {
+        float ratio = speed / 5f;
+        cameraSpeed = cameraInitialSpeed * ratio;
     }
 }

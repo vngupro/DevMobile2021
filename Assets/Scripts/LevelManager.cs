@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    private BlackScreenScript blackScreen;
     public static LevelManager Instance { get; protected set;}
     private void Awake()
     {
@@ -16,6 +17,8 @@ public class LevelManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+        blackScreen = FindObjectOfType<BlackScreenScript>();
     }
 
     public void OnEnable()
@@ -25,6 +28,7 @@ public class LevelManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene Loaded = " + scene.name);
+        blackScreen.FadeOut();
     }
     public void OnDisable()
     {
@@ -39,6 +43,7 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
+        blackScreen.FadeIn();
         SceneManager.LoadScene(name);
     }
     public void OpenNextScene()

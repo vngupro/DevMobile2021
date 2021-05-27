@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
 
         mobileControls = new MobileControls();
         cam = Camera.main;

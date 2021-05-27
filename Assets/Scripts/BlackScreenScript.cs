@@ -14,8 +14,18 @@ public class BlackScreenScript : MonoBehaviour
     private bool isFadingOut = false;
     private bool hasFinishedFadingOut = false;
     private InputManager inputManager;
+
+    public static BlackScreenScript Instance { get; private set; }
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+
         inputManager = InputManager.Instance;
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0f;
@@ -28,11 +38,6 @@ public class BlackScreenScript : MonoBehaviour
         CustomGameEvents.cinematicFinished.AddListener(FadeOut);
     }
 
-    private void Start()
-    {
-        // VideoPlayerScript.cs verify if black screen is active in awake
-        gameObject.SetActive(false);
-    }
     private void Update()
     {
         if (isFadingIn)

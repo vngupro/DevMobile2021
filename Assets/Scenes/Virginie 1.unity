@@ -1849,7 +1849,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &436461976
@@ -4477,6 +4477,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9015750953740344692, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
+      propertyPath: cameraSpeed
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
 --- !u!114 &1069638323 stripped
@@ -5492,6 +5496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
   - {fileID: 1658723296}
+  fadeInMenuDuration: 2
 --- !u!114 &1332811045
 MonoBehaviour:
   m_ObjectHideFlags: 0

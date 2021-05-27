@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class SingletonScript : MonoBehaviour
 {
-    public static SingletonScript instance { get; private set; }
+    public static SingletonScript Instance { get; private set; }
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if(Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
         }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
 
-            //Add code here
-        }
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 }
