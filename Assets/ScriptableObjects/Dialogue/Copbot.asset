@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Copbot
   m_EditorClassIdentifier: 
   name: Copbot
-  sprite: {fileID: 21300000, guid: 93ba33e3aab051f47b3bff1b5b8ed103, type: 3}
+  sprite: {fileID: 21300000, guid: 500b95cb9fd32cc478f6e9627ed436a3, type: 3}
+  color: {r: 0, g: 0, b: 0, a: 1}

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: aef5bc88d705fe548884ac42a65e1490, type: 2}
   dialogueList:
-  - Hello Officer, welcome in your first crime scene ! I am Copbot, an artificial
-    intelligence here in order to help you for your first day and to give you all
-    the informations about the crime.
+  - Hello Officer, welcome in your first crime scene !
+  - I am Copbot, an A.I (Artificial Intelligence) !
+  - I'm here in order to help you for your first day and to give you all the informations
+    about the crime.
   - "Today we have a body who\u2019s a man called August CHAMBERS he is 20 years
     old and he studies in a science faculty. "
   - According to the testimony of the neighbors, they heard a lot of noise who seems

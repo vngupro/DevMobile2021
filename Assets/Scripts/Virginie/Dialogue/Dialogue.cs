@@ -6,6 +6,6 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     public Character character;
-    [TextArea(5,5)]
+    [TextArea(3,3)]
     public string[] dialogueList;
 }
