@@ -17,7 +17,7 @@ public static class CustomGameEvents
     //public static CustomUnityEvent customUnityEvent = new CustomUnityEvent();
     //public static CustomUnityEvent2 customUnityEvent2 = new CustomUnityEvent2();
     //----------------------------------------------------------------------------
-    
+
     public static UnityEvent openInventory = new UnityEvent();
     public static UnityEvent closeInventory = new UnityEvent();
     public static PickUpEvent pickUpEvent = new PickUpEvent();
