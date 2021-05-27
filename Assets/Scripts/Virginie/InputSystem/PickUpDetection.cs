@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 /* Problem 
  *    RaycastHit2D just hit one layer for now,
@@ -13,12 +15,11 @@ public class PickUpDetection : MonoBehaviour
 {
     [SerializeField]
     GameObject blink;
-
+    
     #region Variable
     [SerializeField] private LayerMask layer2PickUp;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
-
     private InputManager inputManager;
     private InventoryManager inventory;
     private Vector2 startPos;
@@ -26,8 +27,13 @@ public class PickUpDetection : MonoBehaviour
     private float startTime;
     private float endTime;
     private RaycastHit2D hitClue;
+    private int items;
+    public Text counter;
     #endregion
-
+    void Start()
+    {
+        counter.text = items.ToString();
+    }
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -89,6 +95,11 @@ public class PickUpDetection : MonoBehaviour
         object2PickUp.SetActive(false);
         //Destroy(object2PickUp);
         StartCoroutine("CaptureIt");
+        if (object2PickUp.gameObject.tag == "Clue")
+        {
+            items++;
+            counter.text = items.ToString();
+        }
     }
     private GameObject GoBlink;
 
@@ -96,6 +107,8 @@ public class PickUpDetection : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
         GoBlink = Instantiate(blink);
-        Destroy(GoBlink, 0.2f);
+        Destroy(GoBlink, 0.1f);
     }
+    
+
 }
