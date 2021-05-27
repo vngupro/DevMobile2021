@@ -78,7 +78,7 @@ public class SlideOneFingerDetection : MonoBehaviour
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;
-                Camera.main.transform.position += direction * cameraSpeed * Time.deltaTime;
+                Camera.main.transform.position -= direction * cameraSpeed * Time.deltaTime;
 
                 //Keep Track of previous position
                 startPos = positionPrimary;
