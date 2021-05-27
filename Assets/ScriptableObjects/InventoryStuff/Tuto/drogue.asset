@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: drogue
   m_EditorClassIdentifier: 
   itemName: 
-  itemDescription: 
+  itemDescription: 'Analysis showed that the pills are some ecstasy '
   hasDefaultImage: 0
   itemImage: {fileID: 0}
   numberHeld: 0

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Coueteau_sang
   m_EditorClassIdentifier: 
   itemName: 
-  itemDescription: 
+  itemDescription: "\rAnalysis of the blood on the knife revealed it to be A +, on
+    the knife a partial fingerprint was found which would appear to be the same one
+    found on the window"
   hasDefaultImage: 0
   itemImage: {fileID: 0}
   numberHeld: 0
