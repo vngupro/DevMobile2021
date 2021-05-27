@@ -11,8 +11,6 @@ public class HUDManager : MonoBehaviour
     public List<RectTransform> lens;
     public GameObject groupLens;
 
-    private bool isGroupLensOpen = false;
-
     [Header("Animation")]
     public float lensDuration = 1.0f;
     //public Sprite spriteLensNormal, spriteLensUV, spriteLensXRay, spriteLensIR, spirteLensNightVision;
@@ -21,15 +19,23 @@ public class HUDManager : MonoBehaviour
     private List<Vector2> lensPosition = new List<Vector2>();
     private Vector2 buttonLensPosition;
 
-    
+    [Header("Debug")]
+    [SerializeField]
+    private bool isGroupLensOpen = false;
+
     private void Awake()
     {
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
         foreach(RectTransform len in lens)
         {
             lensPosition.Add(len.anchoredPosition);
+            Debug.Log(len.anchoredPosition);
             len.anchoredPosition = buttonLensPosition;
         }
+
+        groupLens.SetActive(false);
+        isGroupLensOpen = false;
+
     }
     public void NotesToogle()
     {
@@ -62,10 +68,12 @@ public class HUDManager : MonoBehaviour
         {
             groupLens.SetActive(isGroupLensOpen);
         }
+
+        float timer = 0f;
+        
         while (!isFinished)
         {
             int index = 0;
-            float timer = 0f;
 
             foreach (RectTransform len in lens)
             {
@@ -76,32 +84,16 @@ public class HUDManager : MonoBehaviour
                 //Open
                 if (isGroupLensOpen)
                 {
-                    Vector2 direction = lensPosition[index] - len.anchoredPosition;
-                    Vector2 newPos = len.anchoredPosition + direction.normalized;
-                    
-                    //Vector2 direction = 
-                    //len.anchoredPosition += direction.normalized;
-
-                    //if (Vector2.Distance(len.anchoredPosition, lensPosition[index]) > 0.1f)
-                    //{
-                    //    isFinished = false;
-                    //}
-
+                    len.anchoredPosition = Vector2.Lerp(buttonLensPosition, lensPosition[index], ratio);
                 }
                 //Close
                 else
                 {
-                    //Vector2 direction = buttonLensPosition - len.anchoredPosition;
-                    //len.anchoredPosition += direction.normalized;
-                    //if (Vector2.Distance(len.anchoredPosition, buttonLensPosition) > 0.1f)
-                    //{
-                    //    isFinished = false;
-                    //}
+                    len.anchoredPosition = Vector2.Lerp(lensPosition[index], buttonLensPosition, ratio);
                 }
-
-
                 index++;
             }
+
             yield return null;
         }
 
