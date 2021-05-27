@@ -6,29 +6,38 @@ using UnityEngine.SocialPlatforms;
 
 public class PlayService : MonoBehaviour
 {
-    private void Start()
+
+    private void Awake()
     {
         DontDestroyOnLoad(this);
 
         try
         {
-            PlayGamesClientConfiguration configuration = new PlayGamesClientConfiguration.Builder().Build();
-            PlayGamesPlatform.InitializeInstance(configuration);
-            PlayGamesPlatform.DebugLogEnabled = true;
+            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+
+            PlayGamesPlatform.InitializeInstance(config);
+
+            // recommended for debugging:
+            //PlayGamesPlatform.DebugLogEnabled = true;
+
+            // Activate the Google Play Games platform
             PlayGamesPlatform.Activate();
-            Social.localUser.Authenticate((bool success) => { });
+
+            // authenticate user:
+            PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) => {
+                // handle results
+            });
         }
         catch (Exception exception)
         {
             Debug.Log(exception);
         }
-
     }
 
     public void ShowAchivments()
     {
         // show achievements UI
-        Social.ShowAchievementsUI();
+        Social.ShowAchievementsUI();       
     }
 
     public void ShowLeaderboard()
@@ -37,8 +46,12 @@ public class PlayService : MonoBehaviour
         Social.ShowLeaderboardUI();
     }
 
-    public void UnlockAchivments(String Id)
+    public void UnlockAchievement(String id)
     {
-        
+        // unlock achievement 
+        Social.ReportProgress(id, 100.0f, (bool success) => {
+            // handle success or failure
+        });
     }
+
 }
