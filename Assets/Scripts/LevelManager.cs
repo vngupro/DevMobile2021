@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        blackScreen.FadeIn();
+        //blackScreen.FadeIn();
         SceneManager.LoadScene(name);
     }
     public void OpenNextScene()
