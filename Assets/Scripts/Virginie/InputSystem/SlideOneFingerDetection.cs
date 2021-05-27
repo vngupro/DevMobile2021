@@ -10,7 +10,6 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private InputManager inputManager;
     private InventoryManager inventory;
-    private Camera cam;
     private Coroutine coroutine;
 
     private float cameraInitialSpeed;
@@ -22,7 +21,6 @@ public class SlideOneFingerDetection : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
-        cam = Camera.main;
         cameraInitialSpeed = cameraSpeed;
 
         // | Listeners 
@@ -72,15 +70,19 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private IEnumerator DetectionSlide()
     {
+        //Vector2 startPosScreen = Camera.main.WorldToScreenPoint();
+        startPos = inputManager.GetPrimaryScreenPosition();
         while (true)
         {
-            Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
+//            Vector2 positionPrimary = inputManager.GetPrimaryWorldPosition();
+            Vector2 positionPrimary = inputManager.GetPrimaryScreenPosition();
+            
             bool hasMovePrimary = Vector2.Distance(startPos, positionPrimary) > distanceTolerance;
 
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;
-                cam.transform.position -= direction * cameraSpeed * Time.deltaTime;
+                Camera.main.transform.position -= direction.normalized * cameraSpeed * Time.deltaTime;
 
                 //Keep Track of previous position
                 startPos = positionPrimary;

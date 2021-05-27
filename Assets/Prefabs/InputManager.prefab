@@ -81,7 +81,7 @@ MonoBehaviour:
   zoomSpeed: 0.2
   zoomInMax: 2
   zoomOutMax: 5
-  distanceTolerance: 15
+  distanceTolerance: 20
 --- !u!114 &2686448324454584322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 0.1
-  cameraSpeed: 100
+  distanceTolerance: 10
+  cameraSpeed: 80
 --- !u!114 &2686448324454584321
 MonoBehaviour:
   m_ObjectHideFlags: 0

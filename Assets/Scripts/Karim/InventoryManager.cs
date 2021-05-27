@@ -46,23 +46,29 @@ public class InventoryManager : MonoBehaviour
     {
         if (inventory)
         {
-            
-            //for (int i = 0; i < inventory.myInventory.Count; i++)
-            //{
-            //    GameObject temp = Instantiate(
-            //        prefabSlot,
-            //        panelInventory.transform.position, 
-            //        Quaternion.identity
-            //        );
-            //    temp.transform.SetParent(panelInventory.transform);
-
-            //    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-            //    if (newSlot)
-            //    {
-            //        newSlot.Setup(inventory.myInventory[i], this);
-            //    }
-            //}
+            foreach(InventoryItem item in inventory.itemList)
+            {
+                CreateSlot(item);
+            }
         }
+    }
+
+    public void CreateSlot(InventoryItem item)
+    {
+        GameObject temp = Instantiate(
+                    prefabSlot,
+                    panelInventory.transform.position,
+                    Quaternion.identity
+                    );
+        temp.transform.SetParent(panelInventory.transform);
+
+        InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+        if (newSlot)
+        {
+            Debug.Log(item.name);
+            newSlot.AddItemToSlot(item);
+        }
+
     }
 
     public void SetText(string description, bool buttonActive)
@@ -107,11 +113,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
         Debug.Log(item.name);
-    }
-
-    public void CreateSlot()
-    {
-
     }
 
     //public void OpenClue(GameObject clue)

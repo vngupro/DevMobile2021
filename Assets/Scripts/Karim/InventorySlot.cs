@@ -1,35 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class InventorySlot : MonoBehaviour
+using TMPro;
+using UnityEngine.EventSystems;
+public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
     #region Variable
-    [Header("UI Stuff to change")]
-    [SerializeField] private Text itemNumberText;
-    [SerializeField] private Image itemImage;
+    [Header("UI")]
+    [SerializeField] private TMP_Text textNumber;
+    [SerializeField] private Image image;
 
     [Header("Variables from the item")]
-    public InventoryItem thisItem;
-    public InventoryManager thisManager;
+    public InventoryItem item;
+    public InventoryManager inventoryManager;
     #endregion
-    public void Setup(InventoryItem newItem, InventoryManager newManager)
+
+    public void AddItemToSlot(InventoryItem _item)
     {
-        thisItem = newItem;
-        thisManager = newManager;
-        if (thisItem)
-        {
-            itemImage.sprite = thisItem.itemImage;
-            itemNumberText.text = "" + thisItem.numberHeld;
-        }
-    }
-    public void ClickedOn()
-    {
-        if (thisItem)
-        {
-            thisManager.SetupDescription(thisItem.itemDescription, thisItem);
-        }
+        this.item = _item;
+
+        if(_item.itemImage != null) this.image.sprite = _item.itemImage;
+        this.textNumber.text = _item.numberHeld.ToString();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("Click On Inventory Slot");
+    }
 }
