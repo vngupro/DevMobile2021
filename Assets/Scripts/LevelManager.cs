@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     {
         if(Instance != null && Instance != this)
         {
+            Debug.Log("Destroy" + this.gameObject.name);
             Destroy(this.gameObject);
             return;
         }
@@ -29,14 +30,16 @@ public class LevelManager : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded = " + scene.name);
-        if(blackScreen != null)
+
+        if (blackScreen != null)
         {
-            blackScreen.FadeOut();
+            if(scene.name == "Menu")
+                blackScreen.FadeOut();
         }
 
         inputManager.EnableControls();
-        Debug.Log(inputManager.name);
+        CustomGameEvents.changeScene.Invoke();
+        Debug.Log("Scene Loaded = " + scene.name);
 
     }
     public void OnDisable()

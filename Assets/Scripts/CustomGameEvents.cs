@@ -34,6 +34,8 @@ public static class CustomGameEvents
     public static UnityEvent hasNotInteruptVideo = new UnityEvent();
     public static UnityEvent hasTapScreen = new UnityEvent();
     public static UnityEvent enterMenu = new UnityEvent();
+
+    public static UnityEvent changeScene = new UnityEvent();
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }

@@ -34,8 +34,8 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        //Debug.Log("New dialogue");
-        textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
+        //Debug.Log("New dialogueList");
+        textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
         textName.text = dialogues[characterIndex].character.name;
         imageCharacter.sprite = dialogues[characterIndex].character.sprite;
         imageCharacter.color = dialogues[characterIndex].character.color;
@@ -61,10 +61,10 @@ public class DialogueManager : MonoBehaviour
         int characterCount = dialogues.Length;
         if (characterIndex < characterCount)
         {
-            int dialogueCount = dialogues[characterIndex].dialogue.Length;
+            int dialogueCount = dialogues[characterIndex].dialogueList.Length;
             if (dialogueIndex < dialogueCount)
             {
-                textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
+                textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
                 //Debug.Log("Next Dialogue");
             }
             else
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         int characterCount = dialogues.Length;
         if (characterIndex < characterCount)
         {
-            textDialogue.text = dialogues[characterIndex].dialogue[dialogueIndex];
+            textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
             //Debug.Log("Next Character");
         }
         else
