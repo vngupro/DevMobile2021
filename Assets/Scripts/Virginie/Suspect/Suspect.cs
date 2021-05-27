@@ -35,6 +35,7 @@ public enum SexeType
 
 public enum Nationality
 {
+    None,
     French,
     English,
     Italian,

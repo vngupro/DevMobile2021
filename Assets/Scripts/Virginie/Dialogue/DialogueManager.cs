@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("New dialogue");
+        //Debug.Log("New dialogue");
         textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
         textName.text = dialogues[characterIndex].character.name;
         imageCharacter.sprite = dialogues[characterIndex].character.sprite;
@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
             if (dialogueIndex < dialogueCount)
             {
                 textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
-                Debug.Log("Next Dialogue");
+                //Debug.Log("Next Dialogue");
             }
             else
             {
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         if (characterIndex < characterCount)
         {
             textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
-            Debug.Log("Next Character");
+            //Debug.Log("Next Character");
         }
         else
         {
@@ -113,9 +113,7 @@ public class DialogueManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             float ratio = timer / animDuration;
-            //float newValue = ratio * sizeDeltaNameX / 100f;
             float newValue = Mathf.Lerp(0, sizeDeltaNameX, ratio);
-            Debug.Log("New value = " + newValue);
             backgroundName.sizeDelta = new Vector2(newValue, backgroundName.sizeDelta.y);
 
             yield return null;
