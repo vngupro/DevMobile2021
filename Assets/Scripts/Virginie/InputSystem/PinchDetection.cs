@@ -5,6 +5,7 @@ using Cinemachine;
 public class PinchDetection : MonoBehaviour
 {
     #region Variable
+    [SerializeField] private float defaultZoom = 5.0f;
     [SerializeField] private float zoomSpeed = 0.2f;
     [SerializeField] private float zoomInMax = 2f;
     [SerializeField] private float zoomOutMax = 5f;
@@ -12,15 +13,12 @@ public class PinchDetection : MonoBehaviour
 
     private InputManager inputManager;
     private InventoryManager inventory;
-    private CinemachineVirtualCamera virtualCamera;
     private Coroutine coroutine;
-
     #endregion
     private void Awake()
     {
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
-        virtualCamera = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
     }
     private void OnEnable()
     {
@@ -69,16 +67,16 @@ public class PinchDetection : MonoBehaviour
             // Zoom Out
             if(distance > previousDistance + distanceTolerance)
             {
-                float orthographicSize = virtualCamera.m_Lens.OrthographicSize;
+                float orthographicSize = Camera.main.orthographicSize;
                 float target = Mathf.Clamp(orthographicSize - zoomSpeed, zoomInMax, zoomOutMax);
-                virtualCamera.m_Lens.OrthographicSize = target;
+                Camera.main.orthographicSize = target;
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
             {
-                float orthographicSize = virtualCamera.m_Lens.OrthographicSize;
+                float orthographicSize = Camera.main.orthographicSize;
                 float target = Mathf.Clamp(orthographicSize + zoomSpeed, zoomInMax, zoomOutMax);
-                virtualCamera.m_Lens.OrthographicSize = target;
+                Camera.main.orthographicSize = target;
             }
 
             //Keep Track of Previous Distance

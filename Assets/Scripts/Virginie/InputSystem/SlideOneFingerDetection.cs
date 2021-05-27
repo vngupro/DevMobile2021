@@ -31,14 +31,14 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager.OnStartTouchPrimary += StartSlide;
         inputManager.OnEndTouchPrimary += EndSlide;
         inputManager.OnStartTouchSecondary += InterruptSlide;
-        inputManager.OnEndTouchSecondary += ReSlide;
+       // inputManager.OnEndTouchSecondary += ReSlide;
     }
     private void OnDisable()
     {
         inputManager.OnStartTouchPrimary -= StartSlide;
         inputManager.OnEndTouchPrimary -= EndSlide;
         inputManager.OnStartTouchSecondary -= InterruptSlide;
-        inputManager.OnEndTouchSecondary -= ReSlide;
+        //inputManager.OnEndTouchSecondary -= ReSlide;
     }
 
     private void StartSlide(Vector2 position, float time)
