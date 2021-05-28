@@ -4037,7 +4037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bae01df15f07f4bafa85b272ea21a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 2be22185ff868504cadff52ebd83d13e, type: 2}
   prefabSlot: {fileID: 3043490068196304477, guid: f132aec745a48be4eb67cbc401e2a4e7, type: 3}
   panelInventory: {fileID: 965680973234746107}
   descriptionText: {fileID: 965680974270733836}

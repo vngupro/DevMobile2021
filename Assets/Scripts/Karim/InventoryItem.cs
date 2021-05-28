@@ -8,7 +8,7 @@ public class InventoryItem : ScriptableObject
     public string description;
     public bool hasDefaultImage = true;
     public Sprite sprite;
-    public int number;
+    public int number = 1;
 
     public bool isPickable;
     public bool isDragable;

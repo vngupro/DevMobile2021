@@ -11,11 +11,15 @@ public class InventoryManager : MonoBehaviour
     [Tooltip("Prefabs for inventory slot")]
     [SerializeField] private GameObject prefabSlot;
     [SerializeField] private GameObject panelInventory;
+    [SerializeField] private int maxNumberPerRow = 9;
+    [SerializeField] private int space = 50;
+
     [SerializeField] private TMP_Text descriptionText;
 
     [Header("Debug")]
     [SerializeField] private InventoryItem currentItem;
-
+    [SerializeField] private int countSlot = 0;
+    [SerializeField] private int row = 0;
     public bool isOpen { get; private set; }
     public static InventoryManager Instance { get; private set; }
     #endregion
@@ -54,19 +58,21 @@ public class InventoryManager : MonoBehaviour
 
     public void CreateSlot(InventoryItem item)
     {
-        GameObject temp = Instantiate(
-                    prefabSlot,
-                    panelInventory.transform.position,
-                    Quaternion.identity
-                    );
-        temp.transform.SetParent(panelInventory.transform);
-
+        GameObject temp = Instantiate(prefabSlot, panelInventory.transform);
         InventorySlot newSlot = temp.GetComponent<InventorySlot>();
         if (newSlot)
         {
             Debug.Log(item.name);
             newSlot.AddItemToSlot(item);
         }
+
+        if (countSlot > 0 && (countSlot % maxNumberPerRow) == 0)
+        {
+            row++;
+        }
+
+        temp.transform.position = new Vector2(temp.transform.position.x + space * (countSlot % maxNumberPerRow), temp.transform.position.y - space * row);
+        countSlot++;
 
     }
 
@@ -92,7 +98,6 @@ public class InventoryManager : MonoBehaviour
 
     private void AddItem(GameObject item)
     {
-        GameObject newItem = item;
         Debug.Log(item.name);
         this.currentItem = item.GetComponent<Item>().data;
         Debug.Log(this.currentItem);
@@ -107,7 +112,7 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 inventory.itemList.Add(this.currentItem);
-                MakeInventorySlots();
+                CreateSlot(this.currentItem);
                 Debug.Log("add item " + this.currentItem.name);
             }
         }
