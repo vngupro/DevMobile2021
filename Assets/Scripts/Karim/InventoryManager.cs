@@ -20,7 +20,12 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private InventoryItem currentItem;
     [SerializeField] private int countSlot = 0;
     [SerializeField] private int row = 0;
+
+    [SerializeField]
+    private float slotWidth;
     public bool isOpen { get; private set; }
+    
+ 
     public static InventoryManager Instance { get; private set; }
     #endregion
     private void Awake()
@@ -37,12 +42,12 @@ public class InventoryManager : MonoBehaviour
         SetText("", false);
         isOpen = false;
 
+        slotWidth = prefabSlot.GetComponent<RectTransform>().rect.width;
         // | Listeners
         // MenuManager.cs
         CustomGameEvents.openInventory.AddListener(OpenInventory);
         CustomGameEvents.closeInventory.AddListener(CloseInventory);
         CustomGameEvents.pickUpEvent.AddListener(AddItem);
-        //CustomGameEvents.pickUpEvent.AddListener(DebugItem);
     }
 
     private void MakeInventorySlots()
@@ -71,7 +76,9 @@ public class InventoryManager : MonoBehaviour
             row++;
         }
 
-        temp.transform.position = new Vector2(temp.transform.position.x + space * (countSlot % maxNumberPerRow), temp.transform.position.y - space * row);
+        //Here is bug with scale on phone 
+        //try not to set it with fix number or else break scale
+        temp.transform.position = new Vector2(temp.transform.position.x + slotWidth * (countSlot % maxNumberPerRow), temp.transform.position.y - slotWidth * row);
         countSlot++;
 
     }

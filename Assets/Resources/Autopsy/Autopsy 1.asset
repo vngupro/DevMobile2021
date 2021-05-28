@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb52263369d9ec64cacab612d8214bcc, type: 3}
-  m_Name: Inventory
+  m_Script: {fileID: 11500000, guid: f46b78b5a0e5f5c428e599b7eda0c925, type: 3}
+  m_Name: Autopsy 1
   m_EditorClassIdentifier: 
-  itemList:
-  - {fileID: 11400000, guid: f2f4e6c004c6dec4a9ce4c9108d74e85, type: 2}
+  title: Autopsy Report
+  corps: Lorem Ipsum

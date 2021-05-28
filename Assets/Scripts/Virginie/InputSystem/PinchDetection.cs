@@ -23,7 +23,6 @@ public class PinchDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
 
-        Debug.Log("Pinch Detection");
         // Invoker | LevelManager.cs
         CustomGameEvents.changeScene.AddListener(RecupCamera);
     }
