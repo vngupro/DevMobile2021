@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class DoorScript : MonoBehaviour
 {
-    #region Variable
-    [SerializeField] private LayerMask layer2Drag;
+    [Tooltip("Virtual camera corresponding to the NEXT location")]
+    public CinemachineVirtualCamera vcam;
 
-    private InputManager inputManager;
-    private InventoryManager inventory;
-    private Coroutine coroutine;
-    private GameObject objectDraging;
-    private SwipeDetection swipe;
-    private RaycastHit2D hitDrag;
-    #endregion
-
+    public Vector3 vcamStartPos { get; private set; }
     private void Awake()
     {
-        inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
+        vcamStartPos = new Vector3(
+            vcam.transform.position.x,
+            vcam.transform.position.y,
+            -10);
     }
 }

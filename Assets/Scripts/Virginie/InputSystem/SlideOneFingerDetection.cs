@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class SlideOneFingerDetection : MonoBehaviour
 {
     #region Variable
@@ -15,6 +15,7 @@ public class SlideOneFingerDetection : MonoBehaviour
     private float cameraInitialSpeed;
     private Vector2 startPos;
     private bool isDragging = false;
+    private CinemachineVirtualCamera vcam;
     #endregion
 
     private void Awake()
@@ -22,9 +23,17 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
         cameraInitialSpeed = cameraSpeed;
-
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
+        // doorscripts.cs
+        CustomGameEvents.switchCamera.AddListener(GetVirtualCamera);
+    }
+
+    private void GetVirtualCamera(CinemachineVirtualCamera _vcam)
+    {
+        
+        vcam = _vcam;
+        Debug.Log(vcam.name);
     }
     private void OnEnable()
     {
@@ -82,7 +91,7 @@ public class SlideOneFingerDetection : MonoBehaviour
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;
-                Camera.main.transform.position -= direction.normalized * cameraSpeed * Time.deltaTime;
+                vcam.transform.position -= direction.normalized * cameraSpeed * Time.deltaTime;
 
                 //Keep Track of previous position
                 startPos = positionPrimary;

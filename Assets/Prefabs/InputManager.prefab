@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2686448324454584322}
   - component: {fileID: 2686448324454584333}
   - component: {fileID: 9015750953740344692}
-  - component: {fileID: 2331104137298466465}
+  - component: {fileID: 3135973029160292108}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -115,6 +115,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   delayBeforeDrag: 0
+  slide: {fileID: 9015750953740344692}
 --- !u!114 &9015750953740344692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceTolerance: 10
   cameraSpeed: 80
---- !u!114 &2331104137298466465
+--- !u!114 &3135973029160292108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2686448324454584324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bfeca173a7f6a419121c8f933ce25b, type: 3}
+  m_Script: {fileID: 11500000, guid: 098a8c494198a6e4a8553ed271e4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layer:
