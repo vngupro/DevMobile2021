@@ -69,7 +69,16 @@ public class SwitchLocationDetection : MonoBehaviour
             timer < timerBeforeHold
             )
         {
-            StartCoroutine(SwitchLocation());
+            if(blackscreen != null)
+            {
+                StartCoroutine(SwitchLocation());
+            }
+            else
+            {
+                DoorScript door = hitDoor.transform.gameObject.GetComponent<DoorScript>();
+                CustomGameEvents.switchLocation.Invoke(door);
+            }
+
         }
     }
     
