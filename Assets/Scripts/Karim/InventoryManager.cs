@@ -38,11 +38,12 @@ public class InventoryManager : MonoBehaviour
 
         Instance = this;
 
-        MakeInventorySlots();
         SetText("", false);
         isOpen = false;
 
         slotWidth = prefabSlot.GetComponent<RectTransform>().rect.width;
+
+        MakeInventorySlots();
         // | Listeners
         // MenuManager.cs
         CustomGameEvents.openInventory.AddListener(OpenInventory);
@@ -78,7 +79,8 @@ public class InventoryManager : MonoBehaviour
 
         //Here is bug with scale on phone 
         //try not to set it with fix number or else break scale
-        temp.transform.position = new Vector2(temp.transform.position.x + slotWidth * (countSlot % maxNumberPerRow), temp.transform.position.y - slotWidth * row);
+        RectTransform rectTransform = temp.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x + (slotWidth * 2) * (countSlot % maxNumberPerRow), rectTransform.anchoredPosition.y - (slotWidth * 2) * row);
         countSlot++;
 
     }

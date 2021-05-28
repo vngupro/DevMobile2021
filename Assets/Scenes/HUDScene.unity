@@ -1343,6 +1343,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965680974825283352, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: space
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974825283352, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: maxNumberPerRow
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 965680974825283357, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_Pivot.x
       value: 0
