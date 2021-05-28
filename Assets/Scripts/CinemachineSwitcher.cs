@@ -21,16 +21,16 @@ public class CinemachineSwitcher : MonoBehaviour
     private void SwitchPriority(DoorScript door)
     {
         ResetPriorities();
-        door.vcam.GetComponent<CinemachineConfiner>().InvalidatePathCache();
-        door.vcam.Priority = 1;
-        door.vcam.transform.position = door.vcamStartPos;
+        door.vcamOfNEXTLocation.GetComponent<CinemachineConfiner>().InvalidatePathCache();
+        door.vcamOfNEXTLocation.Priority = 1;
+        door.vcamOfNEXTLocation.transform.position = door.vcamStartPos;
         Camera.main.transform.position = new Vector3(
             Camera.main.transform.position.x, 
             Camera.main.transform.position.y, 
             Camera.main.nearClipPlane);
 
         // OneSlideFinger.cs
-        CustomGameEvents.switchCamera.Invoke(door.vcam);
+        CustomGameEvents.switchCamera.Invoke(door.vcamOfNEXTLocation);
     }
 
     private void ResetPriorities()

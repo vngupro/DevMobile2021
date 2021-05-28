@@ -23,6 +23,7 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
         cameraInitialSpeed = cameraSpeed;
+        vcam = FindObjectOfType<CinemachineVirtualCamera>();
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
         // doorscripts.cs
