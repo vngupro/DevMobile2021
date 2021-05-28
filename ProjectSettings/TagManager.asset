@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clue
+  - CameraItem
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - 
   - Item
-  - 
+  - Door
   - 
   - 
   - 

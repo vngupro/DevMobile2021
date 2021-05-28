@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Cinemachine;
 
 //How to use :
 
@@ -34,10 +35,16 @@ public static class CustomGameEvents
     public static UnityEvent hasNotInteruptVideo = new UnityEvent();
     public static UnityEvent hasTapScreen = new UnityEvent();
     public static UnityEvent enterMenu = new UnityEvent();
+
+    public static UnityEvent changeScene = new UnityEvent();
+    public static SwitchEvent switchLocation = new SwitchEvent();
+    public static CameraEvent switchCamera = new CameraEvent();
 }
 
 public class PickUpEvent : UnityEvent<GameObject> { }
 public class InventoryEvent : UnityEvent<InventoryItem> { }
+public class SwitchEvent : UnityEvent<DoorScript> { }
+public class CameraEvent : UnityEvent<CinemachineVirtualCamera> { }
 // | Exemple
 //If you want to pass value (a copy only)
 //public class CustomUnityEvent : UnityEvent<int> { }

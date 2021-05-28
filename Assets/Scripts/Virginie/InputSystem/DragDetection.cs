@@ -7,13 +7,12 @@ public class DragDetection : MonoBehaviour
     #region Variable
     [SerializeField] private LayerMask layer2Drag;
     [SerializeField] private float delayBeforeDrag = 0.2f;              //time before starting drag (less conflict with pick up)
+    [SerializeField] private SlideOneFingerDetection slide;
 
     private InputManager inputManager;
     private InventoryManager inventory;
-    private Camera cam;
     private Coroutine coroutine;
     private GameObject objectDraging;
-    private SwipeDetection swipe;
     private RaycastHit2D hitDrag;
     #endregion
 
@@ -21,8 +20,6 @@ public class DragDetection : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
-        cam = Camera.main;
-        swipe = GetComponent<SwipeDetection>();
     }
     private void OnEnable()
     {
@@ -51,9 +48,9 @@ public class DragDetection : MonoBehaviour
             objectDraging = hitDrag.transform.gameObject;
             coroutine = StartCoroutine(Drag()); 
 
-            if(swipe != null)
+            if(slide != null)
             {
-                swipe.StopSwipe();
+                slide.StopSlide();
             }
 
             CustomGameEvents.dragEvent.Invoke();

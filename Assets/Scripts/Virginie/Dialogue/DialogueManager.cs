@@ -8,11 +8,10 @@ public class DialogueManager : MonoBehaviour
 {
     [Tooltip("Add Dialogue Scriptable Object")]
     public Dialogue[] dialogues;
-    [Tooltip("Canvas Text_Dialogue")]
+
+    [Header("UI")]
     public TMP_Text textDialogue;
-    [Tooltip("Canvas Text_Name")]
     public TMP_Text textName;
-    [Tooltip("Canvas Image_Character")]
     public Image imageCharacter;
 
     [Header("Animation")]
@@ -35,7 +34,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        //Debug.Log("New dialogue");
+        //Debug.Log("New dialogueList");
         textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
         textName.text = dialogues[characterIndex].character.name;
         imageCharacter.sprite = dialogues[characterIndex].character.sprite;

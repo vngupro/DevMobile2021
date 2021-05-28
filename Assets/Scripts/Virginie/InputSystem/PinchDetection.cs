@@ -14,11 +14,18 @@ public class PinchDetection : MonoBehaviour
     private InputManager inputManager;
     private InventoryManager inventory;
     private Coroutine coroutine;
+
+    private CinemachineVirtualCamera virtualCamera;
+    private Camera cameraItem;
     #endregion
     private void Awake()
     {
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
+
+        Debug.Log("Pinch Detection");
+        // Invoker | LevelManager.cs
+        CustomGameEvents.changeScene.AddListener(RecupCamera);
     }
     private void OnEnable()
     {
@@ -31,12 +38,27 @@ public class PinchDetection : MonoBehaviour
         inputManager.OnEndTouchSecondary -= EndZoom;
     }
 
+    public void RecupCamera()
+    {
+        GameObject cam = GameObject.FindGameObjectWithTag("CameraItem");
+        if (cam == null) return;
+
+        cameraItem = cam.GetComponent<Camera>();
+        virtualCamera = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
+        cameraItem.orthographicSize = defaultZoom;
+        virtualCamera.m_Lens.OrthographicSize = defaultZoom;
+
+        Debug.Log(cameraItem.name);
+    }
+
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
         if (inventory != null)
         {
             if (inventory.isOpen) return;
         }
+
+        if (virtualCamera == null || cameraItem == null) return;
 
         coroutine = StartCoroutine(DetectionZoom());
     }
@@ -48,6 +70,8 @@ public class PinchDetection : MonoBehaviour
             if (inventory.isOpen) return;
         }
 
+        if (virtualCamera == null || cameraItem == null) return;
+
         StopCoroutine(coroutine);
     }
 
@@ -55,7 +79,7 @@ public class PinchDetection : MonoBehaviour
     {
         float previousDistance = Vector2.Distance(inputManager.GetPrimaryScreenPosition(), inputManager.GetSecondaryScreenPosition()), 
               distance = 0f;
-
+        
         while (true)
         {
             Vector2 positionPrimary = inputManager.GetPrimaryScreenPosition();
@@ -67,16 +91,14 @@ public class PinchDetection : MonoBehaviour
             // Zoom Out
             if(distance > previousDistance + distanceTolerance)
             {
-                float orthographicSize = Camera.main.orthographicSize;
-                float target = Mathf.Clamp(orthographicSize - zoomSpeed, zoomInMax, zoomOutMax);
-                Camera.main.orthographicSize = target;
+                float newSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
+                ChangeOrthographicSize(newSize);
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
             {
-                float orthographicSize = Camera.main.orthographicSize;
-                float target = Mathf.Clamp(orthographicSize + zoomSpeed, zoomInMax, zoomOutMax);
-                Camera.main.orthographicSize = target;
+                float newSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
+                ChangeOrthographicSize(newSize);
             }
 
             //Keep Track of Previous Distance
@@ -84,5 +106,12 @@ public class PinchDetection : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void ChangeOrthographicSize(float newSize)
+    {
+        float target = Mathf.Clamp(newSize, zoomInMax, zoomOutMax);
+        virtualCamera.m_Lens.OrthographicSize = target;
+        cameraItem.orthographicSize = target;
     }
 }

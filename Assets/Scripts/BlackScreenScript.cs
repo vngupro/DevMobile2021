@@ -120,10 +120,11 @@ public class BlackScreenScript : MonoBehaviour
         if (isFadingOut)
         {
             hasFinishedFadingOut = true;
+            inputManager.EnableControls();
         }
 
         isFadingIn = false;
         isFadingOut = false;
-        inputManager.EnableControls();
+
     }
 }

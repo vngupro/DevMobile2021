@@ -46,7 +46,8 @@ public class InputManager : MonoBehaviour
     {
         mobileControls = new MobileControls();
         if (Instance != null && Instance != this) { 
-            Destroy(this.gameObject); 
+            Destroy(this.gameObject);
+            return;
         }
 
         Instance = this;

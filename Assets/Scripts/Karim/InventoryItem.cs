@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class InventoryItem : ScriptableObject
 {
-    public string itemName;
+    public new string name;
     [TextArea(5,5)]
-    public string itemDescription;
+    public string description;
     public bool hasDefaultImage = true;
-    public Sprite itemImage;
-    public int numberHeld;
+    public Sprite sprite;
+    public int number;
 
     public bool isPickable;
     public bool isDragable;
 
     //Esteban Part 
     public LensEnum filter;
-    public Sprite itemImageOnLens;
+    public Sprite spriteOnLens;
 }
