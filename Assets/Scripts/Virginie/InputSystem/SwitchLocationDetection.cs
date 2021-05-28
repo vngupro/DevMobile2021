@@ -13,16 +13,19 @@ public class SwitchLocationDetection : MonoBehaviour
     private Vector2 endPos;
     private float startTime;
     private float endTime;
+    private RaycastHit2D hitDoor;
 
     private InputManager inputManager;
     private InventoryManager inventory;
-    private RaycastHit2D hitDoor;
+    private BlackScreenScript blackscreen;
+
     #endregion
 
     private void Awake()
     {
         inputManager = InputManager.Instance;
         inventory = InventoryManager.Instance;
+        blackscreen = BlackScreenScript.Instance;
     }
 
     private void OnEnable()
@@ -66,15 +69,17 @@ public class SwitchLocationDetection : MonoBehaviour
             timer < timerBeforeHold
             )
         {
-            DoorScript door = hitDoor.transform.gameObject.GetComponent<DoorScript>();
-            CustomGameEvents.switchLocation.Invoke(door);
+            StartCoroutine(SwitchLocation());
         }
     }
-
-    private IEnumerator SwitchLocation(GameObject door)
+    
+    IEnumerator SwitchLocation()
     {
-        Debug.Log("Change Room");
-        //Animation Fade Black Screen
-        yield return null;
+        blackscreen.FadeIn();
+        yield return new WaitForSeconds(blackscreen.fadeDuration);
+        DoorScript door = hitDoor.transform.gameObject.GetComponent<DoorScript>();
+        CustomGameEvents.switchLocation.Invoke(door);
+        yield return new WaitForSeconds(0);
+        blackscreen.FadeOut();
     }
 }
