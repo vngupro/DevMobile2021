@@ -19,5 +19,5 @@ MonoBehaviour:
   number: 1
   isPickable: 0
   isDragable: 0
-  filter: 0
-  spriteOnLens: {fileID: 0}
+  filter: 4
+  spriteOnLens: {fileID: 21300000, guid: 8cfd717bd3c04d94f9c6a263af690c92, type: 3}
