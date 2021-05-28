@@ -31,9 +31,7 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private void GetVirtualCamera(CinemachineVirtualCamera _vcam)
     {
-        
         vcam = _vcam;
-        Debug.Log(vcam.name);
     }
     private void OnEnable()
     {

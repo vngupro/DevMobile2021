@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
-    [Tooltip("Add Dialogue Scriptable Object")]
-    public Dialogue[] dialogues;
-
     [Header("UI")]
     public TMP_Text textDialogue;
     public TMP_Text textName;
@@ -21,72 +19,85 @@ public class DialogueManager : MonoBehaviour
     private float sizeDeltaNameX;
     private float sizeDeltaDialogueY;
 
-    private int characterIndex = 0, dialogueIndex = 0;
-
     [Header("Debug")]
     [SerializeField]
     private bool isDialogueActive = false;
-
+    [SerializeField]
+    private List<Dialogue> dialoguesSeries = new List<Dialogue>();
+    [SerializeField]
+    private Dialogue currentDialogue;
+    private int levelIndex = 1;
     private void Awake()
     {
-        if(dialogues.Length == 0) {
-            Debug.Log("No Dialogues to show");  
-            return;
-        }
+        string dialoguePath = "Dialogue/General/";
+        GetDialogue(dialoguePath);
+        string partiePath = "Dialogue/Partie " + levelIndex + "/";
+        GetDialogue(partiePath);
 
-        //Debug.Log("New dialogueList");
-        textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
-        textName.text = dialogues[characterIndex].character.name;
-        imageCharacter.sprite = dialogues[characterIndex].character.sprite;
-        imageCharacter.color = dialogues[characterIndex].character.color;
+        NextDialogueByID(1);
 
         sizeDeltaNameX = backgroundName.sizeDelta.x;
         sizeDeltaDialogueY = backgroundDialogue.sizeDelta.y;
         ResetDialogueBox();
-        //isDialogueActive = true;
 
         // | Listener
         CustomGameEvents.changeDialogueActive.AddListener(ChangeDialogueActive);
     }
 
+    private void OnDisable()
+    {
+        foreach (Dialogue dialogue in dialoguesSeries)
+        {
+            dialogue.dialogueIndex = 0;
+        }
+    }
     private void Start()
     {
         StartCoroutine(BoxDialogueAnimation());
     }
-    public void NextDialogue()
+
+    private void GetDialogue(string path)
+    {
+        Dialogue[] tempDialogues = Resources.LoadAll(path, typeof(Dialogue)).Cast<Dialogue>().ToArray();
+        foreach (Dialogue dialogue in tempDialogues)
+        {
+            dialoguesSeries.Add(dialogue);
+        }
+    }
+
+    public void NextDialogueByID(int id)
     {
         if (!isDialogueActive) return;
 
-        dialogueIndex++;
-        int characterCount = dialogues.Length;
-        if (characterIndex < characterCount)
+        foreach(Dialogue dialogue in dialoguesSeries)
         {
-            int dialogueCount = dialogues[characterIndex].dialogueList.Length;
-            if (dialogueIndex < dialogueCount)
+            if(dialogue.dialogueID == id)
             {
-                textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
-                //Debug.Log("Next Dialogue");
-            }
-            else
-            {
-                NextCharacter();
+                ChangeDialogueUI(dialogue);
+
+                return;
             }
         }
     }
 
-    public void NextCharacter()
+    public void ChangeDialogueUI(Dialogue dialogue)
+    {
+        imageCharacter.sprite = dialogue.character.sprite;
+        textName.text = dialogue.character.name;
+        textDialogue.text = dialogue.dialogueList[dialogue.dialogueIndex];
+        dialogue.dialogueIndex++;
+
+        currentDialogue = dialogue;
+    }
+
+    public void NextDialogue()
     {
         if (!isDialogueActive) return;
-        characterIndex++;
-        int characterCount = dialogues.Length;
-        if (characterIndex < characterCount)
+
+        if(currentDialogue.dialogueIndex < currentDialogue.dialogueList.Length)
         {
-            textDialogue.text = dialogues[characterIndex].dialogueList[dialogueIndex];
-            //Debug.Log("Next Character");
-        }
-        else
-        {
-            Debug.Log("No More Character");
+            Debug.Log("Dialogue Index : " + currentDialogue.dialogueIndex);
+            ChangeDialogueUI(currentDialogue);
         }
     }
 

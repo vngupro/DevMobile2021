@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using TMPro;
+
 public class HUDManager : MonoBehaviour
 {
     public Button buttonNotes;
@@ -14,30 +15,53 @@ public class HUDManager : MonoBehaviour
     [Header("Animation")]
     public List<float> lensAnimTime;
 
-    private List<Vector2> lensPosition = new List<Vector2>();
-    private Vector2 buttonLensPosition;
+    [Header("Autopsy")]
+    public TMP_Text autopsyTitle;
+    public TMP_Text autopsyCorps;
+
+    [Header("Case Info")]
+    public TMP_Text caseTitle;
+    public TMP_Text caseCorps;
 
     [Header("Debug")]
     [SerializeField]
-    private bool isGroupLensOpen = false;
+    private bool isGroupLensOpening = false;
     [SerializeField]
-    private bool isLayerNotesOpen = false;
+    private bool isLayerNotesOpening = false;
+    [SerializeField]
+    private bool isAnimationFinished = true;
 
+    private List<Vector2> lensPosition = new List<Vector2>();
+    private Vector2 buttonLensPosition;
+
+    private Autopsy autopsy;
+    private Case caseInfo;
+
+    private int caseIndex = 1;
     private void Awake()
     {
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
         foreach(RectTransform len in lens)
         {
             lensPosition.Add(len.anchoredPosition);
-            //Debug.Log(len.anchoredPosition);
             len.anchoredPosition = buttonLensPosition;
         }
 
         groupLens.SetActive(false);
-        isGroupLensOpen = false;
+        isGroupLensOpening = false;
         layerNotes.SetActive(false);
-        isLayerNotesOpen = false;
+        isLayerNotesOpening = false;
+        isAnimationFinished = true;
 
+        string autopsyPath = "Autopsy/Autopsy " + caseIndex.ToString();
+        autopsy = (Autopsy)Resources.Load(autopsyPath);
+        string casePath = "Case/Case " + caseIndex.ToString();
+        caseInfo = (Case)Resources.Load(casePath);
+
+        autopsyTitle.text = autopsy.title;
+        autopsyCorps.text = autopsy.corps;
+        caseTitle.text = caseInfo.title;
+        caseCorps.text = caseInfo.corps;
     }
     public void NotesToogle()
     {
@@ -45,21 +69,25 @@ public class HUDManager : MonoBehaviour
         {
             buttonNotes.image.sprite = spriteNotesClose;
         }
-        else
+        else if (buttonNotes.image.sprite.name == spriteNotesClose.name)
         {
             buttonNotes.image.sprite = spriteNotesOpen;
         }
 
-        isLayerNotesOpen = !isLayerNotesOpen;
-        layerNotes.SetActive(isLayerNotesOpen);
+        isLayerNotesOpening = !isLayerNotesOpening;
+        layerNotes.SetActive(isLayerNotesOpening);
     }
 
     public void LensToogle()
     {
-        //Debug.Log("Toogle Lens");
-        isGroupLensOpen = !isGroupLensOpen;
-        StartCoroutine(LensToogleAnimation());
+        isGroupLensOpening = !isGroupLensOpening;
+
+        if (isAnimationFinished)
+        {
+            StartCoroutine(LensToogleAnimation());
+        }
     }
+
     public void LensSelected(Image image)
     {
         buttonLens.image.color = image.color;
@@ -67,9 +95,12 @@ public class HUDManager : MonoBehaviour
 
     IEnumerator LensToogleAnimation()
     {
-        if (isGroupLensOpen)
+        isAnimationFinished = false;
+
+        //Show
+        if (isGroupLensOpening)
         {
-            groupLens.SetActive(isGroupLensOpen);
+            groupLens.SetActive(isGroupLensOpening);
         }
 
         float timer = 0f;
@@ -84,7 +115,7 @@ public class HUDManager : MonoBehaviour
                 float ratio = timer / lensAnimTime[index];
 
                 //Open
-                if (isGroupLensOpen)
+                if (isGroupLensOpening)
                 {
                     len.anchoredPosition = Vector2.Lerp(buttonLensPosition, lensPosition[index], ratio);
                 }
@@ -99,10 +130,13 @@ public class HUDManager : MonoBehaviour
             yield return null;
         }
 
-        if (!isGroupLensOpen)
+        //Hide
+        if (!isGroupLensOpening)
         {
-            groupLens.SetActive(isGroupLensOpen);
+            groupLens.SetActive(isGroupLensOpening);
         }
+
+        isAnimationFinished = true;
 
     }
 }
