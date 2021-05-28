@@ -3,14 +3,14 @@ using Cinemachine;
 public class DoorScript : MonoBehaviour
 {
     [Tooltip("Virtual camera corresponding to the NEXT location")]
-    public CinemachineVirtualCamera vcam;
+    public CinemachineVirtualCamera vcamOfNEXTLocation;
 
     public Vector3 vcamStartPos { get; private set; }
     private void Awake()
     {
         vcamStartPos = new Vector3(
-            vcam.transform.position.x,
-            vcam.transform.position.y,
+            vcamOfNEXTLocation.transform.position.x,
+            vcamOfNEXTLocation.transform.position.y,
             -10);
     }
 }

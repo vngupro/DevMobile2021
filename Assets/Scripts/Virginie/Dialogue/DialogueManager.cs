@@ -65,6 +65,10 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void NextDialogueByDialogue(Dialogue dialogue)
+    {
+        ChangeDialogueUI(dialogue);
+    }
     public void NextDialogueByID(int id)
     {
         if (!isDialogueActive) return;
