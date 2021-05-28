@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Couteau_1
   m_EditorClassIdentifier: 
   name: Knife
-  description: 
+  description: 'Analysis showed the presence of the victim''s fingerprints on the
+    knife '
   hasDefaultImage: 1
   sprite: {fileID: 21300000, guid: 67d48aa03efd93348b840b4245d70535, type: 3}
   number: 0

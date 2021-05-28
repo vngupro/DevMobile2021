@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: drogue
   m_EditorClassIdentifier: 
   name: Marijuana
-  description: 
+  description: Drug tests revealed that the pills found in the kitchen were ectasy
   hasDefaultImage: 0
   sprite: {fileID: 0}
   number: 0
