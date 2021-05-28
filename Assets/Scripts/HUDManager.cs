@@ -19,10 +19,11 @@ public class HUDManager : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField]
-    private bool isGroupLensOpen = false;
+    private bool isGroupLensOpening = false;
     [SerializeField]
-    private bool isLayerNotesOpen = false;
-
+    private bool isLayerNotesOpening = false;
+    [SerializeField]
+    private bool isAnimationFinished = true;
     private void Awake()
     {
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
@@ -34,9 +35,10 @@ public class HUDManager : MonoBehaviour
         }
 
         groupLens.SetActive(false);
-        isGroupLensOpen = false;
+        isGroupLensOpening = false;
         layerNotes.SetActive(false);
-        isLayerNotesOpen = false;
+        isLayerNotesOpening = false;
+        isAnimationFinished = true;
 
     }
     public void NotesToogle()
@@ -50,16 +52,22 @@ public class HUDManager : MonoBehaviour
             buttonNotes.image.sprite = spriteNotesOpen;
         }
 
-        isLayerNotesOpen = !isLayerNotesOpen;
-        layerNotes.SetActive(isLayerNotesOpen);
+        isLayerNotesOpening = !isLayerNotesOpening;
+        layerNotes.SetActive(isLayerNotesOpening);
     }
 
     public void LensToogle()
     {
         //Debug.Log("Toogle Lens");
-        isGroupLensOpen = !isGroupLensOpen;
-        StartCoroutine(LensToogleAnimation());
+        isGroupLensOpening = !isGroupLensOpening;
+
+        if (isAnimationFinished)
+        {
+            StartCoroutine(LensToogleAnimation());
+        }
+
     }
+
     public void LensSelected(Image image)
     {
         buttonLens.image.color = image.color;
@@ -67,9 +75,12 @@ public class HUDManager : MonoBehaviour
 
     IEnumerator LensToogleAnimation()
     {
-        if (isGroupLensOpen)
+        isAnimationFinished = false;
+
+        //Show
+        if (isGroupLensOpening)
         {
-            groupLens.SetActive(isGroupLensOpen);
+            groupLens.SetActive(isGroupLensOpening);
         }
 
         float timer = 0f;
@@ -84,7 +95,7 @@ public class HUDManager : MonoBehaviour
                 float ratio = timer / lensAnimTime[index];
 
                 //Open
-                if (isGroupLensOpen)
+                if (isGroupLensOpening)
                 {
                     len.anchoredPosition = Vector2.Lerp(buttonLensPosition, lensPosition[index], ratio);
                 }
@@ -99,10 +110,13 @@ public class HUDManager : MonoBehaviour
             yield return null;
         }
 
-        if (!isGroupLensOpen)
+        //Hide
+        if (!isGroupLensOpening)
         {
-            groupLens.SetActive(isGroupLensOpen);
+            groupLens.SetActive(isGroupLensOpening);
         }
+
+        isAnimationFinished = true;
 
     }
 }
