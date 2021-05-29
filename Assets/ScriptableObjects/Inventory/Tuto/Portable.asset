@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Portable
   m_EditorClassIdentifier: 
   name: Phone
-  description: 
+  description: Cell phone scan showed insulting messages and threats from his friend
+    Edward
   hasDefaultImage: 0
   sprite: {fileID: 0}
   number: 0

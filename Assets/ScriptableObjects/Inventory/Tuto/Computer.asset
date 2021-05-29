@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Computer
   m_EditorClassIdentifier: 
   name: Computer
-  description: 
+  description: Analysis and data recovery showed that the victim had deleted a conversation
+    with a woman
   hasDefaultImage: 0
   sprite: {fileID: 0}
   number: 0

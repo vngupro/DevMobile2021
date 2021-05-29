@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Coueteau_sang
   m_EditorClassIdentifier: 
   name: Knife_Blood
-  description: 
+  description: "Analysis showed that the blood group on the knife is A+, and a\r
+    partial fingerprint was found on it and appears to be the same as on the window"
   hasDefaultImage: 0
   sprite: {fileID: 0}
   number: 0
