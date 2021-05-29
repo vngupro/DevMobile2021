@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[DefaultExecutionOrder(-1)]
 public class CinemachineSwitcher : MonoBehaviour
 {
     public List<CinemachineVirtualCamera> vcamList;

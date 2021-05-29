@@ -3,7 +3,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-1)]
 public class CanvasBlackscreen : MonoBehaviour
 {
-    public CanvasGroup canvasGroup;
+    public CanvasGroup blackscreen;
 
     [Header("Animation")]
     public float fadeDuration = 2.0f;
@@ -20,6 +20,7 @@ public class CanvasBlackscreen : MonoBehaviour
 
         inputManager = InputManager.Instance;
 
+        if (blackscreen == null) blackscreen = GetComponentInChildren<CanvasGroup>();
         // Listen To
         UtilsEvent.startFadeIn.AddListener(FadeIn);
         UtilsEvent.startFadeOut.AddListener(FadeOut);
@@ -31,31 +32,31 @@ public class CanvasBlackscreen : MonoBehaviour
     {
 
         BlockInput();
-        StartCoroutine(Utils.Fade(canvasGroup.alpha, fadeDuration, 1f, 0f, true,
+        StartCoroutine(Utils.Fade(blackscreen.alpha, fadeDuration, 1f, 0f, true,
             returnValue => {
-                canvasGroup.alpha = returnValue;
+                blackscreen.alpha = returnValue;
             }));
     }
 
     public void FadeIn()
     {
         BlockInput();
-        StartCoroutine(Utils.Fade(canvasGroup.alpha, fadeDuration, 0f, 1f, false,
+        StartCoroutine(Utils.Fade(blackscreen.alpha, fadeDuration, 0f, 1f, false,
             returnValue => {
-                canvasGroup.alpha = returnValue;
+                blackscreen.alpha = returnValue;
             }));
     }
 
     private void EndFadeOut()
     {
-        canvasGroup.blocksRaycasts = false;
+        blackscreen.blocksRaycasts = false;
         inputManager.EnableControls();
     }
 
     private void BlockInput()
     {
         inputManager.DisableControls();
-        canvasGroup.blocksRaycasts = true;
+        blackscreen.blocksRaycasts = true;
     }
 }
 
