@@ -12,8 +12,10 @@ public class LevelManager : MonoBehaviour
     private CinemachineBlackscreen cameraBlackscreen;
 
     [Header("Debug")]
-    [SerializeField] private bool hasCameraBlackscreen;
-    [SerializeField] private bool hasCanvasBlackscreen;
+    [SerializeField] private bool hasCameraBlackscreen = false;
+    [SerializeField] private bool hasCanvasBlackscreen = false;
+    [SerializeField] private bool isLoadingScene = false;
+    [SerializeField] private string sceneToLoad;
     public static LevelManager Instance { get; protected set;}
     private void Awake()
     {
@@ -32,10 +34,13 @@ public class LevelManager : MonoBehaviour
 
         if (canvasBlackscreen != null) hasCanvasBlackscreen = true;
         if (cameraBlackscreen != null) hasCameraBlackscreen = true;
-        
+
+        isLoadingScene = false;
+
         // Listen To
         // SwitchLocationDetection.cs
         CustomGameEvents.exitScene.AddListener(OpenSceneByName);
+        UtilsEvent.fadeInEnded.AddListener(LoadNextScene);
     }
 
     public void OnEnable()
@@ -44,8 +49,9 @@ public class LevelManager : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(hasCanvasBlackscreen || cameraBlackscreen) { UtilsEvent.startFadeOut.Invoke();  }
-        
+        if(hasCanvasBlackscreen || hasCameraBlackscreen) { UtilsEvent.startFadeOut.Invoke();  }
+
+        isLoadingScene = false;
         // Listeners | PinchDetection.cs SlideOneFingerDetection.cs
         CustomGameEvents.sceneLoaded.Invoke();
         Debug.Log("Scene Loaded : " + scene.name);
@@ -64,12 +70,37 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        //blackScreen.FadeIn();
-        SceneManager.LoadScene(name);
+        if(hasCameraBlackscreen || hasCanvasBlackscreen)
+        {
+            UtilsEvent.startFadeIn.Invoke();
+            isLoadingScene = true;
+            sceneToLoad = name;
+        }
+        else
+        {
+            SceneManager.LoadScene(name);
+        }
     }
     public void OpenNextScene()
     {
-        int sceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (hasCameraBlackscreen || hasCanvasBlackscreen)
+        {
+            UtilsEvent.startFadeIn.Invoke();
+            isLoadingScene = true;
+            sceneToLoad = SceneManager.GetSceneByBuildIndex(nextSceneIndex).name;
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (!isLoadingScene) return;
+
         SceneManager.LoadScene(sceneToLoad);
     }
     public void QuitGame()

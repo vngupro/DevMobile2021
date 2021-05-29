@@ -12480,6 +12480,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a47dc2e9987284e843e9f30b8b94ff, type: 3}
+--- !u!114 &420325973456272699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 420325972184128284, guid: e7a47dc2e9987284e843e9f30b8b94ff, type: 3}
+  m_PrefabInstance: {fileID: 420325973456272698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d672259d2e08e47914029aad49aa29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2739607437342458887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12487,6 +12498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2739607437343873704, guid: 576c6aa3bd634f146b4c5720dd52fbdd, type: 3}
+      propertyPath: canvasBlackscreen
+      value: 
+      objectReference: {fileID: 420325973456272699}
     - target: {fileID: 2739607437343873705, guid: 576c6aa3bd634f146b4c5720dd52fbdd, type: 3}
       propertyPath: m_RootOrder
       value: 6

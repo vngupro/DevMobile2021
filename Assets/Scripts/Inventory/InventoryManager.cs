@@ -12,7 +12,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject prefabSlot;
     [SerializeField] private GameObject panelInventory;
     [SerializeField] private int maxNumberPerRow = 9;
-    [SerializeField] private int space = 50;
 
     [SerializeField] private TMP_Text descriptionText;
 
