@@ -5,23 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private BlackScreenScript blackScreen;
+    [Tooltip("Add a Blackscreen from the canvas with the script CanvasBlackscreen")]
+    [SerializeField] private CanvasBlackscreen canvasBlackscreen;
+
     private InputManager inputManager;
+    private CinemachineBlackscreen cameraBlackscreen;
+
+    [Header("Debug")]
+    [SerializeField] private bool hasCameraBlackscreen;
+    [SerializeField] private bool hasCanvasBlackscreen;
     public static LevelManager Instance { get; protected set;}
     private void Awake()
     {
         if(Instance != null && Instance != this)
         {
-            Debug.Log("Destroy" + this.gameObject.name);
             Destroy(this.gameObject);
-            return;
         }
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
 
         inputManager = InputManager.Instance;
-        blackScreen = FindObjectOfType<BlackScreenScript>();
+
+        if(cameraBlackscreen == null) cameraBlackscreen = CinemachineBlackscreen.Instance;
+        if (canvasBlackscreen == null) canvasBlackscreen = CanvasBlackscreen.Instance;
+
+        if (canvasBlackscreen != null) hasCanvasBlackscreen = true;
+        if (cameraBlackscreen != null) hasCameraBlackscreen = true;
+        
+        // Listen To
+        // SwitchLocationDetection.cs
+        CustomGameEvents.exitScene.AddListener(OpenSceneByName);
     }
 
     public void OnEnable()
@@ -30,16 +44,11 @@ public class LevelManager : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
-        if (blackScreen != null)
-        {
-            if(scene.name == "Menu")
-                blackScreen.FadeOut();
-        }
-
-        inputManager.EnableControls();
-        CustomGameEvents.changeScene.Invoke();
-        Debug.Log("Scene Loaded = " + scene.name);
+        if(hasCanvasBlackscreen || cameraBlackscreen) { UtilsEvent.startFadeOut.Invoke();  }
+        
+        // Listeners | PinchDetection.cs SlideOneFingerDetection.cs
+        CustomGameEvents.sceneLoaded.Invoke();
+        Debug.Log("Scene Loaded : " + scene.name);
 
     }
     public void OnDisable()

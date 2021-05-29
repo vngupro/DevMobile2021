@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class TouchDetection : MonoBehaviour
 {
     #region Variable
@@ -9,14 +9,12 @@ public class TouchDetection : MonoBehaviour
     [SerializeField] private float animationTime = 0.2f;
 
     private InputManager inputManager;
-    private InventoryManager inventory;
     private bool hasTapMenuScreen = false;
     #endregion
 
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
 
         // Listeners MenuManager
         CustomGameEvents.hasTapScreen.AddListener(ChangeHasTapMenuScreen);
@@ -34,13 +32,8 @@ public class TouchDetection : MonoBehaviour
 
     public void Move(Vector2 position, float time)
     {
-        if(inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
-
         //Animation
-        if(circle != null)
+        if (circle != null)
         {
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;

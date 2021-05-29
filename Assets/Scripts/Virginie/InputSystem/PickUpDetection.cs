@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 /* Problem 
  *    RaycastHit2D just hit one layer for now,
  *    but you will want to hit at least 2 layer
@@ -13,22 +13,23 @@ public class PickUpDetection : MonoBehaviour
 {
     #region Variable
     [SerializeField] private LayerMask layer2PickUp;
+    [SerializeField] private LayerMask layerUI;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
 
     private InputManager inputManager;
-    private InventoryManager inventory;
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
     private float endTime;
-    private RaycastHit2D hitClue;
+    private RaycastHit2D hitItem;
+    private Item currentItem;
+    private GameObject currentItemGameObj;
     #endregion
 
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
     }
     private void OnEnable()
     {
@@ -44,46 +45,48 @@ public class PickUpDetection : MonoBehaviour
 
     private void StartPickUp(Vector2 position, float time)
     {
-        if(inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
-        
         // Verify touch an object
         startPos = position;
         startTime = time;
-        hitClue = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2PickUp);
+        hitItem = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2PickUp);
     }
 
     private void EndPickUp(Vector2 position, float time)
     {
-        if(inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
-
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         endPos = position;
         endTime = time;
 
         float distance = Vector3.Distance(startPos, endPos);
         float timer = endTime - startTime;
-        if (distance <= distanceTolerance && 
-            hitClue && 
-            timer < timerBeforeHold && 
-            hitClue.transform.gameObject.tag == "Clue" && 
-            hitClue.transform.gameObject.GetComponent<Item>().data.isPickable)
+
+        if(hitItem &&
+            distance <= distanceTolerance &&
+                timer < timerBeforeHold)
         {
-            PickUp(hitClue.transform.gameObject);
+            currentItemGameObj = hitItem.transform.gameObject;
+            currentItem = currentItemGameObj.GetComponent<Item>();
+
+            if(currentItemGameObj.CompareTag("Clue") ||
+                currentItem.data.isClue)
+            {
+                PickUp(currentItemGameObj);
+            }
         }
     }
 
     private void PickUp(GameObject object2PickUp)
     {
         //here add verify bool isHidden
+
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
-        object2PickUp.SetActive(false);
-        //Destroy(object2PickUp);
+        //destroy
+        if (currentItem.data.isPickable)
+        {
+            object2PickUp.SetActive(false);
+        }
     }
 }

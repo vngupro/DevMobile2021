@@ -133,9 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8323847232464528657}
   - component: {fileID: 8323847232464528656}
-  - component: {fileID: 8323847232464528659}
+  - component: {fileID: 8679551083054009506}
   m_Layer: 15
-  m_Name: Door
+  m_Name: DoorExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 4}
   m_EdgeRadius: 0
---- !u!114 &8323847232464528659
+--- !u!114 &8679551083054009506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8323847232464528662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a52ff83f1e021f459b68cd5f75e02a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dcb81b938c54224184b0f655f20663b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vcamOfNEXTLocation: {fileID: 0}

@@ -63,6 +63,7 @@ public class HUDManager : MonoBehaviour
         caseTitle.text = caseInfo.title;
         caseCorps.text = caseInfo.corps;
     }
+
     public void NotesToogle()
     {
         if (buttonNotes.image.sprite.name == spriteNotesOpen.name)

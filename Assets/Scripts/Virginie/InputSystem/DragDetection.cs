@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class DragDetection : MonoBehaviour
 {
     #region Variable
@@ -10,7 +10,6 @@ public class DragDetection : MonoBehaviour
     [SerializeField] private SlideOneFingerDetection slide;
 
     private InputManager inputManager;
-    private InventoryManager inventory;
     private Coroutine coroutine;
     private GameObject objectDraging;
     private RaycastHit2D hitDrag;
@@ -19,7 +18,6 @@ public class DragDetection : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
     }
     private void OnEnable()
     {
@@ -35,10 +33,7 @@ public class DragDetection : MonoBehaviour
 
     private void StartDrag(Vector2 position, float time)
     {
-        if(inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         //Verify touch an object
         hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
@@ -59,11 +54,7 @@ public class DragDetection : MonoBehaviour
 
     private void EndDrag(Vector2 position, float time)
     {
-        if(inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
-
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         if (coroutine != null)
         {

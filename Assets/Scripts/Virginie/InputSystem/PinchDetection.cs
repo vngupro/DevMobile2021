@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.EventSystems;
 public class PinchDetection : MonoBehaviour
 {
     #region Variable
@@ -24,7 +25,9 @@ public class PinchDetection : MonoBehaviour
         inventory = InventoryManager.Instance;
 
         // Invoker | LevelManager.cs
-        CustomGameEvents.changeScene.AddListener(RecupCamera);
+        CustomGameEvents.switchCamera.AddListener(RecupVirtualCamera);
+        CustomGameEvents.sceneLoaded.AddListener(RecupCamera);
+        
     }
     private void OnEnable()
     {
@@ -37,16 +40,18 @@ public class PinchDetection : MonoBehaviour
         inputManager.OnEndTouchSecondary -= EndZoom;
     }
 
-    public void RecupCamera()
+    private void RecupVirtualCamera(CinemachineVirtualCamera vcam)
+    {
+        virtualCamera = vcam;
+        virtualCamera.m_Lens.OrthographicSize = defaultZoom;
+    }
+    private void RecupCamera()
     {
         GameObject cam = GameObject.FindGameObjectWithTag("CameraItem");
         if (cam == null) return;
 
         cameraItem = cam.GetComponent<Camera>();
-        virtualCamera = Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
         cameraItem.orthographicSize = defaultZoom;
-        virtualCamera.m_Lens.OrthographicSize = defaultZoom;
-
         Debug.Log(cameraItem.name);
     }
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Cinemachine;
-
 //How to use :
 
 // In Awake :
@@ -25,24 +24,25 @@ public static class CustomGameEvents
     public static UnityEvent dragEvent = new UnityEvent();
     public static UnityEvent changeDialogueActive = new UnityEvent();
 
-    public static UnityEvent activateFadeIn = new UnityEvent();
-    public static UnityEvent activateFadeOut = new UnityEvent();
-    public static UnityEvent fadeInFinished = new UnityEvent();
-    public static UnityEvent fadeOutFinished = new UnityEvent();
-    public static UnityEvent cinematicStart = new UnityEvent();
-    public static UnityEvent cinematicFinished = new UnityEvent();
+    public static UnityEvent videoStarted = new UnityEvent();
+    public static UnityEvent videoEnded = new UnityEvent();
+    public static UnityEvent cinematicStarted = new UnityEvent();
+    public static UnityEvent cinematicEnded = new UnityEvent();
+
     public static UnityEvent hasPressAnyButtonEvent = new UnityEvent();
     public static UnityEvent hasNotInteruptVideo = new UnityEvent();
     public static UnityEvent hasTapScreen = new UnityEvent();
-    public static UnityEvent enterMenu = new UnityEvent();
+    public static UnityEvent enteredMenu = new UnityEvent();
 
-    public static UnityEvent changeScene = new UnityEvent();
+    public static UnityEvent sceneLoaded = new UnityEvent();
     public static SwitchEvent switchLocation = new SwitchEvent();
     public static CameraEvent switchCamera = new CameraEvent();
+    public static SceneEvent exitScene = new SceneEvent();
     public static DialogueByIDEvent switchDialogueByID = new DialogueByIDEvent();
     public static DialogueEvent switchDialogueByDialogue = new DialogueEvent();
 }
 
+public class SceneEvent : UnityEvent<string> { }
 public class DialogueEvent : UnityEvent<Dialogue> { }
 public class DialogueByIDEvent : UnityEvent<int> { }
 public class PickUpEvent : UnityEvent<GameObject> { }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class TapScreenScript : MonoBehaviour
 {
     public float fadeDuration = 2.0f;
@@ -36,7 +36,7 @@ public class TapScreenScript : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             inputManager.OnStartTouch -= CloseTapScreen;
-            CustomGameEvents.enterMenu.Invoke();
+            CustomGameEvents.enteredMenu.Invoke();
             StopCoroutine(coroutine);
         }
     }

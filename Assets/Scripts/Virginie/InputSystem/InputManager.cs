@@ -18,7 +18,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 */
 
 //Execute in priority
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(-2)]
 public class InputManager : MonoBehaviour
 {
     #region Event

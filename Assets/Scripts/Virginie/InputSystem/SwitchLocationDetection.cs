@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class SwitchLocationDetection : MonoBehaviour
 {
     #region Variable
@@ -14,18 +14,19 @@ public class SwitchLocationDetection : MonoBehaviour
     private float startTime;
     private float endTime;
     private RaycastHit2D hitDoor;
+    private GameObject currentDoor;
 
     private InputManager inputManager;
-    private InventoryManager inventory;
-    private BlackScreenScript blackscreen;
+    private CanvasBlackscreen blackscreen;
+
+    private short count = 0;            // for double tap to switch location
 
     #endregion
 
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
-        blackscreen = BlackScreenScript.Instance;
+        blackscreen = CanvasBlackscreen.Instance;
     }
 
     private void OnEnable()
@@ -42,46 +43,82 @@ public class SwitchLocationDetection : MonoBehaviour
 
     private void StartDoor(Vector2 position, float time)
     {
-        if (inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         startPos = position;
         startTime = time;
         hitDoor = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer);
+
+
+        if (hitDoor)
+        {
+            if (currentDoor != null)
+            {
+                if (currentDoor != hitDoor.transform.gameObject)
+                {
+                    count = 0;
+                }
+            }
+
+            currentDoor = hitDoor.transform.gameObject;
+        }
     }
 
     private void EndDoor(Vector2 position, float time)
     {
-        if (inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         endPos = position;
         endTime = time;
 
         float distance = Vector3.Distance(startPos, endPos);
         float timer = endTime - startTime;
+
         if (distance <= distanceTolerance &&
             hitDoor &&
             timer < timerBeforeHold
             )
         {
-            if(blackscreen != null)
-            {
-                StartCoroutine(SwitchLocation());
-            }
-            else
-            {
-                DoorScript door = hitDoor.transform.gameObject.GetComponent<DoorScript>();
-                CustomGameEvents.switchLocation.Invoke(door);
-            }
+            count++;
 
+            if(count >= 2)
+            {
+                //Exit Scene
+                if (currentDoor.CompareTag("Exit"))
+                {
+                    DoorExitScript doorExit = currentDoor.GetComponent<DoorExitScript>();
+
+                    // Listeners 
+                    // LevelManager.cs
+                    CustomGameEvents.exitScene.Invoke(doorExit.sceneToLoad);
+                }
+                //Change Location
+                else
+                {
+                    ChangeLocation();
+                }
+            }
         }
+        else
+        {
+            count = 0;
+        }
+        
     }
     
+    public void ChangeLocation()
+    {
+        if (blackscreen != null)
+        {
+            StartCoroutine(SwitchLocation());
+        }
+        else
+        {
+            DoorScript door = currentDoor.GetComponent<DoorScript>();
+            CustomGameEvents.switchLocation.Invoke(door);
+        }
+    }
+
     IEnumerator SwitchLocation()
     {
         blackscreen.FadeIn();

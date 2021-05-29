@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1565964993321175068}
   - component: {fileID: 1565964993321175071}
   - component: {fileID: 1565964993321175070}
-  - component: {fileID: 1565964993321175069}
+  - component: {fileID: 906349859506870035}
   m_Layer: 5
-  m_Name: BlackScreen
+  m_Name: Blackscreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1565964993321175069
+--- !u!114 &906349859506870035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565964993321175136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457d1318642505746b7d1648f88efa11, type: 3}
+  m_Script: {fileID: 11500000, guid: 97d672259d2e08e47914029aad49aa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1565964993321175070}
   fadeDuration: 2
