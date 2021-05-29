@@ -99,7 +99,6 @@ public class SlideOneFingerDetection : MonoBehaviour
         //Animation
         if (slideTrail != null)
         {
-            Debug.Log("Slide trail false");
             slideTrail.SetActive(false);
             StopCoroutine(trailCoroutine);
         }

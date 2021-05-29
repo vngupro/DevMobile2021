@@ -795,6 +795,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6681732899841897643, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.4874477
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897647, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Name
       value: Hair
@@ -3279,12 +3283,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897643, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.15373564
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681732899841897643, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.65
+      value: 1.2654545
       objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897643, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.48
+      value: 0.19454545
       objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897647, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Name

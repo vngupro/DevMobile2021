@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     public InventoryItem data;
     private SpriteRenderer spriteRenderer;
+    public bool isHidden = true;
 
     [ExecuteInEditMode]
     private void Awake()
