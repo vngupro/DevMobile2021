@@ -72,7 +72,8 @@ public class PickUpDetection : MonoBehaviour
 
             if((currentItemGameObj.CompareTag("Clue") ||
                 currentItem.data.isClue) &&
-                currentItem.data.isPickable)
+                currentItem.data.isPickable && 
+                !currentItem.isHidden)
             {
                 PickUp(currentItemGameObj);
             }
