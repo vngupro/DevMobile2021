@@ -5,13 +5,15 @@ using UnityEngine;
 public class TutoManager : MonoBehaviour
 {
 
+    [SerializeField] private DialogueData firstDialogue;
+
     private TutoStep currentStep;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Open Diologue Box
-        UtilsEvent.blockMoveControls.Invoke();
+        UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
+        CustomDialogueEvents.openBoxDialogue.Invoke(firstDialogue); //Oppen DialogueBox
         currentStep = TutoStep.FIRST_DIALOGUE;
     }
 

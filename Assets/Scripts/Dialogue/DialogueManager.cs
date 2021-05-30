@@ -46,6 +46,8 @@ public class DialogueManager : MonoBehaviour
         ResetDialogueBox();
 
         // | Listen To
+        CustomDialogueEvents.openBoxDialogue.AddListener(OpenBoxDialogue);
+        CustomDialogueEvents.closeBoxDialogue.AddListener(CloseBoxDialogue);
 
     }
 
