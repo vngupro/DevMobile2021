@@ -11,6 +11,7 @@ public class TutoManager : MonoBehaviour
     void Start()
     {
         //Open Diologue Box
+        UtilsEvent.blockMoveControls.Invoke();
         currentStep = TutoStep.FIRST_DIALOGUE;
     }
 
