@@ -3983,7 +3983,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 1052279515
-  m_SortingOrder: 10
+  m_SortingOrder: 8
   m_TargetDisplay: 0
 --- !u!114 &965680974825283363
 MonoBehaviour:
@@ -4094,6 +4094,7 @@ MonoBehaviour:
   backgroundName: {fileID: 3682734146205179183}
   backgroundDialogue: {fileID: 3682734145848701465}
   isDialogueActive: 1
+  isAnimationActive: 0
   dialoguesSeries: []
   currentDialogue: {fileID: 0}
 --- !u!114 &965680974825283352

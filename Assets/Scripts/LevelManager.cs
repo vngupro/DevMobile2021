@@ -38,8 +38,7 @@ public class LevelManager : MonoBehaviour
         isLoadingScene = false;
 
         // Listen To
-        // SwitchLocationDetection.cs
-        CustomGameEvents.exitScene.AddListener(OpenSceneByName);
+        //Utils.cs
         UtilsEvent.fadeInEnded.AddListener(LoadNextScene);
     }
 

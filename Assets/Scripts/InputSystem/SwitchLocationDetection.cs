@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class SwitchLocationDetection : MonoBehaviour
@@ -11,7 +10,6 @@ public class SwitchLocationDetection : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField]
-    private bool isExiting = false;
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
@@ -30,9 +28,6 @@ public class SwitchLocationDetection : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         blackscreen = CanvasBlackscreen.Instance;
-
-        // Listen To
-        CustomGameEvents.sceneLoaded.AddListener(ChangeIsExiting);
     }
 
     private void OnEnable()
@@ -80,33 +75,23 @@ public class SwitchLocationDetection : MonoBehaviour
         float distance = Vector3.Distance(startPos, endPos);
         float timer = endTime - startTime;
 
-        if (distance <= distanceTolerance &&
-            hitDoor &&
-            timer < timerBeforeHold
+        
+        // If Click on a door which is not Exit
+        if (hitDoor &&
+             distance <= distanceTolerance &&
+              timer < timerBeforeHold &&
+               !currentDoor.CompareTag("Exit")
             )
         {
             count++;
 
+            // Click Twice to change location
             if(count >= 2)
             {
-
-                //Exit Scene
-                if (currentDoor.CompareTag("Exit") && !isExiting)
-                {
-                    isExiting = true;
-                    DoorExitScript doorExit = currentDoor.GetComponent<DoorExitScript>();
-
-                    // Listeners 
-                    // LevelManager.cs
-                    CustomGameEvents.exitScene.Invoke(doorExit.sceneToLoad);
-                }
-                //Change Location
-                else
-                {
-                    ChangeLocation();
-                }
+                ChangeLocation();
             }
         }
+        // If click anywhere else reset count
         else
         {
             count = 0;
@@ -135,10 +120,5 @@ public class SwitchLocationDetection : MonoBehaviour
         CustomGameEvents.switchLocation.Invoke(door);
         yield return new WaitForSeconds(0);
         blackscreen.FadeOut();
-    }
-
-    private void ChangeIsExiting()
-    {
-        isExiting = false;
     }
 }

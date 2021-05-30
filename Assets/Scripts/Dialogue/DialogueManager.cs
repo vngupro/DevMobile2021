@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private bool isDialogueActive = false;
     [SerializeField]
+    private bool isAnimationActive = false;
+    [SerializeField]
     private List<Dialogue> dialoguesSeries = new List<Dialogue>();
     [SerializeField]
     private Dialogue currentDialogue;
@@ -50,10 +52,6 @@ public class DialogueManager : MonoBehaviour
         {
             dialogue.dialogueIndex = 0;
         }
-    }
-    private void Start()
-    {
-        StartCoroutine(BoxDialogueAnimation());
     }
 
     private void GetDialogue(string path)
@@ -118,9 +116,20 @@ public class DialogueManager : MonoBehaviour
         backgroundDialogue.gameObject.SetActive(false);
     }
 
-    IEnumerator BoxDialogueAnimation()
+    public void OpenBoxDialogue()
     {
-        
+        StartCoroutine(OpenBoxDialogueAnimation());
+    }
+
+    public void CloseBoxDialogue()
+    {
+        StartCoroutine(CloseBoxDialogueAnimation());
+    }
+
+    IEnumerator OpenBoxDialogueAnimation()
+    {
+        isAnimationActive = true;
+        // Animation Title
         backgroundName.gameObject.SetActive(true);
         float timer = 0f;
         while(backgroundName.sizeDelta.x < sizeDeltaNameX)
@@ -134,6 +143,7 @@ public class DialogueManager : MonoBehaviour
         }
         backgroundName.sizeDelta = new Vector2(sizeDeltaNameX, backgroundName.sizeDelta.y);
 
+        // Animation Corpus Text
         backgroundDialogue.gameObject.SetActive(true);
         timer = 0f;
         while(backgroundDialogue.sizeDelta.y < sizeDeltaDialogueY)
@@ -144,10 +154,41 @@ public class DialogueManager : MonoBehaviour
             backgroundDialogue.sizeDelta = new Vector2(backgroundDialogue.sizeDelta.x, newValue);
             yield return null;
         }
-
         backgroundDialogue.sizeDelta = new Vector2(backgroundDialogue.sizeDelta.x, sizeDeltaDialogueY);
 
+        isAnimationActive = false;
         isDialogueActive = true;
+    }
+
+    IEnumerator CloseBoxDialogueAnimation()
+    {
+        isAnimationActive = true;
+        // Animation Corpus Text
+        float timer = 0f;
+        while (backgroundDialogue.sizeDelta.y > 0)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / animDuration;
+            float newValue = Mathf.Lerp(sizeDeltaDialogueY, 0, ratio);
+            backgroundDialogue.sizeDelta = new Vector2(backgroundDialogue.sizeDelta.x, newValue);
+            yield return null;
+        }
+        backgroundDialogue.sizeDelta = new Vector2(backgroundDialogue.sizeDelta.x, 0);
+
+        // Animation Title
+        timer = 0f;
+        while (backgroundName.sizeDelta.x > 0)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / animDuration;
+            float newValue = Mathf.Lerp(sizeDeltaNameX, 0, ratio);
+            backgroundName.sizeDelta = new Vector2(newValue, backgroundName.sizeDelta.y);
+            yield return null;
+        }
+        backgroundName.sizeDelta = new Vector2(0, backgroundName.sizeDelta.y);
+
+        isDialogueActive = false;
+        isAnimationActive = false;
     }
 
     IEnumerator BoxDialogueBlink()
@@ -158,4 +199,6 @@ public class DialogueManager : MonoBehaviour
         backgroundName.gameObject.SetActive(true);
         backgroundDialogue.gameObject.SetActive(true);
     }
+
+    
 }

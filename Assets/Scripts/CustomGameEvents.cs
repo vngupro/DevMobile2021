@@ -37,12 +37,10 @@ public static class CustomGameEvents
     public static UnityEvent sceneLoaded = new UnityEvent();
     public static SwitchEvent switchLocation = new SwitchEvent();
     public static CameraEvent switchCamera = new CameraEvent();
-    public static SceneEvent exitScene = new SceneEvent();
     public static DialogueByIDEvent switchDialogueByID = new DialogueByIDEvent();
     public static DialogueEvent switchDialogueByDialogue = new DialogueEvent();
 }
 
-public class SceneEvent : UnityEvent<string> { }
 public class DialogueEvent : UnityEvent<Dialogue> { }
 public class DialogueByIDEvent : UnityEvent<int> { }
 public class PickUpEvent : UnityEvent<GameObject> { }
