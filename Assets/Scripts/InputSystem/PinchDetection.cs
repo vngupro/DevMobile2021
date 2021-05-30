@@ -31,6 +31,7 @@ public class PinchDetection : MonoBehaviour
         CustomGameEvents.sceneLoaded.AddListener(RecupCamera);
         // TutoManager.cs
         UtilsEvent.blockMoveControls.AddListener(BlockControls);
+        UtilsEvent.unlockMoveControls.AddListener(UnblockControls);
     }
     
     private void BlockControls() { isBlocked = true; }
