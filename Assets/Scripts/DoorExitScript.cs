@@ -54,6 +54,7 @@ public class DoorExitScript : MonoBehaviour
 
     private void StartExitDoor(Vector2 position, float time)
     {
+        if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
         startPos = position;
@@ -78,6 +79,7 @@ public class DoorExitScript : MonoBehaviour
 
     private void EndExitDoor(Vector2 position, float time)
     {
+        if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
         endPos = position;

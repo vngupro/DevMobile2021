@@ -114,8 +114,11 @@ public class DialogueManager : MonoBehaviour
         imageCharacter.sprite = dialogue.character.sprite;
         textName.text = dialogue.character.name;
         textDialogue.text = dialogue.dialogueList[dialogue.dialogueListIndex];
-        dialogue.dialogueListIndex++;
-
+        int index = dialogue.dialogueListIndex + 1;
+        if(index < dialogue.dialogueList.Count)
+        {
+            dialogue.dialogueListIndex++;
+        }
         currentDialogue = dialogue;
     }
 
