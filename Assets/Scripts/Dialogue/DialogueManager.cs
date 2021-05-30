@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField]
-    private bool isDialogueActive = false;
+    private bool isBoxDialogueOpen = false;
     [SerializeField]
     private bool isAnimationActive = false;
     [SerializeField]
@@ -78,9 +78,16 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogue()
     {
-        if (!isDialogueActive) return;
+        if (!isBoxDialogueOpen) return;
 
-        if (currentDialogue.dialogueListIndex < currentDialogue.dialogueList.Count)
+        if (currentDialogue.dialogueListIndex == currentDialogue.dialogueList.Count)
+        {
+            Debug.Log("Close");
+            CloseBoxDialogue();
+            //currentDialogue.isFinished = true;
+            //isBoxDialogueOpen = false;
+        }
+        else if (currentDialogue.dialogueListIndex < currentDialogue.dialogueList.Count)
         {
             Debug.Log("DialogueData Index : " + currentDialogue.dialogueListIndex);
             UpdateUIBoxDialogueData(currentDialogue);
@@ -90,7 +97,7 @@ public class DialogueManager : MonoBehaviour
     #region Next DialogueData List
     public void NextDialogueListByID(int id)
     {
-        if (!isDialogueActive) return;
+        if (!isBoxDialogueOpen) return;
 
         foreach(DialogueData dialogue in dialoguesSeries)
         {
@@ -105,7 +112,7 @@ public class DialogueManager : MonoBehaviour
 
     public void NextDialogueListByDialogue(DialogueData dialogue)
     {
-        if (!isDialogueActive) return;
+        if (!isBoxDialogueOpen) return;
 
         UpdateUIBoxDialogueData(dialogue);
     }
@@ -116,18 +123,14 @@ public class DialogueManager : MonoBehaviour
         imageCharacter.sprite = dialogue.character.sprite;
         textName.text = dialogue.character.name;
         textDialogue.text = dialogue.dialogueList[dialogue.dialogueListIndex];
-        int index = dialogue.dialogueListIndex + 1;
-        if(index < dialogue.dialogueList.Count)
-        {
-            dialogue.dialogueListIndex++;
-        }
+        dialogue.dialogueListIndex++;
         currentDialogue = dialogue;
     }
 
-    public void ChangeDialogueActive()
-    {
-        isDialogueActive = !isDialogueActive;
-    }
+    //public void ChangeDialogueActive()
+    //{
+    //    isBoxDialogueOpen = !isBoxDialogueOpen;
+    //}
 
     #region Box DialogueData Method
     public void OpenBoxDialogue(DialogueData dialogueData)
@@ -174,7 +177,7 @@ public class DialogueManager : MonoBehaviour
         backgroundDialogue.sizeDelta = new Vector2(backgroundDialogue.sizeDelta.x, sizeDeltaDialogueY);
 
         isAnimationActive = false;
-        isDialogueActive = true;
+        isBoxDialogueOpen = true;
         buttonNextDialogue.gameObject.SetActive(true);
     }
 
@@ -207,8 +210,9 @@ public class DialogueManager : MonoBehaviour
         }
         backgroundName.sizeDelta = new Vector2(0, backgroundName.sizeDelta.y);
 
-        isDialogueActive = false;
+        isBoxDialogueOpen = false;
         isAnimationActive = false;
+        currentDialogue.isFinished = true;
     }
 
     IEnumerator BoxDialogueBlink()

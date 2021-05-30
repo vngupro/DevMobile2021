@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class TutoManager : MonoBehaviour
 {
+    // Dialogues
+    [SerializeField] private DialogueData currentDialogue;
 
-    [SerializeField] private DialogueData firstDialogue;
+    //Clues
+    [SerializeField] private Item firstClue;
+
+    private bool firstClueIsPickable = false;
 
     private TutoStep currentStep;
+
+    private void OnDisable()
+    {
+        currentDialogue.dialogueListIndex = 0;
+        currentDialogue.isFinished = false;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
-        CustomDialogueEvents.openBoxDialogue.Invoke(firstDialogue); //Oppen DialogueBox
+        CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
         currentStep = TutoStep.FIRST_DIALOGUE;
     }
 
@@ -22,17 +33,31 @@ public class TutoManager : MonoBehaviour
     {
         if (currentStep == TutoStep.FIRST_DIALOGUE)
         {
-            //Dialogue d'explication 
             //Next si Fin des explication
+            if (currentDialogue.isFinished)
+            {
+                currentStep = TutoStep.FIRST_CLUE;
+            }
         }
         else if (currentStep == TutoStep.FIRST_CLUE)
         {
-            //Explique les indice 
-            //permet de recupere le premiere indice
+            NextDialogueStep();
+
+            if (!firstClueIsPickable)   //permet de recupere le premiere indice
+            {
+                firstClue.isHidden = false;
+            }
+
             //Next si indice pris
+            if (!firstClue.gameObject.activeInHierarchy)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
+                currentStep = TutoStep.USE_NOTE;
+            }
         }
         else if (currentStep == TutoStep.USE_NOTE)
         {
+            NextDialogueStep();
             //Explique le carnet
             //Next si carnet ouvert
         }
@@ -75,6 +100,15 @@ public class TutoManager : MonoBehaviour
         {
             //Explication finale
             //end of tuto 
+        }
+    }
+
+    private void NextDialogueStep()
+    {
+        if (currentDialogue.isFinished && currentDialogue.hasNextDialogueData)
+        {
+            CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue.nextDialogueData);
+            currentDialogue = currentDialogue.nextDialogueData;
         }
     }
 
