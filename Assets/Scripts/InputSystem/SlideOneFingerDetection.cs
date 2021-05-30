@@ -11,16 +11,21 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private GameObject slideTrail;
+
     private InputManager inputManager;
-    private Coroutine coroutine;
-    private Coroutine trailCoroutine;
-    private float cameraInitialSpeed;
-    private Vector2 startPos;
-    private bool isDragging = false;
     private CinemachineVirtualCamera vcam;
     private Collider2D boundary;
+
+    private Coroutine coroutine;
+    private Coroutine trailCoroutine;
+    private float cameraInitialSpeed;                           // for options
+
+    private Vector2 startPos;
     private float cameraWidth;
     private float cameraHeight;
+
+    private bool isDragging = false;
+    private bool isBlocked = false;
     #endregion
 
     private void Awake()
@@ -41,9 +46,12 @@ public class SlideOneFingerDetection : MonoBehaviour
         CustomGameEvents.switchCamera.AddListener(GetVirtualCamera);
         // levelmanager.Cs
         CustomGameEvents.sceneLoaded.AddListener(RecupVirtualCamera);
-        
+        // TutoManager.cs
+        UtilsEvent.blockMoveControls.AddListener(BlockControls);
     }
 
+    private void BlockControls() { isBlocked = true; }
+    private void UnblockControls() { isBlocked = false; }
     private void RecupVirtualCamera()
     {
         vcam = CinemachineSwitcher.Instance.vcamList[0];
@@ -70,10 +78,10 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private void StartSlide(Vector2 position, float time)
     {
+        if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
-
-
         if (isDragging) { return; }
+
         startPos = position;
         coroutine = StartCoroutine(DetectionSlide());
 
@@ -88,13 +96,9 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private void EndSlide(Vector2 position, float time)
     {
+        if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) return;
-
-        if (isDragging)
-        {
-            isDragging = false;
-            return;
-        }
+        if (isDragging) { isDragging = false; return; }
 
         //Animation
         if (slideTrail != null)
@@ -104,8 +108,6 @@ public class SlideOneFingerDetection : MonoBehaviour
         }
 
         StopCoroutine(coroutine);
-
-
     }
 
     private IEnumerator DetectionSlide()

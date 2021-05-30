@@ -21,6 +21,7 @@ public class SwitchLocationDetection : MonoBehaviour
     private CanvasBlackscreen blackscreen;
 
     private short count = 0;            // for double tap to switch location
+    private bool isBlocked = false;
 
     #endregion
 
@@ -28,8 +29,14 @@ public class SwitchLocationDetection : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         blackscreen = CanvasBlackscreen.Instance;
+
+        //Listen To
+        // TutoManager.cs
+        UtilsEvent.blockMoveControls.AddListener(BlockControls);
     }
 
+    private void BlockControls() { isBlocked = true; }
+    private void UnblockControls() { isBlocked = false; }
     private void OnEnable()
     {
         inputManager.OnStartTouch += StartDoor;
@@ -44,7 +51,8 @@ public class SwitchLocationDetection : MonoBehaviour
 
     private void StartDoor(Vector2 position, float time)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (isBlocked) { return; }
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
         startPos = position;
         startTime = time;
@@ -67,7 +75,8 @@ public class SwitchLocationDetection : MonoBehaviour
 
     private void EndDoor(Vector2 position, float time)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (isBlocked) { return; }
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
         endPos = position;
         endTime = time;

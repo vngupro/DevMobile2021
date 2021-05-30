@@ -50,5 +50,8 @@ public static class UtilsEvent
     public static UnityEvent startFadeOut = new UnityEvent();
     public static UnityEvent fadeOutStarted = new UnityEvent();
     public static UnityEvent fadeOutEnded = new UnityEvent();
+
+    public static UnityEvent blockMoveControls = new UnityEvent();
+    public static UnityEvent unlockMoveControls = new UnityEvent();
 }
 
