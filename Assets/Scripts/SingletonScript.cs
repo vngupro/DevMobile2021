@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class SingletonScript : MonoBehaviour
 {
     public static SingletonScript Instance { get; private set; }

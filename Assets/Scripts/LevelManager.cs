@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+
 
         inputManager = InputManager.Instance;
 

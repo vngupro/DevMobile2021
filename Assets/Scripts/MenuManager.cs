@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
+    [SerializeField] private Button playButton;
 
     [Header("Animation")]
     public float fadeDuration = 2.0f;
@@ -13,7 +14,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
-
+        playButton.onClick.AddListener(PlayGame);
         // Listeners 
         // TapScreenScript.cs
         CustomGameEvents.enteredMenu.AddListener(EnterMenu);
@@ -102,5 +103,10 @@ public class MenuManager : MonoBehaviour
         }
 
         inputManager.EnableControls();
+    }
+
+    private void PlayGame()
+    {
+        LevelManager.Instance.OpenSceneByName("Tutorial");
     }
 }

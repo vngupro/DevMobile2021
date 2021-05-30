@@ -16,7 +16,7 @@ public class CanvasBlackscreen : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(this.gameObject); }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+
 
         inputManager = InputManager.Instance;
 

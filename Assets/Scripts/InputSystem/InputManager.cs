@@ -52,6 +52,8 @@ public class InputManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+
     }
     private void OnEnable()
     {

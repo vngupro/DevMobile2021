@@ -9,6 +9,9 @@ public class SwitchLocationDetection : MonoBehaviour
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool isExiting = false;
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
@@ -27,6 +30,9 @@ public class SwitchLocationDetection : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         blackscreen = CanvasBlackscreen.Instance;
+
+        // Listen To
+        CustomGameEvents.sceneLoaded.AddListener(ChangeIsExiting);
     }
 
     private void OnEnable()
@@ -83,9 +89,11 @@ public class SwitchLocationDetection : MonoBehaviour
 
             if(count >= 2)
             {
+
                 //Exit Scene
-                if (currentDoor.CompareTag("Exit"))
+                if (currentDoor.CompareTag("Exit") && !isExiting)
                 {
+                    isExiting = true;
                     DoorExitScript doorExit = currentDoor.GetComponent<DoorExitScript>();
 
                     // Listeners 
@@ -127,5 +135,10 @@ public class SwitchLocationDetection : MonoBehaviour
         CustomGameEvents.switchLocation.Invoke(door);
         yield return new WaitForSeconds(0);
         blackscreen.FadeOut();
+    }
+
+    private void ChangeIsExiting()
+    {
+        isExiting = false;
     }
 }

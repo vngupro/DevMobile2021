@@ -1279,51 +1279,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157294644}
   m_CullTransparentMesh: 1
---- !u!1 &190244915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 190244916}
-  - component: {fileID: 190244917}
-  m_Layer: 0
-  m_Name: OptionsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &190244916
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190244915}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1602263058}
-  - {fileID: 1444144949}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &190244917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190244915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc97b43b3c52e6d4e85ab31110c446be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &190806071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1402,7 @@ MonoBehaviour:
   - {fileID: 520230607}
   - {fileID: 1187462084}
   - {fileID: 1405946775}
+  playButton: {fileID: 716421940}
   fadeDuration: 1
 --- !u!1 &198671736
 GameObject:
@@ -4388,19 +4344,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 716421941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3579567}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: OpenSceneByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Tutorial
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &716421941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8623,8 +8567,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 190244916}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1444144950
 MonoBehaviour:
@@ -9248,11 +9192,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582497851}
   m_CullTransparentMesh: 1
---- !u!4 &1602263058 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4868838005832344599, guid: 894a8f5983c98c947bb8d7998da4756a, type: 3}
-  m_PrefabInstance: {fileID: 4868838004954180774}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1611418944
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,7 +10980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882161804
 GameObject:
@@ -12557,7 +12496,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 190244916}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4868838005832344585, guid: 894a8f5983c98c947bb8d7998da4756a, type: 3}
       propertyPath: m_Name
@@ -12565,7 +12504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4868838005832344599, guid: 894a8f5983c98c947bb8d7998da4756a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4868838005832344599, guid: 894a8f5983c98c947bb8d7998da4756a, type: 3}
       propertyPath: m_LocalRotation.x

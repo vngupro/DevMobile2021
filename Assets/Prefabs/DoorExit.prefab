@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 8679551083054009506}
   m_Layer: 15
   m_Name: DoorExit
-  m_TagString: Untagged
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,3 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcb81b938c54224184b0f655f20663b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
