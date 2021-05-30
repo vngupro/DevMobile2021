@@ -125,8 +125,9 @@ public class DialogueManager : MonoBehaviour
     }
 
     #region Box DialogueData Method
-    public void OpenBoxDialogue()
+    public void OpenBoxDialogue(DialogueData dialogueData)
     {
+        UpdateUIBoxDialogueData(dialogueData);
         if (isAnimationActive) return;
         StartCoroutine(OpenBoxDialogueAnimation());
     }

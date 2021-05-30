@@ -46,12 +46,12 @@ public class SwitchEvent : UnityEvent<DoorScript> { }
 public class CameraEvent : UnityEvent<CinemachineVirtualCamera> { }
 
 // DIALOGUE EVENT
-public static class DialogueEvents
+public static class CustomDialogueEvents
 {
     public static DialogueByIDEvent switchDialogueByID = new DialogueByIDEvent();
     public static DialogueEvent switchDialogueByDialogue = new DialogueEvent();
     public static DialogueEvent openBoxDialogue = new DialogueEvent();
-    public static DialogueEvent closeBoxDialogue = new DialogueEvent();
+    public static UnityEvent closeBoxDialogue = new UnityEvent();
 }
 
 public class DialogueEvent : UnityEvent<DialogueData> { }
