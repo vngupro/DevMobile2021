@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     #region Variable
     [Tooltip(("Add Scriptable Object Inventory"))]
     public PlayerInventory inventory;
+    public int inventoryIndex = 0;
 
     [Header("UI")]
     [Tooltip("Prefabs for inventory slot")]
@@ -13,7 +14,12 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject panelInventory;
     [SerializeField] private int maxNumberPerRow = 9;
 
-    [SerializeField] private TMP_Text descriptionText;
+    public GameObject panelSecond;
+    public Button buttonBack;
+    public Button buttonNext;
+    public Button buttonPrevious;
+    public Image imageClue;
+    public TMP_Text descriptionClue;
 
     [Header("Debug")]
     [SerializeField] private InventoryItem currentItem;
@@ -36,11 +42,14 @@ public class InventoryManager : MonoBehaviour
         }
 
         Instance = this;
-
-        SetText("", false);
         isOpen = false;
 
         slotWidth = prefabSlot.GetComponent<RectTransform>().rect.width;
+
+        //UI
+        buttonBack.onClick.AddListener(ClosePanelSecond);
+        buttonNext.onClick.AddListener(GetNextItem);
+        buttonPrevious.onClick.AddListener(GetPreviousItem);
 
         MakeInventorySlots();
         // | Listeners
@@ -50,6 +59,10 @@ public class InventoryManager : MonoBehaviour
         CustomGameEvents.pickUpEvent.AddListener(AddItem);
     }
 
+    private void OnDisable()
+    {
+        inventory.itemList.Clear();
+    }
     private void MakeInventorySlots()
     {
         if (inventory)
@@ -82,17 +95,13 @@ public class InventoryManager : MonoBehaviour
         rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x + (slotWidth * 2) * (countSlot % maxNumberPerRow), rectTransform.anchoredPosition.y - (slotWidth * 2) * row);
         countSlot++;
 
-    }
+        //Change ui
 
-    public void SetText(string description, bool buttonActive)
-    {
-        descriptionText.text = description;
     }
 
     public void SetupDescription(string newDescription, InventoryItem NewItem)
     {
         currentItem = NewItem;
-        descriptionText.text = newDescription;
     }
     private void OpenInventory()
     {
@@ -127,6 +136,67 @@ public class InventoryManager : MonoBehaviour
         Debug.Log(item.name);
     }
 
+    //HUD
+    public void OnInventorySlotSelected(InventorySlot slot)
+    {
+        //Code
+        Debug.Log("On Inventory Slot Selected");
+        panelSecond.SetActive(true);
+        string description = slot.item.description;
+
+        for (int i = 0; i < inventory.itemList.Count; i++)
+        {
+            if (inventory.itemList[i] == slot.item)
+            {
+                inventoryIndex = i;
+                break;
+            }
+        }
+        //Add information on corresponding panel
+        ShowItemDataByItem(slot.item);
+    }
+
+    public void ClosePanelSecond() { panelSecond.SetActive(false); }
+    public void GetNextItem() {
+        int indexOfLastItem = inventory.itemList.Count - 1;
+        if (inventoryIndex < indexOfLastItem) { 
+            inventoryIndex++;
+        }
+        else
+        {
+            inventoryIndex = 0;
+        }
+
+        ShowItemData();
+    }
+
+    public void GetPreviousItem() {
+        if (inventoryIndex > 0)
+        {
+            inventoryIndex--;
+        }
+        else
+        {
+            inventoryIndex = inventory.itemList.Count - 1;
+        }
+
+        ShowItemData();
+    }
+
+    public void ShowItemData()
+    {
+        Debug.Log("Show Item Data");
+        InventoryItem item = inventory.itemList[inventoryIndex];
+        imageClue.sprite = item.spriteInInventory;
+        descriptionClue.text = item.description;
+    }
+
+    public void ShowItemDataByItem(InventoryItem item)
+    {
+        Debug.Log("Show Item Data By Item");
+        imageClue.sprite = item.spriteInInventory;
+        descriptionClue.text = item.description;
+    }
     //public void OpenClue(GameObject clue)
     //{
     //    clue.SetActive(true);

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TabGroup : MonoBehaviour
 {
-    public List<TabButtonScript> tabButtons;
     public Sprite spriteTabIdle;
     public Sprite spriteTabHover;
     public Sprite spriteTabActive;
@@ -14,9 +13,18 @@ public class TabGroup : MonoBehaviour
     public Color colorTabHover;
     public Color colorTabActive;
 
+    public Color colorTextIdle;
+    public Color colorTextHover;
+    public Color colorTextActive;
+
+    public Color colorIconIdle;
+    public Color colorIconHover;
+    public Color colorIconActive;
+
     public List<GameObject> objectsToSwap;
 
     [Header("Debug")]
+    public List<TabButtonScript> tabButtons;
     public TabButtonScript selectedTab;
 
     public void Subscribe(TabButtonScript button)
@@ -33,8 +41,10 @@ public class TabGroup : MonoBehaviour
     {
         ResetTabs();
         if (selectedTab == null || button != selectedTab) {
-            button.background.sprite = spriteTabHover;
-            button.background.color = colorTabHover;
+            //button.background.sprite = spriteTabHover;
+            //button.background.color = colorTabHover;
+            button.textBox.color = colorTextHover;
+            button.icon.color = colorIconHover;
         }
     }
 
@@ -47,8 +57,10 @@ public class TabGroup : MonoBehaviour
     {
         selectedTab = button;
         ResetTabs();
-        button.background.sprite = spriteTabActive;
-        button.background.color = colorTabActive;
+        //button.background.sprite = spriteTabActive;
+        //button.background.color = colorTabActive;
+        button.textBox.color = colorTextActive;
+        button.icon.color = colorIconActive;
         int index = button.transform.GetSiblingIndex();
         for(int i = 0; i < objectsToSwap.Count; i++)
         {
@@ -68,8 +80,10 @@ public class TabGroup : MonoBehaviour
         foreach(TabButtonScript button in tabButtons)
         {
             if(selectedTab != null && button == selectedTab) { continue; }
-            button.background.sprite = spriteTabIdle;
-            button.background.color = colorTabIdle;
+            //button.background.sprite = spriteTabIdle;
+            //button.background.color = colorTabIdle;
+            button.textBox.color = colorTextIdle;
+            button.icon.color = colorIconIdle;
         }
     }
 }

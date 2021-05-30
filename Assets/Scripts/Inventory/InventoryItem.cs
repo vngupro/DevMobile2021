@@ -22,6 +22,5 @@ public class InventoryItem : ScriptableObject
     public Sprite spriteOnLens;
     public Color colorOnLens;
 
-    public Sprite spriteIcon;
-    public Sprite photoInInventory;
+    public Sprite spriteInInventory;
 }

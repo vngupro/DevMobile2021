@@ -12,6 +12,7 @@ public class HUDManager : MonoBehaviour
     public List<RectTransform> lens;
     public GameObject groupLens;
     public GameObject layerNotes;
+    public GameObject boxDialogue;
     [Header("Animation")]
     public List<float> lensAnimTime;
 
@@ -47,12 +48,6 @@ public class HUDManager : MonoBehaviour
             len.anchoredPosition = buttonLensPosition;
         }
 
-        groupLens.SetActive(false);
-        isGroupLensOpening = false;
-        layerNotes.SetActive(false);
-        isLayerNotesOpening = false;
-        isAnimationFinished = true;
-
         string autopsyPath = "Autopsy/Autopsy " + caseIndex.ToString();
         autopsy = (Autopsy)Resources.Load(autopsyPath);
         string casePath = "Case/Case " + caseIndex.ToString();
@@ -62,6 +57,15 @@ public class HUDManager : MonoBehaviour
         autopsyCorps.text = autopsy.corps;
         caseTitle.text = caseInfo.title;
         caseCorps.text = caseInfo.corps;
+    }
+
+    private void Start()
+    {
+        groupLens.SetActive(false);
+        isGroupLensOpening = false;
+        layerNotes.SetActive(false);
+        isLayerNotesOpening = false;
+        isAnimationFinished = true;
     }
 
     public void NotesToogle()

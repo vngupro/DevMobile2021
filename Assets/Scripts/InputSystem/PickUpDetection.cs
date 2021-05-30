@@ -70,8 +70,9 @@ public class PickUpDetection : MonoBehaviour
             currentItemGameObj = hitItem.transform.gameObject;
             currentItem = currentItemGameObj.GetComponent<Item>();
 
-            if(currentItemGameObj.CompareTag("Clue") ||
-                currentItem.data.isClue)
+            if((currentItemGameObj.CompareTag("Clue") ||
+                currentItem.data.isClue) &&
+                currentItem.data.isPickable)
             {
                 PickUp(currentItemGameObj);
             }

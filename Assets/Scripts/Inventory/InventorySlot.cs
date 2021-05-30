@@ -16,11 +16,18 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public void AddItemToSlot(InventoryItem _item)
     {
         this.item = _item;
-        if(_item.sprite != null) this.image.sprite = _item.sprite;
+        if(_item.spriteInInventory != null) this.image.sprite = _item.spriteInInventory;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Click On Inventory Slot");
+        inventoryManager.OnInventorySlotSelected(this);
+        
+    }
+
+    private void Start()
+    {
+        inventoryManager = InventoryManager.Instance;       
     }
 }
