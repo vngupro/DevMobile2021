@@ -2571,11 +2571,27 @@ PrefabInstance:
     - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 831326210}
+      objectReference: {fileID: 89151456}
     - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 89151456}
+      objectReference: {fileID: 831326210}
+    - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LightUpXRAYClues
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeColorToXRAY
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LensManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680973058313203, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalPostProcessVolume, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 965680973202632448, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2588,54 +2604,54 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 965680973491552696, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 965680974445249799, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 965680974445249799, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 965680974445249799, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 831326210}
+      objectReference: {fileID: 89151456}
     - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 89151456}
+      objectReference: {fileID: 831326210}
+    - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LightUpIRClues
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeColorToIR
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LensManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974503075533, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalPostProcessVolume, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 831326210}
+      objectReference: {fileID: 89151456}
     - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 89151456}
-    - target: {fileID: 965680974668200013, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
+      objectReference: {fileID: 831326210}
+    - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NormalMode
       objectReference: {fileID: 0}
-    - target: {fileID: 965680974668200013, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeColorToNormal
       objectReference: {fileID: 0}
-    - target: {fileID: 965680974668200013, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LensManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 965680974825283356, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1627497813}
+    - target: {fileID: 965680974612340418, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalPostProcessVolume, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 965680974825283357, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2724,30 +2740,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasHUD
       objectReference: {fileID: 0}
-    - target: {fileID: 965680974825283361, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 831326210}
+      objectReference: {fileID: 89151456}
     - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 89151456}
-    - target: {fileID: 965680974874384741, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      objectReference: {fileID: 831326210}
+    - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LightUpUVClues
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeColorToUV
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LensManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalPostProcessVolume, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 831326210}
+      objectReference: {fileID: 89151456}
     - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 89151456}
+      objectReference: {fileID: 831326210}
+    - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LightUpNIGHTSHOTClues
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeColorToNIGHTSHOT
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LensManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 965680974909658726, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GlobalPostProcessVolume, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 965680974962613193, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2758,18 +2798,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 965680974962613193, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938181915229974275, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938181915229974397, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5917504853980570553, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3077,49 +3105,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6681732899841897640, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
   m_PrefabInstance: {fileID: 1053605736}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1916606923 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3682734146049898012, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
-  m_PrefabInstance: {fileID: 1760418310}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1916606925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916606923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1916606926
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916606923}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1964821647
 PrefabInstance:
   m_ObjectHideFlags: 0

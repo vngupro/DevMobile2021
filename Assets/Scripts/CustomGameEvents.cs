@@ -22,7 +22,6 @@ public static class CustomGameEvents
     public static UnityEvent closeInventory = new UnityEvent();
     public static PickUpEvent pickUpEvent = new PickUpEvent();
     public static UnityEvent dragEvent = new UnityEvent();
-    public static UnityEvent changeDialogueActive = new UnityEvent();
 
     public static UnityEvent videoStarted = new UnityEvent();
     public static UnityEvent videoEnded = new UnityEvent();
@@ -37,16 +36,27 @@ public static class CustomGameEvents
     public static UnityEvent sceneLoaded = new UnityEvent();
     public static SwitchEvent switchLocation = new SwitchEvent();
     public static CameraEvent switchCamera = new CameraEvent();
-    public static DialogueByIDEvent switchDialogueByID = new DialogueByIDEvent();
-    public static DialogueEvent switchDialogueByDialogue = new DialogueEvent();
+
+
 }
 
-public class DialogueEvent : UnityEvent<Dialogue> { }
-public class DialogueByIDEvent : UnityEvent<int> { }
 public class PickUpEvent : UnityEvent<GameObject> { }
 public class InventoryEvent : UnityEvent<InventoryItem> { }
 public class SwitchEvent : UnityEvent<DoorScript> { }
 public class CameraEvent : UnityEvent<CinemachineVirtualCamera> { }
+
+// DIALOGUE EVENT
+public static class DialogueEvents
+{
+    public static DialogueByIDEvent switchDialogueByID = new DialogueByIDEvent();
+    public static DialogueEvent switchDialogueByDialogue = new DialogueEvent();
+    public static DialogueEvent openBoxDialogue = new DialogueEvent();
+    public static DialogueEvent closeBoxDialogue = new DialogueEvent();
+}
+
+public class DialogueEvent : UnityEvent<DialogueData> { }
+public class DialogueByIDEvent : UnityEvent<int> { }
+
 // | Exemple
 //If you want to pass value (a copy only)
 //public class CustomUnityEvent : UnityEvent<int> { }
