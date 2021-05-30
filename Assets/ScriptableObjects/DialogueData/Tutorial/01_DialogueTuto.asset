@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: 01_DialogueTuto
   m_EditorClassIdentifier: 
   id: 0
-  character: {fileID: 0}
-  dialogueList: []
-  hasNextDialogueData: 0
-  nextDialogueData: {fileID: 0}
+  character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
+  dialogueList:
+  - 'Hello Officer, welcome in your first crime scene ! '
+  - I am Copbot, an artificial intelligence here in order to help you for your first
+    day and to give you all the informations about the crime.
+  - "Today we have a body who\u2019s a man called August CHAMBERS he is 20 years
+    old and he studies in a science faculty."
+  - According to the testimony of the neighbors, they heard a lot of noise who seems
+    to be a fight who start around 6:35pm and stopped around 10 minutes after.
+  - "So they called us at 6:47pm and the first cops have arrived at 6:56pm. Now you\u2019ll
+    have to find as many clues as possible in the scene crime."
+  hasNextDialogueData: 1
+  nextDialogueData: {fileID: 11400000, guid: 13ca6ba998bbee34db0b4d4919add155, type: 2}
   dialogueListIndex: 0
   isFinished: 0
