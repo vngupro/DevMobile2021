@@ -2,22 +2,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[DefaultExecutionOrder(-1)]
 public class CinemachineSwitcher : MonoBehaviour
 {
-    [SerializeField]
-    private List<CinemachineVirtualCamera> vcamList;
+    public List<CinemachineVirtualCamera> vcamList;
 
+    public static CinemachineSwitcher Instance { get; protected set; }
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        Instance = this;
+
         // Invoker 
         CustomGameEvents.switchLocation.AddListener(SwitchPriority);
     }
 
     private void Start()
     {
-        // Listeners | SlideOneFingerDetection.cs
+        // Listeners | SlideOneFingerDetection.cs PinchDEtection.cs
         CustomGameEvents.switchCamera.Invoke(vcamList[0]);
     }
+
     private void SwitchPriority(DoorScript door)
     {
         ResetPriorities();

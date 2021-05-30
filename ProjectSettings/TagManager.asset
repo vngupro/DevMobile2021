@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Clue
   - CameraItem
+  - Exit
+  - Blackscreen
   layers:
   - Default
   - TransparentFX
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 2492368283
+    locked: 0
+  - name: HUD
+    uniqueID: 1052279515
     locked: 0
