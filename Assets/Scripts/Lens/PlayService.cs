@@ -6,10 +6,17 @@ using UnityEngine.SocialPlatforms;
 
 public class PlayService : MonoBehaviour
 {
-
+    public static PlayService Instance { get; protected set; }
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
 
         try
         {
@@ -34,17 +41,18 @@ public class PlayService : MonoBehaviour
         }
     }
 
-    public void ShowAchivments()
+    public void ShowAchievement()
     {
         // show achievements UI
+        Debug.Log("Play Service Show Achievement");
         Social.ShowAchievementsUI();       
     }
 
-    public void ShowLeaderboard()
-    {
-        // show leaderboard UI
-        Social.ShowLeaderboardUI();
-    }
+    //public void ShowLeaderboard()
+    //{
+    //    // show leaderboard UI
+    //    Social.ShowLeaderboardUI();
+    //}
 
     public void UnlockAchievement(String id)
     {

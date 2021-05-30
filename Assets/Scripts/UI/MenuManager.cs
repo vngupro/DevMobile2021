@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
     [SerializeField] private Button playButton;
-
+    [SerializeField] private Button achievementButton;
     [Header("Animation")]
     public float fadeDuration = 2.0f;
 
@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         playButton.onClick.AddListener(PlayGame);
+        achievementButton.onClick.AddListener(ShowAchievement);
         // Listeners 
         // TapScreenScript.cs
         CustomGameEvents.enteredMenu.AddListener(EnterMenu);
@@ -108,5 +109,10 @@ public class MenuManager : MonoBehaviour
     private void PlayGame()
     {
         LevelManager.Instance.OpenSceneByName("Tutorial");
+    }
+
+    public void ShowAchievement()
+    {
+        PlayService.Instance.ShowAchievement();
     }
 }
