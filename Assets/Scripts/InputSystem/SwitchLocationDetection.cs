@@ -33,6 +33,7 @@ public class SwitchLocationDetection : MonoBehaviour
         //Listen To
         // TutoManager.cs
         UtilsEvent.blockMoveControls.AddListener(BlockControls);
+        UtilsEvent.unlockMoveControls.AddListener(UnblockControls);
     }
 
     private void BlockControls() { isBlocked = true; }
