@@ -13,22 +13,28 @@ public class PinchDetection : MonoBehaviour
     [SerializeField] private float distanceTolerance = 15.0f;
 
     private InputManager inputManager;
-    private InventoryManager inventory;
     private Coroutine coroutine;
 
     private CinemachineVirtualCamera virtualCamera;
     private Camera cameraItem;
+
+    private bool isBlocked = false;
+
     #endregion
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        inventory = InventoryManager.Instance;
 
-        // Invoker | LevelManager.cs
+        // Listen To
+        // LevelManager.cs
         CustomGameEvents.switchCamera.AddListener(RecupVirtualCamera);
         CustomGameEvents.sceneLoaded.AddListener(RecupCamera);
-        
+        // TutoManager.cs
+        UtilsEvent.blockMoveControls.AddListener(BlockControls);
     }
+    
+    private void BlockControls() { isBlocked = true; }
+    private void UnblockControls() { isBlocked = false; }
     private void OnEnable()
     {
         inputManager.OnStartTouchSecondary += StartZoom;
@@ -57,24 +63,18 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
-
-        if (virtualCamera == null || cameraItem == null) return;
+        if (isBlocked) { return; }
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
+        if (virtualCamera == null || cameraItem == null) { return; }
 
         coroutine = StartCoroutine(DetectionZoom());
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (inventory != null)
-        {
-            if (inventory.isOpen) return;
-        }
-
-        if (virtualCamera == null || cameraItem == null) return;
+        if (isBlocked) { return; }
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
+        if (virtualCamera == null || cameraItem == null) { return; }
 
         StopCoroutine(coroutine);
     }
