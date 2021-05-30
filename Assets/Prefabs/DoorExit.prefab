@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 8323847232464528657}
   - component: {fileID: 8323847232464528656}
   - component: {fileID: 8679551083054009506}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: DoorExit
   m_TagString: Exit
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ MonoBehaviour:
   sceneToLoad: 
   layer:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 65536
   distanceTolerance: 0.5
   timerBeforeHold: 1
   startPos: {x: 0, y: 0}

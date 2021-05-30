@@ -48,6 +48,7 @@ public class SlideOneFingerDetection : MonoBehaviour
         CustomGameEvents.sceneLoaded.AddListener(RecupVirtualCamera);
         // TutoManager.cs
         UtilsEvent.blockMoveControls.AddListener(BlockControls);
+        UtilsEvent.unlockMoveControls.AddListener(UnblockControls);
     }
 
     private void BlockControls() { isBlocked = true; }
