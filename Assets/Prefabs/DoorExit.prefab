@@ -194,4 +194,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcb81b938c54224184b0f655f20663b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasExit: {fileID: 0}
   sceneToLoad: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 32768
+  distanceTolerance: 0.5
+  timerBeforeHold: 1
+  startPos: {x: 0, y: 0}
