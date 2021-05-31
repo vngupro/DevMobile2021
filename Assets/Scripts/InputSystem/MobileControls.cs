@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Virginie/InputSystem/MobileControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputSystem/MobileControls.inputactions'
 
 using System;
 using System.Collections;
