@@ -13,6 +13,7 @@ public class HUDManager : MonoBehaviour
     public GameObject groupLens;
     public GameObject layerNotes;
     public GameObject boxDialogue;
+    
     [Header("Animation")]
     public List<float> lensAnimTime;
 
@@ -59,6 +60,8 @@ public class HUDManager : MonoBehaviour
         autopsyCorps.text = autopsy.corps;
         caseTitle.text = caseInfo.title;
         caseCorps.text = caseInfo.corps;
+
+        
     }
 
     private void Start()
