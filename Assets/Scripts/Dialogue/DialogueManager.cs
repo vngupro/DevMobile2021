@@ -29,7 +29,6 @@ public class DialogueManager : MonoBehaviour
     private List<DialogueData> dialoguesSeries = new List<DialogueData>();
     [SerializeField]
     private DialogueData currentDialogue;
-    private int levelIndex = 1;
 
     #region Initialization
     private void Awake()

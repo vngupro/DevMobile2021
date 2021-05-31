@@ -4072,8 +4072,8 @@ MonoBehaviour:
   autopsyCorps: {fileID: 1889972328}
   caseTitle: {fileID: 1477648919}
   caseCorps: {fileID: 1221992670}
-  isGroupLensOpening: 0
-  isLayerNotesOpening: 0
+  isGroupLensOpen: 0
+  isLayerNotesOpen: 0
   isAnimationFinished: 1
 --- !u!114 &965680974825283359
 MonoBehaviour:
@@ -4091,7 +4091,7 @@ MonoBehaviour:
   textName: {fileID: 3682734145981145133}
   imageCharacter: {fileID: 3682734146611216382}
   buttonNextDialogue: {fileID: 3682734146591255402}
-  animDuration: 0.8
+  animDuration: 0.2
   backgroundName: {fileID: 3682734146205179183}
   backgroundDialogue: {fileID: 3682734145848701465}
   isBoxDialogueOpen: 0
