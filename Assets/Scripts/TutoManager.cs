@@ -15,6 +15,7 @@ public class TutoManager : MonoBehaviour
     //HUD
     [SerializeField] private HUDManager HUDManager;
     [SerializeField] private GameObject buttonLens;
+    [SerializeField] private GameObject groupeLens;
     [SerializeField] private GameObject buttonNotes;
     [SerializeField] private GameObject roomChange;
     [SerializeField] private GameObject text_ToKitchen;
@@ -31,7 +32,8 @@ public class TutoManager : MonoBehaviour
 
     private bool firstClueIsPickable = false;
 
-    private TutoStep currentStep;
+    [Header ("Debug")]
+    [SerializeField]private TutoStep currentStep;
 
     private void OnDisable()
     {
@@ -47,17 +49,23 @@ public class TutoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
-        CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
-        currentStep = TutoStep.FIRST_DIALOGUE;
-        buttonLens.SetActive(false);
-        buttonNotes.SetActive(false);
-        doorExit.SetActive(false);
-        roomChange.SetActive(false);
-        text_ToKitchen.SetActive(false);
-        text_Exit.SetActive(false);
-        camStartPos = Camera.main.transform.position;
-  
+        if (!GameManager.Instance.gameData.IsTutoFinish)
+        {
+            UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
+            CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
+            currentStep = TutoStep.FIRST_DIALOGUE;
+            buttonLens.SetActive(false);
+            buttonNotes.SetActive(false);
+            doorExit.SetActive(false);
+            roomChange.SetActive(false);
+            text_ToKitchen.SetActive(false);
+            text_Exit.SetActive(false);
+            camStartPos = Camera.main.transform.position;
+        }
+        else
+        {
+            currentStep = TutoStep.TUTO_END;
+        }
     }
 
     // Update is called once per frame
@@ -199,35 +207,36 @@ public class TutoManager : MonoBehaviour
                 doorExit.SetActive(true);
                 text_Exit.SetActive(true);
             }
-            //Expilque au joueur de chercher
-            //Next si le joueur a recuperée un autre indice
-        }
-        else if (currentStep == TutoStep.EXIT_CRIME_SCENE)
-        {
-            //Next si sort
+
+            //Next si le joueur est sortie par l'exit
             if (canvasDoorExit.isExiting)
             {
-                
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
                 currentStep = TutoStep.SUSPECT;
+                buttonLens.SetActive(false);
+                groupeLens.SetActive(false);
             }
+
         }
         else if (currentStep == TutoStep.SUSPECT)
         {
-            //Explication Suspect 
-            if (currentDialogueId == 8 && currentDialogue.isFinished)
+            //Envoie les prochaine explications
+            if (currentDialogueId == 7 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
             }
-            //Next si dialogue fini 
+
+            //Next si dialogue fini  ou suspet accusée
+            if (currentDialogue.isFinished)
+            {
+                currentStep = TutoStep.TUTO_END;
+            }
         }
         else if (currentStep == TutoStep.TUTO_END)
         {
-            //Explication finale
-            if (currentDialogueId == 9 && currentDialogue.isFinished)
-            {
-                NextDialogueStep();
-            }
-            //end of tuto 
+            //dire au gameManager que le tuto est passée
+            GameManager.Instance.gameData.IsTutoFinish = true;
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -265,3 +274,19 @@ public enum TutoStep
     SUSPECT,
     TUTO_END,
 }
+
+//else if (currentStep == TutoStep.EXIT_CRIME_SCENE)
+//{
+//    //Envoie les prochaine explications
+//    if (currentDialogueId == 7 && currentDialogue.isFinished)
+//    {
+//        NextDialogueStep();
+//    }
+
+//    //Next si sort
+//    if (canvasDoorExit.isExiting)
+//    {
+
+//        currentStep = TutoStep.SUSPECT;
+//    }
+//}
