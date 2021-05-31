@@ -46,7 +46,11 @@ public class LensManager : MonoBehaviour
                 else
                 {
                     spriteRenderer.color = processVolume.GetLensColor(lens);
-                    item.isHidden = true;
+                    if (item.data.filter != LensEnum.NONE)
+                    {
+                        item.isHidden = true;
+                    }
+                    
                 }
             }
             currentLens = lens;
@@ -82,7 +86,7 @@ public class LensManager : MonoBehaviour
             spriteRenderer.color = Color.white;
             spriteRenderer.sprite = item.data.sprite;
 
-            if(item.data.spriteOnLens == null)
+            if(item.data.filter == LensEnum.NONE)
             {
                 item.isHidden = false;
             }
