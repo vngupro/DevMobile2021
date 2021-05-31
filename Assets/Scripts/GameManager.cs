@@ -19,10 +19,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        if (gameData == null && Resources.Load("GameData") is GameData)
-        {
-            gameData = Resources.Load("GameData") as GameData;
-        }
+
     }
 
     // Start is called before the first frame update
