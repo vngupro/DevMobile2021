@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b268195ab8009324e86dfd99bdcb1276, type: 3}
-  m_Name: 02_DialogueTuto
+  m_Name: 03_DialogueTuto
   m_EditorClassIdentifier: 
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - Touch the knife in order to collect it.
+  - 'Here you can find in first all the information about the crime that I gave you
+    before. '
+  - Right after you can see all the clue that you have already collected and all
+    the information about it
   hasNextDialogueData: 1
-  nextDialogueData: {fileID: 11400000, guid: 042d6eabffda4104e9ded8931884f7e2, type: 2}
+  nextDialogueData: {fileID: 11400000, guid: e65ac0f8cb5a4ef40ba10a1140641b2b, type: 2}
   dialogueListIndex: 0
   isFinished: 0

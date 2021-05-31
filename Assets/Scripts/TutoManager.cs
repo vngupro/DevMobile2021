@@ -6,9 +6,16 @@ public class TutoManager : MonoBehaviour
 {
     // Dialogues
     [SerializeField] private DialogueData currentDialogue;
+    private int currentDialogueId = 0;
 
     //Clues
     [SerializeField] private Item firstClue;
+    [SerializeField] private Item firstLensClue;
+
+    //HUD
+    [SerializeField] private HUDManager HUDManager;
+    private bool haveOpenNote = false;
+    private bool haveCloseNote = false;
 
     private bool firstClueIsPickable = false;
 
@@ -41,7 +48,11 @@ public class TutoManager : MonoBehaviour
         }
         else if (currentStep == TutoStep.FIRST_CLUE)
         {
-            NextDialogueStep();
+            //Envoie les prochaine explications
+            if (currentDialogueId == 0 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
 
             if (!firstClueIsPickable)   //permet de recupere le premiere indice
             {
@@ -57,32 +68,91 @@ public class TutoManager : MonoBehaviour
         }
         else if (currentStep == TutoStep.USE_NOTE)
         {
-            NextDialogueStep();
-            //Explique le carnet
-            //Next si carnet ouvert
+            //Envoie les prochaine explications
+            if (currentDialogueId == 1 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
+
+            //Next si carnet ouvert puis refermé
+            if (HUDManager.IsLayerNotesOpen && !haveOpenNote)
+            {
+                haveOpenNote = true;
+            }
+            if (!HUDManager.IsLayerNotesOpen && haveOpenNote)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
+                haveCloseNote = true;
+            }
+            if (haveCloseNote)
+            {
+                currentStep = TutoStep.USE_UV_LENS;
+            }
         }
         else if (currentStep == TutoStep.USE_UV_LENS)
         {
-            //Explique les filtre
+            //Envoie les prochaine explications
+            if (currentDialogueId == 2 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
+
             //Next si UV actif 
+            if (LensManager.instance.currentLens == LensEnum.UV)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
+                currentStep = TutoStep.UV_CLUE;
+            }
+
         }
         else if (currentStep == TutoStep.UV_CLUE)
         {
-            //Montre l'indice UV
+            //Envoie les prochaine explications
+            if (currentDialogueId == 3 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
+
             //Next si l'indice UV pris
+            if (!firstLensClue.gameObject.activeInHierarchy)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
+                currentStep = TutoStep.SLIDE_ZOOM;
+            }
         }
         else if (currentStep == TutoStep.SLIDE_ZOOM)
         {
-            //Montre le Slide
+            //Envoie les prochaine explications
+            if (currentDialogueId == 4 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
+
+            UtilsEvent.unlockMoveControls.Invoke();
+
             //Next si slide
+            if (currentDialogue.isFinished)
+            {
+                currentStep = TutoStep.CHANGE_ROOM;
+            }
         }
         else if (currentStep == TutoStep.CHANGE_ROOM)
         {
+            //Envoie les prochaine explications
+            if (currentDialogueId == 5 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
             //Montre changement de room
             //Next si changement de room
         }
         else if (currentStep == TutoStep.REFLECTION_TIME)
         {
+            //Envoie les prochaine explications
+            if (currentDialogueId == 6 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
             //Expilque au joueur de chercher
             //Next si le joueur a recuperée un autre indice
         }
@@ -107,8 +177,11 @@ public class TutoManager : MonoBehaviour
     {
         if (currentDialogue.isFinished && currentDialogue.hasNextDialogueData)
         {
+            currentDialogue.dialogueListIndex = 0;
+            currentDialogue.isFinished = false;
             CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue.nextDialogueData);
             currentDialogue = currentDialogue.nextDialogueData;
+            currentDialogueId++;
         }
     }
 

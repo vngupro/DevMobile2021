@@ -11,7 +11,7 @@ public class LensManager : MonoBehaviour
     //[SerializeField] private Color colorIR;
     //[SerializeField] private Color colorXRAY;
     //[SerializeField] private Color colorNIGHTSHOT;
-    private LensEnum currentLens;    
+    public LensEnum currentLens { get; private set; }    
 
     public static LensManager instance { get; protected set; }
     private void Awake()
