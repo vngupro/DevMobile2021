@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 5175691651515899672}
   - component: {fileID: 5175691651515899670}
   - component: {fileID: 5175691651515899673}
+  - component: {fileID: 386599923536732250}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -467,6 +468,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &386599923536732250
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175691651515899675}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5175691651853622589
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +747,6 @@ GameObject:
   - component: {fileID: 5175691652990846076}
   - component: {fileID: 5175691652990846079}
   - component: {fileID: 5175691652990846078}
-  - component: {fileID: 5175691652990846074}
   - component: {fileID: 5637216504012990121}
   m_Layer: 5
   m_Name: CanvasExitDoor
@@ -824,18 +836,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!225 &5175691652990846074
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5175691652990846017}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &5637216504012990121
 MonoBehaviour:
   m_ObjectHideFlags: 0

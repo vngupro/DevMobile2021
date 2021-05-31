@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 58335f163c34c394eba40e1697474596
   - enabled: 1
+    path: Assets/Scenes/Tutorial Safe.unity
+    guid: 952c7926b8fe3934c8680615a3cabbd0
+  - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: 20a82b37287e57a4aa5c0c58024b4db6
-  - enabled: 1
-    path: Assets/Scenes/Tuto_scene_vue1.unity
-    guid: 15e2ff2cca9dd1442ad9c6ec5584f789
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fc5a02fbb8f6ece4c97dfbfad76bc8d3, type: 2}

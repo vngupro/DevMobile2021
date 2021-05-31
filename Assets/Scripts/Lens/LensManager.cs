@@ -45,7 +45,7 @@ public class LensManager : MonoBehaviour
                 }
                 else
                 {
-                    spriteRenderer.color = processVolume.GetUVColor();
+                    spriteRenderer.color = processVolume.GetLensColor(lens);
                     item.isHidden = true;
                 }
             }

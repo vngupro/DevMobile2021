@@ -99,7 +99,7 @@ public class DoorExitScript : MonoBehaviour
             // Display Pop up "Are you sure Exit ?"
             if(count >= 2)
             {
-                canvasExit.gameObject.SetActive(true);
+                canvasExit.background.SetActive(true);
                 canvasExit.sceneToLoad = sceneToLoad;
             }
         }

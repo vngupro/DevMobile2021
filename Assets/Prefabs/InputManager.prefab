@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceTolerance: 10
   cameraSpeed: 80
-  slideTrail: {fileID: 2686448326070153703}
+  slideTrail: {fileID: 0}
 --- !u!114 &3135973029160292108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
     m_Bits: 32768
   distanceTolerance: 0.5
   timerBeforeHold: 1
+  startPos: {x: 0, y: 0}
 --- !u!1 &2686448324823240125
 GameObject:
   m_ObjectHideFlags: 0

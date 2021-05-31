@@ -79,10 +79,10 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private void StartSlide(Vector2 position, float time)
     {
+
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (isDragging) { return; }
-
         startPos = position;
         coroutine = StartCoroutine(DetectionSlide());
 
@@ -108,7 +108,11 @@ public class SlideOneFingerDetection : MonoBehaviour
             StopCoroutine(trailCoroutine);
         }
 
-        StopCoroutine(coroutine);
+        if(coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+
     }
 
     private IEnumerator DetectionSlide()
