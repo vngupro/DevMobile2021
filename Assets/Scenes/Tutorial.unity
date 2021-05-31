@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalPostProcessVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 616540962751273883, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 616540962751273884, guid: 93b1ce20b814b7c44ac7e51b8e71c9e4, type: 3}
       propertyPath: _IRColorFilter.b
       value: 0
@@ -1989,6 +1993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldBoundary_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1923707093542860909, guid: 9aafc74fc7275fc4aacc8e94e8b73bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aafc74fc7275fc4aacc8e94e8b73bcf, type: 3}
 --- !u!60 &1172747814 stripped
@@ -2143,6 +2151,10 @@ PrefabInstance:
     - target: {fileID: 3624404729669719031, guid: 3baf629832479104aa196a2ec733f5ae, type: 3}
       propertyPath: m_Name
       value: LensManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624404729669719031, guid: 3baf629832479104aa196a2ec733f5ae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3baf629832479104aa196a2ec733f5ae, type: 3}
@@ -2596,6 +2608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2686448324454584324, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2686448324454584326, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2843,6 +2859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 965680974825283361, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 965680974866567845, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2964,6 +2984,10 @@ PrefabInstance:
     - target: {fileID: 2739607437343873707, guid: 576c6aa3bd634f146b4c5720dd52fbdd, type: 3}
       propertyPath: m_Name
       value: LevelManager( Menu)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739607437343873707, guid: 576c6aa3bd634f146b4c5720dd52fbdd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 576c6aa3bd634f146b4c5720dd52fbdd, type: 3}
@@ -4143,6 +4167,10 @@ PrefabInstance:
     - target: {fileID: 1923707093542860909, guid: 9aafc74fc7275fc4aacc8e94e8b73bcf, type: 3}
       propertyPath: m_Name
       value: WorldBoundary_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923707093542860909, guid: 9aafc74fc7275fc4aacc8e94e8b73bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aafc74fc7275fc4aacc8e94e8b73bcf, type: 3}

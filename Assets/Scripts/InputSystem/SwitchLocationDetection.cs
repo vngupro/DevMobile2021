@@ -42,6 +42,7 @@ public class SwitchLocationDetection : MonoBehaviour
     {
         inputManager.OnStartTouch += StartDoor;
         inputManager.OnEndTouch += EndDoor;
+
     }
 
     private void OnDisable()
@@ -111,6 +112,7 @@ public class SwitchLocationDetection : MonoBehaviour
     
     public void ChangeLocation()
     {
+        blackscreen = CanvasBlackscreen.Instance;
         if (blackscreen != null)
         {
             StartCoroutine(SwitchLocation());

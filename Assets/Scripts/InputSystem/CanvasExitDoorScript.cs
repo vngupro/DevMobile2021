@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CanvasExitDoorScript : MonoBehaviour
 {
-    [SerializeField] private GameObject background;
+    public GameObject background;
     [SerializeField] private Button buttonYes;
     [SerializeField] private Button buttonNo;
     [HideInInspector]
@@ -25,6 +25,6 @@ public class CanvasExitDoorScript : MonoBehaviour
 
     public void NoGoBack()
     {
-        this.gameObject.SetActive(false);
+       background.SetActive(false);
     }
 }

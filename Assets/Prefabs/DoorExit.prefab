@@ -199,6 +199,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 65536
-  distanceTolerance: 0.5
+  distanceTolerance: 1
   timerBeforeHold: 1
   startPos: {x: 0, y: 0}

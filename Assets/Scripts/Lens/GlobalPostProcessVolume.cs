@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -20,32 +18,39 @@ public class GlobalPostProcessVolume : MonoBehaviour
         vp = GetComponent<Volume>().profile; //get VolumeProfile from VolumeComponent 
     }
 
-    // Update is called once per frame
-    void Update()
+    public Color GetLensColor(LensEnum lens)
     {
-        
-    }
+        switch (lens)
+        {
+            case LensEnum.NONE:         return _normalColorFilter;
+            case LensEnum.UV:           return _UVColorFilter;
+            case LensEnum.IR:           return _IRColorFilter;
+            case LensEnum.XRAY:         return _XRAYColorFilter;
+            case LensEnum.NIGHTSHOT:    return _NIGHTSHOTColorFilter;   
+        }
 
-    public Color GetNormalColor()
-    {
         return _normalColorFilter;
     }
-    public Color GetUVColor()
-    {
-        return _UVColorFilter;
-    }
-    public Color GetIRColor()
-    {
-        return _IRColorFilter;
-    }
-    public Color GetXRAYColor()
-    {
-        return _XRAYColorFilter;
-    }
-    public Color GetNIGHTSHOTColor()
-    {
-        return _NIGHTSHOTColorFilter;
-    }
+    //public Color GetNormalColor()
+    //{
+    //    return _normalColorFilter;
+    //}
+    //public Color GetUVColor()
+    //{
+    //    return _UVColorFilter;
+    //}
+    //public Color GetIRColor()
+    //{
+    //    return _IRColorFilter;
+    //}
+    //public Color GetXRAYColor()
+    //{
+    //    return _XRAYColorFilter;
+    //}
+    //public Color GetNIGHTSHOTColor()
+    //{
+    //    return _NIGHTSHOTColorFilter;
+    //}
 
     public void ChangeColorToNormal()
     {

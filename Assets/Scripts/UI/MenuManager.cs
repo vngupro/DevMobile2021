@@ -108,7 +108,7 @@ public class MenuManager : MonoBehaviour
 
     private void PlayGame()
     {
-        LevelManager.Instance.OpenSceneByName("Tutorial");
+        LevelManager.Instance.OpenSceneByName("Tutorial Safe");
     }
 
     public void ShowAchievement()
