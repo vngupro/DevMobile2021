@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
         // Listeners 
         // TapScreenScript.cs
         CustomGameEvents.enteredMenu.AddListener(EnterMenu);
+        if (inputManager != null)
         UtilsEvent.fadeInEnded.AddListener(inputManager.EnableControls);
     }
     public void OpenLayer(UI_Layer layer)

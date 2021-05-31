@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &72893953
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 410d0529f4f164b4ebf02a3203ce7406, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: e79de73144da79e4597564cae6190c63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2461,15 +2461,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2573636288897795241, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8731346
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2573636288897795241, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48226526
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2573636288897795241, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -104.248795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2573636288897795241, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2503,7 +2503,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayService
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2573636288897795240, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cbcf3d93149ce9743a3eeb5c36feabf4, type: 3}
 --- !u!1 &440306678
 GameObject:
@@ -2925,9 +2926,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 2127197004}
-  icon: {fileID: 0}
   background: {fileID: 0}
   textBox: {fileID: 0}
+  iconTransform: {fileID: 0}
+  icon: {fileID: 748792167}
 --- !u!114 &505414194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,8 +3731,8 @@ GameObject:
   - component: {fileID: 685693523}
   - component: {fileID: 685693522}
   m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
+  m_Name: Image
+  m_TagString: TabImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3879,8 +3881,8 @@ GameObject:
   - component: {fileID: 699375119}
   - component: {fileID: 699375118}
   m_Layer: 5
-  m_Name: Image (2)
-  m_TagString: Untagged
+  m_Name: Image
+  m_TagString: TabImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4078,7 +4080,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4199,7 +4201,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4470,7 +4472,7 @@ GameObject:
   - component: {fileID: 748792167}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: TabImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7387,7 +7389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352303343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0425148, y: 0.024245262, z: -115.635895}
+  m_LocalPosition: {x: 0.042518616, y: 0.024086952, z: -115.635895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9116,9 +9118,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 2127197004}
-  icon: {fileID: 0}
   background: {fileID: 0}
   textBox: {fileID: 0}
+  iconTransform: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!114 &1663531620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11026,9 +11029,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 2127197004}
-  icon: {fileID: 0}
   background: {fileID: 0}
   textBox: {fileID: 0}
+  iconTransform: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!114 &1968791291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11708,15 +11712,15 @@ MonoBehaviour:
   spriteTabIdle: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
   spriteTabHover: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
   spriteTabActive: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
-  colorTabIdle: {r: 0.5660378, g: 0.54734784, b: 0.54734784, a: 1}
-  colorTabHover: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  colorTabIdle: {r: 0.39607847, g: 0.39607847, b: 0.39607847, a: 1}
+  colorTabHover: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
   colorTabActive: {r: 1, g: 1, b: 1, a: 1}
-  colorTextIdle: {r: 0, g: 0, b: 0, a: 0}
-  colorTextHover: {r: 0, g: 0, b: 0, a: 0}
-  colorTextActive: {r: 0, g: 0, b: 0, a: 0}
-  colorIconIdle: {r: 0, g: 0, b: 0, a: 0}
-  colorIconHover: {r: 0, g: 0, b: 0, a: 0}
-  colorIconActive: {r: 0, g: 0, b: 0, a: 0}
+  colorTextIdle: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  colorTextHover: {r: 0.20754719, g: 0.2065682, b: 0.2065682, a: 1}
+  colorTextActive: {r: 0, g: 0, b: 0, a: 1}
+  colorIconIdle: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  colorIconHover: {r: 0.1981132, g: 0.19157173, b: 0.19157173, a: 1}
+  colorIconActive: {r: 0, g: 0, b: 0, a: 1}
   objectsToSwap:
   - {fileID: 309602098}
   - {fileID: 198671736}

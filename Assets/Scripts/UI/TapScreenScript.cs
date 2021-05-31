@@ -18,6 +18,7 @@ public class TapScreenScript : MonoBehaviour
 
     private void OnEnable()
     {
+        if(inputManager != null)
         inputManager.OnStartTouch += CloseTapScreen;
         coroutine = StartCoroutine(BlinkingText());
     }
@@ -28,17 +29,20 @@ public class TapScreenScript : MonoBehaviour
 
     private void CloseTapScreen(Vector2 position, float time)
     {
-        if (video.IsPlaying())
+        if (video != null)
         {
-            CustomGameEvents.hasTapScreen.Invoke();
+            if (video.IsPlaying())
+            {
+                CustomGameEvents.hasTapScreen.Invoke();
+                return;
+            }
         }
-        else
-        {
-            this.gameObject.SetActive(false);
-            inputManager.OnStartTouch -= CloseTapScreen;
-            CustomGameEvents.enteredMenu.Invoke();
-            StopCoroutine(coroutine);
-        }
+        
+        this.gameObject.SetActive(false);
+        inputManager.OnStartTouch -= CloseTapScreen;
+        CustomGameEvents.enteredMenu.Invoke();
+        StopCoroutine(coroutine);
+        
     }
 
     IEnumerator BlinkingText()

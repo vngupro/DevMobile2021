@@ -34,11 +34,14 @@ public class SlideOneFingerDetection : MonoBehaviour
         cameraInitialSpeed = cameraSpeed;
 
         //direct link on menu scene can work too
-        vcam = CinemachineSwitcher.Instance.vcamList[0];
-        boundary = vcam.GetComponent<CinemachineConfiner>().m_BoundingShape2D;
-        cameraWidth = 2f * vcam.m_Lens.OrthographicSize;
-        cameraHeight = vcam.m_Lens.OrthographicSize * Camera.main.aspect;
+        if (CinemachineSwitcher.Instance != null)
+        {
+            vcam = CinemachineSwitcher.Instance.vcamList[0];
+            boundary = vcam.GetComponent<CinemachineConfiner>().m_BoundingShape2D;
 
+            cameraWidth = 2f * vcam.m_Lens.OrthographicSize;
+            cameraHeight = vcam.m_Lens.OrthographicSize * Camera.main.aspect;
+        }
         if(slideTrail != null) slideTrail.SetActive(false);
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
@@ -91,7 +94,6 @@ public class SlideOneFingerDetection : MonoBehaviour
             slideTrail.transform.position = position;
             slideTrail.SetActive(true);
             trailCoroutine = StartCoroutine(Trail());
-
         }
     }
 
@@ -129,10 +131,14 @@ public class SlideOneFingerDetection : MonoBehaviour
                 Vector3 direction = positionPrimary - startPos;
                 Vector3 nDirection = direction.normalized;
                 
-                Vector3 targetPosiion = vcam.transform.position - nDirection * cameraSpeed * Time.deltaTime;
-                float newPosX = Mathf.Clamp(targetPosiion.x, boundary.bounds.min.x + cameraWidth/2, boundary.bounds.max.x - cameraWidth/2);
-                float newPosY = Mathf.Clamp(targetPosiion.y, boundary.bounds.min.y + cameraHeight/2, boundary.bounds.max.y - cameraHeight/2);
-                vcam.transform.position = new Vector3(newPosX, newPosY, -10);
+                if(vcam != null)
+                {
+                    Vector3 targetPosiion = vcam.transform.position - nDirection * cameraSpeed * Time.deltaTime;
+                    float newPosX = Mathf.Clamp(targetPosiion.x, boundary.bounds.min.x + cameraWidth / 2, boundary.bounds.max.x - cameraWidth / 2);
+                    float newPosY = Mathf.Clamp(targetPosiion.y, boundary.bounds.min.y + cameraHeight / 2, boundary.bounds.max.y - cameraHeight / 2);
+                    vcam.transform.position = new Vector3(newPosX, newPosY, -10);
+                }
+
 
                 //Keep Track of previous position
                 startPos = positionPrimary;

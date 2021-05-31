@@ -42,7 +42,6 @@ public class SwitchLocationDetection : MonoBehaviour
     {
         inputManager.OnStartTouch += StartDoor;
         inputManager.OnEndTouch += EndDoor;
-
     }
 
     private void OnDisable()
