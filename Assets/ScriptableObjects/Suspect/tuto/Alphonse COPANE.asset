@@ -19,11 +19,12 @@ MonoBehaviour:
   bloodType: A+
   job: Worker in a factory
   nationality: 5
+  secondNationality: 0
   placeOfResidence: ' 700 meters from the victim''s home'
   alibi: The suspect finished his work at 6:30 p.m and was on his way to his home
     at the time of the crime
   suspectedMotive: Robbery
   description: According to Holly he would be the victim's dealer and would often
     be threatening with them
-  sprite: {fileID: 21300000, guid: d7cf2f29160d37141b2c78cb0981d462, type: 3}
+  sprite: {fileID: 21300000, guid: e1b5331ab108f6a4dbef43513df1d325, type: 3}
   isGuilty: 0

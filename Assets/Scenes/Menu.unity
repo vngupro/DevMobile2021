@@ -2930,6 +2930,8 @@ MonoBehaviour:
   textBox: {fileID: 0}
   iconTransform: {fileID: 0}
   icon: {fileID: 748792167}
+  arrowTransform: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &505414194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3388,7 +3390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 577519916}
   videoScreen: {fileID: 13478627}
-  secondsBeforeStartCinematic: 10
+  secondsBeforeStartCinematic: 4
   fadeDuration: 2
   canvasGroup: {fileID: 0}
   cameraBlackscreen: {fileID: 0}
@@ -7389,7 +7391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352303343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.042518616, y: 0.024086952, z: -115.635895}
+  m_LocalPosition: {x: 0.04252243, y: 0.02404356, z: -115.635895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9122,6 +9124,8 @@ MonoBehaviour:
   textBox: {fileID: 0}
   iconTransform: {fileID: 0}
   icon: {fileID: 0}
+  arrowTransform: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &1663531620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11033,6 +11037,8 @@ MonoBehaviour:
   textBox: {fileID: 0}
   iconTransform: {fileID: 0}
   icon: {fileID: 0}
+  arrowTransform: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &1968791291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12010,6 +12016,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7058299852363142504, guid: 6430f67e76a7e7f47b09b6bee3ef9643, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7058299852363142505, guid: 6430f67e76a7e7f47b09b6bee3ef9643, type: 3}
       propertyPath: m_Pivot.x
       value: 0
