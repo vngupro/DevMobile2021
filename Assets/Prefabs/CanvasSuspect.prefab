@@ -405,7 +405,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!114 &1098071588315892096
 MonoBehaviour:
@@ -462,7 +462,6 @@ MonoBehaviour:
   suspects:
   - {fileID: 11400000, guid: 9f0aacf5be03e8c46af73d72114a73e0, type: 2}
   - {fileID: 11400000, guid: e439fc3ae54ddd441839f4d95503fcfa, type: 2}
-  - {fileID: 11400000, guid: b1e7b92f9c4611245a7f4f00797cea31, type: 2}
   - {fileID: 11400000, guid: b1e7b92f9c4611245a7f4f00797cea31, type: 2}
   panelSuspect: {fileID: 7019417850497916932}
   panelInfo: {fileID: 2533921844550595362}
@@ -1849,8 +1848,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 50
+    m_Right: 50
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
@@ -2042,7 +2041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

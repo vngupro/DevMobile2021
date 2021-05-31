@@ -36,7 +36,7 @@ public static class CustomGameEvents
     public static UnityEvent sceneLoaded = new UnityEvent();
     public static SwitchEvent switchLocation = new SwitchEvent();
     public static CameraEvent switchCamera = new CameraEvent();
-
+    public static CameraEvent switchToSuspect = new CameraEvent();
 
 }
 
@@ -44,7 +44,6 @@ public class PickUpEvent : UnityEvent<GameObject> { }
 public class InventoryEvent : UnityEvent<InventoryItem> { }
 public class SwitchEvent : UnityEvent<DoorScript> { }
 public class CameraEvent : UnityEvent<CinemachineVirtualCamera> { }
-
 // DIALOGUE EVENT
 public static class CustomDialogueEvents
 {

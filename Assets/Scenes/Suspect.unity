@@ -1025,6 +1025,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasSuspect
       objectReference: {fileID: 0}
+    - target: {fileID: 1098071588315892109, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: suspects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071588315892109, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: suspects.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939973855703567783, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939973855703567783, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5781623461105489729, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
       propertyPath: m_RootOrder
       value: 3

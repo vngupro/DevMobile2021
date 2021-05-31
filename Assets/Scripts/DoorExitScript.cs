@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using Cinemachine;
 public class DoorExitScript : MonoBehaviour
 {
 
     #region Variable
     public CanvasExitDoorScript canvasExit;
+    public CinemachineVirtualCamera vcamOfNEXTLocation;
+
     public string sceneToLoad;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
@@ -22,7 +24,6 @@ public class DoorExitScript : MonoBehaviour
     private GameObject currentDoor;                                 // for counting
 
     private InputManager inputManager;
-    private CanvasBlackscreen blackscreen;
 
     private short count = 0;                                     // for double tap to exit scene
     private bool isBlocked = false;
@@ -31,7 +32,6 @@ public class DoorExitScript : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
-        blackscreen = CanvasBlackscreen.Instance;
 
         // Listen To
         // TutoManager.cs
