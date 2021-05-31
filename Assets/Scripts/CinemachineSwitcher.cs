@@ -19,6 +19,7 @@ public class CinemachineSwitcher : MonoBehaviour
 
         // Invoker 
         CustomGameEvents.switchLocation.AddListener(SwitchPriority);
+      
     }
 
     private void Start()

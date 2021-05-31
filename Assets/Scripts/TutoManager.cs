@@ -14,8 +14,19 @@ public class TutoManager : MonoBehaviour
 
     //HUD
     [SerializeField] private HUDManager HUDManager;
+    [SerializeField] private GameObject buttonLens;
+    [SerializeField] private GameObject buttonNotes;
+    [SerializeField] private GameObject roomChange;
+    [SerializeField] private GameObject text_ToKitchen;
+    [SerializeField] private GameObject text_Exit;
+    [SerializeField] private GameObject doorExit;
+
+    private Vector2 camStartPos;
+
     private bool haveOpenNote = false;
     private bool haveCloseNote = false;
+    private bool haveMove = false;
+    private bool haveSwitchLocation = false;
 
     private bool firstClueIsPickable = false;
 
@@ -27,12 +38,25 @@ public class TutoManager : MonoBehaviour
         currentDialogue.isFinished = false;
     }
 
+    private void Awake()
+    {
+        CustomGameEvents.switchLocation.AddListener(TrueHaveSwitchLocation);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
         CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
         currentStep = TutoStep.FIRST_DIALOGUE;
+        buttonLens.SetActive(false);
+        buttonNotes.SetActive(false);
+        doorExit.SetActive(false);
+        roomChange.SetActive(false);
+        text_ToKitchen.SetActive(false);
+        text_Exit.SetActive(false);
+        camStartPos = Camera.main.transform.position;
+  
     }
 
     // Update is called once per frame
@@ -72,6 +96,7 @@ public class TutoManager : MonoBehaviour
             if (currentDialogueId == 1 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
+                buttonNotes.SetActive(true);
             }
 
             //Next si carnet ouvert puis refermé
@@ -95,6 +120,7 @@ public class TutoManager : MonoBehaviour
             if (currentDialogueId == 2 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
+                buttonLens.SetActive(true);
             }
 
             //Next si UV actif 
@@ -130,9 +156,17 @@ public class TutoManager : MonoBehaviour
 
             UtilsEvent.unlockMoveControls.Invoke();
 
-            //Next si slide
-            if (currentDialogue.isFinished)
+            // Si Slide ou Zoom
+            Vector2 camCurrentPosition = Camera.main.transform.position;
+            if(camCurrentPosition != camStartPos)
             {
+                haveMove = true;
+            }
+
+            //Next si slide
+            if (haveMove)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
                 currentStep = TutoStep.CHANGE_ROOM;
             }
         }
@@ -142,9 +176,16 @@ public class TutoManager : MonoBehaviour
             if (currentDialogueId == 5 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
+                roomChange.SetActive(true);
+                text_ToKitchen.SetActive(true);
             }
             //Montre changement de room
             //Next si changement de room
+            if (haveSwitchLocation)
+            {
+                CustomDialogueEvents.closeBoxDialogue.Invoke();
+                currentStep = TutoStep.REFLECTION_TIME;
+            }
         }
         else if (currentStep == TutoStep.REFLECTION_TIME)
         {
@@ -152,13 +193,15 @@ public class TutoManager : MonoBehaviour
             if (currentDialogueId == 6 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
+                doorExit.SetActive(true);
+                text_Exit.SetActive(true);
             }
             //Expilque au joueur de chercher
             //Next si le joueur a recuperée un autre indice
         }
         else if (currentStep == TutoStep.EXIT_CRIME_SCENE)
         {
-            //propose de sortire
+            //propose de sortir
             //Next si sort
         }
         else if (currentStep == TutoStep.SUSPECT)
@@ -185,6 +228,11 @@ public class TutoManager : MonoBehaviour
         }
     }
 
+    private void TrueHaveSwitchLocation(DoorScript door)
+    {
+        haveSwitchLocation = true;
+        CustomGameEvents.switchLocation.RemoveListener(TrueHaveSwitchLocation);
+    }
 }
 
 
