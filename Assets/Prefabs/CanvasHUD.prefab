@@ -1076,8 +1076,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToXRAY
+        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
+        m_MethodName: LightUpXRAYClues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1088,8 +1088,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
-        m_MethodName: LightUpXRAYClues
+        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
+        m_MethodName: ChangeColorToXRAY
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2777,8 +2777,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965680974962613194}
   m_HandleRect: {fileID: 965680974962613193}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5821449
+  m_Value: 1.0000002
+  m_Size: 0.5845703
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3333,8 +3333,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToIR
+        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
+        m_MethodName: LightUpIRClues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3345,8 +3345,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
-        m_MethodName: LightUpIRClues
+        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
+        m_MethodName: ChangeColorToIR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3538,8 +3538,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToNormal
+        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
+        m_MethodName: NormalMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3550,8 +3550,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
-        m_MethodName: NormalMode
+        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
+        m_MethodName: ChangeColorToNormal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4094,7 +4094,7 @@ MonoBehaviour:
   animDuration: 0.8
   backgroundName: {fileID: 3682734146205179183}
   backgroundDialogue: {fileID: 3682734145848701465}
-  isDialogueActive: 1
+  isBoxDialogueOpen: 0
   isAnimationActive: 0
   dialoguesSeries: []
   currentDialogue: {fileID: 0}
@@ -4261,8 +4261,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToUV
+        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
+        m_MethodName: LightUpUVClues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4273,8 +4273,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
-        m_MethodName: LightUpUVClues
+        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
+        m_MethodName: ChangeColorToUV
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4574,8 +4574,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToNIGHTSHOT
+        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
+        m_MethodName: LightUpNIGHTSHOTClues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4586,8 +4586,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
-        m_MethodName: LightUpNIGHTSHOTClues
+        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
+        m_MethodName: ChangeColorToNIGHTSHOT
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6575,6 +6575,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 965680973289611178}
     m_Modifications:
+    - target: {fileID: 8249890280997621695, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+      propertyPath: m_Name
+      value: Image
+      objectReference: {fileID: 0}
     - target: {fileID: 8249890281376438568, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
       propertyPath: colorIconIdle.a
       value: 1
@@ -6750,6 +6754,10 @@ PrefabInstance:
     - target: {fileID: 8249890281500586088, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249890281677020843, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+      propertyPath: m_Name
+      value: Image
       objectReference: {fileID: 0}
     - target: {fileID: 8249890281727425508, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
       propertyPath: m_Color.a

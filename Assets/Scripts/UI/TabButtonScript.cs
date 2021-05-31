@@ -11,11 +11,13 @@ public class TabButtonScript : MonoBehaviour, IPointerClickHandler, IPointerEnte
 {
     public TabGroup tabGroup;
 
-    public Image icon;
     [Header("Debug")]
     public Image background;
     public TMP_Text textBox;
-
+    public Transform iconTransform;
+    public Image icon;
+    public Transform arrowTransform;
+    public Image arrow;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -36,7 +38,13 @@ public class TabButtonScript : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         background = GetComponent<Image>();
         textBox = GetComponentInChildren<TMP_Text>();
-        Debug.Log(icon.name);
+        iconTransform = this.gameObject.transform.Find("Image");
+        icon = iconTransform.gameObject.GetComponent<Image>();
+        arrowTransform = this.gameObject.transform.Find("Arrow");
+        if (arrowTransform != null)
+        {
+            arrow = iconTransform.gameObject.GetComponent<Image>();
+        }
         tabGroup.Subscribe(this);
     }
 }
