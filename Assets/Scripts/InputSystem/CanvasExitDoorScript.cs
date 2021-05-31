@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CanvasExitDoorScript : MonoBehaviour
 {
+    [SerializeField] private GameObject background;
     [SerializeField] private Button buttonYes;
     [SerializeField] private Button buttonNo;
     [HideInInspector]
@@ -14,6 +15,7 @@ public class CanvasExitDoorScript : MonoBehaviour
     {
         buttonNo.onClick.AddListener(NoGoBack);
         buttonYes.onClick.AddListener(YesChangeScene);
+        background.SetActive(false);
     }
 
     public void YesChangeScene()

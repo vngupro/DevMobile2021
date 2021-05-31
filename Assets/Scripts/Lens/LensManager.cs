@@ -13,7 +13,7 @@ public class LensManager : MonoBehaviour
     //[SerializeField] private Color colorNIGHTSHOT;
     private LensEnum currentLens;    
 
-    public static LensManager instance { get; private set; }
+    public static LensManager instance { get; protected set; }
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -27,111 +27,69 @@ public class LensManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void SwitchLens(LensEnum lens)
     {
+        if (currentLens != lens)
+        {
+            NormalMode();
 
-    }
+            foreach (GameObject clue in clues)
+            {
+                SpriteRenderer spriteRenderer = clue.GetComponent<SpriteRenderer>();
+                Item item = clue.GetComponent<Item>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                if (item.data.filter == lens)
+                {
+                    spriteRenderer.sprite = item.data.spriteOnLens;
+                    item.isHidden = false;
+                }
+                else
+                {
+                    spriteRenderer.color = processVolume.GetUVColor();
+                    item.isHidden = true;
+                }
+            }
+            currentLens = lens;
+        }
     }
 
     public void LightUpUVClues()
     {
-        if (currentLens != LensEnum.UV)
-        {
-            NormalMode();
-
-            foreach (GameObject clue in clues)
-            {
-                if(clue.GetComponent<Item>().data.filter == LensEnum.UV)
-                {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens ;
-                }
-                else
-                {
-                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetUVColor();
-                }
-            }
-
-            currentLens = LensEnum.UV;
-        }
+        SwitchLens(LensEnum.UV);
     }
     
     public void LightUpIRClues()
     {
-        if (currentLens != LensEnum.IR)
-        {
-            NormalMode();
-
-            foreach (GameObject clue in clues)
-            {
-                if (clue.GetComponent<Item>().data.filter == LensEnum.IR)
-                {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
-                }
-                else
-                {
-                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetIRColor();
-                }
-            }
-
-            currentLens = LensEnum.IR;
-        }
+        SwitchLens(LensEnum.IR);
     }
 
     public void LightUpXRAYClues()
     {
-        if (currentLens != LensEnum.XRAY)
-        {
-            NormalMode();
-
-            foreach (GameObject clue in clues)
-            {
-                if (clue.GetComponent<Item>().data.filter == LensEnum.XRAY)
-                {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
-                }
-                else
-                {
-                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetXRAYColor();
-                }
-            }
-
-            currentLens = LensEnum.XRAY;
-        }
+        SwitchLens(LensEnum.XRAY);
     }
     public void LightUpNIGHTSHOTClues()
     {
-        if (currentLens != LensEnum.NIGHTSHOT)
-        {
-            NormalMode();
-
-            foreach (GameObject clue in clues)
-            {
-                if (clue.GetComponent<Item>().data.filter == LensEnum.NIGHTSHOT)
-                {
-                    clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.spriteOnLens;
-                }
-                else
-                {
-                    clue.GetComponent<SpriteRenderer>().color = processVolume.GetNIGHTSHOTColor();
-                }
-            }
-
-            currentLens = LensEnum.NIGHTSHOT;
-        }
+        SwitchLens(LensEnum.NIGHTSHOT);
     }
 
     public void NormalMode()
     {
         foreach (GameObject clue in clues)
         {
-            clue.GetComponent<SpriteRenderer>().color = Color.white;
-            clue.GetComponent<SpriteRenderer>().sprite = clue.GetComponent<Item>().data.sprite;
+            SpriteRenderer spriteRenderer = clue.GetComponent<SpriteRenderer>();
+            Item item = clue.GetComponent<Item>();
+
+            spriteRenderer.color = Color.white;
+            spriteRenderer.sprite = item.data.sprite;
+
+            if(item.data.spriteOnLens == null)
+            {
+                item.isHidden = false;
+            }
+            else
+            {
+                item.isHidden = true;
+            }
         }
 
         currentLens = LensEnum.NONE;
