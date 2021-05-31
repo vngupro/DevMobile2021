@@ -3033,6 +3033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea89ec6d07d4d2c48ac7a7104a8b8ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: 3ca923a100f1b2b409967cbe73804633, type: 2}
 --- !u!4 &1230073612
 Transform:
   m_ObjectHideFlags: 0

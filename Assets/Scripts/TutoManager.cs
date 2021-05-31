@@ -49,17 +49,23 @@ public class TutoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
-        CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
-        currentStep = TutoStep.FIRST_DIALOGUE;
-        buttonLens.SetActive(false);
-        buttonNotes.SetActive(false);
-        doorExit.SetActive(false);
-        roomChange.SetActive(false);
-        text_ToKitchen.SetActive(false);
-        text_Exit.SetActive(false);
-        camStartPos = Camera.main.transform.position;
-  
+        if (!GameManager.Instance.gameData.IsTutoFinish)
+        {
+            UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
+            CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
+            currentStep = TutoStep.FIRST_DIALOGUE;
+            buttonLens.SetActive(false);
+            buttonNotes.SetActive(false);
+            doorExit.SetActive(false);
+            roomChange.SetActive(false);
+            text_ToKitchen.SetActive(false);
+            text_Exit.SetActive(false);
+            camStartPos = Camera.main.transform.position;
+        }
+        else
+        {
+            currentStep = TutoStep.TUTO_END;
+        }
     }
 
     // Update is called once per frame
@@ -229,6 +235,8 @@ public class TutoManager : MonoBehaviour
         else if (currentStep == TutoStep.TUTO_END)
         {
             //dire au gameManager que le tuto est passée
+            GameManager.Instance.gameData.IsTutoFinish = true;
+            this.gameObject.SetActive(false);
         }
     }
 
