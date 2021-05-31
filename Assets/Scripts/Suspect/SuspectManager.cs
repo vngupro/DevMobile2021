@@ -1,124 +1,147 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-//box suspect row 
-// width : 200
-// height : 400
+using TMPro;
 
-//save after play the arrengment
-[ExecuteInEditMode]
 public class SuspectManager : MonoBehaviour
 {
-    [Tooltip("Add Suspect Scriptable Object")]
-    public Suspect[] suspects;
+    public List<Suspect> suspects;
 
-    [Header("Auto Organize")]
-    public int width = 200;
-    public int space = 0;
     [Header("Canvas Elements")]
-    [SerializeField]
-    private GameObject boxSuspectRow;
-    [SerializeField]
-    private GameObject boxSuspectPrefab;
-    [SerializeField]
-    private MaxSuspectPerLevel maxSuspectPerLevel;
+    [SerializeField] private GameObject panelSuspect;
+    [SerializeField] private GameObject panelInfo;
+    [SerializeField] private GameObject boxSuspectPrefab;
+    [SerializeField] private TMP_Text textBox;
+    [SerializeField] private Button buttonBack;
+    [SerializeField] private Button buttonNext;
+    [SerializeField] private Button buttonPrevious;
+    [SerializeField] private GameObject panelAccuse;
+    [SerializeField] private Button buttonYes;
+    [SerializeField] private Button buttonNo;
 
-
-    [Header("Debug")]
-    [SerializeField]
-    private int level = 0;
-    private List<UI_Suspect> uiSuspects = new List<UI_Suspect>();
-
-
+    private Suspect currentSuspect;
+    private UI_Suspect currentAccuse;
     private void Awake()
     {
-        UI_Suspect[] tempUISuspects = boxSuspectRow.GetComponentsInChildren<UI_Suspect>();
-
-        if(tempUISuspects.Length != 0)
-        {
-            foreach (UI_Suspect uiSuspect in tempUISuspects)
-            {
-                uiSuspects.Add(uiSuspect);
-            }
-        }
-
-        if(suspects.Length != 0)
-        {
-            InitSuspects();
-        }
+        panelInfo.SetActive(false);
+        panelAccuse.SetActive(false);
+        InitSuspects();
+        // Listen To
+        buttonBack.onClick.AddListener(ClosePanelInfo);
+        buttonNext.onClick.AddListener(GetNextSuspect);
+        buttonPrevious.onClick.AddListener(GetPreviousSuspect);
+        buttonYes.onClick.AddListener(YesAccuse);
+        buttonNo.onClick.AddListener(NoAccuse);
     }
+
     private void InitSuspects()
     {
-        int index = 0;
-        Debug.Log("Init Suspect");
         foreach(Suspect suspect in suspects)
         {
-            //Protection against null value
-            if (maxSuspectPerLevel.maxSuspectList.Count < level) {
-                Debug.Log("You forgot to add a max suspect number for that level");
-                maxSuspectPerLevel.maxSuspectList.Add(3); 
-            }
+            CreateSuspect(suspect);
+        }
+    }
+    private void CreateSuspect(Suspect suspect)
+    {
+        GameObject boxSuspect = GameObject.Instantiate(boxSuspectPrefab, panelSuspect.transform);
+        UI_Suspect uiSuspect = boxSuspect.GetComponent<UI_Suspect>();
+        uiSuspect.data = suspect;
+        uiSuspect.suspectManager = this;
+    }
 
-            //Do not add more suspect than necessary
-            if (index > maxSuspectPerLevel.maxSuspectList[level]) return;
+    public void OpenPanelInfo(UI_Suspect suspect)
+    {
+        panelInfo.SetActive(true);
+        UpdateUISuspectData(suspect.data);
+    }
 
-            //Add suspect in scene
-            if (uiSuspects.Count != 0 && index < uiSuspects.Count)
+    private void ClosePanelInfo()
+    {
+        panelInfo.SetActive(false);
+    }
+
+    private void GetNextSuspect()
+    {
+        for(int i = 0; i < suspects.Count; i++)
+        {
+            if(currentSuspect == suspects[i])
             {
-                uiSuspects[index].image.sprite = suspect.sprite;
-                uiSuspects[index].textDescription.text = suspect.description;
-                uiSuspects[index].isGuilty = suspect.isGuilty;
-                uiSuspects[index].layerDescription.gameObject.SetActive(false);
-            }
-            else
-            {
-                GameObject newBoxSuspect = Instantiate(boxSuspectPrefab, boxSuspectRow.transform) as GameObject;
-                UI_Suspect newUISuspect = newBoxSuspect.GetComponent<UI_Suspect>();
-                newUISuspect.image.sprite = suspect.sprite;
-                uiSuspects.Add(newUISuspect);
-                RectTransform rectTransform = newBoxSuspect.GetComponent<RectTransform>();
-
-                //pair
-                if (index != 0)
+                if(i + 1 < suspects.Count - 1)
                 {
-                    if (index % 2 == 0)
-                    {
-                        rectTransform.position = new Vector3(
-                            rectTransform.position.x +  (width + space),
-                            rectTransform.position.y,
-                            rectTransform.position.z
-                            );
-                    }
-                    else
-                    {
-                        rectTransform.position = new Vector3(
-                            rectTransform.position.x - (width + space),
-                            rectTransform.position.y,
-                            rectTransform.position.z
-                            );
-                    }
+                    currentSuspect = suspects[i + 1];
+                }
+                else
+                {
+                    currentSuspect = suspects[0];
                 }
 
-                uiSuspects[index].image.sprite = suspect.sprite;
-                uiSuspects[index].textDescription.text = suspect.description;
-                uiSuspects[index].isGuilty = suspect.isGuilty;
-                uiSuspects[index].layerDescription.gameObject.SetActive(false);
+                UpdateUISuspectData(currentSuspect);
+                return;
             }
-            index++;
+        }
+
+    }
+
+    private void GetPreviousSuspect()
+    {
+        for (int i = 0; i < suspects.Count; i++)
+        {
+            if (currentSuspect == suspects[i])
+            {
+                if (i - 1 > 0)
+                {
+                    currentSuspect = suspects[i - 1];
+                }
+                else
+                {
+                    currentSuspect = suspects[suspects.Count - 1];
+                }
+
+                UpdateUISuspectData(currentSuspect);
+                return;
+            }
         }
     }
 
-    public void Accuse()
+    private void  UpdateUISuspectData(Suspect suspect)
     {
-        UI_Suspect data = EventSystem.current.currentSelectedGameObject.GetComponentInParent<UI_Suspect>();
-        if (data.isGuilty)
+        textBox.text = " NAME : " + suspect.name + "\n\n" +
+                " AGE : " + suspect.age + "\n\n" +
+                " HEIGHT : " + suspect.height + "\n\n" +
+                " SEXE : " + suspect.sexe + "\n\n" +
+                " BLOOD TYPE : " + suspect.bloodType + "\n\n" +
+                " JOB : " + suspect.job + "\n\n" +
+                " NATIONALITY : " + suspect.nationality + "\n\n" +
+                " LOCATION DURING MURDER : " + "\n " + suspect.placeOfResidence + "\n\n" +
+                " ALIBI : " + "\n " + suspect.alibi + "\n\n" +
+                " POTENTIAL MOTIVE : " + "\n " + suspect.suspectedMotive + "\n\n" +
+                " DESCRIPTION : " + "\n " + suspect.description;
+
+        currentSuspect = suspect;
+    }
+
+    public void OnAccuse(UI_Suspect suspect)
+    {
+        Debug.Log("On Accuse");
+
+        currentAccuse = suspect;
+        panelAccuse.SetActive(true);
+    }
+    
+    public void YesAccuse()
+    {
+        if (currentAccuse.isGuilty)
         {
-            Debug.Log("You Find The Culprit !");
+            Debug.Log("Guilty !");
         }
         else
         {
-            Debug.Log("You Failure ! ");
+            Debug.Log("Innocence !");
         }
+    }
+
+    public void NoAccuse()
+    {
+        panelAccuse.SetActive(false);
     }
 }

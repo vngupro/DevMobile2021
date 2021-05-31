@@ -970,6 +970,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: a946a6d0c11d3134392b6f3c01477482, type: 2}
+    - target: {fileID: 6681732899841897641, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: isHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897642, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -1186,6 +1190,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: 34542ef8f9e75be4e91d696ff482117a, type: 2}
+    - target: {fileID: 6681732899841897641, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: isHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897647, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Name
       value: Item
@@ -1257,6 +1265,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: a946a6d0c11d3134392b6f3c01477482, type: 2}
+    - target: {fileID: 6681732899841897641, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: isHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897642, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -1350,6 +1362,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: f2f4e6c004c6dec4a9ce4c9108d74e85, type: 2}
+    - target: {fileID: 6681732899841897641, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: isHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897642, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Size.x
       value: 5.12
@@ -1443,6 +1459,10 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: f2f4e6c004c6dec4a9ce4c9108d74e85, type: 2}
+    - target: {fileID: 6681732899841897641, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
+      propertyPath: isHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897642, guid: 07277186fa30ded4b862bc9e6c7635bb, type: 3}
       propertyPath: m_Size.x
       value: 5.12

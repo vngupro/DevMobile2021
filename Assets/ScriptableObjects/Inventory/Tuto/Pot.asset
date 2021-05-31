@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: Pot
   m_EditorClassIdentifier: 
   name: 
+  hasDescription: 1
   description: 
   hasDefaultImage: 1
   sprite: {fileID: 0}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
   number: 1
+  isClue: 0
   isPickable: 0
   isDragable: 0
   filter: 0
   spriteOnLens: {fileID: 0}
+  colorOnLens: {r: 1, g: 1, b: 1, a: 1}
+  spriteInInventory: {fileID: 0}

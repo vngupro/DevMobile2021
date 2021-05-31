@@ -20,6 +20,7 @@ public class TutoManager : MonoBehaviour
     [SerializeField] private GameObject text_ToKitchen;
     [SerializeField] private GameObject text_Exit;
     [SerializeField] private GameObject doorExit;
+    [SerializeField] private CanvasExitDoorScript canvasDoorExit;
 
     private Vector2 camStartPos;
 
@@ -193,6 +194,8 @@ public class TutoManager : MonoBehaviour
             if (currentDialogueId == 6 && currentDialogue.isFinished)
             {
                 NextDialogueStep();
+
+                //Propose de sortir
                 doorExit.SetActive(true);
                 text_Exit.SetActive(true);
             }
@@ -201,17 +204,29 @@ public class TutoManager : MonoBehaviour
         }
         else if (currentStep == TutoStep.EXIT_CRIME_SCENE)
         {
-            //propose de sortir
             //Next si sort
+            if (canvasDoorExit.isExiting)
+            {
+                
+                currentStep = TutoStep.SUSPECT;
+            }
         }
         else if (currentStep == TutoStep.SUSPECT)
         {
-            //Explication Suspet 
+            //Explication Suspect 
+            if (currentDialogueId == 8 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
             //Next si dialogue fini 
         }
         else if (currentStep == TutoStep.TUTO_END)
         {
             //Explication finale
+            if (currentDialogueId == 9 && currentDialogue.isFinished)
+            {
+                NextDialogueStep();
+            }
             //end of tuto 
         }
     }
