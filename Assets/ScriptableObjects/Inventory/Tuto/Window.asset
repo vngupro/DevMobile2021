@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
-  m_Name: Empreinte_partielle
+  m_Name: Window
   m_EditorClassIdentifier: 
-  name: Partial Fingerprint
+  name: 
   hasDescription: 1
-  description: Fingerprint found on the window.
-  hasDefaultImage: 0
+  description: Window is open.
+  hasDefaultImage: 1
   sprite: {fileID: 0}
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
-  number: 0
-  isClue: 0
+  number: 1
+  isClue: 1
   isPickable: 1
   isDragable: 0
-  filter: 1
-  spriteOnLens: {fileID: 21300000, guid: 6cd733a329da0824593948116367daf1, type: 3}
+  filter: 0
+  spriteOnLens: {fileID: 0}
   colorOnLens: {r: 0, g: 0, b: 0, a: 0}
-  spriteInInventory: {fileID: 21300000, guid: 6cd733a329da0824593948116367daf1, type: 3}
+  spriteInInventory: {fileID: 21300000, guid: 20ce6f05cbc1ba14ba87458903e05ada, type: 3}

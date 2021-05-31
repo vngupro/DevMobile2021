@@ -848,5 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6d072e33f635e4d828884cbb94bc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 5175691651515899675}
   buttonYes: {fileID: 5175691651853622587}
   buttonNo: {fileID: 5175691651348938091}
+  sceneToLoad: 

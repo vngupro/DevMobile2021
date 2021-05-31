@@ -314,7 +314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &166018062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398631e490c455c46a7b47cbf9234c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstDialogue: {fileID: 11400000, guid: 0bd81c34b66990f4c8dda6ca40c0f297, type: 2}
+  currentDialogue: {fileID: 11400000, guid: 0bd81c34b66990f4c8dda6ca40c0f297, type: 2}
   firstClue: {fileID: 1032258831}
 --- !u!4 &166018063
 Transform:
@@ -392,6 +392,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897640, guid: 0778804138fcdc44981c97c0349da293, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681732899841897641, guid: 0778804138fcdc44981c97c0349da293, type: 3}
+      propertyPath: isHidden
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6681732899841897643, guid: 0778804138fcdc44981c97c0349da293, type: 3}
@@ -3941,7 +3945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5175691652990846017, guid: e53c8dbc08299ad45bf8b11d6a08389c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5175691652990846077, guid: e53c8dbc08299ad45bf8b11d6a08389c, type: 3}
       propertyPath: m_Pivot.x

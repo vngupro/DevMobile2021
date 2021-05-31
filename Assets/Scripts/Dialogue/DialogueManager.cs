@@ -34,12 +34,6 @@ public class DialogueManager : MonoBehaviour
     #region Initialization
     private void Awake()
     {
-        //Recup DialogueData (CHANGE IT AFTER)
-        string dialoguePath = "DialogueData/General/";
-        GetDialogue(dialoguePath);
-        string partiePath = "DialogueData/Partie " + levelIndex + "/";
-        GetDialogue(partiePath);
-
         //UI
         sizeDeltaNameX = backgroundName.sizeDelta.x;
         sizeDeltaDialogueY = backgroundDialogue.sizeDelta.y;
@@ -54,15 +48,6 @@ public class DialogueManager : MonoBehaviour
     private void OnDisable()
     {
         dialoguesSeries.Clear();
-    }
-
-    private void GetDialogue(string path)
-    {
-        DialogueData[] tempDialogues = Resources.LoadAll(path, typeof(DialogueData)).Cast<DialogueData>().ToArray();
-        foreach (DialogueData dialogue in tempDialogues)
-        {
-            dialoguesSeries.Add(dialogue);
-        }
     }
 
     private void ResetDialogueBox()
@@ -126,11 +111,6 @@ public class DialogueManager : MonoBehaviour
         dialogue.dialogueListIndex++;
         currentDialogue = dialogue;
     }
-
-    //public void ChangeDialogueActive()
-    //{
-    //    isBoxDialogueOpen = !isBoxDialogueOpen;
-    //}
 
     #region Box DialogueData Method
     public void OpenBoxDialogue(DialogueData dialogueData)
