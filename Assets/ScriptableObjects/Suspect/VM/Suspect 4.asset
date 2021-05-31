@@ -12,17 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
   m_Name: Suspect 4
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
-  height: 
-  sexe: 0
-  bloodType: 
-  job: 
-  nationality: 0
-  secondNationality: 0
-  placeOfResidence: 
-  alibi: 
-  suspectedMotive: 
-  description: 
+  name: Muhammed EL-ACHOUR
+  age: 54
+  height: 1M76
+  sexe: 1
+  bloodType: O-
+  job: US Marines veteran
+  nationality: 6
+  secondNationality: 7
+  placeOfResidence: Homeless, lives at the bottom of the victim's building.
+  alibi: 'Drank alcohol down the street asking for money for cigarettes.
+
+    The
+    suspect does not have a watch, he could not give an exact time for his alibi.'
+  suspectedMotive: Assault on victim for sexual favors or money.
+  description: "Machist, does not respect women, considers them as sexual objects,
+    has already made advances to the victim (very often) according to \u201CMark\u201D
+    the companion. He can become aggressive if he is under the influence of alcohol."
   sprite: {fileID: 0}
   isGuilty: 0
