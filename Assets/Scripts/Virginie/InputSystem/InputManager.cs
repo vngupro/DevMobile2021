@@ -84,7 +84,7 @@ public class InputManager : MonoBehaviour
     private void StartTouch(InputAction.CallbackContext context)
     {
         //the first is always 0, 0 why ????
-        //Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
+        Debug.Log("Touch Start " + mobileControls.Mobile.TouchPosition.ReadValue<Vector2>());
 
         if (OnStartTouch != null)
         {

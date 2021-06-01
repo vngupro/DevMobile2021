@@ -32,7 +32,7 @@ public class PickUpDetection : MonoBehaviour
     #endregion
     void Start()
     {
-        counter.text = items.ToString();
+        //counter.text = items.ToString();
     }
     private void Awake()
     {
@@ -95,11 +95,11 @@ public class PickUpDetection : MonoBehaviour
         object2PickUp.SetActive(false);
         //Destroy(object2PickUp);
         StartCoroutine("CaptureIt");
-        if (object2PickUp.gameObject.tag == "Clue")
-        {
-            items++;
-            counter.text = items.ToString();
-        }
+        //if (object2PickUp.gameObject.tag == "Clue")
+        //{
+          //  items++;
+            //counter.text = items.ToString();
+        //}
     }
     private GameObject GoBlink;
 

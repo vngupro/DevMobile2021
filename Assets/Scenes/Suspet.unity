@@ -11724,17 +11724,80 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasSuspect
       objectReference: {fileID: 0}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6887520951214688442, guid: 4f2c465537b24154ea416e9fc71438cb, type: 3}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VariableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: u got the wrong killer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071588641493586, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6887520951214688442, guid: 4f2c465537b24154ea416e9fc71438cb, type: 3}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VariableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: She is the killer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589437550751, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1098071588685731926}
+      objectReference: {fileID: 6887520951214688442, guid: 4f2c465537b24154ea416e9fc71438cb, type: 3}
+    - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VariableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: u got the wrong killer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098071589511732193, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
---- !u!1 &1098071588685731926 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1098071588315892102, guid: 41a556a8006e987449e93f4f1458868c, type: 3}
-  m_PrefabInstance: {fileID: 1098071588685731925}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4502889940111485352
 PrefabInstance:
   m_ObjectHideFlags: 0

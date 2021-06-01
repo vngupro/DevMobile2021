@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: ItemData
   m_EditorClassIdentifier: 
   itemName: 
-  itemDescription: 
+  itemDescription: 'hello
+
+'
+  hasDefaultImage: 1
   itemImage: {fileID: 7482667652216324306, guid: 8027e6d947d9f644e937b635f81aab19, type: 3}
   numberHeld: 0
   isPickable: 1
   isDragable: 0
-  filter:
-    serializedVersion: 2
-    m_Bits: 3104
+  filter: 0
+  itemImageOnLens: {fileID: 0}
