@@ -66,6 +66,7 @@ public class TutoManager : MonoBehaviour
                 text_ToKitchen.SetActive(false);
                 text_Exit.SetActive(false);
                 camStartPos = Camera.main.transform.position;
+                firstClue.isBlocked = true;
             }
             else
             {
@@ -84,6 +85,7 @@ public class TutoManager : MonoBehaviour
             text_ToKitchen.SetActive(false);
             text_Exit.SetActive(false);
             camStartPos = Camera.main.transform.position;
+            firstClue.isBlocked = true;
         }
 
     }
@@ -109,7 +111,7 @@ public class TutoManager : MonoBehaviour
 
             if (!firstClueIsPickable)   //permet de recupere le premiere indice
             {
-                firstClue.isHidden = false;
+                firstClue.isBlocked = false;
             }
 
             //Next si indice pris
