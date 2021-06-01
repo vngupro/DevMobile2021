@@ -84,7 +84,14 @@ public class LensManager : MonoBehaviour
             Item item = clue.GetComponent<Item>();
 
             spriteRenderer.color = Color.white;
-            spriteRenderer.sprite = item.data.sprite;
+            if (item.data.sprite != null)
+            {
+                spriteRenderer.sprite = item.data.sprite;
+            }
+            else
+            {
+                spriteRenderer.sprite = null;
+            }
 
             if(item.data.filter == LensEnum.NONE)
             {
