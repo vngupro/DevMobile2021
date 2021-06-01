@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: Couteau_1
   m_EditorClassIdentifier: 
   name: Knife
+  hasDescription: 1
   description: 'Analysis showed the presence of the victim''s fingerprints on the
     knife '
   hasDefaultImage: 1
   sprite: {fileID: 21300000, guid: 67d48aa03efd93348b840b4245d70535, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
   number: 0
+  isClue: 1
   isPickable: 1
   isDragable: 0
   filter: 0
   spriteOnLens: {fileID: 0}
+  colorOnLens: {r: 1, g: 1, b: 1, a: 1}
+  spriteInInventory: {fileID: 21300000, guid: 67d48aa03efd93348b840b4245d70535, type: 3}

@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
   m_Name: Suspect 1 (m)
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
-  height: 
-  gender: 0
-  bloodType: 
-  job: 
-  nationality: 0
-  placeOfResidence: 
-  description: 
+  name: Julian Castel
+  age: 32
+  height: 1m79
+  sexe: 1
+  bloodType: A+
+  job: Boss of a jewelry shop
+  nationality: 3
+  secondNationality: 0
+  placeOfResidence: 14 minutes from the victim's home
+  alibi: Did his shopping from 7 p.m. to 8 p.m. then went home.
+  suspectedMotive: he found out that the victim wanted to end their relationship?
+  description: had sexual relations with the victim. Has mental problems, male chauvinist,
+    Wound on the right arm, small gash.
   sprite: {fileID: 0}
-  isGuilty: 0
+  isGuilty: 1

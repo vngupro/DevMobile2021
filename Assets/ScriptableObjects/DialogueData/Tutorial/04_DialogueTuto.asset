@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b268195ab8009324e86dfd99bdcb1276, type: 3}
+  m_Name: 04_DialogueTuto
+  m_EditorClassIdentifier: 
+  id: 0
+  character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
+  dialogueList:
+  - You can use your glasses in order to see through several effect like Xray vision,
+    Uv vision, thermal vision or night vision.
+  - First try with the UV vision.
+  hasNextDialogueData: 1
+  nextDialogueData: {fileID: 11400000, guid: 60b1fc40d5047ea4bafa17a08d1a0518, type: 2}
+  dialogueListIndex: 0
+  isFinished: 0

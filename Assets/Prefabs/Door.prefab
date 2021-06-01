@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a52ff83f1e021f459b68cd5f75e02a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vcam: {fileID: 0}
+  vcamOfNEXTLocation: {fileID: 0}

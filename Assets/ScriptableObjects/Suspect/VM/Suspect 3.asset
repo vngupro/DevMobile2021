@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
   m_Name: Suspect 3
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
-  height: 
+  name: Lily CUNNINGHAM
+  age: 28
+  height: 1m73
   sexe: 0
-  bloodType: 
-  job: 
-  nationality: 0
+  bloodType: A+
+  job: Professional dancer
+  nationality: 8
   secondNationality: 0
-  placeOfResidence: 
-  alibi: 
-  suspectedMotive: 
-  description: 
+  placeOfResidence: 32 minutes from the victim's home
+  alibi: Dance rehearsal from 4 p.m. to 7 p.m., awaited the victim in a cafe 15 minutes
+    from the victim's home from 7.15 p.m. to 7.40 p.m.
+  suspectedMotive: Jealousy of not being in a relationship with Mark.
+  description: Friend of the victim, she is in love with Mark the victim's boyfriend.
   sprite: {fileID: 0}
   isGuilty: 0

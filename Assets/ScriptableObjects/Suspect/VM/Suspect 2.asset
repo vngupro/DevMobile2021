@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
   m_Name: Suspect 2
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
-  height: 
-  sexe: 0
-  bloodType: 
-  job: 
-  nationality: 0
+  name: Mark MARSTON
+  age: 26
+  height: 1M91
+  sexe: 1
+  bloodType: O+
+  job: Web Designer
+  nationality: 6
   secondNationality: 0
-  placeOfResidence: 
-  alibi: 
-  suspectedMotive: 
-  description: 
+  placeOfResidence: With the victim
+  alibi: discovered the infidelity of his girlfriend the victim.
+  suspectedMotive: At work until 9 p.m., he was the one who discovered the victim
+    and called the police at 9:34 p.m.
+  description: boyfriend of the victim since 8 months.
   sprite: {fileID: 0}
   isGuilty: 0

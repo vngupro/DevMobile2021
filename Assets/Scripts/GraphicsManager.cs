@@ -28,6 +28,5 @@ public class GraphicsManager : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
-        Debug.Log("Set Quality to " + qualityIndex);
     }
 }
