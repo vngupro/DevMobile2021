@@ -6,7 +6,7 @@ public class LensManager : MonoBehaviour
 {
     public GlobalPostProcessVolume processVolume;
 
-    private GameObject[] clues;
+    private GameObject[] items;
     //[SerializeField] private Color colorUV;
     //[SerializeField] private Color colorIR;
     //[SerializeField] private Color colorXRAY;
@@ -23,7 +23,7 @@ public class LensManager : MonoBehaviour
         else
         {
             instance = this;
-            clues = GameObject.FindGameObjectsWithTag("Clue");
+            items = GameObject.FindGameObjectsWithTag("Item");
         }
     }
 
@@ -33,7 +33,7 @@ public class LensManager : MonoBehaviour
         {
             NormalMode();
 
-            foreach (GameObject clue in clues)
+            foreach (GameObject clue in items)
             {
                 SpriteRenderer spriteRenderer = clue.GetComponent<SpriteRenderer>();
                 Item item = clue.GetComponent<Item>();
@@ -78,7 +78,7 @@ public class LensManager : MonoBehaviour
 
     public void NormalMode()
     {
-        foreach (GameObject clue in clues)
+        foreach (GameObject clue in items)
         {
             SpriteRenderer spriteRenderer = clue.GetComponent<SpriteRenderer>();
             Item item = clue.GetComponent<Item>();

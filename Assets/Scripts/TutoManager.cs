@@ -32,6 +32,8 @@ public class TutoManager : MonoBehaviour
 
     private bool firstClueIsPickable = false;
 
+    private GameManager gameManager;
+
     [Header ("Debug")]
     [SerializeField]private TutoStep currentStep;
 
@@ -49,7 +51,29 @@ public class TutoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!GameManager.Instance.gameData.IsTutoFinish)
+        gameManager = GameManager.Instance;
+        if(gameManager != null)
+        {
+            if (!GameManager.Instance.gameData.IsTutoFinish)
+            {
+                UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
+                CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
+                currentStep = TutoStep.FIRST_DIALOGUE;
+                buttonLens.SetActive(false);
+                buttonNotes.SetActive(false);
+                doorExit.SetActive(false);
+                roomChange.SetActive(false);
+                text_ToKitchen.SetActive(false);
+                text_Exit.SetActive(false);
+                camStartPos = Camera.main.transform.position;
+                firstClue.isBlocked = true;
+            }
+            else
+            {
+                currentStep = TutoStep.TUTO_END;
+            }
+        }
+        else
         {
             UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
             CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
@@ -61,11 +85,9 @@ public class TutoManager : MonoBehaviour
             text_ToKitchen.SetActive(false);
             text_Exit.SetActive(false);
             camStartPos = Camera.main.transform.position;
+            firstClue.isBlocked = true;
         }
-        else
-        {
-            currentStep = TutoStep.TUTO_END;
-        }
+
     }
 
     // Update is called once per frame
@@ -89,7 +111,7 @@ public class TutoManager : MonoBehaviour
 
             if (!firstClueIsPickable)   //permet de recupere le premiere indice
             {
-                firstClue.isHidden = false;
+                firstClue.isBlocked = false;
             }
 
             //Next si indice pris

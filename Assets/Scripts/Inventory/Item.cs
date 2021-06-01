@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
+
 public class Item : MonoBehaviour
 {
+  
     public InventoryItem data;
-    private SpriteRenderer spriteRenderer;
+    public bool isBlocked = false;
+
+    [Header("Debug")]
     public bool isHidden = true;
+    private SpriteRenderer spriteRenderer;
 
     [ExecuteInEditMode]
+   
+   
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,19 +31,22 @@ public class Item : MonoBehaviour
         {
             if (data.hasDefaultImage)
             {
-                if (data.sprite == null)
-                {
-                   Debug.Log("Item : " + this.name + " has no Sprite in scriptable object !");
-                }
-                else
-                {
-                    spriteRenderer.sprite = data.sprite;
-                }
+                spriteRenderer.sprite = data.sprite;
             }
             else
             {
                 spriteRenderer.sprite = null;
             }
         }
+
+        if(data.filter != LensEnum.NONE)
+        {
+            isHidden = true;
+        }
+        else
+        {
+            isHidden = false;
+        }
     }
+   
 }
