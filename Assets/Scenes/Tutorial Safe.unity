@@ -1080,6 +1080,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!20 &424713305 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8346510835792989923, guid: 0a93e87d04a929a40b4857338748c80a, type: 3}
+  m_PrefabInstance: {fileID: 1006514397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432357510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4036,7 +4041,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 98359
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4079,7 +4084,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 424713305}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -4376,7 +4382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1704076787
 MonoBehaviour:
   m_ObjectHideFlags: 0
