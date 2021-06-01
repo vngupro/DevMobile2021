@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clue
+  - CameraItem
+  - Exit
+  - Blackscreen
+  - TabImage
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -21,8 +26,8 @@ TagManager:
   - 
   - 
   - Item
-  - 
-  - 
+  - Door
+  - DoorExit
   - 
   - 
   - 
@@ -50,4 +55,7 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 2492368283
+    locked: 0
+  - name: HUD
+    uniqueID: 1052279515
     locked: 0

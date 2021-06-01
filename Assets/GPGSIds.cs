@@ -24,18 +24,18 @@
 
 public static class GPGSIds
 {
-        public const string achievement_amateur = "CgkI6qTC79QOEAIQAQ"; // <GPGSID>
+        public const string achievement_killjoy = "CgkI6qTC79QOEAIQCw"; // <GPGSID>
         public const string achievement_novice = "CgkI6qTC79QOEAIQAA"; // <GPGSID>
-        public const string achievement_officier = "CgkI6qTC79QOEAIQBQ"; // <GPGSID>
-        public const string achievement_lieutenant = "CgkI6qTC79QOEAIQBg"; // <GPGSID>
-        public const string achievement_dtective = "CgkI6qTC79QOEAIQCQ"; // <GPGSID>
-        public const string achievement_trouble_fte = "CgkI6qTC79QOEAIQCw"; // <GPGSID>
-        public const string achievement_fin_limier = "CgkI6qTC79QOEAIQCA"; // <GPGSID>
-        public const string achievement_stagiaire = "CgkI6qTC79QOEAIQBA"; // <GPGSID>
+        public const string achievement_sergeant = "CgkI6qTC79QOEAIQBg"; // <GPGSID>
+        public const string achievement_sergeant_major = "CgkI6qTC79QOEAIQBw"; // <GPGSID>
+        public const string achievement_sleuth = "CgkI6qTC79QOEAIQCA"; // <GPGSID>
+        public const string achievement_first_class = "CgkI6qTC79QOEAIQBA"; // <GPGSID>
+        public const string achievement_senior = "CgkI6qTC79QOEAIQAg"; // <GPGSID>
+        public const string achievement_corporal = "CgkI6qTC79QOEAIQBQ"; // <GPGSID>
+        public const string achievement_amateur = "CgkI6qTC79QOEAIQAQ"; // <GPGSID>
         public const string achievement_slowrunner = "CgkI6qTC79QOEAIQDA"; // <GPGSID>
-        public const string achievement_capitaine = "CgkI6qTC79QOEAIQBw"; // <GPGSID>
         public const string achievement_expert = "CgkI6qTC79QOEAIQAw"; // <GPGSID>
-        public const string achievement_confirm = "CgkI6qTC79QOEAIQAg"; // <GPGSID>
+        public const string achievement_detective = "CgkI6qTC79QOEAIQCQ"; // <GPGSID>
         public const string achievement_speedrunner = "CgkI6qTC79QOEAIQCg"; // <GPGSID>
 
 }

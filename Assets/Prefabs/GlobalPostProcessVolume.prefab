@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616540962751273883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,3 +63,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UVColorFilter: {r: 0.99812603, g: 0, b: 1, a: 1}
   _IRColorFilter: {r: 1, g: 0, b: 0.24182892, a: 1}
+  _XRAYColorFilter: {r: 0.4764151, g: 0.9081536, b: 1, a: 1}
+  _NIGHTSHOTColorFilter: {r: 0.08009967, g: 0.6792453, b: 0.1357399, a: 1}

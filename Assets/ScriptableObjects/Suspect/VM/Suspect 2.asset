@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6781eaa10b742b34cac244db5f2113f3, type: 3}
+  m_Name: Suspect 2
+  m_EditorClassIdentifier: 
+  name: Mark MARSTON
+  age: 26
+  height: 1M91
+  sexe: 1
+  bloodType: O+
+  job: Web Designer
+  nationality: 6
+  secondNationality: 0
+  placeOfResidence: With the victim
+  alibi: discovered the infidelity of his girlfriend the victim.
+  suspectedMotive: At work until 9 p.m., he was the one who discovered the victim
+    and called the police at 9:34 p.m.
+  description: boyfriend of the victim since 8 months.
+  sprite: {fileID: 0}
+  isGuilty: 0

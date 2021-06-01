@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
+  m_Name: Couteau_1
+  m_EditorClassIdentifier: 
+  name: Knife
+  hasDescription: 1
+  description: 'Analysis showed the presence of the victim''s fingerprints on the
+    knife '
+  hasDefaultImage: 1
+  sprite: {fileID: 21300000, guid: 67d48aa03efd93348b840b4245d70535, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  number: 0
+  isClue: 1
+  isPickable: 1
+  isDragable: 0
+  filter: 0
+  spriteOnLens: {fileID: 0}
+  colorOnLens: {r: 1, g: 1, b: 1, a: 1}
+  spriteInInventory: {fileID: 21300000, guid: 67d48aa03efd93348b840b4245d70535, type: 3}

@@ -5,17 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [Tooltip("Add a Blackscreen from the canvas with the script CanvasBlackscreen")]
+    [SerializeField] private CanvasBlackscreen canvasBlackscreen;
+
+    private InputManager inputManager;
+    private CinemachineBlackscreen cameraBlackscreen;
+
+    [Header("Debug")]
+    [SerializeField] private bool hasCameraBlackscreen = false;
+    [SerializeField] private bool hasCanvasBlackscreen = false;
+    [SerializeField] private bool isLoadingScene = false;
+    [SerializeField] private string sceneToLoad;
     public static LevelManager Instance { get; protected set;}
     private void Awake()
     {
         if(Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
-            return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+
+
+        inputManager = InputManager.Instance;
+
+        if(cameraBlackscreen == null) cameraBlackscreen = CinemachineBlackscreen.Instance;
+        if (canvasBlackscreen == null) canvasBlackscreen = CanvasBlackscreen.Instance;
+
+        if (canvasBlackscreen != null) hasCanvasBlackscreen = true;
+        if (cameraBlackscreen != null) hasCameraBlackscreen = true;
+
+        isLoadingScene = false;
+
+        // Listen To
+        //Utils.cs
+        UtilsEvent.fadeInEnded.AddListener(LoadNextScene);
     }
 
     public void OnEnable()
@@ -24,7 +48,13 @@ public class LevelManager : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded = " + scene.name);
+        if(hasCanvasBlackscreen || hasCameraBlackscreen) { UtilsEvent.startFadeOut.Invoke();  }
+
+        isLoadingScene = false;
+        // Listeners | PinchDetection.cs SlideOneFingerDetection.cs
+        CustomGameEvents.sceneLoaded.Invoke();
+        Debug.Log("Scene Loaded : " + scene.name);
+
     }
     public void OnDisable()
     {
@@ -39,11 +69,37 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(name);
+        if(hasCameraBlackscreen || hasCanvasBlackscreen)
+        {
+            UtilsEvent.startFadeIn.Invoke();
+            isLoadingScene = true;
+            sceneToLoad = name;
+        }
+        else
+        {
+            SceneManager.LoadScene(name);
+        }
     }
     public void OpenNextScene()
     {
-        int sceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (hasCameraBlackscreen || hasCanvasBlackscreen)
+        {
+            UtilsEvent.startFadeIn.Invoke();
+            isLoadingScene = true;
+            sceneToLoad = SceneManager.GetSceneByBuildIndex(nextSceneIndex).name;
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (!isLoadingScene) return;
+
         SceneManager.LoadScene(sceneToLoad);
     }
     public void QuitGame()

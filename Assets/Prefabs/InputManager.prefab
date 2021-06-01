@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 2686448324454584322}
   - component: {fileID: 2686448324454584333}
   - component: {fileID: 9015750953740344692}
-  - component: {fileID: 2686448324454584321}
-  - component: {fileID: 2686448324454584332}
+  - component: {fileID: 3135973029160292108}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -78,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f118fbb40f0570499b05357eb6adab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultZoom: 5
   zoomSpeed: 0.2
   zoomInMax: 2
-  zoomOutMax: 5
-  distanceTolerance: 15
+  zoomOutMax: 7
+  distanceTolerance: 0
 --- !u!114 &2686448324454584322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,9 @@ MonoBehaviour:
   layer2PickUp:
     serializedVersion: 2
     m_Bits: 16384
+  layerUI:
+    serializedVersion: 2
+    m_Bits: 32
   distanceTolerance: 0.5
   timerBeforeHold: 1
 --- !u!114 &2686448324454584333
@@ -115,6 +118,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   delayBeforeDrag: 0
+  slide: {fileID: 9015750953740344692}
 --- !u!114 &9015750953740344692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,41 +131,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 0
-  directionThreshold: 0.9
-  cameraSpeed: 100
---- !u!114 &2686448324454584321
+  distanceTolerance: 10
+  cameraSpeed: 80
+  slideTrail: {fileID: 0}
+--- !u!114 &3135973029160292108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bc940d140428747ae6fbbabbe4f573, type: 3}
+  m_Script: {fileID: 11500000, guid: 098a8c494198a6e4a8553ed271e4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance2Swipe: 2
-  maxTimeSwipe: 1
-  directionThreshold: 0.9
-  cameraSpeed: 1
-  trail: {fileID: 2686448326070153703}
---- !u!114 &2686448324454584332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b614446df4f08f43b5ddfcca8bb6b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceTolerance: 0
-  directionThreshold: 0.9
-  cameraSpeed: 150
+  layer:
+    serializedVersion: 2
+    m_Bits: 32768
+  distanceTolerance: 0.5
+  timerBeforeHold: 1
+  startPos: {x: 0, y: 0}
 --- !u!1 &2686448324823240125
 GameObject:
   m_ObjectHideFlags: 0
