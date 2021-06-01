@@ -22,7 +22,7 @@ MonoBehaviour:
   isClue: 0
   isPickable: 0
   isDragable: 0
-  filter: 0
-  spriteOnLens: {fileID: 21300000, guid: 36fe25d1991a114499784c29561ae31e, type: 3}
+  filter: 4
+  spriteOnLens: {fileID: 21300000, guid: 8cfd717bd3c04d94f9c6a263af690c92, type: 3}
   colorOnLens: {r: 1, g: 1, b: 1, a: 1}
   spriteInInventory: {fileID: 0}
