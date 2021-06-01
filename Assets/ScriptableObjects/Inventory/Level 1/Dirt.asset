@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
-  m_Name: Bullet hole
+  m_Name: Dirt
   m_EditorClassIdentifier: 
-  name: 'Hole '
+  name: 'Dirt '
   hasDescription: 1
-  description: Hole made by something travelling at high speed.
+  description: dirt coming from unclean shoes
   hasDefaultImage: 1
-  sprite: {fileID: 21300000, guid: 7440f67f0a6d5ff40a1be7275ea4850f, type: 3}
+  sprite: {fileID: 21300000, guid: b861bcf27c726de4aaca66cb2b2d95be, type: 3}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   number: 1
   isClue: 1
-  isPickable: 0
+  isPickable: 1
   isDragable: 0
   filter: 0
-  spriteOnLens: {fileID: 0}
+  spriteOnLens: {fileID: 21300000, guid: b861bcf27c726de4aaca66cb2b2d95be, type: 3}
   colorOnLens: {r: 1, g: 1, b: 1, a: 1}
-  spriteInInventory: {fileID: 0}
+  spriteInInventory: {fileID: 21300000, guid: b861bcf27c726de4aaca66cb2b2d95be, type: 3}
