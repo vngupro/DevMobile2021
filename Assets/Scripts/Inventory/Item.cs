@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
+
 public class Item : MonoBehaviour
 {
+  
     public InventoryItem data;
     public bool isBlocked = false;
 
@@ -12,8 +15,9 @@ public class Item : MonoBehaviour
     public bool isHidden = true;
     private SpriteRenderer spriteRenderer;
 
-
     [ExecuteInEditMode]
+   
+   
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -44,4 +48,5 @@ public class Item : MonoBehaviour
             isHidden = false;
         }
     }
+   
 }
