@@ -249,7 +249,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/thoma/Documents/A2 IIM/Gold Project/build/user.keystore
+  AndroidKeystoreName: '{inproject}: Build/user.keystore'
   AndroidKeyaliasName: mono
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

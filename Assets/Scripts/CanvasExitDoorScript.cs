@@ -27,6 +27,7 @@ public class CanvasExitDoorScript : MonoBehaviour
     {
         Debug.Log("Go To Suspect Scene");
         isExiting = true;
+        GameManager.Instance.ExitCrimeScene();
 
         if(blackscreen != null)
         {

@@ -66,7 +66,7 @@ public class SuspectManager : MonoBehaviour
         {
             if(currentSuspect == suspects[i])
             {
-                if(i + 1 < suspects.Count - 1)
+                if(i + 1 < suspects.Count)
                 {
                     currentSuspect = suspects[i + 1];
                 }
@@ -88,7 +88,7 @@ public class SuspectManager : MonoBehaviour
         {
             if (currentSuspect == suspects[i])
             {
-                if (i - 1 > 0)
+                if (i - 1 >= 0)
                 {
                     currentSuspect = suspects[i - 1];
                 }
@@ -130,14 +130,7 @@ public class SuspectManager : MonoBehaviour
     
     public void YesAccuse()
     {
-        if (currentAccuse.isGuilty)
-        {
-            Debug.Log("Guilty !");
-        }
-        else
-        {
-            Debug.Log("Innocence !");
-        }
+        GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
     }
 
     public void NoAccuse()

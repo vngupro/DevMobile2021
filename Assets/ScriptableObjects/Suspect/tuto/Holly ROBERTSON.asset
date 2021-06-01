@@ -18,7 +18,8 @@ MonoBehaviour:
   sexe: 0
   bloodType: A+
   job: 'School of veterinary '
-  nationality: 5
+  nationality: 6
+  secondNationality: 0
   placeOfResidence: At the victim's house on the 2nd floor of the building
   alibi: At the time of the murder, she had gone jogging since 6.30 p.m.
   suspectedMotive: Adultery
