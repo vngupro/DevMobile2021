@@ -8,6 +8,8 @@ TagManager:
   - CameraItem
   - Exit
   - Blackscreen
+  - TabImage
+  - Item
   layers:
   - Default
   - TransparentFX
