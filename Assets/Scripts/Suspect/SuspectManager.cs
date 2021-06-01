@@ -130,14 +130,7 @@ public class SuspectManager : MonoBehaviour
     
     public void YesAccuse()
     {
-        if (currentAccuse.isGuilty)
-        {
-            Debug.Log("Guilty !");
-        }
-        else
-        {
-            Debug.Log("Innocence !");
-        }
+        GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
     }
 
     public void NoAccuse()
