@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
   m_Name: Bullet hole
   m_EditorClassIdentifier: 
-  itemName: Hole
-  itemDescription: 'Circular hole made by a high speed projectile '
+  name: 'Hole '
+  hasDescription: 1
+  description: Hole made by something travelling at high speed.
   hasDefaultImage: 1
-  itemImage: {fileID: 0}
-  numberHeld: 0
-  isPickable: 0
+  sprite: {fileID: 0}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  number: 1
+  isClue: 1
+  isPickable: 1
   isDragable: 0
   filter: 4
-  itemImageOnLens: {fileID: 0}
+  spriteOnLens: {fileID: 0}
+  colorOnLens: {r: 1, g: 1, b: 1, a: 1}
+  spriteInInventory: {fileID: 0}

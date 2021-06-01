@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
   m_Name: Plate 2
   m_EditorClassIdentifier: 
-  itemName: Almost empty plate
-  itemDescription: Almost empty plate with a leftover rice and steak.
+  name: Plate of food 2
+  hasDescription: 1
+  description: Plate of food hafl full of chicken and rice.
   hasDefaultImage: 1
-  itemImage: {fileID: 0}
-  numberHeld: 0
-  isPickable: 0
+  sprite: {fileID: 21300000, guid: f230437c8f26d6144a04582fb1770b38, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  number: 1
+  isClue: 1
+  isPickable: 1
   isDragable: 0
   filter: 0
-  itemImageOnLens: {fileID: 0}
+  spriteOnLens: {fileID: 21300000, guid: f230437c8f26d6144a04582fb1770b38, type: 3}
+  colorOnLens: {r: 1, g: 1, b: 1, a: 1}
+  spriteInInventory: {fileID: 21300000, guid: f230437c8f26d6144a04582fb1770b38, type: 3}

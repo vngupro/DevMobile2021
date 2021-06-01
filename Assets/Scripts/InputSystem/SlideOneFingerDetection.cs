@@ -126,6 +126,9 @@ public class SlideOneFingerDetection : MonoBehaviour
             
             bool hasMovePrimary = Vector2.Distance(startPos, positionPrimary) > distanceTolerance;
 
+            cameraWidth = 2f * vcam.m_Lens.OrthographicSize;
+            cameraHeight = vcam.m_Lens.OrthographicSize * Camera.main.aspect;
+
             if (hasMovePrimary)
             {
                 Vector3 direction = positionPrimary - startPos;

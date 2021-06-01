@@ -37,10 +37,11 @@ public class LensManager : MonoBehaviour
             {
                 SpriteRenderer spriteRenderer = clue.GetComponent<SpriteRenderer>();
                 Item item = clue.GetComponent<Item>();
-
+                Debug.Log(item.data.filter);
                 if (item.data.filter == lens)
                 {
                     spriteRenderer.sprite = item.data.spriteOnLens;
+                    Debug.Log(spriteRenderer.gameObject.name);
                     item.isHidden = false;
                 }
                 else
