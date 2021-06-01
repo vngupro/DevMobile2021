@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Alphonse COPANE
   age: 28
   height: 1m87
-  sexe: 0
+  sexe: 1
   bloodType: A+
   job: Worker in a factory
-  nationality: 5
-  secondNationality: 0
+  nationality: 6
+  secondNationality: 3
   placeOfResidence: ' 700 meters from the victim''s home'
   alibi: The suspect finished his work at 6:30 p.m and was on his way to his home
     at the time of the crime
