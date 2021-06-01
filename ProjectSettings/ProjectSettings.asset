@@ -138,6 +138,8 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400000, guid: fc5a02fbb8f6ece4c97dfbfad76bc8d3, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -247,7 +249,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Build/user.keystore'
+  AndroidKeystoreName: C:/Users/thoma/Documents/A2 IIM/Gold Project/build/user.keystore
   AndroidKeyaliasName: mono
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

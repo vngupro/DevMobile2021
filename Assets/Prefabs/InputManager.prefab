@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2686448324454584326}
   - component: {fileID: 2686448324454584327}
   - component: {fileID: 2686448324454584323}
-  - component: {fileID: 2686448324454584320}
   - component: {fileID: 2686448324454584322}
   - component: {fileID: 2686448324454584333}
   - component: {fileID: 9015750953740344692}
+  - component: {fileID: 2686448324454584320}
   - component: {fileID: 3135973029160292108}
   m_Layer: 0
   m_Name: InputManager
@@ -65,23 +65,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle: {fileID: 2686448324823240125}
   animationTime: 0.2
---- !u!114 &2686448324454584320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2686448324454584324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f118fbb40f0570499b05357eb6adab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultZoom: 5
-  zoomSpeed: 0.2
-  zoomInMax: 2
-  zoomOutMax: 7
-  distanceTolerance: 0
 --- !u!114 &2686448324454584322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,9 +114,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 10
+  distanceTolerance: 30
   cameraSpeed: 80
   slideTrail: {fileID: 0}
+--- !u!114 &2686448324454584320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686448324454584324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f118fbb40f0570499b05357eb6adab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultZoom: 5
+  zoomSpeed: 0.1
+  zoomInMax: 2
+  zoomOutMax: 5
+  distanceTolerance: 0
 --- !u!114 &3135973029160292108
 MonoBehaviour:
   m_ObjectHideFlags: 0
