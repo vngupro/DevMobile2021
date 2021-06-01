@@ -114,7 +114,6 @@ public class MenuManager : MonoBehaviour
 
     public void ShowAchievement()
     {
-
         PlayService.Instance.ShowAchievements();
     }
 }
