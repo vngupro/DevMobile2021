@@ -17,6 +17,12 @@ public class CanvasResultScript : MonoBehaviour
     public Sprite spriteFullStar;
     public Sprite spriteEmptyStar;
 
+    public Button buttonClose;
+
+    private void Awake()
+    {
+        buttonClose.onClick.AddListener(ReturnToMenu);
+    }
 
 
     public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars, int totalClues)
@@ -36,5 +42,10 @@ public class CanvasResultScript : MonoBehaviour
             }
             ++currentStar;
         }
+    }
+
+    private void ReturnToMenu()
+    {
+        LevelManager.Instance.OpenSceneByName("Menu");
     }
 }
