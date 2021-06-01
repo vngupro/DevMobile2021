@@ -17,24 +17,35 @@ public class CanvasResultScript : MonoBehaviour
     public Sprite spriteFullStar;
     public Sprite spriteEmptyStar;
 
+    public Button buttonClose;
+
+    private void Awake()
+    {
+        buttonClose.onClick.AddListener(ReturnToMenu);
+    }
 
 
-    public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars)
+    public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars, int totalClues)
     {
         caseTitle.text = _caseTitle;
-        clueText.text = _clueText;
-        timeInCrimeScene.text = _timeCrime;
-        timeInSuspectScene.text = _timeSuspect;
+        clueText.text = "Clue Founds : " + _clueText +  " / " + totalClues;
+        timeInCrimeScene.text = "Time in Crime Scene : " + _timeCrime;
+        timeInSuspectScene.text = "Time in Suspect Scene : " + _timeSuspect;
         caseNotes.text = _caseNotes;
 
         int currentStar = 0;
         foreach (GameObject star in stars)
         {
-            if (currentStar <= _nbStars)
+            if (currentStar < _nbStars)
             {
                 star.GetComponent<Image>().sprite = spriteFullStar;
             }
             ++currentStar;
         }
+    }
+
+    private void ReturnToMenu()
+    {
+        LevelManager.Instance.OpenSceneByName("Menu");
     }
 }
