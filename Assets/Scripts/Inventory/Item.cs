@@ -14,12 +14,7 @@ public class Item : MonoBehaviour
     [Header("Debug")]
     public bool isHidden = true;
     private SpriteRenderer spriteRenderer;
-<<<<<<< HEAD:Assets/Scripts/Inventory/InventoryScripts/Item.cs
-   
-=======
 
-
->>>>>>> master:Assets/Scripts/Inventory/Item.cs
     [ExecuteInEditMode]
    
    
