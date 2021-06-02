@@ -40,7 +40,12 @@ public class DragDetection : MonoBehaviour
     private void StartDrag(Vector2 position, float time)
     {
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
-        if (hudManager.IsLayerNotesOpen) { return; }
+
+        if(hudManager != null)
+        {
+            if (hudManager.IsLayerNotesOpen) { return; }
+        }
+
 
         //Verify touch an object
         hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
