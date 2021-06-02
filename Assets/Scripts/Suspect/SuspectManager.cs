@@ -12,6 +12,8 @@ public class SuspectManager : MonoBehaviour
     [SerializeField] private GameObject panelInfo;
     [SerializeField] private GameObject boxSuspectPrefab;
     [SerializeField] private TMP_Text textBox;
+    [SerializeField] private Image imagePhoto;
+    [SerializeField] private Image imageFingerprint;
     [SerializeField] private Button buttonBack;
     [SerializeField] private Button buttonNext;
     [SerializeField] private Button buttonPrevious;
@@ -114,10 +116,12 @@ public class SuspectManager : MonoBehaviour
                 " BLOOD TYPE : " + suspect.bloodType + "\n\n" +
                 " JOB : " + suspect.job + "\n\n" +
                 " NATIONALITY : " + suspect.nationality + "\n\n" +
-                " LOCATION DURING MURDER : " + "\n " + suspect.placeOfResidence + "\n\n" +
-                " ALIBI : " + "\n " + suspect.alibi + "\n\n" +
-                " POTENTIAL MOTIVE : " + "\n " + suspect.suspectedMotive + "\n\n" +
-                " DESCRIPTION : " + "\n " + suspect.description;
+                " LOCATION DURING MURDER : " + "\n" + suspect.placeOfResidence + "\n\n" +
+                " ALIBI : " + "\n" + suspect.alibi + "\n\n" +
+                " POTENTIAL MOTIVE : " + "\n" + suspect.suspectedMotive + "\n\n" +
+                " DESCRIPTION : " + "\n" + suspect.description;
+        imagePhoto.sprite = suspect.sprite;
+        imageFingerprint.sprite = suspect.fingerprint;
 
         currentSuspect = suspect;
     }
