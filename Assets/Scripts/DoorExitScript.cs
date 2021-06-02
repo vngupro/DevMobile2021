@@ -2,12 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Cinemachine;
+using TMPro;
+
 public class DoorExitScript : MonoBehaviour
 {
 
     #region Variable
     public CanvasExitDoorScript canvasExit;
     public CinemachineVirtualCamera vcamOfNEXTLocation;
+
+    [Header("Animation")]
+    public TMP_Text text;
 
     public string sceneToLoad;
     [SerializeField] private LayerMask layer;
