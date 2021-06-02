@@ -93,7 +93,7 @@ public class PickUpDetection : MonoBehaviour
 
     private void PickUp(GameObject object2PickUp)
     {
-        photoEffect.TakeAShot();
+        photoEffect.PlayFlashEffect();
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy
         if (currentItem.data.isPickable)
