@@ -14,6 +14,10 @@ public class ZoomEffect : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private Coroutine zoomOutCoroutine;
     [SerializeField] private Coroutine zoomInCoroutine;
+    [SerializeField] private bool isZoomingOut = false;
+    [SerializeField] private bool isZoomingIn = false;
+    public bool IsZoomingOut { get => this.isZoomingOut; set => this.isZoomingOut = value; }
+    public bool IsZoomingIn { get => this.isZoomingIn; set => this.isZoomingIn = value; }
 
     public void ActivateCrosshair()
     {
@@ -27,11 +31,13 @@ public class ZoomEffect : MonoBehaviour
 
     public void ZoomInAnimation()
     {
+        isZoomingIn = true;
         zoomInCoroutine = StartCoroutine(ZoomInCoroutine());
     }
 
     public void ZoomOutAnimation()
     {
+        isZoomingOut = true;
         zoomOutCoroutine = StartCoroutine(ZoomOutCoroutine());
     }
 
@@ -64,5 +70,8 @@ public class ZoomEffect : MonoBehaviour
         {
             StopCoroutine(zoomInCoroutine);
         }
+
+        isZoomingIn = false;
+        isZoomingOut = false;
     }
 }
