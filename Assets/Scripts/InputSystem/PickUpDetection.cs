@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-/* Problem 
- *    RaycastHit2D just hit one layer for now,
- *    but you will want to hit at least 2 layer
- *    if the clue is in a hiding place
- *    or you can do a bool isHidden
- *    to make it impossible to take if isHidden
- * */
+
 public class PickUpDetection : MonoBehaviour
 {
     #region Variable
@@ -16,6 +10,9 @@ public class PickUpDetection : MonoBehaviour
     [SerializeField] private LayerMask layerUI;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
+    
+    [Header("Animation")]
+    [SerializeField] private PhotoEffect photoEffect;
 
     private InputManager inputManager;
     private Vector2 startPos;
@@ -26,6 +23,8 @@ public class PickUpDetection : MonoBehaviour
     private Item currentItem;
     private GameObject currentItemGameObj;
     private HUDManager hudManager;
+
+
 
     #endregion
     
@@ -94,8 +93,7 @@ public class PickUpDetection : MonoBehaviour
 
     private void PickUp(GameObject object2PickUp)
     {
-        //here add verify bool isHidden
-
+        photoEffect.TakeAShot();
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy
         if (currentItem.data.isPickable)
