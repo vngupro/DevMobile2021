@@ -118,27 +118,34 @@ public class PinchDetection : MonoBehaviour
 
             // Detection
             // Zoom Out
-            if(distance > previousDistance + distanceTolerance)
+            if (distance > previousDistance + distanceTolerance)
             {
                 float newSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
                 ChangeOrthographicSize(newSize);
-                
+
                 // Animation
-                zoomEffect.ZoomOutAnimation();
+                if (!zoomEffect.IsZoomingOut)
+                {
+                    zoomEffect.ZoomOutAnimation();
+                }
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
             {
                 float newSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
                 ChangeOrthographicSize(newSize);
-                
+
                 // Animation
-                zoomEffect.ZoomInAnimation();
+                if (!zoomEffect.IsZoomingIn)
+                {
+                    zoomEffect.ZoomInAnimation();
+                }
+
             }
             else
             {
                 // Animation
-                //zoomEffect.StopAllAnimation();
+                zoomEffect.StopAllAnimation();
             }
 
             //Keep Track of Previous Distance
