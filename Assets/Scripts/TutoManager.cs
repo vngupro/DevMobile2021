@@ -22,6 +22,7 @@ public class TutoManager : MonoBehaviour
     [SerializeField] private GameObject text_Exit;
     [SerializeField] private GameObject doorExit;
     [SerializeField] private CanvasExitDoorScript canvasDoorExit;
+    [SerializeField] private GameObject canvasSuspect;
 
     private Vector2 camStartPos;
 
@@ -243,15 +244,19 @@ public class TutoManager : MonoBehaviour
         else if (currentStep == TutoStep.SUSPECT)
         {
             //Envoie les prochaine explications
-            if (currentDialogueId == 7 && currentDialogue.isFinished)
+            if (canvasSuspect.activeInHierarchy)
             {
-                NextDialogueStep();
-            }
+                if (currentDialogueId == 7 && currentDialogue.isFinished)
+                {
+                    NextDialogueStep();
+                }
 
-            //Next si dialogue fini  ou suspet accusée
-            if (currentDialogue.isFinished)
-            {
-                currentStep = TutoStep.TUTO_END;
+
+                //Next si dialogue fini  ou suspet accusée
+                if (currentDialogue.isFinished)
+                {
+                    currentStep = TutoStep.TUTO_END;
+                }
             }
         }
         else if (currentStep == TutoStep.TUTO_END)
