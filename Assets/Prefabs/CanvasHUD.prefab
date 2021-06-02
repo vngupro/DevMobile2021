@@ -6499,7 +6499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4502889940524507013, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4502889940524507013, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
       propertyPath: m_fontStyle

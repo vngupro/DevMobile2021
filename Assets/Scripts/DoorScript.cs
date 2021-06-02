@@ -25,14 +25,12 @@ public class DoorScript : MonoBehaviour
 
     public void ChangeToGrey()
     {
-        Debug.Log("Change To Grey");
         text.color = grey;
         arrow.color = grey;
     }
 
     public void ChangeToBlack()
     {
-        Debug.Log("Change To Black");
         text.color = black;
         arrow.color = black;
     }
