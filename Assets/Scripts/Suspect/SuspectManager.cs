@@ -18,6 +18,7 @@ public class SuspectManager : MonoBehaviour
     [SerializeField] private GameObject panelAccuse;
     [SerializeField] private Button buttonYes;
     [SerializeField] private Button buttonNo;
+    [SerializeField] private Image suspectImage;
 
     private Suspect currentSuspect;
     private UI_Suspect currentAccuse;
@@ -105,6 +106,7 @@ public class SuspectManager : MonoBehaviour
 
     private void  UpdateUISuspectData(Suspect suspect)
     {
+        suspectImage.sprite = suspect.sprite;
         textBox.text = " NAME : " + suspect.name + "\n\n" +
                 " AGE : " + suspect.age + "\n\n" +
                 " HEIGHT : " + suspect.height + "\n\n" +

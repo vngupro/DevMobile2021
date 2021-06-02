@@ -28,7 +28,7 @@ public class PickUpDetection : MonoBehaviour
     private HUDManager hudManager;
 
     #endregion
-
+    
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -102,5 +102,7 @@ public class PickUpDetection : MonoBehaviour
         {
             object2PickUp.SetActive(false);
         }
+        
     }
+
 }
