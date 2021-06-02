@@ -668,7 +668,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3886,7 +3886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4311,7 +4311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6142,7 +6142,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7367,7 +7367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352303343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.042518616, y: 0.024371624, z: -115.635895}
+  m_LocalPosition: {x: 0.04252243, y: 0.024079323, z: -115.635895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9681,7 +9681,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11160,13 +11160,13 @@ MonoBehaviour:
   spriteTabIdle: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
   spriteTabHover: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
   spriteTabActive: {fileID: 21300000, guid: 616823d83f2e7954f816be56064dac81, type: 3}
-  colorTabIdle: {r: 0.39607847, g: 0.39607847, b: 0.39607847, a: 1}
+  colorTabIdle: {r: 1, g: 1, b: 1, a: 1}
   colorTabHover: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
   colorTabActive: {r: 1, g: 1, b: 1, a: 1}
-  colorTextIdle: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  colorTextIdle: {r: 1, g: 1, b: 1, a: 1}
   colorTextHover: {r: 0.20754719, g: 0.2065682, b: 0.2065682, a: 1}
   colorTextActive: {r: 0, g: 0, b: 0, a: 1}
-  colorIconIdle: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  colorIconIdle: {r: 1, g: 1, b: 1, a: 1}
   colorIconHover: {r: 0.1981132, g: 0.19157173, b: 0.19157173, a: 1}
   colorIconActive: {r: 0, g: 0, b: 0, a: 1}
   hasColorSpriteChange: 1
