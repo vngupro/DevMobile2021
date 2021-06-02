@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceTolerance: 30
-  cameraSpeed: 80
+  cameraSpeed: 30
   slideTrail: {fileID: 0}
 --- !u!114 &2686448324454584320
 MonoBehaviour:
