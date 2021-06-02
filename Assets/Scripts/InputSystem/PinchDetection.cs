@@ -17,6 +17,7 @@ public class PinchDetection : MonoBehaviour
 
     private CinemachineVirtualCamera virtualCamera;
     private Camera cameraItem;
+    private HUDManager hudManager;
 
     private bool isBlocked = false;
 
@@ -49,6 +50,10 @@ public class PinchDetection : MonoBehaviour
         inputManager.OnEndTouchPrimary -= EndZoom2;
     }
 
+    private void Start()
+    {
+        hudManager = HUDManager.Instance;
+    }
     private void RecupVirtualCamera(CinemachineVirtualCamera vcam)
     {
         virtualCamera = vcam;
@@ -66,6 +71,7 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+        if (hudManager.IsLayerNotesOpen) { return; }
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }

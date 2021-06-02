@@ -15,6 +15,7 @@ public class SlideOneFingerDetection : MonoBehaviour
     private InputManager inputManager;
     private CinemachineVirtualCamera vcam;
     private Collider2D boundary;
+    private HUDManager hudManager;
 
     private Coroutine coroutine;
     private Coroutine trailCoroutine;
@@ -43,6 +44,8 @@ public class SlideOneFingerDetection : MonoBehaviour
             cameraHeight = vcam.m_Lens.OrthographicSize * Camera.main.aspect;
         }
         if(slideTrail != null) slideTrail.SetActive(false);
+
+
         // | Listeners 
         CustomGameEvents.dragEvent.AddListener(IsDraggingTrue);
         // doorscripts.cs
@@ -80,9 +83,13 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager.OnStartTouchSecondary -= InterruptSlide;
     }
 
+    private void Start()
+    {
+        hudManager = HUDManager.Instance;
+    }
     private void StartSlide(Vector2 position, float time)
     {
-
+        if (hudManager.IsLayerNotesOpen) { return; }
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (isDragging) { return; }

@@ -45,8 +45,17 @@ public class HUDManager : MonoBehaviour
     private Case caseInfo;
 
     private int caseIndex = 1;
+
+    public static HUDManager Instance { get; protected set; }
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        Instance = this;
+        
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
         foreach(RectTransform len in lens)
         {
