@@ -4856,7 +4856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1704076787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4881,6 +4881,7 @@ MonoBehaviour:
   text_Exit: {fileID: 117627390}
   doorExit: {fileID: 1296194939}
   canvasDoorExit: {fileID: 1016890117}
+  canvasSuspect: {fileID: 1027567298}
   currentStep: 0
 --- !u!4 &1704076788
 Transform:
