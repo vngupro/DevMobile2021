@@ -63,6 +63,10 @@ public class HUDManager : MonoBehaviour
             len.anchoredPosition = buttonLensPosition;
         }
 
+        buttonLens.gameObject.SetActive(true);
+        buttonNotes.gameObject.SetActive(true);
+        boxDialogue.SetActive(true);
+
         // Load autopsy information and case information
         string autopsyPath = "Autopsy/Autopsy " + caseIndex.ToString();
         autopsy = (Autopsy)Resources.Load(autopsyPath);

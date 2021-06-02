@@ -104,7 +104,7 @@ public class SwitchLocationDetection : MonoBehaviour
             )
         {
             count++;
-
+            hitDoor.transform.gameObject.GetComponent<DoorScript>().ChangeToBlack();
             // Click Twice to change location
             if(count >= 2)
             {
@@ -115,6 +115,11 @@ public class SwitchLocationDetection : MonoBehaviour
         else
         {
             count = 0;
+            if(currentDoor != null)
+            {
+                currentDoor.transform.gameObject.GetComponent<DoorScript>().ChangeToGrey();
+            }
+
         }
         
     }

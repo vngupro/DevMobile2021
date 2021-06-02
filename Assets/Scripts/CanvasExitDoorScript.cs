@@ -14,6 +14,7 @@ public class CanvasExitDoorScript : MonoBehaviour
     private CanvasBlackscreen blackscreen;
     public GameObject canvasSuspect;
     public GameObject groupsLens;
+    public GameObject buttonLens;
     
     private void Start()
     {
@@ -51,10 +52,11 @@ public class CanvasExitDoorScript : MonoBehaviour
         blackscreen.FadeIn();
         yield return new WaitForSeconds(blackscreen.fadeDuration);
         CustomGameEvents.switchToSuspect.Invoke(vcam);
-        yield return new WaitForSeconds(0);
+        yield return null;
         background.SetActive(false);
         canvasSuspect.SetActive(true);
         groupsLens.SetActive(false);
+        buttonLens.SetActive(false);
         blackscreen.FadeOut();
     }
 }

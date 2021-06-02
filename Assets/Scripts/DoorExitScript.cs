@@ -13,7 +13,11 @@ public class DoorExitScript : MonoBehaviour
 
     [Header("Animation")]
     public TMP_Text text;
+    public SpriteRenderer arrow;
+    public Color black;
+    public Color grey;
 
+    [Header("Info")]
     public string sceneToLoad;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
@@ -101,8 +105,11 @@ public class DoorExitScript : MonoBehaviour
             )
         {
             count++;
+
+            text.color = black;
+            arrow.color = black;
             // Display Pop up "Are you sure Exit ?"
-            if(count >= 2)
+            if (count >= 2)
             {
                 canvasExit.background.SetActive(true);
                 canvasExit.sceneToLoad = sceneToLoad;
@@ -112,6 +119,14 @@ public class DoorExitScript : MonoBehaviour
         else
         {
             count = 0;
+            if(currentDoor != null)
+            {
+                text.color = grey;
+                arrow.color = grey;
+            }
+                
         }
     }
+
+   
 }
