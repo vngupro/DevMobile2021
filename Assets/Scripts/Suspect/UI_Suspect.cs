@@ -16,14 +16,11 @@ public class UI_Suspect : MonoBehaviour
     private void Start()
     {
 
-        image = this.gameObject.transform.Find("Image").GetComponent<Image>();
+        image = this.gameObject.transform.Find("Image_Suspect").GetComponent<Image>();
         textDescription = GetComponentInChildren<TMP_Text>();
         buttonAccuse = this.gameObject.transform.Find("Button_Accuse").GetComponent<Button>();
         buttonInfo = this.gameObject.transform.Find("Button_Info").GetComponent<Button>();
         image.sprite = data.sprite;
-
-        Debug.Log(image.sprite.name);
-        //textDescription.text = data.description;
         isGuilty = data.isGuilty;
         buttonInfo.onClick.AddListener(OpenSuspectInfo);
         buttonAccuse.onClick.AddListener(Accuse);
