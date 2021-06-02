@@ -2,21 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 
-/* 
- * BUG REPORT -> 
- *     the first touch is always (0,0) position 
- *     not sure why, I think it's just the input waking up
- *     
- * On PC : 
- * you can test with Mouse Control
- * Window > Analysis > Input Debugger 
- * Select Options > Simulate Touch Input From Mouse or Pen
- * 
- * On Mobile :
- *  doesn't work with Unity Remote 
- *  need to build and run
-*/
-
 //Execute in priority
 [DefaultExecutionOrder(-2)]
 public class InputManager : MonoBehaviour
@@ -163,6 +148,10 @@ public class InputManager : MonoBehaviour
         return GetWorldPosition(mobileControls.Mobile.SecondaryPosition.ReadValue<Vector2>());
     }
 
+    public Vector3 GetTouchScreenPosition()
+    {
+        return mobileControls.Mobile.TouchPosition.ReadValue<Vector2>();
+    }
     public Vector3 GetPrimaryScreenPosition()
     {
         return mobileControls.Mobile.PrimaryPosition.ReadValue<Vector2>();

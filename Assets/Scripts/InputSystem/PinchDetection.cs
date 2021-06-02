@@ -12,6 +12,9 @@ public class PinchDetection : MonoBehaviour
     [SerializeField] private float zoomOutMax = 5f;
     [SerializeField] private float distanceTolerance = 15.0f;
 
+    [Header("Animation")]
+    [SerializeField] private ZoomEffect zoomEffect;
+
     private InputManager inputManager;
     private Coroutine coroutine;
 
@@ -81,10 +84,14 @@ public class PinchDetection : MonoBehaviour
         if (virtualCamera == null || cameraItem == null) { return; }
 
         coroutine = StartCoroutine(DetectionZoom());
+
+        //Animation
+        zoomEffect.ActivateCrosshair();
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+        zoomEffect.DeactivateCrossHair();
         if (coroutine != null) StopCoroutine(coroutine);
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
@@ -115,12 +122,23 @@ public class PinchDetection : MonoBehaviour
             {
                 float newSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
                 ChangeOrthographicSize(newSize);
+                
+                // Animation
+                zoomEffect.ZoomOutAnimation();
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
             {
                 float newSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
                 ChangeOrthographicSize(newSize);
+                
+                // Animation
+                zoomEffect.ZoomInAnimation();
+            }
+            else
+            {
+                // Animation
+                //zoomEffect.StopAllAnimation();
             }
 
             //Keep Track of Previous Distance
