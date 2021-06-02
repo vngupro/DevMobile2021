@@ -21,11 +21,28 @@ public class TabGroup : MonoBehaviour
     public Color colorIconHover;
     public Color colorIconActive;
 
+    public bool hasColorSpriteChange = false;
+
     public List<GameObject> objectsToSwap;
+
+    [Header("Animation")]
+    public GameObject arrow;
+    public float slideAnimation = 0.2f;
+    public AnimationCurve curve;
 
     [Header("Debug")]
     public List<TabButtonScript> tabButtons;
     public TabButtonScript selectedTab;
+    public RectTransform arrowRect;
+
+    private void Awake()
+    {
+        if(arrow != null)
+        {
+            arrowRect = arrow.GetComponent<RectTransform>();
+            arrow.SetActive(false);
+        }
+    }
 
     public void Subscribe(TabButtonScript button)
     {
@@ -41,8 +58,13 @@ public class TabGroup : MonoBehaviour
     {
         ResetTabs();
         if (selectedTab == null || button != selectedTab) {
-            //button.background.sprite = spriteTabHover;
-            //button.background.color = colorTabHover;
+
+            if (hasColorSpriteChange)
+            {
+                button.background.sprite = spriteTabHover;
+                button.background.color = colorTabHover;
+            }
+
             button.textBox.color = colorTextHover;
             button.icon.color = colorIconHover;
         }
@@ -57,8 +79,13 @@ public class TabGroup : MonoBehaviour
     {
         selectedTab = button;
         ResetTabs();
-        //button.background.sprite = spriteTabActive;
-        //button.background.color = colorTabActive;
+
+        if (hasColorSpriteChange)
+        {
+            button.background.sprite = spriteTabActive;
+            button.background.color = colorTabActive;
+        }
+
         button.textBox.color = colorTextActive;
         button.icon.color = colorIconActive;
         int index = button.transform.GetSiblingIndex();
@@ -73,6 +100,13 @@ public class TabGroup : MonoBehaviour
                 objectsToSwap[i].SetActive(false);
             }
         }
+
+        //Arrow Animation
+        if (arrow != null)
+        {
+            arrow.SetActive(true);
+            StartCoroutine(SlideArrowAnimation(button));
+        }
     }
 
     public void ResetTabs()
@@ -80,10 +114,35 @@ public class TabGroup : MonoBehaviour
         foreach(TabButtonScript button in tabButtons)
         {
             if(selectedTab != null && button == selectedTab) { continue; }
-            //button.background.sprite = spriteTabIdle;
-            //button.background.color = colorTabIdle;
+
+            if (hasColorSpriteChange)
+            {
+                button.background.sprite = spriteTabIdle;
+                button.background.color = colorTabIdle;
+            }
+
             button.textBox.color = colorTextIdle;
             button.icon.color = colorIconIdle;
         }
+    }
+
+    IEnumerator SlideArrowAnimation(TabButtonScript button)
+    {
+        float timer = 0;
+
+        while(timer < slideAnimation)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / slideAnimation;
+
+            float newPos = button.GetComponent<RectTransform>().anchoredPosition.y;
+            arrowRect.anchoredPosition = new Vector2(
+                    arrowRect.anchoredPosition.x, 
+                    Mathf.Lerp(arrowRect.anchoredPosition.y,  newPos, curve.Evaluate(ratio))
+                );
+
+            yield return null;
+        }
+
     }
 }
