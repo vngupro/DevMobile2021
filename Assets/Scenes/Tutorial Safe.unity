@@ -4579,7 +4579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481138096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.55, y: -1.5, z: -10}
+  m_LocalPosition: {x: 34.37, y: -0.54, z: -1.457894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1006514398}
@@ -6467,6 +6467,10 @@ PrefabInstance:
       propertyPath: canvasResultScript
       value: 
       objectReference: {fileID: 939721911}
+    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
+      propertyPath: levelData.totalClues
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 324607128961519545, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: m_Name
       value: GameManager
