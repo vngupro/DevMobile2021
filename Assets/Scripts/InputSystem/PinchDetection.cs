@@ -40,11 +40,13 @@ public class PinchDetection : MonoBehaviour
     {
         inputManager.OnStartTouchSecondary += StartZoom;
         inputManager.OnEndTouchSecondary += EndZoom;
+        inputManager.OnEndTouchPrimary += EndZoom2;
     }
     private void OnDisable()
     {
         inputManager.OnStartTouchSecondary -= StartZoom;
         inputManager.OnEndTouchSecondary -= EndZoom;
+        inputManager.OnEndTouchPrimary -= EndZoom2;
     }
 
     private void RecupVirtualCamera(CinemachineVirtualCamera vcam)
@@ -81,6 +83,10 @@ public class PinchDetection : MonoBehaviour
         //StopCoroutine(coroutine);
     }
 
+    private void EndZoom2(Vector2 positionPrimary, float time)
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
+    }
     IEnumerator DetectionZoom()
     {
         float previousDistance = Vector2.Distance(inputManager.GetPrimaryScreenPosition(), inputManager.GetSecondaryScreenPosition()), 
