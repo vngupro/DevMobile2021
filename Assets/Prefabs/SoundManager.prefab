@@ -57,55 +57,60 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: dc9440bfb4ed4a044a030b778b02ed0d, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: Boutton_open
+    type: 3
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: Boutton_close
+    type: 3
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: 4fef5d664dafdfd4d885e6528432f9c4, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: door
+    type: 1
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: b2e9210e7eb070d4db2f35f0ccd1264f, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: Swipe
+    type: 1
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: d9e9077234f37ca4ab882bfaf2e53e9c, type: 3}
+    - {fileID: 8300000, guid: cc065e72e150a8044a51d90a1451d781, type: 3}
     source: {fileID: 0}
-  - name: 
+  - name: Menu_music
     type: 0
     volume: 1
     pitch: 1
@@ -113,11 +118,12 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: 6a8e422f78a358546b9d0ef8f49921f5, type: 3}
     source: {fileID: 0}
-  - name: 
+  - name: InGame_music
     type: 0
     volume: 1
     pitch: 1
@@ -125,331 +131,34 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: 30d62b19a7a7be546a5e85054f4a063b, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: zoom
+    type: 1
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: 6b2d79ceb5fccf5478cd5a94bfcbc448, type: 3}
     source: {fileID: 0}
-  - name: 
-    type: 0
+  - name: Camera_screenshot
+    type: 1
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
-    source: {fileID: 0}
-  - name: 
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips: []
+    loop: 1
+    playOnAwake: 1
+    clips:
+    - {fileID: 8300000, guid: 318b582d435233a4cbe301a104d054ec, type: 3}
     source: {fileID: 0}
