@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Autopsy 1
   m_EditorClassIdentifier: 
   title: Autopsy Report
-  corps: Lorem Ipsum
+  corps: The victim was a brown haired man of 1m74. According to the autospia the
+    origin of his death is a wound due to a perforating object with a depth of 10.5cm.
+    The body also presents many traces of echymosis (strangulation and blow on the
+    body and the head)
