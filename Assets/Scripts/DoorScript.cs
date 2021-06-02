@@ -1,9 +1,13 @@
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 public class DoorScript : MonoBehaviour
 {
     [Tooltip("Virtual camera corresponding to the NEXT location")]
     public CinemachineVirtualCamera vcamOfNEXTLocation;
+
+    [Header("Animation")]
+    public TMP_Text text;
 
     public Vector3 vcamStartPos { get; private set; }
     private void Awake()

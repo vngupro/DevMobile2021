@@ -13,6 +13,7 @@ public class CanvasExitDoorScript : MonoBehaviour
     public bool isExiting = false;
     private CanvasBlackscreen blackscreen;
     public GameObject canvasSuspect;
+    public GameObject groupsLens;
     
     private void Start()
     {
@@ -53,6 +54,7 @@ public class CanvasExitDoorScript : MonoBehaviour
         yield return new WaitForSeconds(0);
         background.SetActive(false);
         canvasSuspect.SetActive(true);
+        groupsLens.SetActive(false);
         blackscreen.FadeOut();
     }
 }
