@@ -13,6 +13,8 @@ public class DragDetection : MonoBehaviour
     private Coroutine coroutine;
     private GameObject objectDraging;
     private RaycastHit2D hitDrag;
+    private HUDManager hudManager;
+
     #endregion
 
     private void Awake()
@@ -30,10 +32,15 @@ public class DragDetection : MonoBehaviour
         inputManager.OnStartTouch -= StartDrag;
         inputManager.OnEndTouch -= EndDrag;
     }
+    private void Start()
+    {
+        hudManager = HUDManager.Instance;
+    }
 
     private void StartDrag(Vector2 position, float time)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
+        if (hudManager.IsLayerNotesOpen) { return; }
 
         //Verify touch an object
         hitDrag = Physics2D.Raycast(position, Vector3.forward, 20.0f, layer2Drag);
@@ -54,12 +61,11 @@ public class DragDetection : MonoBehaviour
 
     private void EndDrag(Vector2 position, float time)
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
-
         if (coroutine != null)
         {
             StopCoroutine(coroutine);
         }
+        if (EventSystem.current.IsPointerOverGameObject()) return;
     }
     
     private IEnumerator Drag()
