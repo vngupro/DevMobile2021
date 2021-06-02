@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class TouchDetection : MonoBehaviour
 {
     #region Variable
@@ -28,8 +29,6 @@ public class TouchDetection : MonoBehaviour
     {
         inputManager.OnEndTouch -= Move;
     }
-
-
     public void Move(Vector2 position, float time)
     {
         //Animation
@@ -37,6 +36,7 @@ public class TouchDetection : MonoBehaviour
         {
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;
+            Debug.Log(inputManager.GetTouchScreenPosition());
         }
     }
 
