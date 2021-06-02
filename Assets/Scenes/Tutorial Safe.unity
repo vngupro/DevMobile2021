@@ -5715,6 +5715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 507858883}
     - target: {fileID: 5637216504012990121, guid: e53c8dbc08299ad45bf8b11d6a08389c, type: 3}
+      propertyPath: groupsLens
+      value: 
+      objectReference: {fileID: 1681109964}
+    - target: {fileID: 5637216504012990121, guid: e53c8dbc08299ad45bf8b11d6a08389c, type: 3}
       propertyPath: canvasSuspect
       value: 
       objectReference: {fileID: 1027567298}
