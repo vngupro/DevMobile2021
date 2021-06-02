@@ -24,8 +24,7 @@ MonoBehaviour:
     minutes, a lot of noise.
   - Those noises seems to be a fight according to the neighbors
   - 'So they called us at 6:47pm and the first cops have arrived at 6:56pm. '
-  - 'This is all the informations we have for the moment ! '
-  - "So now you\u2019ll have to find as many clues as possible in the scene crime
+  - "So now you\u2019ll have to find as many clues as possible in the crime scene
     in order to find the murderer !"
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: 13ca6ba998bbee34db0b4d4919add155, type: 2}
