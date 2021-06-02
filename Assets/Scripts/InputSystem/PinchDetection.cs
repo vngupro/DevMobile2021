@@ -71,7 +71,11 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-        if (hudManager.IsLayerNotesOpen) { return; }
+        if(hudManager != null)
+        {
+            if (hudManager.IsLayerNotesOpen) { return; }
+        }
+
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }

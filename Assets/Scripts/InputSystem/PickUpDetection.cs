@@ -51,7 +51,11 @@ public class PickUpDetection : MonoBehaviour
     }
     private void StartPickUp(Vector2 position, float time)
     {
-        if (hudManager.IsLayerNotesOpen) { return; }
+        if(hudManager != null)
+        {
+            if (hudManager.IsLayerNotesOpen) { return; }
+        }
+
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
         // Verify touch an object

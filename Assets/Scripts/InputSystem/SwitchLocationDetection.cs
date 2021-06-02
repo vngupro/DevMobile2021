@@ -57,7 +57,11 @@ public class SwitchLocationDetection : MonoBehaviour
     }
     private void StartDoor(Vector2 position, float time)
     {
-        if (hudManager.IsLayerNotesOpen) { return; }
+        if(hudManager != null)
+        {
+            if (hudManager.IsLayerNotesOpen) { return; }
+        }
+
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
 

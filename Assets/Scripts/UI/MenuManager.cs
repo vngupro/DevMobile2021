@@ -7,20 +7,37 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
     [SerializeField] private Button playButton;
     [SerializeField] private Button achievementButton;
+    [SerializeField] private Button buttonMute;
+    [SerializeField] private Button buttonUnmute;
+
     [Header("Animation")]
     public float fadeDuration = 2.0f;
 
     private InputManager inputManager;
+    private SoundManager soundManager;
     private void Awake()
     {
         inputManager = InputManager.Instance;
+
         playButton.onClick.AddListener(PlayGame);
         achievementButton.onClick.AddListener(ShowAchievement);
+
+        buttonMute.onClick.AddListener(Unmute);
+        buttonUnmute.onClick.AddListener(Mute);
+        buttonMute.gameObject.SetActive(false);
+        buttonUnmute.gameObject.SetActive(true);
+
         // Listeners 
         // TapScreenScript.cs
         CustomGameEvents.enteredMenu.AddListener(EnterMenu);
         if (inputManager != null)
         UtilsEvent.fadeInEnded.AddListener(inputManager.EnableControls);
+    }
+
+    private void Start()
+    {
+        soundManager = SoundManager.Instance;
+        soundManager.ChangeMute(false);
     }
     public void OpenLayer(UI_Layer layer)
     {
@@ -88,25 +105,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInLayer(CanvasGroup canvasGroup)
-    {
-        inputManager.DisableControls();
-        float timer = 0f;
-        float min = 0f;
-        float max = 1f;
-
-        //Fade
-        while (timer < fadeDuration)
-        {
-            timer += Time.deltaTime;
-            float ratio = timer / fadeDuration;
-            canvasGroup.alpha = Mathf.Lerp(min, max, ratio);
-            yield return null;
-        }
-
-        inputManager.EnableControls();
-    }
-
     private void PlayGame()
     {
         LevelManager.Instance.OpenSceneByName("Tutorial Safe");
@@ -115,5 +113,21 @@ public class MenuManager : MonoBehaviour
     public void ShowAchievement()
     {
         PlayService.Instance.ShowAchievements();
+    }
+
+    private void Mute()
+    {
+        Debug.Log("Mute");
+        buttonMute.gameObject.SetActive(true);
+        buttonUnmute.gameObject.SetActive(false);
+        soundManager.ChangeMute(true);
+    }
+
+    private void Unmute()
+    {
+        Debug.Log("Unmute");
+        buttonMute.gameObject.SetActive(false);
+        buttonUnmute.gameObject.SetActive(true);
+        soundManager.ChangeMute(false);
     }
 }
