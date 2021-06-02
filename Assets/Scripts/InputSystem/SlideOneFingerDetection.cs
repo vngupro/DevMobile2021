@@ -99,6 +99,10 @@ public class SlideOneFingerDetection : MonoBehaviour
 
     private void EndSlide(Vector2 position, float time)
     {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) return;
         if (isDragging) { isDragging = false; return; }
