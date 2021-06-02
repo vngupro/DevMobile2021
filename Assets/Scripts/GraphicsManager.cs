@@ -5,24 +5,21 @@ using TMPro;
 
 public class GraphicsManager : MonoBehaviour
 {
-    public TMP_Dropdown dropdownQuality;
-
+    public static GraphicsManager Instance { get; private set; }
     private void Awake()
     {
-        string[] qualities = QualitySettings.names;
-        List<TMP_Dropdown.OptionData> graphicOptions = new List<TMP_Dropdown.OptionData>();
-        dropdownQuality.ClearOptions();
-        foreach (string quality in qualities)
+        if(Instance != this && Instance != null)
         {
-            TMP_Dropdown.OptionData data = new TMP_Dropdown.OptionData();
-            data.text = quality;
-            graphicOptions.Add(data);
+            Destroy(this.gameObject);
         }
 
-        dropdownQuality.AddOptions(graphicOptions);
-        SetQuality(graphicOptions.Count - 2);
-        dropdownQuality.value = graphicOptions.Count - 2;
-        dropdownQuality.RefreshShownValue();
+        Instance = this;
+
+        string[] qualities = QualitySettings.names;
+        foreach (string quality in qualities)
+        {
+            Debug.Log("Quality" + quality);
+        }
     }
 
     public void SetQuality(int qualityIndex)
