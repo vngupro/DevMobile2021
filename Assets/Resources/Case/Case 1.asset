@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff238474ef37794fb7e6988778b343e, type: 3}
   m_Name: Case 1
   m_EditorClassIdentifier: 
-  title: The Truth Of Murder
-  corps: Lorem ipsum sit amet
+  title: Crime's informations
+  corps: "The body is a man called August CHAMBERS, he had 20 years old and he studied
+    in a science faculty. \r\nAccording to the testimony of the neighbors, they heard
+    at 6:35pm, during 10 minutes, a lot of noise who seems to be a fight. \r\nSo
+    they called us at 6:47pm and the first cops have arrived at 6:56pm and they could
+    see immediately that he was dead.\n"
