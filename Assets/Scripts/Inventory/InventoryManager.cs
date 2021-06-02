@@ -29,8 +29,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     private float slotWidth;
     public bool isOpen { get; private set; }
-    
- 
+
     public static InventoryManager Instance { get; private set; }
     #endregion
     private void Awake()
@@ -38,7 +37,6 @@ public class InventoryManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
-            return;
         }
 
         Instance = this;
@@ -50,8 +48,10 @@ public class InventoryManager : MonoBehaviour
         buttonBack.onClick.AddListener(ClosePanelSecond);
         buttonNext.onClick.AddListener(GetNextItem);
         buttonPrevious.onClick.AddListener(GetPreviousItem);
+        panelSecond.SetActive(false);
 
         MakeInventorySlots();
+
         // | Listeners
         // MenuManager.cs
         CustomGameEvents.openInventory.AddListener(OpenInventory);
@@ -63,6 +63,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventory.itemList.Clear();
     }
+
     private void MakeInventorySlots()
     {
         if (inventory)
@@ -89,13 +90,11 @@ public class InventoryManager : MonoBehaviour
             row++;
         }
 
-        //Here is bug with scale on phone 
-        //try not to set it with fix number or else break scale
         RectTransform rectTransform = temp.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x + (slotWidth * 2) * (countSlot % maxNumberPerRow), rectTransform.anchoredPosition.y - (slotWidth * 2) * row);
+        rectTransform.anchoredPosition = new Vector2(
+            rectTransform.anchoredPosition.x + (slotWidth * 2) * (countSlot % maxNumberPerRow), 
+            rectTransform.anchoredPosition.y - (slotWidth * 2) * row);
         countSlot++;
-
-        //Change ui
 
     }
 
@@ -114,33 +113,31 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void AddItem(GameObject item)
-    {
-        Debug.Log(item.name);
+    {;
         this.currentItem = item.GetComponent<Item>().data;
-        Debug.Log(this.currentItem);
 
         if (inventory != null && this.currentItem != null)
         {
             if (inventory.itemList.Contains(this.currentItem))
             {
                 this.currentItem.number += 1;
-                Debug.Log("+1 " + this.currentItem.name);
             }
             else
             {
                 inventory.itemList.Add(this.currentItem);
                 CreateSlot(this.currentItem);
-                Debug.Log("add item " + this.currentItem.name);
             }
         }
-        Debug.Log(item.name);
     }
 
     //HUD
+    public void ClosePanelSecond()
+    {
+        panelSecond.SetActive(false);
+    }
+
     public void OnInventorySlotSelected(InventorySlot slot)
     {
-        //Code
-        Debug.Log("On Inventory Slot Selected");
         panelSecond.SetActive(true);
         string description = slot.item.description;
 
@@ -152,11 +149,11 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
         }
+
         //Add information on corresponding panel
-        ShowItemDataByItem(slot.item);
+        ShowItemData(slot.item);
     }
 
-    public void ClosePanelSecond() { panelSecond.SetActive(false); }
     public void GetNextItem() {
         int indexOfLastItem = inventory.itemList.Count - 1;
         if (inventoryIndex < indexOfLastItem) { 
@@ -167,7 +164,7 @@ public class InventoryManager : MonoBehaviour
             inventoryIndex = 0;
         }
 
-        ShowItemData();
+        ShowItemData(inventory.itemList[inventoryIndex]);
     }
 
     public void GetPreviousItem() {
@@ -180,76 +177,12 @@ public class InventoryManager : MonoBehaviour
             inventoryIndex = inventory.itemList.Count - 1;
         }
 
-        ShowItemData();
+        ShowItemData(inventory.itemList[inventoryIndex]);
     }
 
-    public void ShowItemData()
+    public void ShowItemData(InventoryItem item)
     {
-        Debug.Log("Show Item Data");
-        InventoryItem item = inventory.itemList[inventoryIndex];
         imageClue.sprite = item.spriteInInventory;
         descriptionClue.text = item.description;
     }
-
-    public void ShowItemDataByItem(InventoryItem item)
-    {
-        Debug.Log("Show Item Data By Item");
-        imageClue.sprite = item.spriteInInventory;
-        descriptionClue.text = item.description;
-    }
-    //public void OpenClue(GameObject clue)
-    //{
-    //    clue.SetActive(true);
-    //}
-
-    //public void CloseClue(GameObject clue)
-    //{
-    //    clue.SetActive(false);
-    //}
-
-    //public void SeeBack(GameObject clue)
-    //{
-    //    foreach (UI_Clue image in images)
-    //    {
-    //        if (image.name == "Image_Back")
-    //        {
-    //            image.gameObject.SetActive(true);
-    //            Debug.Log("Image back ");
-    //        }
-    //        else
-    //        {
-    //            image.gameObject.SetActive(false);
-    //        }
-    //    }
-
-    //    Debug.Log("See Back of " + clue.name);
-    //}
-
-    //public void SeeFront(GameObject clue)
-    //{
-
-    //    foreach (UI_Clue image in images)
-    //    {
-    //        if (image.name == "Image_Front")
-    //        {
-    //            image.gameObject.SetActive(true);
-    //        }
-    //        else
-    //        {
-    //            image.gameObject.SetActive(false);
-    //        }
-    //    }
-
-    //    Debug.Log("See Front of " + clue.name);
-    //}
-
-    //public void ShowButton(GameObject button)
-    //{
-    //    button.SetActive(true);
-    //}
-
-    //public void HideButton(GameObject button)
-    //{
-    //    button.SetActive(false);
-    //}
 }

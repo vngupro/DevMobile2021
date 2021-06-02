@@ -25,6 +25,9 @@ public class HUDManager : MonoBehaviour
     public TMP_Text caseTitle;
     public TMP_Text caseCorps;
 
+    [Header("Tab Area")]
+    public GameObject arrow;
+
     [Header("Debug")]
     [SerializeField]
     private bool isGroupLensOpen = false;
@@ -42,8 +45,17 @@ public class HUDManager : MonoBehaviour
     private Case caseInfo;
 
     private int caseIndex = 1;
+
+    public static HUDManager Instance { get; protected set; }
     private void Awake()
     {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        Instance = this;
+        
         buttonLensPosition = buttonLens.GetComponent<RectTransform>().anchoredPosition;
         foreach(RectTransform len in lens)
         {
@@ -51,6 +63,7 @@ public class HUDManager : MonoBehaviour
             len.anchoredPosition = buttonLensPosition;
         }
 
+        // Load autopsy information and case information
         string autopsyPath = "Autopsy/Autopsy " + caseIndex.ToString();
         autopsy = (Autopsy)Resources.Load(autopsyPath);
         string casePath = "Case/Case " + caseIndex.ToString();
@@ -60,8 +73,6 @@ public class HUDManager : MonoBehaviour
         autopsyCorps.text = autopsy.corps;
         caseTitle.text = caseInfo.title;
         caseCorps.text = caseInfo.corps;
-
-        
     }
 
     private void Start()

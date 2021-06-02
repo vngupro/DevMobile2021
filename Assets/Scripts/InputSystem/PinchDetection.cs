@@ -17,6 +17,7 @@ public class PinchDetection : MonoBehaviour
 
     private CinemachineVirtualCamera virtualCamera;
     private Camera cameraItem;
+    private HUDManager hudManager;
 
     private bool isBlocked = false;
 
@@ -40,13 +41,19 @@ public class PinchDetection : MonoBehaviour
     {
         inputManager.OnStartTouchSecondary += StartZoom;
         inputManager.OnEndTouchSecondary += EndZoom;
+        inputManager.OnEndTouchPrimary += EndZoom2;
     }
     private void OnDisable()
     {
         inputManager.OnStartTouchSecondary -= StartZoom;
         inputManager.OnEndTouchSecondary -= EndZoom;
+        inputManager.OnEndTouchPrimary -= EndZoom2;
     }
 
+    private void Start()
+    {
+        hudManager = HUDManager.Instance;
+    }
     private void RecupVirtualCamera(CinemachineVirtualCamera vcam)
     {
         virtualCamera = vcam;
@@ -64,6 +71,7 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+        if (hudManager.IsLayerNotesOpen) { return; }
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }
@@ -73,13 +81,18 @@ public class PinchDetection : MonoBehaviour
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+        if (coroutine != null) StopCoroutine(coroutine);
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }
 
-        StopCoroutine(coroutine);
+        //StopCoroutine(coroutine);
     }
 
+    private void EndZoom2(Vector2 positionPrimary, float time)
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
+    }
     IEnumerator DetectionZoom()
     {
         float previousDistance = Vector2.Distance(inputManager.GetPrimaryScreenPosition(), inputManager.GetSecondaryScreenPosition()), 
