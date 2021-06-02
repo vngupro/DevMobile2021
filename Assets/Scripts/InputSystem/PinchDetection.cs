@@ -73,11 +73,12 @@ public class PinchDetection : MonoBehaviour
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+        if (coroutine != null) StopCoroutine(coroutine);
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }
 
-        StopCoroutine(coroutine);
+        //StopCoroutine(coroutine);
     }
 
     IEnumerator DetectionZoom()
