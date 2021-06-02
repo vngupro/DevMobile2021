@@ -26,7 +26,7 @@ public class PickUpDetection : MonoBehaviour
     private Item currentItem;
     private GameObject currentItemGameObj;
     #endregion
-
+    
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -91,5 +91,7 @@ public class PickUpDetection : MonoBehaviour
         {
             object2PickUp.SetActive(false);
         }
+        
     }
+
 }
