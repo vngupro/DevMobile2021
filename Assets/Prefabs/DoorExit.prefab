@@ -195,6 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasExit: {fileID: 0}
+  vcamOfNEXTLocation: {fileID: 0}
+  text: {fileID: 0}
+  arrow: {fileID: 8323847232354578530}
   sceneToLoad: 
   layer:
     serializedVersion: 2

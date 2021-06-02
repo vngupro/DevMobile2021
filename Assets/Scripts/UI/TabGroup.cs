@@ -42,6 +42,11 @@ public class TabGroup : MonoBehaviour
             arrowRect = arrow.GetComponent<RectTransform>();
             arrow.SetActive(false);
         }
+
+        foreach(GameObject objectToSwap in objectsToSwap)
+        {
+            objectToSwap.SetActive(false);
+        }
     }
 
     public void Subscribe(TabButtonScript button)
