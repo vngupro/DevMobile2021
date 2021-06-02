@@ -152,10 +152,9 @@ public class SlideOneFingerDetection : MonoBehaviour
                 if(vcam != null)
                 {
                     Vector3 targetPosiion = vcam.transform.position - nDirection * cameraSpeed * Time.deltaTime;
-                    float newPosX = Mathf.Clamp(targetPosiion.x, boundary.bounds.min.x + cameraWidth / 2, boundary.bounds.max.x - cameraWidth / 2);
+                    float newPosX = Mathf.Clamp(targetPosiion.x, boundary.bounds.min.x + cameraWidth, boundary.bounds.max.x - cameraWidth);
                     float newPosY = Mathf.Clamp(targetPosiion.y, boundary.bounds.min.y + cameraHeight / 2, boundary.bounds.max.y - cameraHeight / 2);
                     vcam.transform.position = new Vector3(newPosX, newPosY, -10);
-                    yield return null;
                 }
 
 
