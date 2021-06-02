@@ -9,11 +9,13 @@ public class PlayService : MonoBehaviour
 
     public static PlayService Instance;
 
+    private PlayGamesClientConfiguration clientConfiguration;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
 
-        if (Instance != null && Instance != this)
+        if (Instance != null )
         {
             Destroy(this.gameObject);
         }
@@ -24,9 +26,10 @@ public class PlayService : MonoBehaviour
 
         try
         {
-            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
 
-            PlayGamesPlatform.InitializeInstance(config);
+            clientConfiguration = new PlayGamesClientConfiguration.Builder().Build();
+
+            PlayGamesPlatform.InitializeInstance(clientConfiguration);
 
             // recommended for debugging:
             //PlayGamesPlatform.DebugLogEnabled = true;
@@ -34,11 +37,16 @@ public class PlayService : MonoBehaviour
             // Activate the Google Play Games platform
             PlayGamesPlatform.Activate();
 
+            Debug.Log(clientConfiguration);
+
             // authenticate user:
             PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
             {
                 // handle results
+                
             });
+
+            //Debug.Log("Player autantify by google :" + PlayGamesClientFactory.GetPlatformPlayGamesClient(clientConfiguration).IsAuthenticated());
         }
         catch (Exception exception)
         {
@@ -49,21 +57,24 @@ public class PlayService : MonoBehaviour
     public void ShowAchievements()
     {
         // show achievements UI
-        Social.ShowAchievementsUI();
-    }
-
-    public void ShowLeaderboard()
-    {
-        // show leaderboard UI
-        Social.ShowLeaderboardUI();
+        PlayGamesPlatform.Instance.ShowAchievementsUI();
     }
 
     public void UnlockAchievement(String id)
     {
         // unlock achievement 
-        Social.ReportProgress(id, 100.0f, (bool success) =>
+        PlayGamesPlatform.Instance.ReportProgress(id, 100.0f, (bool success) =>
         {
             // handle success or failure
+        });
+    }
+
+    public void TryConnectToPlayService()
+    {
+        // authenticate user:
+        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptAlways, (result) =>
+        {
+            // handle results
         });
     }
 
