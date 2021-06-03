@@ -15,7 +15,7 @@ public class PlayService : MonoBehaviour
     {
         DontDestroyOnLoad(this);
 
-        if (Instance != null )
+        if (Instance != null)
         {
             Destroy(this.gameObject);
         }
@@ -43,7 +43,7 @@ public class PlayService : MonoBehaviour
             PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (result) =>
             {
                 // handle results
-                
+
             });
 
             //Debug.Log("Player autantify by google :" + PlayGamesClientFactory.GetPlatformPlayGamesClient(clientConfiguration).IsAuthenticated());
