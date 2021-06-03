@@ -7,6 +7,7 @@ public class SlideOneFingerDetection : MonoBehaviour
 {
     #region Variable
     [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
+    [HideInInspector]
     [SerializeField] private float cameraSpeed = 100.0f;
 
     [Header("Animation")]
@@ -15,7 +16,6 @@ public class SlideOneFingerDetection : MonoBehaviour
     private InputManager inputManager;
     private CinemachineVirtualCamera vcam;
     private Collider2D boundary;
-    private HUDManager hudManager;
 
     private Coroutine coroutine;
     private Coroutine trailCoroutine;
@@ -83,15 +83,11 @@ public class SlideOneFingerDetection : MonoBehaviour
         inputManager.OnStartTouchSecondary -= InterruptSlide;
     }
 
-    private void Start()
-    {
-        hudManager = HUDManager.Instance;
-    }
     private void StartSlide(Vector2 position, float time)
     {
-        if (hudManager != null)
+        if (HUDManager.Instance != null)
         {
-            if (hudManager.IsLayerNotesOpen) { return; }
+            if (HUDManager.Instance.IsLayerNotesOpen) { return; }
         }
  
         if (isBlocked) { return; }
@@ -151,7 +147,7 @@ public class SlideOneFingerDetection : MonoBehaviour
                 
                 if(vcam != null)
                 {
-                    Vector3 targetPosiion = vcam.transform.position - nDirection * cameraSpeed * Time.deltaTime;
+                    Vector3 targetPosiion = vcam.transform.position - direction  * Time.deltaTime;
                     float newPosX = Mathf.Clamp(targetPosiion.x, boundary.bounds.min.x + cameraWidth, boundary.bounds.max.x - cameraWidth);
                     float newPosY = Mathf.Clamp(targetPosiion.y, boundary.bounds.min.y + cameraHeight / 2, boundary.bounds.max.y - cameraHeight / 2);
                     vcam.transform.position = new Vector3(newPosX, newPosY, -10);

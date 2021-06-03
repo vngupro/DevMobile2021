@@ -18,6 +18,7 @@ public class SuspectManager : MonoBehaviour
     [SerializeField] private Button buttonNext;
     [SerializeField] private Button buttonPrevious;
     [SerializeField] private GameObject panelAccuse;
+    [SerializeField] private TMP_Text textAccuse;
     [SerializeField] private Button buttonYes;
     [SerializeField] private Button buttonNo;
 
@@ -129,6 +130,7 @@ public class SuspectManager : MonoBehaviour
         Debug.Log("On Accuse");
 
         currentAccuse = suspect;
+        textAccuse.text = "Accuse\n" + suspect.data.name;
         panelAccuse.SetActive(true);
     }
     

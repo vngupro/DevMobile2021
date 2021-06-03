@@ -19,7 +19,6 @@ public class SwitchLocationDetection : MonoBehaviour
 
     private InputManager inputManager;
     private CanvasBlackscreen blackscreen;
-    private HUDManager hudManager;
 
     private short count = 0;            // for double tap to switch location
     private bool isBlocked = false;
@@ -51,15 +50,11 @@ public class SwitchLocationDetection : MonoBehaviour
         inputManager.OnEndTouch -= EndDoor;
     }
 
-    private void Start()
-    {
-        hudManager = HUDManager.Instance;
-    }
     private void StartDoor(Vector2 position, float time)
     {
-        if(hudManager != null)
+        if(HUDManager.Instance != null)
         {
-            if (hudManager.IsLayerNotesOpen) { return; }
+            if (HUDManager.Instance.IsLayerNotesOpen) { return; }
         }
 
         if (isBlocked) { return; }
