@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [Tooltip("Add a Blackscreen from the canvas with the script CanvasBlackscreen")]
-    [SerializeField] private CanvasBlackscreen canvasBlackscreen;
-
     private InputManager inputManager;
     private CinemachineBlackscreen cameraBlackscreen;
 
     [Header("Debug")]
+    [SerializeField] private CanvasBlackscreen canvasBlackscreen;
     [SerializeField] private bool hasCameraBlackscreen = false;
     [SerializeField] private bool hasCanvasBlackscreen = false;
     [SerializeField] private bool isLoadingScene = false;
@@ -104,6 +102,7 @@ public class LevelManager : MonoBehaviour
     }
     public void QuitGame()
     {
+        Debug.Log("Quit game");
         Application.Quit();
     }
 }

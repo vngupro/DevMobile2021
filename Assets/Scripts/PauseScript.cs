@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class PauseScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject layerPause;
+    private void Awake()
     {
-        
+        layerPause.SetActive(false);
+    }
+    public void PauseGame()
+    {
+        Debug.Log("Pause Game");
+        Time.timeScale = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UnpauseGame()
     {
-        Time.timeScale = 0;
+        Debug.Log("Unpause Game");
+        Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        LevelManager.Instance.QuitGame();
+    }
+
+    public void BackToMenu()
+    {
+        LevelManager.Instance.OpenSceneByName("Menu");
     }
 }
