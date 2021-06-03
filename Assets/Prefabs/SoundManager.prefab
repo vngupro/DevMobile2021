@@ -69,7 +69,7 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     clips:
-    - {fileID: 8300000, guid: dc9440bfb4ed4a044a030b778b02ed0d, type: 3}
+    - {fileID: 8300000, guid: 2667eaf66bb5f0f44a45355a39a3b797, type: 3}
     source: {fileID: 0}
   - name: EnterMenuSound
     type: 3
