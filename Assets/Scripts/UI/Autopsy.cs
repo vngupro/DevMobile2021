@@ -4,6 +4,10 @@ using UnityEngine;
 public class Autopsy : ScriptableObject
 {
     public string title;
-    [TextArea(10, 10)]
-    public string corps;
+    public string victim;
+    public string timeOfDeath;
+    [TextArea(5, 5)]
+    public string causeOfDeath;
+    [TextArea(5, 5)]
+    public string remarks;
 }
