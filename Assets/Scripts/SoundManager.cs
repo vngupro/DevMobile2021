@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public float fadeDuration = 2.0f;
     public Sound[] sounds;
 
     private AudioMixer mixer;
@@ -86,7 +87,6 @@ public class SoundManager : MonoBehaviour
     private IEnumerator FadeSound(Sound s)
     {
         float timer = 0;
-        float fadeDuration = 2.0f;
         while(timer < fadeDuration)
         {
             timer += Time.deltaTime;

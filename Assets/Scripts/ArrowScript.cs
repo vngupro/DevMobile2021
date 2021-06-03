@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
+    [Header("Animation")]
     public bool upDown = false;
     public bool leftRight = false;
     public float animationTime = 1.0f;

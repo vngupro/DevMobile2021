@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5839506}
   - component: {fileID: 5839505}
   - component: {fileID: 5839504}
+  - component: {fileID: 5839507}
   m_Layer: 5
   m_Name: Button_Options
   m_TagString: Untagged
@@ -267,6 +268,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5839502}
   m_CullTransparentMesh: 1
+--- !u!114 &5839507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8866a778042ed4c9d5e87a800b700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 2.5
+  distance: 10
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &13478627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7058299853058572089, guid: 6430f67e76a7e7f47b09b6bee3ef9643, type: 3}
@@ -858,7 +897,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &72893953
@@ -3599,7 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 577519916}
   videoScreen: {fileID: 13478627}
-  secondsBeforeStartCinematic: 4
+  secondsBeforeStartCinematic: 10
   fadeDuration: 2
   canvasGroup: {fileID: 0}
   cameraBlackscreen: {fileID: 0}
@@ -3923,6 +3962,7 @@ GameObject:
   - component: {fileID: 712167602}
   - component: {fileID: 712167601}
   - component: {fileID: 712167600}
+  - component: {fileID: 712167603}
   m_Layer: 5
   m_Name: Button_Achievments
   m_TagString: Untagged
@@ -4032,6 +4072,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712167598}
   m_CullTransparentMesh: 1
+--- !u!114 &712167603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712167598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8866a778042ed4c9d5e87a800b700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 1.5
+  distance: 10
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &716421938
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4122,7 @@ GameObject:
   - component: {fileID: 716421942}
   - component: {fileID: 716421941}
   - component: {fileID: 716421940}
+  - component: {fileID: 716421943}
   m_Layer: 5
   m_Name: Button_Play
   m_TagString: Untagged
@@ -4153,6 +4232,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716421938}
   m_CullTransparentMesh: 1
+--- !u!114 &716421943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716421938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8866a778042ed4c9d5e87a800b700a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTime: 2
+  distance: 10
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &737822564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5159,7 +5276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940599793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7197,18 +7314,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522498757}
-        m_TargetAssemblyTypeName: SlideOneFingerDetection, Assembly-CSharp
-        m_MethodName: ChangeSlideSpeed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 864862367}
         m_TargetAssemblyTypeName: SliderTextScript, Assembly-CSharp
         m_MethodName: SetText
@@ -8364,17 +8469,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499824251}
   m_CullTransparentMesh: 1
---- !u!114 &1522498757 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9015750953740344692, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
-  m_PrefabInstance: {fileID: 1094230339}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1582497851
 GameObject:
   m_ObjectHideFlags: 0
@@ -11268,7 +11362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420325972184128283, guid: e7a47dc2e9987284e843e9f30b8b94ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 420325972184128287, guid: e7a47dc2e9987284e843e9f30b8b94ff, type: 3}
       propertyPath: m_Pivot.x
