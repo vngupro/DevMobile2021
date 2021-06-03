@@ -18,15 +18,17 @@ public class HUDManager : MonoBehaviour
     public List<float> lensAnimTime;
 
     [Header("Autopsy")]
+    public Autopsy autopsyData;
     public TMP_Text autopsyTitle;
-    public TMP_Text autopsyCorps;
+    public TMP_Text autopsyVictim;
+    public TMP_Text autopsyTimeOfDeath;
+    public TMP_Text autopsyCauseOfDeath;
+    public TMP_Text autopsyRemarks;
 
     [Header("Case Info")]
+    public Case caseData;
     public TMP_Text caseTitle;
     public TMP_Text caseCorps;
-
-    [Header("Tab Area")]
-    public GameObject arrow;
 
     [Header("Debug")]
     [SerializeField]
@@ -40,11 +42,6 @@ public class HUDManager : MonoBehaviour
 
     private List<Vector2> lensPosition = new List<Vector2>();
     private Vector2 buttonLensPosition;
-
-    private Autopsy autopsy;
-    private Case caseInfo;
-
-    private int caseIndex = 1;
 
     public static HUDManager Instance { get; protected set; }
     private void Awake()
@@ -68,15 +65,13 @@ public class HUDManager : MonoBehaviour
         boxDialogue.SetActive(true);
 
         // Load autopsy information and case information
-        string autopsyPath = "Autopsy/Autopsy " + caseIndex.ToString();
-        autopsy = (Autopsy)Resources.Load(autopsyPath);
-        string casePath = "Case/Case " + caseIndex.ToString();
-        caseInfo = (Case)Resources.Load(casePath);
-
-        autopsyTitle.text = autopsy.title;
-        autopsyCorps.text = autopsy.corps;
-        caseTitle.text = caseInfo.title;
-        caseCorps.text = caseInfo.corps;
+        autopsyTitle.text = autopsyData.title;
+        autopsyVictim.text = autopsyData.victim;
+        autopsyTimeOfDeath.text = autopsyData.timeOfDeath;
+        autopsyCauseOfDeath.text = autopsyData.causeOfDeath;
+        autopsyRemarks.text = autopsyData.remarks;
+        caseTitle.text = caseData.title;
+        caseCorps.text = caseData.corps;
     }
 
     private void Start()
