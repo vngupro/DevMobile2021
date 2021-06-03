@@ -77,6 +77,7 @@ public class VideoPlayerScript : MonoBehaviour
         canvasGroup = videoScreen.GetComponent<CanvasGroup>();
         videoScreen.SetActive(false);
     }
+
     #endregion
     private void Update()
     {
@@ -114,6 +115,7 @@ public class VideoPlayerScript : MonoBehaviour
         if (hasEnterMenu) return;
         videoScreen.SetActive(true);
         videoPlayer.Play();
+        SoundManager.Instance.StopSoundWithFade("Background");
     }
 
     private void ResetVideo(VideoPlayer videoPlayer)
@@ -141,6 +143,7 @@ public class VideoPlayerScript : MonoBehaviour
         if (hasEnterMenu) return;
         isTimerOn = true;
         isInterrupting = false;
+        SoundManager.Instance.PlaySound("Background");
     }
 
     IEnumerator StopVideo()

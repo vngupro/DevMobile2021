@@ -3544,7 +3544,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577519915}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6ebd2b5e231011e40b30c94d58aa56ff, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: a77a7f5abcd440540904439deaa21b41, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -3599,7 +3599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 577519916}
   videoScreen: {fileID: 13478627}
-  secondsBeforeStartCinematic: 9999
+  secondsBeforeStartCinematic: 4
   fadeDuration: 2
   canvasGroup: {fileID: 0}
   cameraBlackscreen: {fileID: 0}
@@ -11492,10 +11492,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7058299852363142504, guid: 6430f67e76a7e7f47b09b6bee3ef9643, type: 3}
-      propertyPath: m_SortingOrder
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 7058299852363142505, guid: 6430f67e76a7e7f47b09b6bee3ef9643, type: 3}
       propertyPath: m_Pivot.x
       value: 0

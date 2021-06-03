@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
@@ -32,7 +33,7 @@ public class SoundManager : MonoBehaviour
             }
 
             mixer = Resources.Load<AudioMixer>("Audio/NewAudioMixer");
-            // | Listeners
+            // | Listen To
         }
         else
         {
@@ -76,6 +77,27 @@ public class SoundManager : MonoBehaviour
         s.source.Stop();
     }
 
+    public void StopSoundWithFade(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        StartCoroutine(FadeSound(s));
+    }
+
+    private IEnumerator FadeSound(Sound s)
+    {
+        float timer = 0;
+        float fadeDuration = 2.0f;
+        while(timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / fadeDuration;
+            s.source.volume = Mathf.Lerp(1, 0, ratio);
+            yield return null;
+        }
+
+        s.source.Stop();
+        s.source.volume = 1;
+    }
     public void SetMasterVolume(float sliderValue)
     {
         mixer.SetFloat("VolumeMaster", Mathf.Log10(sliderValue) * 20);
