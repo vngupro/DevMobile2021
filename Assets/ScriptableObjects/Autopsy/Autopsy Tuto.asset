@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46b78b5a0e5f5c428e599b7eda0c925, type: 3}
   m_Name: Autopsy Tuto
   m_EditorClassIdentifier: 
-  victimName: 
-  physicalDescription: 
-  height: 
-  job: 
-  bloodType: 
-  timeOfDeath: 
-  causeOfDeath: 
-  remarks: 
+  victimName: August CHAMBERS
+  physicalDescription: Young caucasian. Brown Hair.
+  height: 1m74
+  job: Student
+  bloodType: A+
+  timeOfDeath: 'Around 6:45p.m. '
+  causeOfDeath: 'Wound due to a perforing object. Depth Of Wound : 10.5cm'
+  remarks: 'The body also presents many traces of echymosis, strangulation marks,
+    and blow marks on the body and the head. '
