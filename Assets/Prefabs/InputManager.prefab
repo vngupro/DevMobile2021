@@ -455,8 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d340040aa5022c141acc61eb9491a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceTolerance: 0
-  cameraSpeed: 30
+  distanceTolerance: 20
+  cameraSpeed: 10
   slideTrail: {fileID: 0}
 --- !u!114 &2686448324454584320
 MonoBehaviour:
@@ -471,10 +471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultZoom: 5
-  zoomSpeed: 0.1
+  zoomSpeed: 0.2
   zoomInMax: 2
   zoomOutMax: 5
-  distanceTolerance: 0
+  distanceTolerance: 10
   zoomEffect: {fileID: 7244807893366663691}
 --- !u!114 &3135973029160292108
 MonoBehaviour:
@@ -593,6 +593,8 @@ MonoBehaviour:
   middleCircle: {fileID: 571521112}
   insideCircle: {fileID: 457131657}
   rotationSpeed: 1
+  isZoomingOut: 0
+  isZoomingIn: 0
 --- !u!1 &2686448326070153703
 GameObject:
   m_ObjectHideFlags: 0

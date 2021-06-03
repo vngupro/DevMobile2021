@@ -45,7 +45,7 @@ public class ZoomEffect : MonoBehaviour
     {
         while (true)
         {
-            middleCircle.transform.Rotate(0, 0, -rotationSpeed, Space.Self);
+            middleCircle.transform.Rotate(0, 0, rotationSpeed, Space.Self);
             yield return null;
         }
     }
@@ -54,7 +54,7 @@ public class ZoomEffect : MonoBehaviour
     {
         while (true)
         {
-            middleCircle.transform.Rotate(0, 0, rotationSpeed, Space.Self);
+            middleCircle.transform.Rotate(0, 0, -rotationSpeed, Space.Self);
             yield return null;
         }
     }

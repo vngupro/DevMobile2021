@@ -22,10 +22,6 @@ public class PickUpDetection : MonoBehaviour
     private RaycastHit2D hitItem;
     private Item currentItem;
     private GameObject currentItemGameObj;
-    private HUDManager hudManager;
-
-
-
     #endregion
     
     private void Awake()
@@ -44,15 +40,11 @@ public class PickUpDetection : MonoBehaviour
         inputManager.OnEndTouch -= EndPickUp;
     }
 
-    private void Start()
-    {
-        hudManager = HUDManager.Instance;
-    }
     private void StartPickUp(Vector2 position, float time)
     {
-        if(hudManager != null)
+        if(HUDManager.Instance != null)
         {
-            if (hudManager.IsLayerNotesOpen) { return; }
+            if (HUDManager.Instance.IsLayerNotesOpen) { return; }
         }
 
         if (EventSystem.current.IsPointerOverGameObject()) return;

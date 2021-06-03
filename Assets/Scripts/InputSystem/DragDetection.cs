@@ -13,7 +13,6 @@ public class DragDetection : MonoBehaviour
     private Coroutine coroutine;
     private GameObject objectDraging;
     private RaycastHit2D hitDrag;
-    private HUDManager hudManager;
 
     #endregion
 
@@ -32,18 +31,14 @@ public class DragDetection : MonoBehaviour
         inputManager.OnStartTouch -= StartDrag;
         inputManager.OnEndTouch -= EndDrag;
     }
-    private void Start()
-    {
-        hudManager = HUDManager.Instance;
-    }
 
     private void StartDrag(Vector2 position, float time)
     {
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
-        if(hudManager != null)
+        if(HUDManager.Instance != null)
         {
-            if (hudManager.IsLayerNotesOpen) { return; }
+            if (HUDManager.Instance.IsLayerNotesOpen) { return; }
         }
 
 

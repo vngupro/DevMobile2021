@@ -626,9 +626,9 @@ MonoBehaviour:
   buttonNext: {fileID: 987019583762455847}
   buttonPrevious: {fileID: 3983013202533786028}
   panelAccuse: {fileID: 7663590820927748200}
+  textAccuse: {fileID: 2749847717644236652}
   buttonYes: {fileID: 5369120951375432166}
   buttonNo: {fileID: 3750951527520143544}
-  suspectImage: {fileID: 1850827139}
 --- !u!1 &1134226148801471073
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 8389167602451574266}
   - component: {fileID: 2749847717644236652}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text_Accuse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,8 +721,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8634927075506796761}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.47999996
+  m_Size: 0.48
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
