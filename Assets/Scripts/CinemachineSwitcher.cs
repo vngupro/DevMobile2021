@@ -42,6 +42,7 @@ public class CinemachineSwitcher : MonoBehaviour
 
         // OneSlideFinger.cs
         CustomGameEvents.switchCamera.Invoke(door.vcamOfNEXTLocation);
+
     }
 
     private void SwitchToSuspect(CinemachineVirtualCamera vcam)

@@ -61,20 +61,24 @@ public class LensManager : MonoBehaviour
     public void LightUpUVClues()
     {
         SwitchLens(LensEnum.UV);
+        processVolume.ChangeColorToUV();
     }
     
     public void LightUpIRClues()
     {
         SwitchLens(LensEnum.IR);
+        processVolume.ChangeColorToIR();
     }
 
     public void LightUpXRAYClues()
     {
         SwitchLens(LensEnum.XRAY);
+        processVolume.ChangeColorToXRAY();
     }
     public void LightUpNIGHTSHOTClues()
     {
         SwitchLens(LensEnum.NIGHTSHOT);
+        processVolume.ChangeColorToNIGHTSHOT();
     }
 
     public void NormalMode()
@@ -105,6 +109,9 @@ public class LensManager : MonoBehaviour
         }
 
         currentLens = LensEnum.NONE;
+        processVolume.ChangeColorToNormal();
     }
+
+
 
 }

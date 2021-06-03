@@ -2163,28 +2163,16 @@ MonoBehaviour:
         m_MethodName: LensSelected
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 965680973058313196}
+          m_ObjectArgument: {fileID: 965680974909658727}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5778095949158299682}
         m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
         m_MethodName: LightUpXRAYClues
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToXRAY
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4421,28 +4409,16 @@ MonoBehaviour:
         m_MethodName: LensSelected
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 965680974503075534}
+          m_ObjectArgument: {fileID: 965680974909658727}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5778095949158299682}
         m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
         m_MethodName: LightUpIRClues
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToIR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4626,28 +4602,16 @@ MonoBehaviour:
         m_MethodName: LensSelected
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 965680974612340419}
+          m_ObjectArgument: {fileID: 965680974909658727}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5778095949158299682}
         m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
         m_MethodName: NormalMode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToNormal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5030,6 +4994,7 @@ GameObject:
   - component: {fileID: 965680974825283359}
   - component: {fileID: 965680974825283352}
   - component: {fileID: 319829619392933716}
+  - component: {fileID: 5778095949158299682}
   m_Layer: 5
   m_Name: CanvasHUD
   m_TagString: Untagged
@@ -5242,6 +5207,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerPause: {fileID: 3524933667125355602}
+--- !u!114 &5778095949158299682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965680974825283361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5feccc73c1a904ea3eaca76a4c9c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  processVolume: {fileID: 0}
 --- !u!1 &965680974866567851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,28 +5348,16 @@ MonoBehaviour:
         m_MethodName: LensSelected
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 965680974866567846}
+          m_ObjectArgument: {fileID: 965680974909658727}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5778095949158299682}
         m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
         m_MethodName: LightUpUVClues
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToUV
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5690,21 +5656,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5778095949158299682}
         m_TargetAssemblyTypeName: LensManager, Assembly-CSharp
         m_MethodName: LightUpNIGHTSHOTClues
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GlobalPostProcessVolume, Assembly-CSharp
-        m_MethodName: ChangeColorToNIGHTSHOT
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15809,25 +15763,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
---- !u!114 &3682734146591255402 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4502889941923599554, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
-  m_PrefabInstance: {fileID: 965680973952647080}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &3682734146049898012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4502889940317473204, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
-  m_PrefabInstance: {fileID: 965680973952647080}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &3682734146049898013 stripped
+--- !u!224 &3682734146205179183 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4502889940317473205, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4502889940128768647, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
   m_PrefabInstance: {fileID: 965680973952647080}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3682734146611216382 stripped
@@ -15841,14 +15779,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3682734146205179183 stripped
+--- !u!224 &3682734146049898013 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4502889940128768647, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4502889940317473205, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
   m_PrefabInstance: {fileID: 965680973952647080}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3682734145981145133 stripped
+--- !u!1 &3682734146049898012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4502889940317473204, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_PrefabInstance: {fileID: 965680973952647080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3682734146591255402 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4502889940524507013, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4502889941923599554, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_PrefabInstance: {fileID: 965680973952647080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3682734145665941881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4502889940670103249, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
   m_PrefabInstance: {fileID: 965680973952647080}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -15862,9 +15816,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4502889940653149617, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
   m_PrefabInstance: {fileID: 965680973952647080}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3682734145665941881 stripped
+--- !u!114 &3682734145981145133 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4502889940670103249, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4502889940524507013, guid: 649fb5e495b52034b992cace9feaa9bd, type: 3}
   m_PrefabInstance: {fileID: 965680973952647080}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -16226,6 +16180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+--- !u!224 &5136943983006192360 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8249890281376438571, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+  m_PrefabInstance: {fileID: 3834648874774547395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5136943983006192363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8249890281376438568, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
@@ -16259,11 +16218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5136943983006192360 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8249890281376438571, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
-  m_PrefabInstance: {fileID: 3834648874774547395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9159114630392492318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16569,6 +16523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+--- !u!1 &965680974992205876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8249890281376438570, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
+  m_PrefabInstance: {fileID: 9159114630392492318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &965680974992205877 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8249890281376438571, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
@@ -16596,8 +16555,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &965680974992205876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8249890281376438570, guid: 8884d338f94493a4b9099b3fae3d4090, type: 3}
-  m_PrefabInstance: {fileID: 9159114630392492318}
-  m_PrefabAsset: {fileID: 0}

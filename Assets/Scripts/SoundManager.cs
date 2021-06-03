@@ -44,7 +44,18 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlaySound("Background");
+        if(LevelManager.Instance != null)
+        {
+            string currentScene = LevelManager.Instance.GetCurrentSceneName();
+            if(currentScene == "Menu")
+            {
+                PlaySound("Menu_music");
+            }else
+            {
+                PlaySound("InGame_music");
+            }
+        }
+        
     }
 
     //How to use : SoundManager.Instance.PlaySound(name);

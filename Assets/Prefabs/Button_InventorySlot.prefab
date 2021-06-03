@@ -210,5 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7581034284060587487}
+  button: {fileID: 6029408155218643223}
   item: {fileID: 0}
   inventoryManager: {fileID: 0}

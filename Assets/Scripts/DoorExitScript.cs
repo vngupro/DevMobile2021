@@ -23,6 +23,9 @@ public class DoorExitScript : MonoBehaviour
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;           //no conflict with slide detection
 
+    [Header("Sound")]
+    [SerializeField] private string soundPopUp;
+
     [Header("Debug")]
     [SerializeField]
     private Vector2 startPos;
@@ -113,6 +116,12 @@ public class DoorExitScript : MonoBehaviour
             {
                 canvasExit.background.SetActive(true);
                 canvasExit.sceneToLoad = sceneToLoad;
+
+                // Sound
+                if(SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlaySound(soundPopUp);
+                }
             }
         }
         // if hit another door

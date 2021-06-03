@@ -100,6 +100,11 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(sceneToLoad);
     }
+
+    public string GetCurrentSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
     public void QuitGame()
     {
         Debug.Log("Quit game");

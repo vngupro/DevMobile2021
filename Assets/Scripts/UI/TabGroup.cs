@@ -85,6 +85,7 @@ public class TabGroup : MonoBehaviour
         selectedTab = button;
         ResetTabs();
 
+       
         if (hasColorSpriteChange)
         {
             button.background.sprite = spriteTabActive;
@@ -111,6 +112,12 @@ public class TabGroup : MonoBehaviour
         {
             arrow.SetActive(true);
             StartCoroutine(SlideArrowAnimation(button));
+        }
+
+        // Sound
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound("Button_tab");
         }
     }
 
