@@ -36,7 +36,6 @@ public class TouchDetection : MonoBehaviour
         {
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;
-            Debug.Log(inputManager.GetTouchScreenPosition());
         }
     }
 

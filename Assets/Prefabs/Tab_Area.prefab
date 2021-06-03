@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8249890281376438571}
   - component: {fileID: 8249890281376438568}
+  - component: {fileID: 5174235888881357516}
   m_Layer: 5
   m_Name: Tab_Area
   m_TagString: Untagged
@@ -138,12 +139,48 @@ MonoBehaviour:
   colorIconIdle: {r: 0, g: 0, b: 0, a: 0}
   colorIconHover: {r: 0, g: 0, b: 0, a: 0}
   colorIconActive: {r: 0, g: 0, b: 0, a: 0}
+  hasColorSpriteChange: 0
   objectsToSwap:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  arrow: {fileID: 0}
+  slideAnimation: 0.2
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   tabButtons: []
   selectedTab: {fileID: 0}
+  arrowRect: {fileID: 0}
+--- !u!114 &5174235888881357516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249890281376438570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 50
+    m_Bottom: 50
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &8249890281400438156
 GameObject:
   m_ObjectHideFlags: 0
