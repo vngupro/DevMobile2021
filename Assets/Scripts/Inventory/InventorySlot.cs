@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     #region Variable
     [Header("UI")]
     [SerializeField] private Image image;
+    [SerializeField] private Button button;
 
     [Header("Debug")]
     public InventoryItem item;
@@ -28,6 +29,15 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        inventoryManager = InventoryManager.Instance;       
+        inventoryManager = InventoryManager.Instance;
+        button.onClick.AddListener(PlayButtonSound);
+    }
+
+    public void PlayButtonSound()
+    {
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound("button_item");
+        }
     }
 }

@@ -14,6 +14,9 @@ public class PickUpDetection : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private PhotoEffect photoEffect;
 
+    [Header("Sound")]
+    [SerializeField] private string pickupSound;
+
     private InputManager inputManager;
     private Vector2 startPos;
     private Vector2 endPos;
@@ -85,6 +88,12 @@ public class PickUpDetection : MonoBehaviour
 
     private void PickUp(GameObject object2PickUp)
     {
+        // Sound
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(pickupSound);
+        }
+
         photoEffect.PlayFlashEffect();
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy

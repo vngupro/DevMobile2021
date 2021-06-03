@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 2686448324454584323}
   - component: {fileID: 5444227949584103986}
   - component: {fileID: 7244807893366663691}
+  - component: {fileID: 8314121035538437293}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -595,6 +596,18 @@ MonoBehaviour:
   rotationSpeed: 1
   isZoomingOut: 0
   isZoomingIn: 0
+--- !u!114 &8314121035538437293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686448324454584324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791aa9487db86f54cbdf6e749d6da60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2686448326070153703
 GameObject:
   m_ObjectHideFlags: 0

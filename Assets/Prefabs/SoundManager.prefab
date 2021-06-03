@@ -43,21 +43,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53a13799433cde4aa3cbe219461ac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
   sounds:
-  - name: Background
+  - name: Menu_music
     type: 0
-    volume: 1
+    volume: 0.5
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
     loop: 1
-    playOnAwake: 1
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6a8e422f78a358546b9d0ef8f49921f5, type: 3}
+    source: {fileID: 0}
+  - name: InGame_music
+    type: 0
+    volume: 0.5
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 1
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: dc9440bfb4ed4a044a030b778b02ed0d, type: 3}
     source: {fileID: 0}
-  - name: Boutton_open
+  - name: EnterMenuSound
     type: 3
     volume: 1
     pitch: 1
@@ -65,12 +79,38 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: af3171ab41482e0468edb19cf253c90e, type: 3}
+    source: {fileID: 0}
+  - name: MenuToPlay
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 66c51f365ad4f264f8fd304ea147c1ff, type: 3}
+    source: {fileID: 0}
+  - name: Button_open
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
     source: {fileID: 0}
-  - name: Boutton_close
+  - name: Button_close
     type: 3
     volume: 1
     pitch: 1
@@ -78,23 +118,23 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: 4fef5d664dafdfd4d885e6528432f9c4, type: 3}
     source: {fileID: 0}
-  - name: door
-    type: 1
+  - name: Button_tab
+    type: 3
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
-    - {fileID: 8300000, guid: b2e9210e7eb070d4db2f35f0ccd1264f, type: 3}
+    - {fileID: 8300000, guid: 7a6db7f8f8a35b04087e56538bdb6f86, type: 3}
     source: {fileID: 0}
   - name: Swipe
     type: 1
@@ -104,37 +144,24 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: d9e9077234f37ca4ab882bfaf2e53e9c, type: 3}
     - {fileID: 8300000, guid: cc065e72e150a8044a51d90a1451d781, type: 3}
     source: {fileID: 0}
-  - name: Menu_music
-    type: 0
+  - name: door
+    type: 1
     volume: 1
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
-    - {fileID: 8300000, guid: 6a8e422f78a358546b9d0ef8f49921f5, type: 3}
-    source: {fileID: 0}
-  - name: InGame_music
-    type: 0
-    volume: 1
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 1
-    playOnAwake: 1
-    clips:
-    - {fileID: 8300000, guid: 30d62b19a7a7be546a5e85054f4a063b, type: 3}
+    - {fileID: 8300000, guid: b2e9210e7eb070d4db2f35f0ccd1264f, type: 3}
     source: {fileID: 0}
   - name: zoom
     type: 1
@@ -144,8 +171,8 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: 6b2d79ceb5fccf5478cd5a94bfcbc448, type: 3}
     source: {fileID: 0}
@@ -157,8 +184,125 @@ MonoBehaviour:
     minDist3D: 0
     maxDist3D: 500
     mute: 0
-    loop: 1
-    playOnAwake: 1
+    loop: 0
+    playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: 318b582d435233a4cbe301a104d054ec, type: 3}
+    source: {fileID: 0}
+  - name: TouchSound
+    type: 1
+    volume: 0.2
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: dd605b591ec07c540a18a60de687c123, type: 3}
+    source: {fileID: 0}
+  - name: switch_location
+    type: 2
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 91023bca46d2a0b4aa790f49410d6133, type: 3}
+    source: {fileID: 0}
+  - name: button_note
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 89a48bb7f1980da4593dbfd53b8ca97c, type: 3}
+    source: {fileID: 0}
+  - name: button_item
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 7a6db7f8f8a35b04087e56538bdb6f86, type: 3}
+    source: {fileID: 0}
+  - name: nextprevious
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 95b20fc91d166b849bbd9cf2899ae184, type: 3}
+    source: {fileID: 0}
+  - name: button_back
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
+    source: {fileID: 0}
+  - name: select_lens
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: b7719c2748b9de64a8e3fd3052b21077, type: 3}
+    source: {fileID: 0}
+  - name: button_lens
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 4fef5d664dafdfd4d885e6528432f9c4, type: 3}
+    source: {fileID: 0}
+  - name: exit_location
+    type: 3
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
     source: {fileID: 0}

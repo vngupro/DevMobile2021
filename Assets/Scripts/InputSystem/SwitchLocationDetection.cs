@@ -8,6 +8,9 @@ public class SwitchLocationDetection : MonoBehaviour
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
 
+    [Header("Sound")]
+    [SerializeField] private string switchLocationSound;
+
     [Header("Debug")]
     [SerializeField]
     private Vector2 startPos;
@@ -135,6 +138,12 @@ public class SwitchLocationDetection : MonoBehaviour
 
     IEnumerator SwitchLocation()
     {
+        if (SoundManager.Instance != null)
+        {
+            Debug.Log("Switch Location Sound");
+            SoundManager.Instance.PlaySound(switchLocationSound);
+        }
+
         blackscreen.FadeIn();
         yield return new WaitForSeconds(blackscreen.fadeDuration);
         DoorScript door = hitDoor.transform.gameObject.GetComponent<DoorScript>();

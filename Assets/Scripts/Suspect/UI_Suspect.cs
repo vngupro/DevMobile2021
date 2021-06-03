@@ -29,6 +29,12 @@ public class UI_Suspect : MonoBehaviour
     private void Accuse()
     {
         suspectManager.OnAccuse(this);
+
+        //Sound
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound("open_accuse");
+        }
     }
 
     private void OpenSuspectInfo()

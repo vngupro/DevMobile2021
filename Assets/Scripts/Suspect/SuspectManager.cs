@@ -22,6 +22,9 @@ public class SuspectManager : MonoBehaviour
     [SerializeField] private Button buttonYes;
     [SerializeField] private Button buttonNo;
 
+    [Header("Sound")]
+    [SerializeField] private string openPanelSound;
+
     private Suspect currentSuspect;
     private UI_Suspect currentAccuse;
     private void Awake()
@@ -56,6 +59,12 @@ public class SuspectManager : MonoBehaviour
     {
         panelInfo.SetActive(true);
         UpdateUISuspectData(suspect.data);
+
+        //Sound
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(openPanelSound);
+        }
     }
 
     private void ClosePanelInfo()

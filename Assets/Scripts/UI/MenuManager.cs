@@ -118,6 +118,14 @@ public class MenuManager : MonoBehaviour
     {
         string name = "Layer_Menu";
         OpenLayerByName(name);
+
+        // Sound
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound("EnterMenuSound");
+        }
+
+        // Fade Animation
         foreach (UI_Layer layer in layers)
         {
             if (layer.name == name)
@@ -131,6 +139,9 @@ public class MenuManager : MonoBehaviour
                 return;
             }
         }
+
+
+
     }
 
     private void PlayGame()

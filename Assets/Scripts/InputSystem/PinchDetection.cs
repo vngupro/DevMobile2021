@@ -15,6 +15,12 @@ public class PinchDetection : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private ZoomEffect zoomEffect;
 
+    [Header("Sound")]
+    [SerializeField] private string zoomStartSound;
+    [SerializeField] private string zoomEndSound;
+    [SerializeField] private string zoomInSound;
+    [SerializeField] private string zoomOutSound;
+
     private InputManager inputManager;
     private Coroutine coroutine;
 
@@ -82,11 +88,22 @@ public class PinchDetection : MonoBehaviour
 
         //Animation
         zoomEffect.ActivateCrosshair();
+
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(zoomStartSound);
+        }
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
         zoomEffect.DeactivateCrossHair();
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(zoomEndSound);
+        }
+
         if (coroutine != null) StopCoroutine(coroutine);
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
@@ -124,6 +141,12 @@ public class PinchDetection : MonoBehaviour
                 {
                     zoomEffect.ZoomOutAnimation();
                 }
+
+                // Sound
+                if(SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlaySound(zoomOutSound);
+                }
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
@@ -135,6 +158,12 @@ public class PinchDetection : MonoBehaviour
                 if (!zoomEffect.IsZoomingIn)
                 {
                     zoomEffect.ZoomInAnimation();
+                }
+
+                // Sound
+                if (SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlaySound(zoomInSound);
                 }
 
             }

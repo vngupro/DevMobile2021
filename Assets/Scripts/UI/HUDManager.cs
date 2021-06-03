@@ -19,8 +19,11 @@ public class HUDManager : MonoBehaviour
 
     [Header("Autopsy")]
     public Autopsy autopsyData;
-    public TMP_Text autopsyTitle;
-    public TMP_Text autopsyVictim;
+    public TMP_Text autopsyVictimName;
+    public TMP_Text autopsyPhysicalDescription;
+    public TMP_Text autopsyHeight;
+    public TMP_Text autopsyJob;
+    public TMP_Text autopsyBloodType;
     public TMP_Text autopsyTimeOfDeath;
     public TMP_Text autopsyCauseOfDeath;
     public TMP_Text autopsyRemarks;
@@ -65,11 +68,15 @@ public class HUDManager : MonoBehaviour
         boxDialogue.SetActive(true);
 
         // Load autopsy information and case information
-        autopsyTitle.text = autopsyData.title;
-        autopsyVictim.text = autopsyData.victim;
+        autopsyVictimName.text = autopsyData.victimName;
+        autopsyPhysicalDescription.text = autopsyData.physicalDescription;
+        autopsyHeight.text = autopsyData.height;
+        autopsyJob.text = autopsyData.job;
+        autopsyBloodType.text = autopsyData.bloodType;
         autopsyTimeOfDeath.text = autopsyData.timeOfDeath;
         autopsyCauseOfDeath.text = autopsyData.causeOfDeath;
         autopsyRemarks.text = autopsyData.remarks;
+
         caseTitle.text = caseData.title;
         caseCorps.text = caseData.corps;
     }

@@ -37,6 +37,11 @@ public class TouchDetection : MonoBehaviour
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;
         }
+
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound("TouchSound");
+        }
     }
 
     private IEnumerator CircleAnimation()
