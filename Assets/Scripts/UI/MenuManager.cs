@@ -59,6 +59,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         soundManager = SoundManager.Instance;
+        if(soundManager != null)
         soundManager.ChangeMute(false);
 
         graphicsManager = GraphicsManager.Instance;
@@ -178,6 +179,7 @@ public class MenuManager : MonoBehaviour
 
     private void SetQualityMenu()
     {
+        if(graphicsManager != null)
         graphicsManager.SetQuality(currentQualityIndex);
         qualityText.text = qualities[currentQualityIndex];
     }
