@@ -427,6 +427,7 @@ MonoBehaviour:
   distanceTolerance: 0.5
   timerBeforeHold: 1
   photoEffect: {fileID: 5444227949584103986}
+  pickupSound: 
 --- !u!114 &2686448324454584333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +478,10 @@ MonoBehaviour:
   zoomOutMax: 5
   distanceTolerance: 10
   zoomEffect: {fileID: 7244807893366663691}
+  zoomStartSound: 
+  zoomEndSound: 
+  zoomInSound: 
+  zoomOutSound: 
 --- !u!114 &3135973029160292108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +499,7 @@ MonoBehaviour:
     m_Bits: 32768
   distanceTolerance: 0.5
   timerBeforeHold: 1
+  switchLocationSound: 
   startPos: {x: 0, y: 0}
 --- !u!114 &2686448324454584323
 MonoBehaviour:
@@ -522,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flash: {fileID: 553328706381042234}
-  flashDuration: 0.5
+  flashDuration: 0.2
   curve:
     serializedVersion: 2
     m_Curve:
@@ -608,6 +614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791aa9487db86f54cbdf6e749d6da60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchSound: 
+  pickUpSound: 
+  zoomSound: 
+  slideSound: 
 --- !u!1 &2686448326070153703
 GameObject:
   m_ObjectHideFlags: 0
