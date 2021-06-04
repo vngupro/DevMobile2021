@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 2
   sounds:
-  - name: Menu_music
+  - name: menu_music
     type: 0
     volume: 0.5
     pitch: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 6a8e422f78a358546b9d0ef8f49921f5, type: 3}
     source: {fileID: 0}
-  - name: InGame_music
+  - name: ingame_music
     type: 0
     volume: 0.5
     pitch: 1
@@ -71,7 +71,20 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 2667eaf66bb5f0f44a45355a39a3b797, type: 3}
     source: {fileID: 0}
-  - name: EnterMenuSound
+  - name: level_1_music
+    type: 0
+    volume: 1
+    pitch: 1
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: a8f710b7e9027704f9cd71d81e942035, type: 3}
+    source: {fileID: 0}
+  - name: enter_menu_ui
     type: 3
     volume: 1
     pitch: 1
@@ -84,7 +97,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: af3171ab41482e0468edb19cf253c90e, type: 3}
     source: {fileID: 0}
-  - name: MenuToPlay
+  - name: play_selected_ui
     type: 3
     volume: 1
     pitch: 1
@@ -97,7 +110,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 66c51f365ad4f264f8fd304ea147c1ff, type: 3}
     source: {fileID: 0}
-  - name: Button_open
+  - name: button_open_ui
     type: 3
     volume: 1
     pitch: 1
@@ -110,7 +123,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
     source: {fileID: 0}
-  - name: Button_close
+  - name: button_close_ui
     type: 3
     volume: 1
     pitch: 1
@@ -123,9 +136,9 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 4fef5d664dafdfd4d885e6528432f9c4, type: 3}
     source: {fileID: 0}
-  - name: Button_tab
-    type: 3
-    volume: 1
+  - name: TouchSound
+    type: 1
+    volume: 0.2
     pitch: 1
     spatialBlend: 0
     minDist3D: 0
@@ -134,7 +147,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     clips:
-    - {fileID: 8300000, guid: 7a6db7f8f8a35b04087e56538bdb6f86, type: 3}
+    - {fileID: 8300000, guid: dd605b591ec07c540a18a60de687c123, type: 3}
     source: {fileID: 0}
   - name: Swipe
     type: 1
@@ -188,19 +201,6 @@ MonoBehaviour:
     playOnAwake: 0
     clips:
     - {fileID: 8300000, guid: 318b582d435233a4cbe301a104d054ec, type: 3}
-    source: {fileID: 0}
-  - name: TouchSound
-    type: 1
-    volume: 0.2
-    pitch: 1
-    spatialBlend: 0
-    minDist3D: 0
-    maxDist3D: 500
-    mute: 0
-    loop: 0
-    playOnAwake: 0
-    clips:
-    - {fileID: 8300000, guid: dd605b591ec07c540a18a60de687c123, type: 3}
     source: {fileID: 0}
   - name: switch_location
     type: 2
@@ -306,7 +306,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: a8ef4b754672a71459631f6752003f80, type: 3}
     source: {fileID: 0}
-  - name: open_panel_suspect
+  - name: exit_location
     type: 3
     volume: 1
     pitch: 1
@@ -317,7 +317,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     clips:
-    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    - {fileID: 8300000, guid: b2e9210e7eb070d4db2f35f0ccd1264f, type: 3}
     source: {fileID: 0}
   - name: open_accuse
     type: 3
