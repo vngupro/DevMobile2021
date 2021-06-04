@@ -18,6 +18,9 @@ public class VideoPlayerScript : MonoBehaviour
     [Tooltip("Fade of the video (separate from the blackscreen fade)")]
     public float fadeDuration = 2.0f;
 
+    [Header("Sound To Stop")]
+    public string soundStop;
+
     [Header("Debug")]
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private CinemachineBlackscreen cameraBlackscreen;
@@ -115,7 +118,7 @@ public class VideoPlayerScript : MonoBehaviour
         if (hasEnterMenu) return;
         videoScreen.SetActive(true);
         videoPlayer.Play();
-        SoundManager.Instance.StopSoundWithFade("Background");
+        SoundManager.Instance.StopSoundWithFade(soundStop);
     }
 
     private void ResetVideo(VideoPlayer videoPlayer)
@@ -143,7 +146,14 @@ public class VideoPlayerScript : MonoBehaviour
         if (hasEnterMenu) return;
         isTimerOn = true;
         isInterrupting = false;
-        SoundManager.Instance.PlaySound("Background");
+
+        if(SoundManager.Instance != null)
+        {
+            if (!SoundManager.Instance.IsSoundPlaying(soundStop))
+            {
+                SoundManager.Instance.PlaySound(soundStop);
+            }
+        }
     }
 
     IEnumerator StopVideo()

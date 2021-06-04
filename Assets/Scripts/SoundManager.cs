@@ -8,7 +8,12 @@ public class SoundManager : MonoBehaviour
     public float fadeDuration = 2.0f;
     public Sound[] sounds;
 
-    private AudioMixer mixer;
+    private AudioMixer audioMixer;
+    private AudioMixerGroup masterGroup;
+    private AudioMixerGroup musicGroup;
+    private AudioMixerGroup ambientGroup;
+    private AudioMixerGroup sfxGroup;
+    private AudioMixerGroup uiGroup;
 
     public static SoundManager Instance { get; private set;  }
     private void Awake()
@@ -18,10 +23,23 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             //DontDestroyOnLoad(this.gameObject);
 
+            //Load AudioMixer
+            audioMixer = Resources.Load<AudioMixer>("Audio/NewAudioMixer");
+
+            //Find AudioMixerGroup you want to load
+            AudioMixerGroup[] audioMixGroup = audioMixer.FindMatchingGroups("Master/Music");
+            musicGroup = audioMixGroup[0];
+            audioMixGroup = audioMixer.FindMatchingGroups("Master/Ambient");
+            ambientGroup = audioMixGroup[0];
+            audioMixGroup = audioMixer.FindMatchingGroups("Master/SFX");
+            sfxGroup = audioMixGroup[0];
+            audioMixGroup = audioMixer.FindMatchingGroups("Master/UI");
+            uiGroup = audioMixGroup[0];
+            
             foreach (Sound s in sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
-                s.source.outputAudioMixerGroup = Resources.Load<AudioMixerGroup>("Audio/NewAudioMixer");
+      
                 s.source.clip = s.clips[0];
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
@@ -31,9 +49,16 @@ public class SoundManager : MonoBehaviour
                 s.source.mute = s.mute;
                 s.source.loop = s.loop;
                 s.source.playOnAwake = s.playOnAwake;
+
+                switch (s.type)
+                {
+                    case SoundType.MUSIC: s.source.outputAudioMixerGroup = musicGroup; break;
+                    case SoundType.AMBIENT: s.source.outputAudioMixerGroup = ambientGroup; break;
+                    case SoundType.SFX: s.source.outputAudioMixerGroup = sfxGroup; break;
+                    case SoundType.UI: s.source.outputAudioMixerGroup = uiGroup; break;
+                }
             }
 
-            mixer = Resources.Load<AudioMixer>("Audio/NewAudioMixer");
             // | Listen To
         }
         else
@@ -47,15 +72,18 @@ public class SoundManager : MonoBehaviour
         if(LevelManager.Instance != null)
         {
             string currentScene = LevelManager.Instance.GetCurrentSceneName();
-            if(currentScene == "Menu")
+            if (currentScene == "Menu")
             {
-                PlaySound("Menu_music");
-            }else
+                PlaySound("menu_music");
+            }
+            else if (currentScene == "Tutorial Safe")
             {
-                PlaySound("InGame_music");
+                PlaySound("ingame_music");
+            }else if(currentScene == "Level1")
+            {
+                PlaySound("level_1_music");
             }
         }
-        
     }
 
     //How to use : SoundManager.Instance.PlaySound(name);
@@ -64,7 +92,7 @@ public class SoundManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.LogWarning("Sound : " + name + "not found !\nCheck name spelling");
+            Debug.LogWarning("Sound : " + name + " not found !\nCheck name spelling");
             return;
         }
         if (s.clips.Length > 1)
@@ -75,20 +103,25 @@ public class SoundManager : MonoBehaviour
         s.source.Play();
     }
 
-    private void StopAllSound()
+    public void StopAllSound()
     {
         foreach (Sound s in sounds)
         {
             s.source.Stop();
         }
     }
-
     public void StopSound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
     }
-
+    public void StopAllSoundWithFade()
+    {
+        foreach(Sound s in sounds)
+        {
+            StartCoroutine(FadeSound(s));
+        }
+    }
     public void StopSoundWithFade(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -109,18 +142,46 @@ public class SoundManager : MonoBehaviour
         s.source.Stop();
         s.source.volume = 1;
     }
+
     public void SetMasterVolume(float sliderValue)
     {
-        mixer.SetFloat("VolumeMaster", Mathf.Log10(sliderValue) * 20);
-        //Debug.Log("Set Master Volume");
+        audioMixer.SetFloat("VolumeMaster", Mathf.Log10(sliderValue) * 20);
     }
-
+    public void SetMusicVolume(float sliderValue)
+    {
+        audioMixer.SetFloat("VolumeMusic", Mathf.Log10(sliderValue) * 20);
+    }
+    public void SetAmbientVolume(float sliderValue)
+    {
+        audioMixer.SetFloat("VolumeAmbient", Mathf.Log10(sliderValue) * 20);
+    }
+    public void SetSFXVolume(float sliderValue)
+    {
+        audioMixer.SetFloat("VolumeSFX", Mathf.Log10(sliderValue) * 20);
+    }
+    public void SetUIVolume(float sliderValue)
+    {
+        audioMixer.SetFloat("VolumeUI", Mathf.Log10(sliderValue) * 20);
+    }
     public void ChangeMute(bool mute)
     {
         foreach (Sound s in sounds)
         {
             s.source.mute = mute;
         }
+    }
+
+    public bool IsSoundPlaying(string sound)
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.name == sound)
+            {
+                return s.source.isPlaying;
+            }
+        }
+
+        return false;
     }
 }
 
@@ -154,6 +215,6 @@ public enum SoundType
 {
     MUSIC,
     SFX,
-    ENVIRONMENT,
+    AMBIENT,
     UI,
 }

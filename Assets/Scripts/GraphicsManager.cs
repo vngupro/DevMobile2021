@@ -16,10 +16,6 @@ public class GraphicsManager : MonoBehaviour
         Instance = this;
 
         string[] qualities = QualitySettings.names;
-        foreach (string quality in qualities)
-        {
-            Debug.Log("Quality" + quality);
-        }
     }
 
     public void SetQuality(int qualityIndex)

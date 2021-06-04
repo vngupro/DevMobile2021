@@ -5,7 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private List<UI_Layer> layers = new List<UI_Layer>();
+    [Header("Layer")]
+    [SerializeField] private GameObject layerMenu;
+    [SerializeField] private GameObject layerOptions;
+    [SerializeField] private GameObject layerTapscreen;
 
     [Header("Menu")]
     [SerializeField] private Button playButton;
@@ -14,6 +17,9 @@ public class MenuManager : MonoBehaviour
     [Header("Sound Options")]
     [SerializeField] private Button buttonMute;
     [SerializeField] private Button buttonUnmute;
+
+    [Header("Sound")]
+    [SerializeField] private string enterMenuSound;
 
     [Header("Graphics Options")]
     [SerializeField] private TMP_Text qualityText;
@@ -33,6 +39,11 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
+
+        // Layer
+        layerMenu.SetActive(false);
+        layerOptions.SetActive(false);
+        layerTapscreen.SetActive(true);
 
         // Menu
         playButton.onClick.AddListener(PlayGame);
@@ -79,69 +90,22 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void CloseLayer(UI_Layer layer)
-    {
-        layer.gameObject.SetActive(false);
-
-        if (layer.name == "Layer_Inventory")
-        {
-            // | Invoke
-            // InventoryManager.cs
-            CustomGameEvents.closeInventory.Invoke();
-        }
-    }
-    public void OpenLayerByName(string name)
-    {
-        foreach(UI_Layer layer in layers)
-        {
-            if(layer.name == name)
-            {
-                layer.gameObject.SetActive(true);
-                return;
-            }
-        }
-    }
-
-    public void CloseLayerByName(string name)
-    {
-        foreach (UI_Layer layer in layers)
-        {
-            if (layer.name == name)
-            {
-                layer.gameObject.SetActive(false);
-                return;
-            }
-        }
-    }
-
     private void EnterMenu()
     {
-        string name = "Layer_Menu";
-        OpenLayerByName(name);
-
         // Sound
         if (SoundManager.Instance != null)
         {
-            SoundManager.Instance.PlaySound("EnterMenuSound");
+            SoundManager.Instance.PlaySound(enterMenuSound);
         }
-
-        // Fade Animation
-        foreach (UI_Layer layer in layers)
-        {
-            if (layer.name == name)
-            {
-                inputManager.DisableControls();
-                CanvasGroup canvasGroup = layer.GetComponent<CanvasGroup>();
-                StartCoroutine(Utils.Fade(canvasGroup.alpha, fadeDuration, 0f, 1f, false,
-                    returnValue => {
-                        canvasGroup.alpha = returnValue;
-                    }));
-                return;
-            }
-        }
-
-
-
+        
+        inputManager.DisableControls();
+        layerMenu.SetActive(true);
+        CanvasGroup canvasGroup = layerMenu.GetComponent<CanvasGroup>();
+        StartCoroutine(Utils.Fade(canvasGroup.alpha, fadeDuration, 0f, 1f, false,
+            returnValue => {
+                canvasGroup.alpha = returnValue;
+            }));
+        return;
     }
 
     private void PlayGame()
