@@ -614,10 +614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791aa9487db86f54cbdf6e749d6da60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchSound: 
-  pickUpSound: 
-  zoomSound: 
-  slideSound: 
+  touchSound: touch_sfx
+  pickUpSound: pick_up_sfx
+  zoomSound: zoom_sfx
+  slideSound: slide_sfx
+  switchLocationSound: switch_location_sfx
 --- !u!1 &2686448326070153703
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ GameObject:
   - component: {fileID: 2686448326070153697}
   - component: {fileID: 2686448326070153702}
   m_Layer: 0
-  m_Name: SwipeTrail
+  m_Name: SlideTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

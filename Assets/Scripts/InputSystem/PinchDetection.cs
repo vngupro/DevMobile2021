@@ -5,6 +5,11 @@ using Cinemachine;
 using UnityEngine.EventSystems;
 public class PinchDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void PinchEvent();
+    public event PinchEvent OnPinch;
+
+    #endregion
     #region Variable
     [SerializeField] private float defaultZoom = 5.0f;
     [SerializeField] private float zoomSpeed = 0.2f;
@@ -28,10 +33,12 @@ public class PinchDetection : MonoBehaviour
     private Camera cameraItem;
 
     private bool isBlocked = false;
-
     #endregion
+
+    public static PinchDetection Instance { get; protected set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
 
         // Listen To
@@ -89,27 +96,17 @@ public class PinchDetection : MonoBehaviour
         //Animation
         zoomEffect.ActivateCrosshair();
 
-
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound(zoomStartSound);
-        }
+        OnPinch?.Invoke();
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
         zoomEffect.DeactivateCrossHair();
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound(zoomEndSound);
-        }
 
         if (coroutine != null) StopCoroutine(coroutine);
         if (isBlocked) { return; }
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
         if (virtualCamera == null || cameraItem == null) { return; }
-
-        //StopCoroutine(coroutine);
     }
 
     private void EndZoom2(Vector2 positionPrimary, float time)
@@ -141,12 +138,6 @@ public class PinchDetection : MonoBehaviour
                 {
                     zoomEffect.ZoomOutAnimation();
                 }
-
-                // Sound
-                if(SoundManager.Instance != null)
-                {
-                    SoundManager.Instance.PlaySound(zoomOutSound);
-                }
             }
             // Zoom In
             else if(distance < previousDistance - distanceTolerance)
@@ -159,13 +150,6 @@ public class PinchDetection : MonoBehaviour
                 {
                     zoomEffect.ZoomInAnimation();
                 }
-
-                // Sound
-                if (SoundManager.Instance != null)
-                {
-                    SoundManager.Instance.PlaySound(zoomInSound);
-                }
-
             }
             else
             {

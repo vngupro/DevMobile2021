@@ -3,6 +3,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class SwitchLocationDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void SwitchLocationEvent();
+    public event SwitchLocationEvent OnSwitchLocation;
+
+    #endregion
     #region Variable
     [SerializeField] private LayerMask layer;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
@@ -25,11 +30,12 @@ public class SwitchLocationDetection : MonoBehaviour
 
     private short count = 0;            // for double tap to switch location
     private bool isBlocked = false;
-
     #endregion
 
+    public static SwitchLocationDetection Instance { get; protected set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
         blackscreen = CanvasBlackscreen.Instance;
 
@@ -138,11 +144,7 @@ public class SwitchLocationDetection : MonoBehaviour
 
     IEnumerator SwitchLocation()
     {
-        if (SoundManager.Instance != null)
-        {
-            Debug.Log("Switch Location Sound");
-            SoundManager.Instance.PlaySound(switchLocationSound);
-        }
+        OnSwitchLocation?.Invoke();
 
         blackscreen.FadeIn();
         yield return new WaitForSeconds(blackscreen.fadeDuration);
