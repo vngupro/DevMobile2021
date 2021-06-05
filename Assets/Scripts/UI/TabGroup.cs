@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class TabGroup : MonoBehaviour
 {
     public Sprite spriteTabIdle;
@@ -24,6 +23,9 @@ public class TabGroup : MonoBehaviour
     public bool hasColorSpriteChange = false;
 
     public List<GameObject> objectsToSwap;
+
+    [Header("Sound")]
+    [SerializeField] private string sound;
 
     [Header("Animation")]
     public GameObject arrow;
@@ -117,7 +119,7 @@ public class TabGroup : MonoBehaviour
         // Sound
         if(SoundManager.Instance != null)
         {
-            SoundManager.Instance.PlaySound("Button_tab");
+            SoundManager.Instance.PlaySound(sound);
         }
     }
 

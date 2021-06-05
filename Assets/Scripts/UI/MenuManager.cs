@@ -5,23 +5,23 @@ using UnityEngine.UI;
 using TMPro;
 public class MenuManager : MonoBehaviour
 {
-    [Header("Layer")]
+    #region Variable
+    [SerializeField] private Canvas canvas;
+
+    [Header("   Layer")]
     [SerializeField] private GameObject layerMenu;
     [SerializeField] private GameObject layerOptions;
     [SerializeField] private GameObject layerTapscreen;
 
-    [Header("Menu")]
+    [Header("   Menu")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button achievementButton;
 
-    [Header("Sound Options")]
+    [Header("   Sound Options")]
     [SerializeField] private Button buttonMute;
     [SerializeField] private Button buttonUnmute;
 
-    [Header("Sound")]
-    [SerializeField] private string enterMenuSound;
-
-    [Header("Graphics Options")]
+    [Header("   Graphics Options")]
     [SerializeField] private TMP_Text qualityText;
     [SerializeField] private Button buttonArrowLeft;
     [SerializeField] private Button buttonArrowRight;
@@ -29,13 +29,14 @@ public class MenuManager : MonoBehaviour
     private string[] qualities;
     private int currentQualityIndex = 0;
 
-    [Header("Animation")]
+    [Header("   Animation")]
     public float fadeDuration = 2.0f;
 
     private InputManager inputManager;
     private SoundManager soundManager;
     private GraphicsManager graphicsManager;
 
+    #endregion
     private void Awake()
     {
         inputManager = InputManager.Instance;
@@ -90,14 +91,10 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
     private void EnterMenu()
     {
-        // Sound
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound(enterMenuSound);
-        }
-        
+        GetComponent<MenuSoundScript>().SoundEnterMenu();
         inputManager.DisableControls();
         layerMenu.SetActive(true);
         CanvasGroup canvasGroup = layerMenu.GetComponent<CanvasGroup>();
