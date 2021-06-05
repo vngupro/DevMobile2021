@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 
 public class PickUpDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void PickUpEvent();
+    public event PickUpEvent OnPickUp;
+    #endregion
+
     #region Variable
     [SerializeField] private LayerMask layer2PickUp;
     [SerializeField] private LayerMask layerUI;
@@ -27,8 +32,10 @@ public class PickUpDetection : MonoBehaviour
     private GameObject currentItemGameObj;
     #endregion
     
+    public static PickUpDetection Instance { get; protected set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
     }
     private void OnEnable()
@@ -88,12 +95,8 @@ public class PickUpDetection : MonoBehaviour
 
     private void PickUp(GameObject object2PickUp)
     {
-        // Sound
-        if(SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound(pickupSound);
-        }
 
+        OnPickUp?.Invoke();
         photoEffect.PlayFlashEffect();
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy

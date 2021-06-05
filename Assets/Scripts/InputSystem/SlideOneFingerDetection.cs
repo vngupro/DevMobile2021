@@ -5,6 +5,11 @@ using Cinemachine;
 using UnityEngine.EventSystems;
 public class SlideOneFingerDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void SlideEvent();
+    public event SlideEvent OnSlide;
+
+    #endregion
     #region Variable
     [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
     [HideInInspector]
@@ -29,8 +34,10 @@ public class SlideOneFingerDetection : MonoBehaviour
     private bool isBlocked = false;
     #endregion
 
+    public static SlideOneFingerDetection Instance { get; protected set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
         cameraInitialSpeed = cameraSpeed;
 
@@ -120,12 +127,6 @@ public class SlideOneFingerDetection : MonoBehaviour
             slideTrail.SetActive(false);
             StopCoroutine(trailCoroutine);
         }
-
-        if(coroutine != null)
-        {
-            StopCoroutine(coroutine);
-        }
-
     }
 
     private IEnumerator DetectionSlide()
@@ -152,10 +153,10 @@ public class SlideOneFingerDetection : MonoBehaviour
                     float newPosY = Mathf.Clamp(targetPosiion.y, boundary.bounds.min.y + cameraHeight / 2, boundary.bounds.max.y - cameraHeight / 2);
                     vcam.transform.position = new Vector3(newPosX, newPosY, -10);
                 }
-
-
                 //Keep Track of previous position
                 startPos = positionPrimary;
+
+                OnSlide?.Invoke();
             }
             yield return null;
         }

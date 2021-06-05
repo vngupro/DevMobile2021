@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class DragDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void DragEvent();
+    public event DragEvent OnDrag;
+    #endregion
     #region Variable
     [SerializeField] private LayerMask layer2Drag;
     [SerializeField] private float delayBeforeDrag = 0.2f;              //time before starting drag (less conflict with pick up)
@@ -13,11 +17,12 @@ public class DragDetection : MonoBehaviour
     private Coroutine coroutine;
     private GameObject objectDraging;
     private RaycastHit2D hitDrag;
-
     #endregion
 
+    public static DragDetection Instance { get; protected set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
     }
     private void OnEnable()
@@ -70,6 +75,8 @@ public class DragDetection : MonoBehaviour
     
     private IEnumerator Drag()
     {
+        OnDrag?.Invoke();
+
         float timer = delayBeforeDrag;
 
         while (true)

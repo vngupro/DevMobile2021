@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class TouchDetection : MonoBehaviour
 {
+    #region Event
+    public delegate void TouchEvent();
+    public event TouchEvent OnTouch;
+    #endregion 
+
     #region Variable
     [Header("Animation")]
     [SerializeField] private GameObject circle;
@@ -13,8 +17,10 @@ public class TouchDetection : MonoBehaviour
     private bool hasTapMenuScreen = false;
     #endregion
 
+    public static TouchDetection Instance { get; private set; }
     private void Awake()
     {
+        Instance = this;
         inputManager = InputManager.Instance;
 
         // Listeners MenuManager
@@ -22,25 +28,22 @@ public class TouchDetection : MonoBehaviour
     }
     private void OnEnable()
     {
-        inputManager.OnStartTouch += Move;
+        inputManager.OnStartTouch += DetectTouch;
         inputManager.OnStartTouch += TapScreen;
     }
     private void OnDisable()
     {
-        inputManager.OnEndTouch -= Move;
+        inputManager.OnEndTouch -= DetectTouch;
     }
-    public void Move(Vector2 position, float time)
+    public void DetectTouch(Vector2 position, float time)
     {
+        OnTouch?.Invoke();
+
         //Animation
         if (circle != null)
         {
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;
-        }
-
-        if(SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound("TouchSound");
         }
     }
 

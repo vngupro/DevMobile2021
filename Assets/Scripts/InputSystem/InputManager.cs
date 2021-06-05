@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
 
 //Execute in priority
 [DefaultExecutionOrder(-2)]
@@ -29,32 +28,24 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        // Destroy on Disable
         mobileControls = new MobileControls();
+
         if (Instance != null && Instance != this) { 
             Destroy(this.gameObject);
-            return;
         }
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-
-
     }
+
     private void OnEnable()
     {
         mobileControls.Enable();
-
-        ////Enchanced Touch Simulation
-        //TouchSimulation.Enable();
-       // UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += FingerDown;
     }
     private void OnDisable()
     {
         mobileControls.Disable();
-
-        ////Enchanced Touch Simulation
-        //TouchSimulation.Disable();
-        //UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
     }
     private void Start()
     {
@@ -171,27 +162,4 @@ public class InputManager : MonoBehaviour
     {
         mobileControls.Disable();
     }
-    //Testing Enchancing Touch
-    //private void Update()
-    //{
-    //    Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
-    //    foreach (UnityEngine.InputSystem.EnhancedTouch.Touch touch in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
-    //    {
-    //        Debug.Log(touch.phase == UnityEngine.InputSystem.TouchPhase.Began);
-    //    }
-    //}
-
-    //private void FingerDown(Finger finger)
-    //{
-    //    //Debug.Log("Finger Down " + finger.screenPosition);
-
-    //    // | Invoke
-    //    if (OnStartTouch != null)
-    //    {
-    //        OnStartTouch(
-    //            finger.screenPosition,
-    //            Time.time
-    //        );
-    //    }
-    //}
 }

@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private InputManager inputManager;
-    private CinemachineBlackscreen cameraBlackscreen;
-
     [Header("Debug")]
     [SerializeField] private CanvasBlackscreen canvasBlackscreen;
+    [SerializeField] private CinemachineBlackscreen cameraBlackscreen;
     [SerializeField] private bool hasCameraBlackscreen = false;
     [SerializeField] private bool hasCanvasBlackscreen = false;
     [SerializeField] private bool isLoadingScene = false;
@@ -23,9 +21,6 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
-
-
-        inputManager = InputManager.Instance;
 
         if(cameraBlackscreen == null) cameraBlackscreen = CinemachineBlackscreen.Instance;
         if (canvasBlackscreen == null) canvasBlackscreen = CanvasBlackscreen.Instance;
@@ -61,11 +56,7 @@ public class LevelManager : MonoBehaviour
 
     public void OpenSceneByName(string name)
     {
-        if (name == "")
-        {
-            Debug.Log("Scene : No Scene to load\nDid you forget to add a name ?"); 
-            return;
-        }
+        if (name == ""){ Debug.LogWarning("No Scene to load. Did you forgot to add a name ?"); return; }
 
         if(hasCameraBlackscreen || hasCanvasBlackscreen)
         {
