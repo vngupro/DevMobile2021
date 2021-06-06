@@ -500,3 +500,68 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
     source: {fileID: 0}
+  - name: select_lens_normal
+    type: 3
+    volume: 1
+    pitch: 2
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    source: {fileID: 0}
+  - name: select_lens_uv
+    type: 3
+    volume: 1
+    pitch: 2
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    source: {fileID: 0}
+  - name: select_lens_ir
+    type: 3
+    volume: 1
+    pitch: 2
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    source: {fileID: 0}
+  - name: select_lens_xray
+    type: 3
+    volume: 1
+    pitch: 2
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    source: {fileID: 0}
+  - name: select_lens_night
+    type: 3
+    volume: 1
+    pitch: 2
+    spatialBlend: 0
+    minDist3D: 0
+    maxDist3D: 500
+    mute: 0
+    loop: 0
+    playOnAwake: 0
+    clips:
+    - {fileID: 8300000, guid: 6acf95c4f314ddc4598e28bd47e3d927, type: 3}
+    source: {fileID: 0}
