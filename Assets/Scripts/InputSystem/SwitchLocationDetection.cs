@@ -13,9 +13,6 @@ public class SwitchLocationDetection : MonoBehaviour
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;
 
-    [Header("Sound")]
-    [SerializeField] private string switchLocationSound;
-
     [Header("Debug")]
     [SerializeField]
     private Vector2 startPos;

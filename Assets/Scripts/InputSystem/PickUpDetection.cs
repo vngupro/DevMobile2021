@@ -19,9 +19,6 @@ public class PickUpDetection : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private PhotoEffect photoEffect;
 
-    [Header("Sound")]
-    [SerializeField] private string pickupSound;
-
     private InputManager inputManager;
     private Vector2 startPos;
     private Vector2 endPos;

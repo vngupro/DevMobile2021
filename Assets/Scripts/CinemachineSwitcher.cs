@@ -5,6 +5,8 @@ using Cinemachine;
 [DefaultExecutionOrder(-1)]
 public class CinemachineSwitcher : MonoBehaviour
 {
+    [SerializeField] private Camera cameraItem;
+
     public List<CinemachineVirtualCamera> vcamList;
 
     public static CinemachineSwitcher Instance { get; protected set; }
@@ -31,6 +33,8 @@ public class CinemachineSwitcher : MonoBehaviour
 
     private void SwitchPriority(DoorScript door)
     {
+        cameraItem.orthographicSize = door.vcamOfNEXTLocation.m_Lens.OrthographicSize;
+
         ResetPriorities();
         door.vcamOfNEXTLocation.GetComponent<CinemachineConfiner>().InvalidatePathCache();
         door.vcamOfNEXTLocation.Priority = 1;
@@ -43,6 +47,7 @@ public class CinemachineSwitcher : MonoBehaviour
         // OneSlideFinger.cs
         CustomGameEvents.switchCamera.Invoke(door.vcamOfNEXTLocation);
 
+        
     }
 
     private void SwitchToSuspect(CinemachineVirtualCamera vcam)
