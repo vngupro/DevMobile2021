@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeInSuspectScene;
     [SerializeField] private int score = 0;
     
-
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,20 +40,12 @@ public class GameManager : MonoBehaviour
         canvasResult.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!timerStop)
         {
             time += Time.deltaTime;
         }   
-
     }
 
     public void ExitCrimeScene()
@@ -68,7 +58,6 @@ public class GameManager : MonoBehaviour
         timeInSuspectScene = time - timeInCrimeScene;
         timerStop = true;
         canvasResult.SetActive(true);
-        Debug.Log("Il est gulty ? " + isGuilty);
 
         //Timer Conversion
         TimeSpan timeInCrimeSceneMinute = TimeSpan.FromSeconds((int)timeInCrimeScene);
@@ -89,6 +78,8 @@ public class GameManager : MonoBehaviour
         if (timeInSuspectScene < 5 * 60) score++;
         if (cluesFound >= levelData.totalClues / 2) score++;
         if (cluesFound >= levelData.totalClues) score++;
+        if (cluesFound < levelData.totalClues / 2) score--;
+        if (cluesFound == 0) score--;
 
         canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues) ;
     }

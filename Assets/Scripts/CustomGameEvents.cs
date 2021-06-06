@@ -37,6 +37,7 @@ public static class CustomGameEvents
     public static SwitchEvent switchLocation = new SwitchEvent();
     public static CameraEvent switchCamera = new CameraEvent();
     public static CameraEvent switchToSuspect = new CameraEvent();
+    public static CameraEvent switchToResult = new CameraEvent();
 
 }
 

@@ -37,7 +37,6 @@ public class CanvasExitDoorScript : MonoBehaviour
 
     public void YesChangeScene()
     {
-        Debug.Log("Go To Suspect Scene");
         isExiting = true;
         GameManager.Instance.ExitCrimeScene();
 
@@ -58,16 +57,12 @@ public class CanvasExitDoorScript : MonoBehaviour
 
     private void SoundNo()
     {
-        if(SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in Scene"); return; }
-
-        SoundManager.Instance.PlaySound(noExitSound);
+        SoundManager.Instance?.PlaySound(noExitSound);
     }
 
     private void SoundYes()
     {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in Scene"); return; }
-
-        SoundManager.Instance.PlaySound(yesExitSound);
+        SoundManager.Instance?.PlaySound(yesExitSound);
     }
 
     IEnumerator SwitchToSuspect()
