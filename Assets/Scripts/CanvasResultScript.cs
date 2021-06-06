@@ -6,6 +6,14 @@ using TMPro;
 
 public class CanvasResultScript : MonoBehaviour
 {
+    public GameObject backgroundGeneral;
+    public GameObject background;
+    public CanvasGroup backgroundCanvasGroup;
+    public float fadeBackgroundDuration;
+    public AnimationCurve curve;
+
+    public TMP_Text textMurderer;
+
     public TMP_Text caseTitle;
 
     public TMP_Text clueText; 
@@ -21,6 +29,10 @@ public class CanvasResultScript : MonoBehaviour
 
     private void Awake()
     {
+        backgroundGeneral.SetActive(true);
+        background.SetActive(false);
+        backgroundCanvasGroup.alpha = 0; 
+
         buttonClose.onClick.AddListener(ReturnToMenu);
     }
 
