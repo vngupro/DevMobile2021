@@ -34,7 +34,6 @@ public class SuspectManager : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private string openPanelSound;
-    [SerializeField] private bool isAccusing;
 
     private Suspect currentSuspect;
     private UI_Suspect currentAccuse;
@@ -157,7 +156,6 @@ public class SuspectManager : MonoBehaviour
     
     public void YesAccuse()
     {
-        isAccusing = true;
         if (CanvasBlackscreen.Instance != null)
         {
             StartCoroutine(SwitchToResult());
@@ -166,7 +164,6 @@ public class SuspectManager : MonoBehaviour
         {
             GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
         }
-
     }
 
     public void NoAccuse()
