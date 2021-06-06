@@ -66,14 +66,10 @@ public class DialogueManager : MonoBehaviour
 
         if (currentDialogue.dialogueListIndex == currentDialogue.dialogueList.Count)
         {
-            Debug.Log("Close");
             CloseBoxDialogue();
-            //currentDialogue.isFinished = true;
-            //isBoxDialogueOpen = false;
         }
         else if (currentDialogue.dialogueListIndex < currentDialogue.dialogueList.Count)
         {
-            Debug.Log("DialogueData Index : " + currentDialogue.dialogueListIndex);
             UpdateUIBoxDialogueData(currentDialogue);
         }
     }

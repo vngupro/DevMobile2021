@@ -5,6 +5,12 @@ using TMPro;
 
 public class SuspectManager : MonoBehaviour
 {
+    #region Event 
+    public delegate void SuspectEvent();
+    public event SuspectEvent AccuseSuspect;
+    public event SuspectEvent OpenSuspectInfo;
+    #endregion
+    #region Variable
     public List<Suspect> suspects;
 
     [Header("Canvas Elements")]
@@ -27,11 +33,17 @@ public class SuspectManager : MonoBehaviour
 
     private Suspect currentSuspect;
     private UI_Suspect currentAccuse;
+
+    public static SuspectManager Instance { get; private set; }
+    #endregion
     private void Awake()
     {
+        Instance = this;
+
         panelInfo.SetActive(false);
         panelAccuse.SetActive(false);
         InitSuspects();
+
         // Listen To
         buttonBack.onClick.AddListener(ClosePanelInfo);
         buttonNext.onClick.AddListener(GetNextSuspect);
@@ -57,14 +69,10 @@ public class SuspectManager : MonoBehaviour
 
     public void OpenPanelInfo(UI_Suspect suspect)
     {
+        OpenSuspectInfo?.Invoke();
+
         panelInfo.SetActive(true);
         UpdateUISuspectData(suspect.data);
-
-        //Sound
-        if(SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound(openPanelSound);
-        }
     }
 
     private void ClosePanelInfo()
@@ -136,7 +144,7 @@ public class SuspectManager : MonoBehaviour
 
     public void OnAccuse(UI_Suspect suspect)
     {
-        Debug.Log("On Accuse");
+        AccuseSuspect?.Invoke();
 
         currentAccuse = suspect;
         textAccuse.text = "Accuse\n" + suspect.data.name;

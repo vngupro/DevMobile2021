@@ -30,14 +30,5 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         inventoryManager = InventoryManager.Instance;
-        button.onClick.AddListener(PlayButtonSound);
-    }
-
-    public void PlayButtonSound()
-    {
-        if(SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound("button_item");
-        }
     }
 }

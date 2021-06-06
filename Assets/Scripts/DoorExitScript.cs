@@ -9,7 +9,6 @@ public class DoorExitScript : MonoBehaviour
 
     #region Variable
     public CanvasExitDoorScript canvasExit;
-    public CinemachineVirtualCamera vcamOfNEXTLocation;
 
     [Header("Animation")]
     public TMP_Text text;
@@ -18,7 +17,6 @@ public class DoorExitScript : MonoBehaviour
     public Color grey;
 
     [Header("Info")]
-    public string sceneToLoad;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float distanceTolerance = 0.5f;         //sensibility on small sliding on touch
     [SerializeField] private float timerBeforeHold = 1.0f;           //no conflict with slide detection
@@ -115,7 +113,6 @@ public class DoorExitScript : MonoBehaviour
             if (count >= 2)
             {
                 canvasExit.background.SetActive(true);
-                canvasExit.sceneToLoad = sceneToLoad;
 
                 // Sound
                 if(SoundManager.Instance != null)

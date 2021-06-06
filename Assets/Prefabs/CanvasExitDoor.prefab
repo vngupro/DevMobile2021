@@ -851,4 +851,10 @@ MonoBehaviour:
   background: {fileID: 5175691651515899675}
   buttonYes: {fileID: 5175691651853622587}
   buttonNo: {fileID: 5175691651348938091}
-  sceneToLoad: 
+  vcamSuspect: {fileID: 0}
+  canvasSuspect: {fileID: 0}
+  groupsLens: {fileID: 0}
+  buttonLens: {fileID: 0}
+  yesExitSound: yes_exit_location_ui
+  noExitSound: no_exit_location_ui
+  isExiting: 0
