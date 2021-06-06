@@ -20,12 +20,6 @@ public class PinchDetection : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private ZoomEffect zoomEffect;
 
-    [Header("Sound")]
-    [SerializeField] private string zoomStartSound;
-    [SerializeField] private string zoomEndSound;
-    [SerializeField] private string zoomInSound;
-    [SerializeField] private string zoomOutSound;
-
     private InputManager inputManager;
     private Coroutine coroutine;
 

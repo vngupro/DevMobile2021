@@ -40,7 +40,7 @@ public class TouchDetection : MonoBehaviour
         OnTouch?.Invoke();
 
         //Animation
-        if (circle != null)
+        if (circle != null && Time.timeScale != 0)
         {
             StartCoroutine(CircleAnimation());
             circle.transform.position = position;
