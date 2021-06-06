@@ -4,15 +4,18 @@ using TMPro;
 
 public class UI_Suspect : MonoBehaviour
 {
+    #region Variable
     public Suspect data;
     public SuspectManager suspectManager;
-    [Header("Debug")]
+
+    [Header("   Debug")]
     [SerializeField] private Image image;
     [SerializeField] private TMP_Text textDescription;
     [SerializeField] private Button buttonAccuse;
     [SerializeField] private Button buttonInfo;
     public bool isGuilty { get; private set; }
 
+    #endregion
     private void Start()
     {
 
@@ -29,12 +32,6 @@ public class UI_Suspect : MonoBehaviour
     private void Accuse()
     {
         suspectManager.OnAccuse(this);
-
-        //Sound
-        if(SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlaySound("open_accuse");
-        }
     }
 
     private void OpenSuspectInfo()

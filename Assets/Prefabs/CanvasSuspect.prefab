@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 1098071588315892096}
   - component: {fileID: 1098071588315892097}
   - component: {fileID: 1098071588315892109}
+  - component: {fileID: 8539161982720843068}
   m_Layer: 5
   m_Name: CanvasSuspect
   m_TagString: Untagged
@@ -629,6 +630,31 @@ MonoBehaviour:
   textAccuse: {fileID: 2749847717644236652}
   buttonYes: {fileID: 5369120951375432166}
   buttonNo: {fileID: 3750951527520143544}
+  openPanelSound: 
+--- !u!114 &8539161982720843068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098071588315892102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d1b94f7228397438ca0c9be2197424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yesAccuse: {fileID: 5369120951375432166}
+  noAccuse: {fileID: 3750951527520143544}
+  buttonNext: {fileID: 987019583762455847}
+  buttonPrevious: {fileID: 3983013202533786028}
+  buttonBack: {fileID: 3777445780132867338}
+  yesAccuseSound: accuse_yes_ui
+  noAccuseSound: accuse_no_ui
+  buttonAccuseSound: open_accuse_ui
+  buttonSuspectSound: open_suspect_ui
+  buttonNextSound: button_next_ui
+  buttonPreviousSound: button_previous_ui
+  buttonBackSound: button_back_ui
 --- !u!1 &1134226148801471073
 GameObject:
   m_ObjectHideFlags: 0

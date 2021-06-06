@@ -3,6 +3,12 @@ using TMPro;
 using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
+    #region Event
+    public delegate void OpenPanelInfoEvent();
+    public event OpenPanelInfoEvent OnOpenPanelInfo;
+
+    #endregion
+
     #region Variable
     [Tooltip(("Add Scriptable Object Inventory"))]
     public PlayerInventory inventory;
@@ -139,6 +145,8 @@ public class InventoryManager : MonoBehaviour
     public void OnInventorySlotSelected(InventorySlot slot)
     {
         panelSecond.SetActive(true);
+        OnOpenPanelInfo?.Invoke();
+
         string description = slot.item.description;
 
         for (int i = 0; i < inventory.itemList.Count; i++)

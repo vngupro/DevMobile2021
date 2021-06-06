@@ -113,7 +113,7 @@ public class TabGroup : MonoBehaviour
         if (arrow != null)
         {
             arrow.SetActive(true);
-            StartCoroutine(SlideArrowAnimation(button));
+            StartCoroutine(SlideArrowAnimation(selectedTab));
         }
 
         // Sound
@@ -146,10 +146,11 @@ public class TabGroup : MonoBehaviour
 
         while(timer < slideAnimation)
         {
-            timer += Time.deltaTime;
+            timer += 0.02f;
             float ratio = timer / slideAnimation;
 
             float newPos = button.GetComponent<RectTransform>().anchoredPosition.y;
+
             arrowRect.anchoredPosition = new Vector2(
                     arrowRect.anchoredPosition.x, 
                     Mathf.Lerp(arrowRect.anchoredPosition.y,  newPos, curve.Evaluate(ratio))

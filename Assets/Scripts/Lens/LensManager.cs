@@ -1,16 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LensManager : MonoBehaviour
 {
     public GlobalPostProcessVolume processVolume;
 
+    [Header("   UI")]
+    [SerializeField] private Button buttonLens;
+    [SerializeField] private Button buttonNormal;
+    [SerializeField] private Button buttonUV;
+    [SerializeField] private Button buttonIR;
+    [SerializeField] private Button buttonXRAY;
+    [SerializeField] private Button buttonNight;
+
+
     private GameObject[] items;
-    //[SerializeField] private Color colorUV;
-    //[SerializeField] private Color colorIR;
-    //[SerializeField] private Color colorXRAY;
-    //[SerializeField] private Color colorNIGHTSHOT;
+
     public LensEnum currentLens { get; private set; }    
 
     public static LensManager instance { get; protected set; }
@@ -62,23 +67,27 @@ public class LensManager : MonoBehaviour
     {
         SwitchLens(LensEnum.UV);
         processVolume.ChangeColorToUV();
+        buttonLens.image.color = buttonUV.image.color;
     }
     
     public void LightUpIRClues()
     {
         SwitchLens(LensEnum.IR);
         processVolume.ChangeColorToIR();
+        buttonLens.image.color = buttonIR.image.color;
     }
 
     public void LightUpXRAYClues()
     {
         SwitchLens(LensEnum.XRAY);
         processVolume.ChangeColorToXRAY();
+        buttonLens.image.color = buttonXRAY.image.color;
     }
     public void LightUpNIGHTSHOTClues()
     {
         SwitchLens(LensEnum.NIGHTSHOT);
         processVolume.ChangeColorToNIGHTSHOT();
+        buttonLens.image.color = buttonNight.image.color;
     }
 
     public void NormalMode()
@@ -110,6 +119,7 @@ public class LensManager : MonoBehaviour
 
         currentLens = LensEnum.NONE;
         processVolume.ChangeColorToNormal();
+        buttonLens.image.color = buttonNormal.image.color;
     }
 
 
