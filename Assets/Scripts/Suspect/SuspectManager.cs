@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class SuspectManager : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class SuspectManager : MonoBehaviour
     public event SuspectEvent OpenSuspectInfo;
     #endregion
     #region Variable
+    [SerializeField] private CinemachineVirtualCamera vcamResult;
+
     public List<Suspect> suspects;
 
     [Header("Canvas Elements")]
@@ -30,6 +34,7 @@ public class SuspectManager : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private string openPanelSound;
+    [SerializeField] private bool isAccusing;
 
     private Suspect currentSuspect;
     private UI_Suspect currentAccuse;
@@ -99,7 +104,6 @@ public class SuspectManager : MonoBehaviour
                 return;
             }
         }
-
     }
 
     private void GetPreviousSuspect()
@@ -153,11 +157,30 @@ public class SuspectManager : MonoBehaviour
     
     public void YesAccuse()
     {
-        GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
+        isAccusing = true;
+        if (CanvasBlackscreen.Instance != null)
+        {
+            StartCoroutine(SwitchToResult());
+        }
+        else
+        {
+            GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
+        }
+
     }
 
     public void NoAccuse()
     {
         panelAccuse.SetActive(false);
+    }
+
+    IEnumerator SwitchToResult()
+    {
+        CanvasBlackscreen.Instance?.FadeIn();
+        yield return new WaitForSeconds(CanvasBlackscreen.Instance.fadeDuration);
+        CustomGameEvents.switchToResult.Invoke(vcamResult);
+        GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
+        yield return null;
+        CanvasBlackscreen.Instance.FadeOut();
     }
 }

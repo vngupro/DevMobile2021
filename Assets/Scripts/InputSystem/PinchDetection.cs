@@ -71,7 +71,6 @@ public class PinchDetection : MonoBehaviour
 
         cameraItem = cam.GetComponent<Camera>();
         cameraItem.orthographicSize = defaultZoom;
-        Debug.Log(cameraItem.name);
     }
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
