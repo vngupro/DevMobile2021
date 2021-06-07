@@ -1,13 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ZoomEffect : MonoBehaviour
 {
     public GameObject zoomCircles;
+    public TMP_Text zoomText;
     [SerializeField] private GameObject outterCircle;
     [SerializeField] private GameObject middleCircle;
     [SerializeField] private GameObject insideCircle;
+    [SerializeField] private GameObject movingBar;
+
 
     [SerializeField] private float rotationSpeed = 2.0f;
 

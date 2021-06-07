@@ -3081,6 +3081,10 @@ PrefabInstance:
       propertyPath: switchLocationSound
       value: switch_location
       objectReference: {fileID: 0}
+    - target: {fileID: 4081064658923392228, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 6503050050811101966, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
       propertyPath: m_IsActive
       value: 0
