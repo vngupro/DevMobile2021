@@ -111,7 +111,10 @@ public class PinchDetection : MonoBehaviour
     {
         float previousDistance = Vector2.Distance(inputManager.GetPrimaryScreenPosition(), inputManager.GetSecondaryScreenPosition()), 
               distance = 0f;
-        
+
+        string newText = "x" + (defaultZoom / defaultZoom).ToString();
+        zoomEffect.zoomText.text = newText;
+
         while (true)
         {
             Vector2 positionPrimary = inputManager.GetPrimaryScreenPosition();
@@ -126,6 +129,8 @@ public class PinchDetection : MonoBehaviour
                 float newSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
                 ChangeOrthographicSize(newSize);
 
+                newText = "x" + (newSize / defaultZoom).ToString();
+                zoomEffect.zoomText.text = newText;
                 // Animation
                 if (!zoomEffect.IsZoomingOut)
                 {
@@ -137,6 +142,9 @@ public class PinchDetection : MonoBehaviour
             {
                 float newSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
                 ChangeOrthographicSize(newSize);
+
+                newText = "x" + (newSize / defaultZoom).ToString();
+                zoomEffect.zoomText.text = newText;
 
                 // Animation
                 if (!zoomEffect.IsZoomingIn)

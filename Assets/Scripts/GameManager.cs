@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -91,7 +90,6 @@ public class GameManager : MonoBehaviour
         canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues);
 
         StartCoroutine(FadeInBackground());
-
     }
 
     IEnumerator FadeInBackground()
