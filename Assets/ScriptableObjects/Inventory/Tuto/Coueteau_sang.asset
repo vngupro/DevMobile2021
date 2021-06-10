@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Analysis showed that the blood group on the knife is A+.
 
     A partial
-    fingerprint was found on it and appears to be the same as on the window'
+    fingerprint was found on it and appears to be the same as the one on the window'
   hasDefaultImage: 0
   sprite: {fileID: 0}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
