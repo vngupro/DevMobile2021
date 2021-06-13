@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject canvasResult;
     public PlayerInventory inventory;
     private bool timerStop = false;
+    public float timerBeforeSecondResult = 8.0f;
 
     [Header ("Debug")]
     [SerializeField] private CanvasResultScript canvasResultScript;
@@ -49,20 +50,21 @@ public class GameManager : MonoBehaviour
         timeInCrimeScene = time;
     }
 
-    public void Accuse(bool isGuilty)
+    public void Accuse(bool isGuilty, Sprite sprite)
     {
         timeInSuspectScene = time - timeInCrimeScene;
         timerStop = true;
         canvasResult.SetActive(true);
         CanvasResultScript canvasResultScript = canvasResult.GetComponent<CanvasResultScript>();
 
+        string endText = "";
         if (isGuilty)
         {
-            canvasResultScript.textMurderer.text = "You find the murderer";
+            endText = levelData.journalTextCulprit;
         }
         else
         {
-            canvasResultScript.textMurderer.text = "You didn't find the murderer";
+            endText = levelData.journalTextInnocent;
         }
 
         //Timer Conversion
@@ -87,26 +89,12 @@ public class GameManager : MonoBehaviour
         if (cluesFound < levelData.totalClues / 2) score--;
         if (cluesFound == 0) score--;
 
-        canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues);
+        canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues, endText, sprite);
 
-        StartCoroutine(FadeInBackground());
+        //StartCoroutine(FadeInBackground());
     }
 
-    IEnumerator FadeInBackground()
-    {
-        yield return new WaitForSeconds(1.0f);
-        canvasResultScript.background.SetActive(true);
 
-        float timer = 0;
-
-        while(timer < canvasResultScript.fadeBackgroundDuration)
-        {
-            timer += Time.deltaTime;
-            float ratio = timer / canvasResultScript.fadeBackgroundDuration;
-            canvasResultScript.backgroundCanvasGroup.alpha = Mathf.Lerp(0, 1, canvasResultScript.curve.Evaluate(ratio));
-            yield return null;
-        }
-    }
 }
 
 
@@ -118,5 +106,7 @@ public struct LevelData
     public string caseTitle;
     public string caseNotesIsGuilty;
     public string caseNotesIsNotGuilty;
+    public string journalTextCulprit;
+    public string journalTextInnocent;
 
 }
