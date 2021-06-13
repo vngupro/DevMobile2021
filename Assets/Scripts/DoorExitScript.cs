@@ -63,8 +63,13 @@ public class DoorExitScript : MonoBehaviour
 
     private void OnDisable()
     {
-        inputManager.OnStartTouch -= StartExitDoor;
-        inputManager.OnEndTouch -= EndExitDoor;
+        
+        if(inputManager != null)
+        {
+            inputManager.OnStartTouch -= StartExitDoor;
+            inputManager.OnEndTouch -= EndExitDoor;
+        }
+
     }
 
     private void StartExitDoor(Vector2 position, float time)

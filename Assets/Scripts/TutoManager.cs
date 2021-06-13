@@ -55,7 +55,7 @@ public class TutoManager : MonoBehaviour
         gameManager = GameManager.Instance;
         if(gameManager != null)
         {
-            if (!GameManager.Instance.gameData.IsTutoFinish)
+            if (!GameManager.Instance.json.data.isTutoFinished)
             {
                 UtilsEvent.blockMoveControls.Invoke(); //Stop all mouvment
                 CustomDialogueEvents.openBoxDialogue.Invoke(currentDialogue); //Oppen DialogueBox
@@ -72,6 +72,7 @@ public class TutoManager : MonoBehaviour
             else
             {
                 currentStep = TutoStep.TUTO_END;
+                gameObject.SetActive(false);
             }
         }
         else
@@ -262,7 +263,8 @@ public class TutoManager : MonoBehaviour
         else if (currentStep == TutoStep.TUTO_END)
         {
             //dire au gameManager que le tuto est passée
-            GameManager.Instance.gameData.IsTutoFinish = true;
+            GameManager.Instance.json.data.isTutoFinished = true;
+            JSONManager.Instance.SaveData();
             this.gameObject.SetActive(false);
         }
     }

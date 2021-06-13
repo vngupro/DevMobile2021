@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324607128961519551}
   - component: {fileID: 324607128961519544}
+  - component: {fileID: 1280297481732934993}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -43,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea89ec6d07d4d2c48ac7a7104a8b8ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameData: {fileID: 11400000, guid: 3ca923a100f1b2b409967cbe73804633, type: 2}
+  json: {fileID: 1280297481732934993}
   levelData:
     level: 0
     totalClues: 9
@@ -57,3 +58,18 @@ MonoBehaviour:
   timeInCrimeScene: 0
   timeInSuspectScene: 0
   score: 0
+--- !u!114 &1280297481732934993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324607128961519545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd209f83bb28c148a5897a558bdd46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    isTutoFinished: 0
+    score: 0
