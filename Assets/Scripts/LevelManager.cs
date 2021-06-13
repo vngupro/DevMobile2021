@@ -88,6 +88,7 @@ public class LevelManager : MonoBehaviour
     private void LoadNextScene()
     {
         if (!isLoadingScene) return;
+        //OptionsManager.Instance.SaveOptions();
 
         SceneManager.LoadScene(sceneToLoad);
     }

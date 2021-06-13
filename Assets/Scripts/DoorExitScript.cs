@@ -24,8 +24,10 @@ public class DoorExitScript : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private string soundPopUp;
 
-    [Header("Debug")]
-    [SerializeField]
+    [Header("    Debug")]
+    [SerializeField] private short count = 0;                                     // for double tap to exit scene
+    [SerializeField] private bool isBlocked = false;
+
     private Vector2 startPos;
     private Vector2 endPos;
     private float startTime;
@@ -35,26 +37,29 @@ public class DoorExitScript : MonoBehaviour
 
     private InputManager inputManager;
 
-    private short count = 0;                                     // for double tap to exit scene
-    private bool isBlocked = false;
     #endregion
 
-    private void Awake()
+    private void Update()
     {
-        inputManager = InputManager.Instance;
+        if(inputManager == null)
+        {
+            // Bug input manager instance is not the good one
+            inputManager = InputManager.Instance;
+            inputManager = FindObjectOfType<InputManager>();
+            // Listen To
+            // TutoManager.cs
+            UtilsEvent.blockMoveControls.AddListener(BlockControls);
+            UtilsEvent.unlockMoveControls.AddListener(UnblockControls);
 
-        // Listen To
-        // TutoManager.cs
-        UtilsEvent.blockMoveControls.AddListener(BlockControls);
-        UtilsEvent.unlockMoveControls.AddListener(UnblockControls);
+            inputManager.OnStartTouch += StartExitDoor;
+            inputManager.OnEndTouch += EndExitDoor;
+
+            Debug.Log(inputManager.name);
+        }
+
     }
     private void BlockControls() { isBlocked = true; }
     private void UnblockControls() { isBlocked = false; }
-    private void OnEnable()
-    {
-        inputManager.OnStartTouch += StartExitDoor;
-        inputManager.OnEndTouch += EndExitDoor;
-    }
 
     private void OnDisable()
     {
@@ -65,7 +70,7 @@ public class DoorExitScript : MonoBehaviour
     private void StartExitDoor(Vector2 position, float time)
     {
         if (isBlocked) { return; }
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
         startPos = position;
         startTime = time;
@@ -90,7 +95,7 @@ public class DoorExitScript : MonoBehaviour
     private void EndExitDoor(Vector2 position, float time)
     {
         if (isBlocked) { return; }
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
         endPos = position;
         endTime = time;

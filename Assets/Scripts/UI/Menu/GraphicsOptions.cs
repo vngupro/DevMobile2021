@@ -2,18 +2,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class MenuGraphics : MonoBehaviour
+public class GraphicsOptions : MonoBehaviour
 {
     [Header("   Graphics Options")]
-    [SerializeField] private TMP_Text qualityText;
+    public TMP_Text qualityText;
     [SerializeField] private Button buttonArrowLeft;
     [SerializeField] private Button buttonArrowRight;
 
-
-
     [Header("   Debug")]
     [SerializeField] private string[] qualities;
-    [SerializeField] private int currentQualityIndex;
+    public int currentQualityIndex;
     private void Awake()
     {
         // Init Quality
@@ -48,5 +46,11 @@ public class MenuGraphics : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(currentQualityIndex);
         qualityText.text = qualities[currentQualityIndex];
+    }
+
+    public void LoadQuality(int loadedQualityIndex)
+    {
+        currentQualityIndex = loadedQualityIndex;
+        UpdateQuality();
     }
 }

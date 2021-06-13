@@ -37,16 +37,15 @@ public class Item : MonoBehaviour
             {
                 spriteRenderer.sprite = null;
             }
-        }
 
-        if(data.filter != LensEnum.NONE)
-        {
-            isHidden = true;
-        }
-        else
-        {
-            isHidden = false;
+            if (data.filter != LensEnum.NONE)
+            {
+                isHidden = true;
+            }
+            else
+            {
+                isHidden = false;
+            }
         }
     }
-   
 }

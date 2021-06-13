@@ -14,6 +14,7 @@ public class SlideOneFingerDetection : MonoBehaviour
     [SerializeField] private float distanceTolerance = 0.1f;                        //less conflict with zoom detection
     [HideInInspector]
     [SerializeField] private float cameraSpeed = 100.0f;
+    private float distanceToleranceDefault;
 
     [Header("Animation")]
     [SerializeField] private GameObject slideTrail;
@@ -40,7 +41,7 @@ public class SlideOneFingerDetection : MonoBehaviour
         Instance = this;
         inputManager = InputManager.Instance;
         cameraInitialSpeed = cameraSpeed;
-
+        distanceToleranceDefault = distanceTolerance;
         //direct link on menu scene can work too
         if (CinemachineSwitcher.Instance != null)
         {
@@ -189,9 +190,8 @@ public class SlideOneFingerDetection : MonoBehaviour
             StopCoroutine(coroutine);
         }
     }
-    public void ChangeSlideSpeed(float speed)
+    public void ChangeDistanceTolerance(float value, float max)
     {
-        float ratio = speed / 5f;
-        cameraSpeed = cameraInitialSpeed * ratio;
+        distanceTolerance = value * distanceToleranceDefault / (max / 2);
     }
 }
