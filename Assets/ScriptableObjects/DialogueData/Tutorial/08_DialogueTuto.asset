@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - You seems to be ready for finding clues without me.
+  - You seem to be ready for finding clues without me.
   - Once you think you have collected all the clues you can leave the crime scene
     by using the exit door.
   hasNextDialogueData: 1

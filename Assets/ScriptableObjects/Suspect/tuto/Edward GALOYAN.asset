@@ -23,8 +23,8 @@ MonoBehaviour:
   placeOfResidence: ' On the 5th floor of the victim''s building'
   alibi: At the time of the murder, he was playing PS5 at home.
   suspectedMotive: Jealousy, dispute or theft
-  description: According to Holly, Edward has a sanguin temperament and fight a lot
-    against the people that are not agree with him.
+  description: According to Holly, Edward has a sanguine temperament and fights a
+    lot with those who do not agree with him.
   sprite: {fileID: 21300000, guid: 5c0772198a752404eac9e304d7a2eb0e, type: 3}
   fingerprint: {fileID: 21300000, guid: 6e0fe94660b20174cbc5d4f209262064, type: 3}
   isGuilty: 0

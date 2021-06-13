@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - You can use your glasses in order to see through several effect like Xray, Uv,
-    thermal or night visions.
+  - You can use your glasses in order to see through several effects like Xray, Uv,
+    thermal or night vision.
   - First try with the UV vision.
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: 60b1fc40d5047ea4bafa17a08d1a0518, type: 2}
