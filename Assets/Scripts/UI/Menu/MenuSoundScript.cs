@@ -3,18 +3,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MenuSoundScript : MonoBehaviour
 {
-    [Header("   Buttons Mute")]
-    [SerializeField] private Button buttonMute;
-    [SerializeField] private Button buttonUnmute;
-
     [Header("   Buttons to add sound")]
     [SerializeField] private List<Button> buttonsOpen;
     [SerializeField] private List<Button> buttonsClose;
     [SerializeField] private Button buttonPlay;
     [SerializeField] private List<Scrollbar> scrolls;
     [SerializeField] private List<Slider> sliders;
-    [SerializeField] private Button arrowLeft;
-    [SerializeField] private Button arrowRight;
+
+    public Button arrowLeft;
+    public Button arrowRight;
 
     [Header("   Sound Name")]
     [SerializeField] private string soundEnterMenu;
@@ -28,11 +25,6 @@ public class MenuSoundScript : MonoBehaviour
 
     private void Awake()
     {
-        buttonMute.onClick.AddListener(Unmute);
-        buttonUnmute.onClick.AddListener(Mute);
-        buttonMute.gameObject.SetActive(false);
-        buttonUnmute.gameObject.SetActive(true);
-
         foreach (Button buttonOpen in buttonsOpen)
         {
             buttonOpen.onClick.AddListener(SoundButtonOpen);
@@ -112,51 +104,5 @@ public class MenuSoundScript : MonoBehaviour
     {
         if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
         SoundManager.Instance.PlaySound(soundArrowRight);
-    }
-
-    // SET VOLUME 
-    public void SetVolumeMaster(float value)
-    {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.SetMasterVolume(value);
-    }
-    public void SetVolumeMusic(float value)
-    {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.SetMusicVolume(value);
-    }
-    public void SetVolumeAmbient(float value)
-    {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.SetAmbientVolume(value);
-    }
-    public void SetVolumeSFX(float value)
-    {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.SetSFXVolume(value);
-    }
-    public void SetVolumeUI(float value)
-    {
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.SetUIVolume(value);
-    }
-
-    // SET MUTE
-    private void Mute()
-    {
-        Debug.Log("Mute");
-        buttonMute.gameObject.SetActive(true);
-        buttonUnmute.gameObject.SetActive(false);
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.ChangeMute(true);
-    }
-
-    private void Unmute()
-    {
-        Debug.Log("Unmute");
-        buttonMute.gameObject.SetActive(false);
-        buttonUnmute.gameObject.SetActive(true);
-        if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in scene"); return; }
-        SoundManager.Instance.ChangeMute(false);
     }
 }

@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class HUDSoundScript : MonoBehaviour
 {
-    [Header("   Button Mute Unmute")]
-    [SerializeField] private Button buttonMute;
-    [SerializeField] private Button buttonUnmute;
-
     [Header("   Buttons")]
     [SerializeField] private Button buttonNotes;
     [SerializeField] private Button buttonLens;
@@ -115,40 +111,5 @@ public class HUDSoundScript : MonoBehaviour
     {
         if (SoundManager.Instance == null) { Debug.LogWarning("No Sound Manager in Scene"); return; }
         SoundManager.Instance.PlaySound(buttonBackSound);
-    }
-
-    public void SoundMute()
-    {
-        SoundManager.Instance?.ChangeMute(true);
-        buttonUnmute.gameObject.SetActive(false);
-        buttonMute.gameObject.SetActive(true);
-    }
-
-    public void SoundUnmute()
-    {
-        SoundManager.Instance?.ChangeMute(false);
-        buttonUnmute.gameObject.SetActive(true);
-        buttonMute.gameObject.SetActive(false);
-    }
-
-    public void SoundMaster(float value)
-    {
-        SoundManager.Instance?.SetMasterVolume(value);
-    }
-    public void SoundAmbient(float value)
-    {
-        SoundManager.Instance?.SetAmbientVolume(value);
-    }
-    public void SoundSFX(float value)
-    {
-        SoundManager.Instance?.SetSFXVolume(value);
-    }
-    public void SoundMusic(float value)
-    {
-        SoundManager.Instance?.SetMusicVolume(value);
-    }
-    public void SoundUI(float value)
-    {
-        SoundManager.Instance?.SetUIVolume(value);
     }
 }

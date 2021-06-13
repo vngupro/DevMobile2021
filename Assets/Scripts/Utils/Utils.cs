@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.IO;
+
 public static class Utils
 {
     public static Vector3 ScreenToWorld(Camera cam, Vector2 position)
@@ -39,6 +41,23 @@ public static class Utils
         {
             UtilsEvent.fadeInEnded.Invoke();
         }
+    }
+
+    public static string GetPersistentDirectory(string directory)
+    {
+        return Path.Combine(Application.persistentDataPath + directory);
+    }
+    public static string GetPersistentFile(string directory, string fileName)
+    {
+        return Path.Combine(Application.persistentDataPath + directory + fileName);
+    }
+    public static string GetDirectory(string directory)
+    {
+        return Path.Combine(Application.dataPath + directory);
+    }
+    public static string GetFile(string directory, string fileName)
+    {
+        return Path.Combine(Application.dataPath + directory + fileName);
     }
 }
 

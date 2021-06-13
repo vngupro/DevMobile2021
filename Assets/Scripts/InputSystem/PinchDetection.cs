@@ -27,6 +27,7 @@ public class PinchDetection : MonoBehaviour
     private Camera cameraItem;
 
     private bool isBlocked = false;
+    private float zoomDefaultSpeed = 0.2f;
     #endregion
 
     public static PinchDetection Instance { get; protected set; }
@@ -170,5 +171,11 @@ public class PinchDetection : MonoBehaviour
         float target = Mathf.Clamp(newSize, zoomInMax, zoomOutMax);
         virtualCamera.m_Lens.OrthographicSize = target;
         cameraItem.orthographicSize = target;
+    }
+
+    public void ChangeZoomSpeed(float value, float max)
+    {
+
+        zoomSpeed = value * zoomDefaultSpeed / (max/2);
     }
 }

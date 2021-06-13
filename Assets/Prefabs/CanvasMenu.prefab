@@ -511,10 +511,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7381387121468311938}
   m_HandleRect: {fileID: 4470483511173597576}
   m_Direction: 0
-  m_MinValue: 0.001
+  m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_WholeNumbers: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -582,6 +582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1055598683272432849}
+  multiplier: 100
+  slider: {fileID: 1209083232077062559}
 --- !u!1 &973498392959676527
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1391,6 +1393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 7164482448032958257}
+  multiplier: 1
+  slider: {fileID: 3292711418777635583}
 --- !u!1 &2825167178967461580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,6 +1594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 3161775632463742707}
+  multiplier: 100
+  slider: {fileID: 2797230616476926693}
 --- !u!1 &3526543590371831921
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,8 +7513,11 @@ GameObject:
   - component: {fileID: 6520405686439229597}
   - component: {fileID: 2246622385754502931}
   - component: {fileID: 6520405686439229593}
-  - component: {fileID: 8024136620697141571}
   - component: {fileID: 977667640677867747}
+  - component: {fileID: 4407551399500968679}
+  - component: {fileID: 6563155721342132181}
+  - component: {fileID: 8024136620697141571}
+  - component: {fileID: 8322940023653868287}
   m_Layer: 5
   m_Name: CanvasMenu
   m_TagString: Untagged
@@ -7636,6 +7645,72 @@ MonoBehaviour:
   achievementButton: {fileID: 6520405686957379605}
   fadeDuration: 1
   inputManager: {fileID: 0}
+--- !u!114 &977667640677867747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520405686439229586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989184cfef12fd34e9f09ab2739c4876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonsOpen:
+  - {fileID: 6520405686254557749}
+  - {fileID: 6520405686957379605}
+  buttonsClose:
+  - {fileID: 6520405685783807726}
+  buttonPlay: {fileID: 6520405686953278353}
+  scrolls:
+  - {fileID: 8061822635813541841}
+  - {fileID: 6520405684985701437}
+  - {fileID: 6520405686017198596}
+  sliders: []
+  arrowLeft: {fileID: 6520405684959311720}
+  arrowRight: {fileID: 6520405686021978852}
+  soundEnterMenu: enter_menu_ui
+  soundButtonOpen: button_open_ui
+  soundButtonClose: button_close_ui
+  soundPlay: play_ui
+  soundScroll: scroll_ui
+  soundSlider: slider_ui
+  soundArrowLeft: arrow_left_ui
+  soundArrowRight: arrow_right_ui
+--- !u!114 &4407551399500968679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520405686439229586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d81a1d9c98f57040b06834d8996efae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSlider: {fileID: 3292711418777635583}
+  zoomSlider: {fileID: 7935604276734177597}
+--- !u!114 &6563155721342132181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520405686439229586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609f56c4c0950b1479f76726a6e86baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 6520405685348323151}
+  musicSlider: {fileID: 1209083232077062559}
+  ambiantSlider: {fileID: 7317771096992489711}
+  sfxSlider: {fileID: 5651630195692205450}
+  uiSlider: {fileID: 2797230616476926693}
+  buttonMute: {fileID: 6520405686269075631}
+  buttonUnmute: {fileID: 6520405685636289634}
 --- !u!114 &8024136620697141571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7653,7 +7728,7 @@ MonoBehaviour:
   buttonArrowRight: {fileID: 6520405686021978852}
   qualities: []
   currentQualityIndex: 0
---- !u!114 &977667640677867747
+--- !u!114 &8322940023653868287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7662,39 +7737,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6520405686439229586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989184cfef12fd34e9f09ab2739c4876, type: 3}
+  m_Script: {fileID: 11500000, guid: 3db69a58ac5e76a40b89514b8cc83970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonMute: {fileID: 6520405686269075631}
-  buttonUnmute: {fileID: 6520405685636289634}
-  buttonsOpen:
-  - {fileID: 6520405686254557749}
-  - {fileID: 6520405686957379605}
-  buttonsClose:
-  - {fileID: 6520405685783807726}
-  buttonPlay: {fileID: 6520405686953278353}
-  scrolls:
-  - {fileID: 8061822635813541841}
-  - {fileID: 6520405684985701437}
-  - {fileID: 6520405686017198596}
-  sliders:
-  - {fileID: 3292711418777635583}
-  - {fileID: 7935604276734177597}
-  - {fileID: 6520405685348323151}
-  - {fileID: 1209083232077062559}
-  - {fileID: 7317771096992489711}
-  - {fileID: 5651630195692205450}
-  - {fileID: 2797230616476926693}
-  arrowLeft: {fileID: 6520405684959311720}
-  arrowRight: {fileID: 6520405686021978852}
-  soundEnterMenu: enter_menu_ui
-  soundButtonOpen: button_open_ui
-  soundButtonClose: button_close_ui
-  soundPlay: play_ui
-  soundScroll: scroll_ui
-  soundSlider: slider_ui
-  soundArrowLeft: arrow_left_ui
-  soundArrowRight: arrow_right_ui
+  graphics: {fileID: 8024136620697141571}
+  soundScript: {fileID: 6563155721342132181}
+  gameplay: {fileID: 4407551399500968679}
 --- !u!1 &6520405686497384841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,7 +7878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.000046}
+  m_AnchoredPosition: {x: 0, y: -25.000061}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6520405686553432313
@@ -8425,6 +8473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 6520405685867495218}
+  multiplier: 100
+  slider: {fileID: 6520405685348323151}
 --- !u!1 &6520405686798371927
 GameObject:
   m_ObjectHideFlags: 0
@@ -9349,7 +9399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000026402238}
+  m_AnchoredPosition: {x: 0, y: 0.000015736661}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3623535821548738952
@@ -9520,6 +9570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 6226196851399785439}
+  multiplier: 100
+  slider: {fileID: 5651630195692205450}
 --- !u!1 &6640426063856637544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10008,6 +10060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1077438924727285604}
+  multiplier: 100
+  slider: {fileID: 7317771096992489711}
 --- !u!1 &7674588494828788116
 GameObject:
   m_ObjectHideFlags: 0
@@ -10230,6 +10284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 2230688734408722406}
+  multiplier: 1
+  slider: {fileID: 7935604276734177597}
 --- !u!1 &7920982004171982695
 GameObject:
   m_ObjectHideFlags: 0
@@ -10826,10 +10882,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 8334781826718765814}
   m_HandleRect: {fileID: 4096542483434576912}
   m_Direction: 0
-  m_MinValue: 0.001
+  m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_WholeNumbers: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -11044,7 +11100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
