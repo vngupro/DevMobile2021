@@ -162,7 +162,7 @@ public class SuspectManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
+            GameManager.Instance.Accuse(currentAccuse.data.isGuilty, currentAccuse.data.sprite);
         }
     }
 
@@ -176,7 +176,7 @@ public class SuspectManager : MonoBehaviour
         CanvasBlackscreen.Instance?.FadeIn();
         yield return new WaitForSeconds(CanvasBlackscreen.Instance.fadeDuration);
         CustomGameEvents.switchToResult.Invoke(vcamResult);
-        GameManager.Instance.Accuse(currentAccuse.data.isGuilty);
+        GameManager.Instance.Accuse(currentAccuse.data.isGuilty, currentAccuse.data.sprite);
         yield return null;
         CanvasBlackscreen.Instance.FadeOut();
     }
