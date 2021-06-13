@@ -297,6 +297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 160175660, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2686448324454584324, guid: f72699e1a19f68e459c24097cbd2e927, type: 3}
       propertyPath: m_Name
       value: InputManager (Menu)
@@ -960,6 +964,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1352303345}
+    - target: {fileID: 6520405686553432319, guid: 67e568219ebb11a458f5ab83e0875b69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.000061
+      objectReference: {fileID: 0}
     - target: {fileID: 6520405686689235267, guid: 67e568219ebb11a458f5ab83e0875b69, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -974,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6520405687016204940, guid: 67e568219ebb11a458f5ab83e0875b69, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000018973383
+      value: 41.556393
       objectReference: {fileID: 0}
     - target: {fileID: 6520405687030665436, guid: 67e568219ebb11a458f5ab83e0875b69, type: 3}
       propertyPath: m_AnchorMax.x
