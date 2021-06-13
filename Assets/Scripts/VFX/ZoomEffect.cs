@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class ZoomEffect : MonoBehaviour
 {
     public GameObject zoomCircles;
@@ -8,7 +10,7 @@ public class ZoomEffect : MonoBehaviour
     [SerializeField] private GameObject outterCircle;
     [SerializeField] private GameObject middleCircle;
     [SerializeField] private GameObject insideCircle;
-    [SerializeField] private GameObject movingBar;
+    public Image graduatedBar;
 
 
     [SerializeField] private float rotationSpeed = 2.0f;
@@ -23,11 +25,13 @@ public class ZoomEffect : MonoBehaviour
 
     public void ActivateCrosshair()
     {
+        Debug.Log("Activate zoom");
         zoomCircles.SetActive(true);
     }
 
     public void DeactivateCrossHair()
     {
+        Debug.Log("DEActivate zoom");
         zoomCircles.SetActive(false);
     }
 
