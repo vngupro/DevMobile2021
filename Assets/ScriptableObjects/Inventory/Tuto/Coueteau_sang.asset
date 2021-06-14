@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
   m_Name: Coueteau_sang
   m_EditorClassIdentifier: 
-  name: Knife_Blood
+  name: Knife
   hasDescription: 1
   description: 'Analysis showed that the blood group on the knife is A+.
 

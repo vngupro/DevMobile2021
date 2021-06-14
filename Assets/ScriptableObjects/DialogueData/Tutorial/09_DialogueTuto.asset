@@ -15,8 +15,7 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - "So here you\u2019ll have to compare the information of all the suspects with
-    the clues that you have collected."
+  - "Here you\u2019ll have to compare the information of the suspects with the clues"
   - You can have access to the information about the suspects by touching each of
     them.
   - "Now you\u2019ll have to do your job and to choose which one is the murderer. "

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
   m_Name: drogue
   m_EditorClassIdentifier: 
-  name: Marijuana
+  name: Ectasy
   hasDescription: 1
   description: Drug tests revealed that the pills found in the kitchen were ectasy
   hasDefaultImage: 0
