@@ -124,12 +124,11 @@ public class HUDManager : MonoBehaviour
         {
             StartCoroutine(NotesCloseAnimations());
         }
-  
-        //layerNotes.SetActive(isLayerNotesOpen);
     }
 
     private IEnumerator NotesOpenAnimation()
     {
+        notesRectTransform.localScale = new Vector2(minScale, minScale);
         layerNotes.SetActive(isLayerNotesOpen);
 
         float timer = 0;
