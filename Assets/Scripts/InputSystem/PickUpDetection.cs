@@ -20,6 +20,7 @@ public class PickUpDetection : MonoBehaviour
     [SerializeField] private PhotoEffect photoEffect;
     [SerializeField] private ProofBagEffect proofBag;
     [SerializeField] private SecondWindowEffect secondWindow;
+    [SerializeField] private VibrateEffect vibrate;
 
     private InputManager inputManager;
     private Vector2 startPos;
@@ -99,7 +100,7 @@ public class PickUpDetection : MonoBehaviour
         photoEffect.PlayFlashEffect();
         proofBag.AddToQueue(item2PickUp);
         secondWindow.AddToQueue(item2PickUp);
-
+        vibrate.Vibrate();
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy
         if (currentItem.data.isPickable)

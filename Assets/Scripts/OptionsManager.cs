@@ -17,6 +17,7 @@ public class OptionsManager : MonoBehaviour
     private string muteKey = "Mute";
     private string panKey = "Pan";
     private string zoomKey = "Zoom";
+    private string vibrateKey = "Vibrate";
 
     private int qualityValue = 0;
     private float masterValue = 0;
@@ -27,6 +28,8 @@ public class OptionsManager : MonoBehaviour
     private bool muteValue = false;
     private float panValue = 0;
     private float zoomValue = 0;
+    [HideInInspector]
+    public bool vibrateValue = false;
 
     public static OptionsManager Instance { get; private set; }
     private void Awake()
@@ -57,6 +60,7 @@ public class OptionsManager : MonoBehaviour
         PlayerPrefs.SetInt(muteKey, soundScript.buttonMute.IsActive() ? 1 : 0);
         PlayerPrefs.SetFloat(panKey, gameplay.panSlider.value);
         PlayerPrefs.SetFloat(zoomKey, gameplay.zoomSlider.value);
+        PlayerPrefs.SetInt(vibrateKey, gameplay.buttonVibration.IsActive() ? 1 : 0);
     }
 
     public void LoadOptions()
@@ -74,10 +78,11 @@ public class OptionsManager : MonoBehaviour
         muteValue = (PlayerPrefs.GetInt(muteKey) == 0) ? false : true;
         panValue = PlayerPrefs.GetFloat(panKey);
         zoomValue = PlayerPrefs.GetFloat(zoomKey);
+        vibrateValue = (PlayerPrefs.GetInt(vibrateKey) == 0) ? false : true;
 
         //Update UI Visual
         graphics.LoadQuality(qualityValue);
         soundScript.LoadSoundsOptions(masterValue, musicValue, sfxValue, uiValue, ambiantValue, muteValue);
-        gameplay.LoadGameplayOptions(panValue, zoomValue);
+        gameplay.LoadGameplayOptions(panValue, zoomValue, vibrateValue);
     }
 }
