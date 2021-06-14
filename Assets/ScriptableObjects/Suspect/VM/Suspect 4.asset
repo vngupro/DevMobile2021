@@ -29,5 +29,7 @@ MonoBehaviour:
   description: "Machist, does not respect women, considers them as sexual objects,
     has already made advances to the victim (very often) according to \u201CMark\u201D
     the companion. He can become aggressive if he is under the influence of alcohol."
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bade51eb1e0ab4e4a83076b56982300c, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 3a6e3c29b8a91834f939d42e3c7f759c, type: 3}
+  fingerprint: {fileID: 0}
   isGuilty: 0

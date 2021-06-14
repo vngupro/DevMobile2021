@@ -25,5 +25,7 @@ MonoBehaviour:
   suspectedMotive: At work until 9 p.m., he was the one who discovered the victim
     and called the police at 9:34 p.m.
   description: boyfriend of the victim since 8 months.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d4be4dd3a4c8bc041b161bf7aed5c85c, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 60eef5b97776112439a9d63d42d22245, type: 3}
+  fingerprint: {fileID: 0}
   isGuilty: 0

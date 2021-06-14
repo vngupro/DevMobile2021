@@ -25,5 +25,7 @@ MonoBehaviour:
     from the victim's home from 7.15 p.m. to 7.40 p.m.
   suspectedMotive: Jealousy of not being in a relationship with Mark.
   description: Friend of the victim, she is in love with Mark the victim's boyfriend.
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b5a451cdecaff804c97a70a47790cb74, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 3de6c15c4b340a647b3f6a1886847303, type: 3}
+  fingerprint: {fileID: 0}
   isGuilty: 0

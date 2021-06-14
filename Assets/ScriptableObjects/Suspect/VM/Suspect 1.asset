@@ -25,7 +25,7 @@ MonoBehaviour:
   suspectedMotive: He found out that the victim wanted to end their relationship?
   description: Had sexual relations with the victim. Has mental problems, male chauvinist.
     Wound on the right arm, small gash.
-  sprite: {fileID: 0}
-  spriteCloseEyes: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 687dc5ee647a0bb4a92343c966a827e6, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 4622e4bbda1d99b44b60d27839fc2951, type: 3}
   fingerprint: {fileID: 0}
   isGuilty: 1
