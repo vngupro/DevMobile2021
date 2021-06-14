@@ -19,6 +19,7 @@ public class PickUpDetection : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private PhotoEffect photoEffect;
     [SerializeField] private ProofBagEffect proofBag;
+    [SerializeField] private SecondWindowEffect secondWindow;
 
     private InputManager inputManager;
     private Vector2 startPos;
@@ -86,17 +87,19 @@ public class PickUpDetection : MonoBehaviour
                 !currentItem.isHidden &&
                 !currentItem.isBlocked)
             {
-                PickUp(currentItemGameObj);
+                PickUp(currentItemGameObj, currentItem);
             }
         }
     }
 
-    private void PickUp(GameObject object2PickUp)
+    private void PickUp(GameObject object2PickUp, Item item2PickUp)
     {
 
         OnPickUp?.Invoke();
         photoEffect.PlayFlashEffect();
-        proofBag.PlayAnimation(object2PickUp);
+        proofBag.AddToQueue(item2PickUp);
+        secondWindow.AddToQueue(item2PickUp);
+
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy
         if (currentItem.data.isPickable)
