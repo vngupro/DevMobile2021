@@ -41,17 +41,16 @@ public class CanvasResultScript : MonoBehaviour
         backgroundCanvasGroup.alpha = 0; 
 
         buttonClose.onClick.AddListener(ReturnToMenu);
-
-        inputManager = InputManager.Instance;
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        inputManager = FindObjectOfType<InputManager>();
         inputManager.OnStartTouch += ShowSecondScreen;
     }
     private void OnDisable()
     {
-        inputManager.OnEndTouch -= ShowSecondScreen;
+        InputManager.Instance.OnEndTouch -= ShowSecondScreen;
     }
     public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars, int totalClues, string endText, Sprite spriteAccuse)
     {

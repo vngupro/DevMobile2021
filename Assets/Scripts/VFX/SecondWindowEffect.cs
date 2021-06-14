@@ -38,7 +38,7 @@ public class SecondWindowEffect : MonoBehaviour
     }
     public void PlaySecondWindow(Item item)
     {
-        imageItem.sprite = item.data.spriteOnLens;
+        imageItem.sprite = item.data.spriteInInventory;
         textItemName.text = item.data.name;
         textItemDescription.text = item.data.description;
         StartCoroutine(PlayAnimation());

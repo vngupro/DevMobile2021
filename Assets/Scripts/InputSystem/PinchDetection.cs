@@ -65,6 +65,12 @@ public class PinchDetection : MonoBehaviour
     {
         virtualCamera = vcam;
         virtualCamera.m_Lens.OrthographicSize = defaultZoom;
+
+        GameObject cam = GameObject.FindGameObjectWithTag("CameraItem");
+        if (cam == null) return;
+
+        cameraItem = cam.GetComponent<Camera>();
+        cameraItem.orthographicSize = defaultZoom;
     }
     private void RecupCamera()
     {
@@ -77,6 +83,9 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
+
+        virtualCamera.m_Lens.OrthographicSize += 0.2f;
+        cameraItem.orthographicSize += 0.2f;
         if (HUDManager.Instance != null)
         {
             if (HUDManager.Instance.IsLayerNotesOpen) { return; }
@@ -90,6 +99,8 @@ public class PinchDetection : MonoBehaviour
         zoomEffect.ActivateCrosshair();
 
         OnPinch?.Invoke();
+
+
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
@@ -130,11 +141,6 @@ public class PinchDetection : MonoBehaviour
                 float newSize = virtualCamera.m_Lens.OrthographicSize - zoomSpeed;
                 ChangeOrthographicSize(newSize);
 
-                //string newText = "x" + (newSize / defaultZoom).ToString("0.00");
-                //zoomEffect.zoomText.text = newText;
-
-                //float newAmount = newSize / zoomOutMax;
-                //zoomEffect.graduatedBar.fillAmount = newAmount;
                 // Animation
                 if (!zoomEffect.IsZoomingOut)
                 {
@@ -147,10 +153,6 @@ public class PinchDetection : MonoBehaviour
                 float newSize = virtualCamera.m_Lens.OrthographicSize + zoomSpeed;
                 ChangeOrthographicSize(newSize);
 
-                //string newText = "x" + (newSize / defaultZoom).ToString("0.00");
-                //zoomEffect.zoomText.text = newText;
-                //float newAmount = newSize / zoomOutMax;
-                //zoomEffect.graduatedBar.fillAmount = newAmount;
                 // Animation
                 if (!zoomEffect.IsZoomingIn)
                 {
@@ -179,13 +181,12 @@ public class PinchDetection : MonoBehaviour
         string newText = "x" + (target / defaultZoom).ToString("0.00");
         zoomEffect.zoomText.text = newText;
 
-        float newAmount = target / zoomOutMax;
+        float newAmount = target / ((zoomOutMax + zoomInMax) - zoomInMax);
         zoomEffect.graduatedBar.fillAmount = newAmount;
     }
 
     public void ChangeZoomSpeed(float value, float max)
     {
-
         zoomSpeed = value * zoomDefaultSpeed / (max/2);
     }
 }
