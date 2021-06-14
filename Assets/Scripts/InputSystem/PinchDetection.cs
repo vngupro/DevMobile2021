@@ -71,6 +71,8 @@ public class PinchDetection : MonoBehaviour
 
         cameraItem = cam.GetComponent<Camera>();
         cameraItem.orthographicSize = defaultZoom;
+
+        zoomEffect.graduatedBar.fillAmount = defaultZoom / ((zoomOutMax + zoomInMax) - zoomInMax);
     }
     private void RecupCamera()
     {
