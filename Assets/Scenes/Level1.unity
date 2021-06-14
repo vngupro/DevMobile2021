@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Bathroom
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &151348900
@@ -1665,6 +1669,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Living Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &397331756
@@ -4092,6 +4100,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Kitchen
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!4 &912794272 stripped
@@ -5825,6 +5837,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Entry
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!4 &1262309176 stripped
@@ -5936,6 +5952,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Bathroom
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &1271574417
@@ -6390,6 +6410,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &1547672240
@@ -8479,6 +8503,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &1848284581
@@ -9015,6 +9043,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Kitchen
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1001 &1942621336
@@ -9116,6 +9148,10 @@ PrefabInstance:
       propertyPath: m_text
       value: To Entry
       objectReference: {fileID: 0}
+    - target: {fileID: 6339782088095133231, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bddf1ddfd5d9a24d99c64dda5018cea, type: 3}
 --- !u!1 &1954169080
