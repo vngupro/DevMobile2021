@@ -854,6 +854,7 @@ MonoBehaviour:
   photoEffect: {fileID: 5444227949584103986}
   proofBag: {fileID: 8956856467320122926}
   secondWindow: {fileID: 5567631972180616716}
+  vibrate: {fileID: 5225856437531953853}
 --- !u!114 &2686448324454584333
 MonoBehaviour:
   m_ObjectHideFlags: 0

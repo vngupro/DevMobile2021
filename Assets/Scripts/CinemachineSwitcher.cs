@@ -34,8 +34,6 @@ public class CinemachineSwitcher : MonoBehaviour
 
     private void SwitchPriority(DoorScript door)
     {
-        cameraItem.orthographicSize = door.vcamOfNEXTLocation.m_Lens.OrthographicSize;
-
         ResetPriorities();
         door.vcamOfNEXTLocation.GetComponent<CinemachineConfiner>().InvalidatePathCache();
         door.vcamOfNEXTLocation.Priority = 1;
@@ -45,6 +43,7 @@ public class CinemachineSwitcher : MonoBehaviour
             Camera.main.transform.position.y, 
             Camera.main.nearClipPlane);
 
+        //cameraItem.orthographicSize = door.vcamOfNEXTLocation.m_Lens.OrthographicSize;
         // OneSlideFinger.cs
         CustomGameEvents.switchCamera.Invoke(door.vcamOfNEXTLocation);
 
