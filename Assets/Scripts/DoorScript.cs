@@ -13,7 +13,7 @@ public class DoorScript : MonoBehaviour
     public Color lightGrey;
     public Color white;
     public SpriteRenderer arrow;
-
+    public float scaleFactor = 1.5f;
     public Vector3 vcamStartPos { get; private set; }
     private void Awake()
     {
@@ -27,12 +27,14 @@ public class DoorScript : MonoBehaviour
     {
         text.color = grey;
         arrow.color = grey;
+        text.transform.localScale = new Vector2(1, 1);
     }
 
     public void ChangeToBlack()
     {
         text.color = black;
         arrow.color = black;
+        text.transform.localScale = new Vector2(scaleFactor, scaleFactor);
     }
 
     public void ChangeToLightGrey()

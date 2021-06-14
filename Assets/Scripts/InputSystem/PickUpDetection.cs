@@ -18,6 +18,7 @@ public class PickUpDetection : MonoBehaviour
     
     [Header("Animation")]
     [SerializeField] private PhotoEffect photoEffect;
+    [SerializeField] private ProofBagEffect proofBag;
 
     private InputManager inputManager;
     private Vector2 startPos;
@@ -95,6 +96,7 @@ public class PickUpDetection : MonoBehaviour
 
         OnPickUp?.Invoke();
         photoEffect.PlayFlashEffect();
+        proofBag.PlayAnimation(object2PickUp);
         CustomGameEvents.pickUpEvent.Invoke(object2PickUp);
         //destroy
         if (currentItem.data.isPickable)
