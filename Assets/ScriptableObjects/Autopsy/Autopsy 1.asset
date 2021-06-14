@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46b78b5a0e5f5c428e599b7eda0c925, type: 3}
   m_Name: Autopsy 1
   m_EditorClassIdentifier: 
-  title: 
-  victimName: 
-  physicalDescription: 
-  height: 
-  job: 
-  bloodType: 
-  timeOfDeath: 
-  causeOfDeath: 
-  remarks: 
+  victimName: Natacha Joly
+  physicalDescription: Blonde woman 24 years old
+  height: 1m62
+  job: 'Clerk at a Luxury Jewelry store '
+  bloodType: O+
+  timeOfDeath: Died at 7:56 p.m.
+  causeOfDeath: 'Internal bleeding following loss of blood.
+
+    Right lung punctured
+    by a sharp object, cut depth: 7 centimeters.'
+  remarks: 'Traces of wrestling on the wrists .
+
+    Bruises on hands and knees.'

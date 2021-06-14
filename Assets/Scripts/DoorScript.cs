@@ -21,6 +21,7 @@ public class DoorScript : MonoBehaviour
             vcamOfNEXTLocation.transform.position.x,
             vcamOfNEXTLocation.transform.position.y,
             -10);
+        ChangeToGrey();
     }
 
     public void ChangeToGrey()
