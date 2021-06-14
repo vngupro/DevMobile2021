@@ -25,13 +25,11 @@ public class ZoomEffect : MonoBehaviour
 
     public void ActivateCrosshair()
     {
-        Debug.Log("Activate zoom");
         zoomCircles.SetActive(true);
     }
 
     public void DeactivateCrossHair()
     {
-        Debug.Log("DEActivate zoom");
         zoomCircles.SetActive(false);
     }
 

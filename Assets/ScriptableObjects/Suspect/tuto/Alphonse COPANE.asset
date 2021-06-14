@@ -27,5 +27,6 @@ MonoBehaviour:
   description: According to Holly he would be the victim's dealer and would often
     be threatening to them
   sprite: {fileID: 21300000, guid: e1b5331ab108f6a4dbef43513df1d325, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 809a18b61bc0ed44dab350e23363790a, type: 3}
   fingerprint: {fileID: 21300000, guid: fd2b2e4fadc8a234b9ebf49a04638add, type: 3}
   isGuilty: 0

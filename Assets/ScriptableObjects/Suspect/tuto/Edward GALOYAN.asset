@@ -26,5 +26,6 @@ MonoBehaviour:
   description: According to Holly, Edward has a sanguine temperament and fights a
     lot with those who do not agree with him.
   sprite: {fileID: 21300000, guid: 5c0772198a752404eac9e304d7a2eb0e, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 93065206887913c4fb8c9bd1d7bedfb8, type: 3}
   fingerprint: {fileID: 21300000, guid: 6e0fe94660b20174cbc5d4f209262064, type: 3}
   isGuilty: 0

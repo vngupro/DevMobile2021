@@ -21,7 +21,9 @@ public class Suspect : ScriptableObject
     [TextArea(5, 5)]
     public string description;
     public Sprite sprite;
+    public Sprite spriteCloseEyes;
     public Sprite fingerprint;
+
     public bool isGuilty;
 
     [HideInInspector]

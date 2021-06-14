@@ -19,7 +19,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c5889289c87cece4187384bf28e309c5, type: 3}
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
   number: 4
-  isClue: 0
+  isClue: 1
   isPickable: 1
   isDragable: 0
   filter: 0

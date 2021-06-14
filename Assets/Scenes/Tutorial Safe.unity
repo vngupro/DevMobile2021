@@ -1618,6 +1618,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1481138098}
+    - target: {fileID: 7571131053295640756, guid: 2ce3343cf5053d240887c606c0693957, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.01
+      objectReference: {fileID: 0}
     - target: {fileID: 8323847232354578530, guid: 2ce3343cf5053d240887c606c0693957, type: 3}
       propertyPath: m_Color.b
       value: 0.19607843
@@ -7302,7 +7306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629954937216175897, guid: fd25e10f556f65842b342b6caccd58a0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5629954937216175903, guid: fd25e10f556f65842b342b6caccd58a0, type: 3}
       propertyPath: m_RootOrder

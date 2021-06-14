@@ -13,8 +13,20 @@ public class HUDManager : MonoBehaviour
     public GameObject groupLens;
     public GameObject layerNotes;
     public GameObject boxDialogue;
-    
+
     [Header("Animation")]
+    // Notes
+    public float notesTranslateDuration = 1.0f;
+    public float notesScaleDuration = 0.5f;
+    public AnimationCurve translateCurve;
+    public AnimationCurve scaleToMaxCurve;
+    public AnimationCurve scaleToMinCurve;
+    public Vector2 startPos;
+    public Vector2 endPos;
+    public float minScale = 0.1f;
+    private RectTransform notesRectTransform;
+
+    // Lens
     public List<float> lensAnimTime;
 
     [Header("Autopsy")]
@@ -66,6 +78,7 @@ public class HUDManager : MonoBehaviour
         buttonLens.gameObject.SetActive(true);
         buttonNotes.gameObject.SetActive(true);
         boxDialogue.SetActive(true);
+        notesRectTransform = layerNotes.GetComponent<RectTransform>();
 
         // Load autopsy information and case information
         autopsyVictimName.text = autopsyData.victimName;
@@ -102,9 +115,68 @@ public class HUDManager : MonoBehaviour
         }
 
         isLayerNotesOpen = !isLayerNotesOpen;
-        layerNotes.SetActive(isLayerNotesOpen);
+
+        if (isLayerNotesOpen)
+        {
+            StartCoroutine(NotesOpenAnimation());
+        }
+        else
+        {
+            StartCoroutine(NotesCloseAnimations());
+        }
+  
+        //layerNotes.SetActive(isLayerNotesOpen);
     }
 
+    private IEnumerator NotesOpenAnimation()
+    {
+        layerNotes.SetActive(isLayerNotesOpen);
+
+        float timer = 0;
+        while(timer < notesTranslateDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / notesTranslateDuration;
+            Vector2 newPos = Vector2.Lerp(startPos, endPos, translateCurve.Evaluate(ratio));
+            notesRectTransform.anchoredPosition = newPos;
+            yield return null;
+        }
+        
+        timer = 0;
+        while (timer < notesScaleDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / notesScaleDuration;
+            float newScale = Mathf.Lerp(minScale, 1, scaleToMaxCurve.Evaluate(ratio));
+            notesRectTransform.localScale = new Vector2(newScale, newScale);
+            yield return null;
+        }
+    }
+
+    private IEnumerator NotesCloseAnimations()
+    {
+        float timer = 0;
+        while (timer < notesScaleDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / notesScaleDuration;
+            float newScale = Mathf.Lerp(1, minScale, scaleToMinCurve.Evaluate(ratio));
+            notesRectTransform.localScale = new Vector2(newScale, newScale);
+            yield return null;
+        }
+
+        timer = 0;
+        while (timer < notesTranslateDuration)
+        {
+            timer += Time.deltaTime;
+            float ratio = timer / notesTranslateDuration;
+            Vector2 newPos = Vector2.Lerp(endPos, startPos, translateCurve.Evaluate(ratio));
+            notesRectTransform.anchoredPosition = newPos;
+            yield return null;
+        }
+
+        layerNotes.SetActive(isLayerNotesOpen);
+    }
     public void LensToogle()
     {
         isGroupLensOpen = !isGroupLensOpen;

@@ -25,5 +25,6 @@ MonoBehaviour:
   suspectedMotive: Adultery
   description: "\rGirlfriend of the victim for 3 years"
   sprite: {fileID: 21300000, guid: b9b18df98713a3144922343c10ad3c0d, type: 3}
+  spriteCloseEyes: {fileID: 21300000, guid: 6541b32c33cb925499fcf13335c2bf99, type: 3}
   fingerprint: {fileID: 21300000, guid: 0e061bb83afcccb49ba105baeb1f4edd, type: 3}
   isGuilty: 1

@@ -15,6 +15,7 @@ public class DoorExitScript : MonoBehaviour
     public SpriteRenderer arrow;
     public Color black;
     public Color grey;
+    public float scaleFactor = 1.5f;
 
     [Header("Info")]
     [SerializeField] private LayerMask layer;
@@ -117,8 +118,11 @@ public class DoorExitScript : MonoBehaviour
         {
             count++;
 
+            //Animation
             text.color = black;
             arrow.color = black;
+            text.transform.localScale = new Vector2(scaleFactor, scaleFactor);
+
             // Display Pop up "Are you sure Exit ?"
             if (count >= 2)
             {
@@ -137,8 +141,10 @@ public class DoorExitScript : MonoBehaviour
             count = 0;
             if(currentDoor != null)
             {
+                //Animation 
                 text.color = grey;
                 arrow.color = grey;
+                text.transform.localScale = new Vector2(1, 1);
             }
                 
         }
