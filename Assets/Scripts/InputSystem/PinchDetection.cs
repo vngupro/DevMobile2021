@@ -83,9 +83,6 @@ public class PinchDetection : MonoBehaviour
 
     private void StartZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
     {
-
-        virtualCamera.m_Lens.OrthographicSize += 0.2f;
-        cameraItem.orthographicSize += 0.2f;
         if (HUDManager.Instance != null)
         {
             if (HUDManager.Instance.IsLayerNotesOpen) { return; }
@@ -99,8 +96,6 @@ public class PinchDetection : MonoBehaviour
         zoomEffect.ActivateCrosshair();
 
         OnPinch?.Invoke();
-
-
     }
 
     private void EndZoom(Vector2 positionPrimary, Vector2 positionSecondary, float time)
