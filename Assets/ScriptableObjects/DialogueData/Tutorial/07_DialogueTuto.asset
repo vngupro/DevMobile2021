@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - You can visit all the room and interact by double tapping on the signs.
+  - You can visit all the room and interact by double tapping on the signs
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: 7d39cc8d168d78e42a253b3a2979ef4c, type: 2}
   dialogueListIndex: 0

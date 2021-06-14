@@ -17,7 +17,7 @@ MonoBehaviour:
   dialogueList:
   - You seem to be ready for finding clues without me.
   - Once you think you have collected all the clues you can leave the crime scene
-    by using the exit door.
+    by using the exit door
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: 3f771357cba26f34e863dfd5f832224c, type: 2}
   dialogueListIndex: 0

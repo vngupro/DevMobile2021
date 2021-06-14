@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - Now you can see this fingerprint, click on it.
+  - Now you can see this fingerprint, click on it
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: b302bb778fce5754a9e9af32aef8a476, type: 2}
   dialogueListIndex: 0

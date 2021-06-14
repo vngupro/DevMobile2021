@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b3387d94094d5438108e59a0c2f229, type: 3}
   m_Name: Window
   m_EditorClassIdentifier: 
-  name: 
+  name: Window
   hasDescription: 1
   description: Window is open.
   hasDefaultImage: 1

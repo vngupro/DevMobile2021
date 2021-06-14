@@ -15,10 +15,10 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - 'In the folder bellow you can find all the information about the crime that I
-    gave you before. '
+  - In the folder bellow you can find all the information about the crime that I
+    gave you before
   - You'll also find the clues that you have already collected and all the information
-    about them.
+    about them
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: e65ac0f8cb5a4ef40ba10a1140641b2b, type: 2}
   dialogueListIndex: 0

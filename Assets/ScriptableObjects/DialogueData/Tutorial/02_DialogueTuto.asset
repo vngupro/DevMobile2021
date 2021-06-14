@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   character: {fileID: 11400000, guid: b4159867c9394234497545fae382c17d, type: 2}
   dialogueList:
-  - Touch the knife in order to collect it.
+  - Touch the knife in order to collect it
   hasNextDialogueData: 1
   nextDialogueData: {fileID: 11400000, guid: 042d6eabffda4104e9ded8931884f7e2, type: 2}
   dialogueListIndex: 0
