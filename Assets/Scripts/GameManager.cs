@@ -67,6 +67,16 @@ public class GameManager : MonoBehaviour
             endText = levelData.journalTextInnocent;
         }
 
+        string newsText = "";
+        if (isGuilty)
+        {
+            newsText = levelData.journalTextCulprit;
+        }
+        else
+        {
+            newsText = levelData.journalTextInnocent;
+        }
+
         //Timer Conversion
         TimeSpan timeInCrimeSceneMinute = TimeSpan.FromSeconds((int)timeInCrimeScene);
         string textCrime = timeInCrimeSceneMinute.ToString();        
@@ -89,7 +99,7 @@ public class GameManager : MonoBehaviour
         if (cluesFound < levelData.totalClues / 2) score--;
         if (cluesFound == 0) score--;
 
-        canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues, endText, sprite);
+        canvasResultScript.UpdateInfo(levelData.caseTitle, textClues, textCrime, textSuspect, caseNotesText, score, levelData.totalClues, endText, newsText, sprite);
 
         //StartCoroutine(FadeInBackground());
     }

@@ -14,6 +14,7 @@ public class CanvasResultScript : MonoBehaviour
 
     [Header ("  First Part")]
     public TMP_Text textMurderer;
+    public TMP_Text textNewspaper;
     public Image imageAccuse;
 
     [Header("  Second Part")]
@@ -52,10 +53,12 @@ public class CanvasResultScript : MonoBehaviour
     {
         InputManager.Instance.OnEndTouch -= ShowSecondScreen;
     }
-    public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars, int totalClues, string endText, Sprite spriteAccuse)
+    public void UpdateInfo(string _caseTitle, string _clueText, string _timeCrime, string _timeSuspect, string _caseNotes, int _nbStars, int totalClues, string endText,string newsText,  Sprite spriteAccuse)
     {
         textMurderer.text = endText;
+        textNewspaper.text = newsText;
         imageAccuse.sprite = spriteAccuse;
+       
 
         caseTitle.text = _caseTitle;
         clueText.text = "Clue Founds : " + _clueText +  " / " + totalClues;
