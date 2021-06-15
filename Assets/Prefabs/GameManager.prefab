@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   json: {fileID: 1280297481732934993}
   levelData:
-    level: 0
-    totalClues: 9
-    caseTitle: The Blonde it's the Blonde
+    level: 1
+    totalClues: 20
+    caseTitle: Case 2
     caseNotesIsGuilty: 'You find the murderer.  '
     caseNotesIsNotGuilty: You didn't find the murderer.
     journalTextCulprit: Police Department has put the murderer in jail
