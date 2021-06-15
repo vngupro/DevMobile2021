@@ -2343,6 +2343,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1169125282, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169125282, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_margin.x
+      value: 353.47778
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169125282, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169125282, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169125282, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 895254186733332018, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 895254186733332018, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 895254186733332018, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8273133322477922927, guid: f82200a2199f3c4448ec70e5d5354392, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6425,6 +6457,18 @@ PrefabInstance:
     - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: levelData.caseNotesIsGuilty
       value: 'You found the murderer.  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
+      propertyPath: levelData.journalTextNewsPaperCulprit
+      value: After a long investigation, the detective of the B.C.P.D found all the
+        evidence to find the murderer and arrest him. The police department can now
+        be proud of their newest equipment !
+      objectReference: {fileID: 0}
+    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
+      propertyPath: levelData.journalTextNewsPaperInnocent
+      value: After a long investigation, the detective of the B.C.P.D arrested the
+        wrong suspect. With their new equipment they have failed to find enough clues
+        to find the murderer.
       objectReference: {fileID: 0}
     - target: {fileID: 324607128961519545, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: m_Name
