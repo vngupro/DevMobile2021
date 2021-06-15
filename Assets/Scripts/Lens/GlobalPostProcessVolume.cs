@@ -61,6 +61,18 @@ public class GlobalPostProcessVolume : MonoBehaviour
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
                 colorAdjustments.colorFilter.value = _normalColorFilter;
             }
+
+            if (vc is FilmGrain)
+            {
+                FilmGrain filmGrain = vc as FilmGrain;
+                filmGrain.active = false;
+            }
+
+            if (vc is Vignette)
+            {
+                Vignette vignette = vc as Vignette;
+                vignette.active = false;
+            }
         }
     }
 
@@ -72,6 +84,13 @@ public class GlobalPostProcessVolume : MonoBehaviour
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
                 colorAdjustments.colorFilter.value = _UVColorFilter;
+            }
+
+            if (vc is FilmGrain)
+            {
+                FilmGrain filmGrain = vc as FilmGrain;
+                filmGrain.active = true;
+                filmGrain.type.value = FilmGrainLookup.Thin2;
             }
         }
     }
@@ -85,6 +104,13 @@ public class GlobalPostProcessVolume : MonoBehaviour
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
                 colorAdjustments.colorFilter.value = _IRColorFilter;
             }
+
+            if (vc is FilmGrain)
+            {
+                FilmGrain filmGrain = vc as FilmGrain;
+                filmGrain.active = true;
+                filmGrain.type.value = FilmGrainLookup.Medium5;
+            }
         }
     }
 
@@ -97,6 +123,13 @@ public class GlobalPostProcessVolume : MonoBehaviour
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
                 colorAdjustments.colorFilter.value = _XRAYColorFilter;
             }
+
+            if (vc is FilmGrain)
+            {
+                FilmGrain filmGrain = vc as FilmGrain;
+                filmGrain.active = true;
+                filmGrain.type.value = FilmGrainLookup.Thin2;
+            }
         }
     }
 
@@ -108,6 +141,19 @@ public class GlobalPostProcessVolume : MonoBehaviour
             {
                 ColorAdjustments colorAdjustments = vc as ColorAdjustments;
                 colorAdjustments.colorFilter.value = _NIGHTSHOTColorFilter;
+            }
+
+            if (vc is FilmGrain)
+            {
+                FilmGrain filmGrain = vc as FilmGrain;
+                filmGrain.active = true;
+                filmGrain.type.value = FilmGrainLookup.Large02;
+            }
+
+            if (vc is Vignette)
+            {
+                Vignette vignette = vc as Vignette;
+                vignette.active = true;
             }
         }
     }
