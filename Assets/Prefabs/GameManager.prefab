@@ -51,8 +51,11 @@ MonoBehaviour:
     caseTitle: The Blonde it's the Blonde
     caseNotesIsGuilty: 'You find the murderer.  '
     caseNotesIsNotGuilty: You didn't find the murderer.
+    journalTextCulprit: Police Department has put the murderer in jail
+    journalTextInnocent: 'Police Department made a mistake ! '
   canvasResult: {fileID: 0}
   inventory: {fileID: 11400000, guid: 2be22185ff868504cadff52ebd83d13e, type: 2}
+  timerBeforeSecondResult: 8
   canvasResultScript: {fileID: 0}
   time: 0
   timeInCrimeScene: 0
