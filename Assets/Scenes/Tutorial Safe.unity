@@ -3357,6 +3357,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965680974825283358, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: caseData
+      value: 
+      objectReference: {fileID: 11400000, guid: 60ca82f675edb824da454baebb1e6409, type: 2}
+    - target: {fileID: 965680974825283358, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
+      propertyPath: autopsyData
+      value: 
+      objectReference: {fileID: 11400000, guid: daf6bb7fdfe9bab4bb8872adf87cd56f, type: 2}
     - target: {fileID: 965680974825283361, guid: 9526901f51d6fa94993227e5ef4b4421, type: 3}
       propertyPath: m_Name
       value: CanvasHUD
@@ -6417,14 +6425,6 @@ PrefabInstance:
     - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: levelData.caseNotesIsGuilty
       value: 'You found the murderer.  '
-      objectReference: {fileID: 0}
-    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
-      propertyPath: levelData.journalTextCulprit
-      value: Killer in jail ! A crime of passion.
-      objectReference: {fileID: 0}
-    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
-      propertyPath: levelData.journalTextInnocent
-      value: Innocent in Jail !
       objectReference: {fileID: 0}
     - target: {fileID: 324607128961519545, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: m_Name
