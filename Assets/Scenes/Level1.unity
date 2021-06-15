@@ -10319,6 +10319,14 @@ PrefabInstance:
       propertyPath: levelData.totalClues
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
+      propertyPath: levelData.journalTextNewsPaperCulprit
+      value: 'You find the murderer.  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 324607128961519544, guid: 833904eb532528942a4613412e40147a, type: 3}
+      propertyPath: levelData.journalTextNewsPaperInnocent
+      value: You didn't find the murderer.
+      objectReference: {fileID: 0}
     - target: {fileID: 324607128961519545, guid: 833904eb532528942a4613412e40147a, type: 3}
       propertyPath: m_Name
       value: GameManager

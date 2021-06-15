@@ -195,3 +195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vcamOfNEXTLocation: {fileID: 0}
+  text: {fileID: 0}
+  black: {r: 0, g: 0, b: 0, a: 0}
+  grey: {r: 0, g: 0, b: 0, a: 0}
+  lightGrey: {r: 0, g: 0, b: 0, a: 0}
+  white: {r: 0, g: 0, b: 0, a: 0}
+  arrow: {fileID: 0}
+  scaleFactor: 1.2

@@ -114,10 +114,16 @@ public struct LevelData
     public int level;
     public int totalClues;
     public string caseTitle;
+    [TextArea(3,3)]
     public string caseNotesIsGuilty;
+    [TextArea(3, 3)]
     public string caseNotesIsNotGuilty;
+    [TextArea(3, 3)]
     public string journalTextCulprit;
+    [TextArea(3, 3)]
     public string journalTextInnocent;
+    [TextArea(3, 3)]
     public string journalTextNewsPaperCulprit;
+    [TextArea(3, 3)]
     public string journalTextNewsPaperInnocent;
 }

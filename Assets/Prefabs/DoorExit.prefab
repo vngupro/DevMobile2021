@@ -199,7 +199,7 @@ MonoBehaviour:
   arrow: {fileID: 8323847232354578530}
   black: {r: 0, g: 0, b: 0, a: 1}
   grey: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  scaleFactor: 1.5
+  scaleFactor: 1.2
   layer:
     serializedVersion: 2
     m_Bits: 65536
