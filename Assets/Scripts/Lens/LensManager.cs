@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class LensManager : MonoBehaviour
 {
     public GlobalPostProcessVolume processVolume;
+    public GameObject shadows;
 
     [Header("   UI")]
     [SerializeField] private Button buttonLens;
@@ -68,6 +69,7 @@ public class LensManager : MonoBehaviour
         SwitchLens(LensEnum.UV);
         processVolume.ChangeColorToUV();
         buttonLens.image.color = buttonUV.image.color;
+        if (shadows != null) { shadows.SetActive(true); }
     }
     
     public void LightUpIRClues()
@@ -75,6 +77,7 @@ public class LensManager : MonoBehaviour
         SwitchLens(LensEnum.IR);
         processVolume.ChangeColorToIR();
         buttonLens.image.color = buttonIR.image.color;
+        if (shadows != null) { shadows.SetActive(true); }
     }
 
     public void LightUpXRAYClues()
@@ -82,12 +85,14 @@ public class LensManager : MonoBehaviour
         SwitchLens(LensEnum.XRAY);
         processVolume.ChangeColorToXRAY();
         buttonLens.image.color = buttonXRAY.image.color;
+        if (shadows != null) { shadows.SetActive(true); }
     }
     public void LightUpNIGHTSHOTClues()
     {
         SwitchLens(LensEnum.NIGHTSHOT);
         processVolume.ChangeColorToNIGHTSHOT();
         buttonLens.image.color = buttonNight.image.color;
+        if(shadows != null) { shadows.SetActive(false); }
     }
 
     public void NormalMode()
