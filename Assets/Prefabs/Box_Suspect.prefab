@@ -217,7 +217,7 @@ MonoBehaviour:
   textDescription: {fileID: 0}
   buttonAccuse: {fileID: 0}
   buttonInfo: {fileID: 0}
-  textAccuse: {fileID: 0}
+  delayBeforeAnimation: 0
 --- !u!1 &1688527481589764354
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +285,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Accuse
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
+  m_sharedMaterial: {fileID: -3999570181709523371, guid: e3de5024a6fa61b4086c639578d04766, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
