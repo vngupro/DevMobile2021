@@ -70,11 +70,11 @@ public class GameManager : MonoBehaviour
         string newsText = "";
         if (isGuilty)
         {
-            newsText = levelData.journalTextCulprit;
+            newsText = levelData.journalTextNewsPaperCulprit;
         }
         else
         {
-            newsText = levelData.journalTextInnocent;
+            newsText = levelData.journalTextNewsPaperInnocent;
         }
 
         //Timer Conversion
@@ -118,5 +118,6 @@ public struct LevelData
     public string caseNotesIsNotGuilty;
     public string journalTextCulprit;
     public string journalTextInnocent;
-
+    public string journalTextNewsPaperCulprit;
+    public string journalTextNewsPaperInnocent;
 }
